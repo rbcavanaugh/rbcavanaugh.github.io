@@ -3,6 +3,7 @@ title: "Simpler tools for clinical implementation of discourse analysis"
 description: ""
 author: Rob Cavanaugh
 date: 10-15-2020
+preview: preview_wim.jpg
 output:
   distill::distill_article:
     self_contained: false
@@ -35,5 +36,10 @@ Last spring, I worked on several projects where I built several interactive shin
 5. Fergadiotis, G., Wright, H. H., & West, T. M. (2013). Measuring lexical diversity in narrative discourse of people with aphasia. American Journal of Speech-Language Pathology.
 
 6. https://mastering-shiny.org/
+
+
+
+
+
 
 
