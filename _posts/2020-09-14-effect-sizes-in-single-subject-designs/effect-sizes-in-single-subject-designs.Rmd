@@ -37,7 +37,7 @@ People with aphasia respond in very different way to treatment. Changes can be i
 
 In _A Systematic Appraisal of Effect Sizes in Aphasia Single-Case Design via Simulation_, we simulated data for 100 hypothetical people with aphasia who received a naming treatment in a multiple-baseline design. Then we compared  different effect size measures that have been used in the aphasia single-case design literature. spoiler: they're not all the same.
 
-<a href="https://rb-cavanaugh.shinyapps.io/scrollytell/" target="_blank"> Read more here</a>
+<a href="https://rb-cavanaugh.shinyapps.io/aphasia-effect-sizes/" target="_blank" rel = "noreferrer> Read more here</a>
 
 
 ```{r plot, echo = F}
