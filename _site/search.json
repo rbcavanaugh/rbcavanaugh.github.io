@@ -5,7 +5,7 @@
       "title": "About me",
       "author": [],
       "contents": "\nI’m a third-year Ph.D. student in the Department of Communication Sciences and Disorders and TL1 pre-doctoral fellow in the Institute for Clinical Research Education at the University of Pittsburgh. Before returning to school in Pittsburgh, I worked as a clinical speech-language pathologist in Charlotte, NC in outpatient and inpatient rehabilitation settings. I completed my master’s degree in Speech and Hearing Sciences from the University of North Carolina at Chapel Hill.\nMy long-term research agenda is to optimize everyday communication and quality of life outcomes for people with aphasia and related neurogenic communication disorders. My research strives to identify and resolve implementation gaps in aphasia rehabilitation, improve patient access to evidence-based care, and enhance treatment specification. My work seeks to use advanced statistical methods in aphasia rehabilitation research and communicate these methods effectively to researchers and clinicians. I’m also interested in statistical programing (R + python), data science, and data visualization - especially using these tools to improve science communication.\nOutside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.\nRob and Amanda in Olympic National Park\n\n\n",
-      "last_modified": "2020-12-27T09:14:18-05:00"
+      "last_modified": "2020-12-27T09:57:59-05:00"
     },
     {
       "path": "cv.html",
@@ -13,21 +13,21 @@
       "description": "Ongoing research and links to CV and such will go here. ",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2020-12-27T09:14:19-05:00"
+      "last_modified": "2020-12-27T09:57:59-05:00"
     },
     {
       "path": "index.html",
       "title": "Posts",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2020-12-27T09:14:19-05:00"
+      "last_modified": "2020-12-27T09:58:00-05:00"
     },
     {
       "path": "research.html",
       "title": "Peer-reviewed Research",
       "author": [],
       "contents": "\nEvans, W. S., Cavanaugh, R. B., Gravier, M. L., Autenreith, A. S., Doyle, P. J., Hula, W. D., Dickey Michael, W., & Dickey, M. W. (2020). Effects of Semantic Feature Type, Diversity, and Quantity on Semantic Feature Analysis Treatment Outcomes in Aphasia. American Journal of Speech-Language Pathology. https://doi.org/10.1044/2020_AJSLP-19-00112\nCavanaugh, R., & Haley, K. L. (2020). Subjective communication difficulties in very mild aphasia. American Journal of Speech-Language Pathology, 29(1S), 437–448. https://doi.org/10.1044/2019_AJSLP-CAC48-18-0222\nUnder Review\nEvans, W. S., Cavanaugh, R. B., Quique, Y. L., Boss, E., Starns, J. J., Hula, W. D. (manuscript under review). Playing with BEARS: Balancing Effort, Accuracy, and Response Speed in a Semantic Feature Verification Anomia Treatment Game.\nCavanaugh, R.B., Kravetz, C., Jarold, L., Quique, Y., Turner, R., Evans, W.S. (manuscript under review). Is there a research-practice dosage gap in aphasia rehabilitation?\nCavanaugh, R.B., Terhorst, L., Swiderski, A.W., Hula, W.D., Evans, W.S. (manuscript under review). A Systematic Appraisal of Individual Effect Sizes in Aphasia Single-Case Designs via Simulation\nCavanaugh, R.B., Quique, Y., Boss, E., Hula, W.D., Dickey, M.W., Evans, W.S. (manuscript under review). Active Ingredients and Mechanisms of Action in Semantic Feature Analysis\nSelected Presentations\nQuique,Y., Cavanaugh, R.B., Starns, J.J., Boss, E., Hula, W.D., and Evans, W.S. (2020). Estimating the speed-accuracy tradeoff “Sweet Spot” in language performance for people with aphasia: replication and extension of a diffusion-model based approach. Abstract for poster presentation, 49th annual Clinical Aphasiology Conference, Whitefish, MT (Conference canceled).\nCavanaugh, R.B., Kravetz, C., Evans, W.S. Utilization and Disparities in Outpatient Aphasia Rehabilitation in Western Pennsylvania. (2020) Abstract for poster presentation, Pennsylvania Speech-Language Hearing Association Annual Conference, Pittsburgh, PA (Conference Canceled).\n\n\n\n",
-      "last_modified": "2020-12-27T09:14:20-05:00"
+      "last_modified": "2020-12-27T09:58:01-05:00"
     }
   ],
   "collections": ["posts/posts.json"]
