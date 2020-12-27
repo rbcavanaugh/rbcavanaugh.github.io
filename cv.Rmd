@@ -1,0 +1,9 @@
+---
+title: "Curriculum Vitae"
+description: |
+  Ongoing research and links to CV and such will go here. 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```

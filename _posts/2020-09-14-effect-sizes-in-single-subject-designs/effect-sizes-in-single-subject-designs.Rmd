@@ -1,0 +1,68 @@
+---
+title: "Effect Sizes in single-subject designs"
+author: Rob Cavanaugh
+date: 09-14-2020
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(dev.args=list(bg="transparent"))
+```
+
+
+```{r, message = F, warning = F, echo = F}
+library(ggplot2)
+library(dplyr)
+library(see)
+library(readr)
+library(here)
+df <- read_csv(here('data', 'shiny_data.csv'))  %>%
+  mutate(sub_id = as.factor(sub_id),
+         phase = as.factor(phase))
+```
+```{r, message = F, warning = F, echo = F}
+library(showtext)
+font_add_google(name = "Roboto", family = "roboto",
+                regular.wt = 300, bold.wt = 500)
+showtext_auto()
+showtext_opts(dpi = 112)
+```
+People with aphasia respond in very different way to treatment. Changes can be immediate or delayed, fast or slow. Some people don't benefit at all. Measuring how much people with aphasia benefit from a treatment is important for justifying clinical services and accurately modeling predictors of treatment outcomes
+
+In _A Systematic Appraisal of Effect Sizes in Aphasia Single-Case Design via Simulation_, we simulated data for 100 hypothetical people with aphasia who received a naming treatment in a multiple-baseline design. Then we compared  different effect size measures that have been used in the aphasia single-case design literature. spoiler: they're not all the same.
+
+<a href="https://rb-cavanaugh.shinyapps.io/scrollytell/" target="_blank"> Read more here</a>
+
+
+```{r plot, echo = F}
+
+
+    df %>%
+      ggplot(aes(x = session, y = mean_correct, shape = phase, color = sub_id,)) +
+      geom_point(size = 4) +
+      geom_line(size = 1.5) + 
+      geom_vline(aes(xintercept = 5.5), alpha = .5) +
+      scale_y_continuous(limits = c(0,1), labels = scales::percent) +
+      scale_x_continuous(labels = seq(1,15,1), breaks = seq(1,15,1)) +
+      theme_modern(base_size = 14) +
+      theme(legend.position = 'none',
+            panel.background = element_rect(fill = "transparent",colour = NA), 
+            panel.grid.minor = element_blank(), 
+            panel.grid.major = element_blank(),
+            plot.background = element_rect(fill = "transparent",colour = NA),
+            axis.title.x = element_text(size = 16, family = 'roboto', color = 'black'),
+            axis.title.y = element_text(size = 16, family = 'roboto', color = 'black'),
+            axis.text = element_text(color = 'black', family = 'roboto')) + 
+      scale_color_brewer(type='qual', palette = 2) +
+      ylab('Accuracy') +
+      xlab("Session") 
+
+
+```
+
+
