@@ -1,8 +1,8 @@
 name: "personal-website-distill"
-title: "Rob Cavanaugh | Ph.D. Student"
+title: "Rob Cavanaugh | PhD Student"
 theme: theme_1.css
 description: |
- Portfolio and personal website for Rob Cavanaugh M.S. CCC-SLP
+ Personal website for Rob Cavanaugh M.S. CCC-SLP
 output_dir: "_site"
 base_url: https://robcavanaugh.com/
 navbar:
