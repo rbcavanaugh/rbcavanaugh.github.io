@@ -1,9 +1,12 @@
 ---
 title: "Simpler tools for clinical implementation of discourse analysis"
-description: ""
+description: "Analyzing dicourse production is increasingly the focus of clinical research but time consuming to implement in clinical pratice. This post discusses the use of interactive web-apps to quickly analyze orthographically trascribed discourse samples"
 author: Rob Cavanaugh
 date: 10-15-2020
 preview: preview_wim.jpg
+categories:
+  - discourse
+  - clinical focus
 output:
   distill::distill_article:
     self_contained: false

@@ -13,8 +13,8 @@ navbar:
       href: about.html
     - text: "Research"
       href: Research.html
-    - text: "Curriculum Vitae"
-      href: images/Current-CV.pdf
+    - text: "CV"
+      href: https://www.dropbox.com/s/we5lztxh7vka47o/Current-CV.pdf?dl=0
     - icon: fab fa-github
       href: https://github.com/rbcavanaugh
     - icon: fab fa-twitter

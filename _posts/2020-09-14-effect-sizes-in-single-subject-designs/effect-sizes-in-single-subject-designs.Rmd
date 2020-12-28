@@ -1,11 +1,14 @@
 ---
 title: "Effect Sizes in single-subject designs"
-description: ""
+description: "Effect sizes are a critical outcome in single-case design research, but choosing the appropriate effect size for a given study can be challenging."
 author: Rob Cavanaugh
 date: 09-14-2020
 output:
   distill::distill_article:
     self_contained: false
+categories:
+  - stats
+  - aphaisa treatment
 ---
 
 

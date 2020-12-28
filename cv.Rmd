@@ -1,5 +1,5 @@
 ---
-title: "Curriculum Vitae"
+title: "CV"
 description: |
   Ongoing research and links to CV and such will go here. 
 ---

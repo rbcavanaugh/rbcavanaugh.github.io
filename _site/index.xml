@@ -12,7 +12,9 @@
       <title>Simpler tools for clinical implementation of discourse analysis</title>
       <dc:creator>Rob Cavanaugh</dc:creator>
       <link>https://robcavanaugh.com/posts/2020-10-15-clinical-implementation-discourse</link>
-      <description/>
+      <description>Analyzing dicourse production is increasingly the focus of clinical research but time consuming to implement in clinical pratice. This post discusses the use of interactive web-apps to quickly analyze orthographically trascribed discourse samples</description>
+      <category>discourse</category>
+      <category>clinical focus</category>
       <guid>https://robcavanaugh.com/posts/2020-10-15-clinical-implementation-discourse</guid>
       <pubDate>Thu, 15 Oct 2020 00:00:00 +0000</pubDate>
       <media:content url="https://robcavanaugh.com/posts/2020-10-15-clinical-implementation-discourse/preview_wim.jpg" medium="image" type="image/jpeg"/>
@@ -21,7 +23,9 @@
       <title>Effect Sizes in single-subject designs</title>
       <dc:creator>Rob Cavanaugh</dc:creator>
       <link>https://robcavanaugh.com/posts/2020-09-14-effect-sizes-in-single-subject-designs</link>
-      <description/>
+      <description>Effect sizes are a critical outcome in single-case design research, but choosing the appropriate effect size for a given study can be challenging.</description>
+      <category>stats</category>
+      <category>treatment</category>
       <guid>https://robcavanaugh.com/posts/2020-09-14-effect-sizes-in-single-subject-designs</guid>
       <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
       <media:content url="https://robcavanaugh.com/posts/2020-09-14-effect-sizes-in-single-subject-designs/effect-sizes-in-single-subject-designs_files/figure-html5/plot-1.png" medium="image" type="image/png" width="1248" height="768"/>

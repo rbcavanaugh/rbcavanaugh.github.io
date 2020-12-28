@@ -8,8 +8,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 I'm a third-year Ph.D. student in the Department of Communication Sciences and Disorders and TL1 pre-doctoral fellow in the Institute for Clinical Research Education at the University of Pittsburgh. Before returning to school in Pittsburgh, I worked as a clinical speech-language pathologist in Charlotte, NC in outpatient and inpatient rehabilitation settings. I completed my master's degree in Speech and Hearing Sciences from the University of North Carolina at Chapel Hill. 
 
-My long-term research agenda is to optimize everyday communication and quality of life outcomes for people with aphasia and related neurogenic communication disorders. My research strives to identify and resolve implementation gaps in aphasia rehabilitation, improve patient access to evidence-based care, and enhance treatment specification. My work seeks to use advanced statistical methods in aphasia rehabilitation research and communicate these methods effectively to researchers and clinicians. I'm also interested in statistical programing (R + python), data science, and data visualization - especially using these tools to improve science communication.
-
 Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.  
 
 ![Rob and Amanda in Olympic National Park](images/robamanda-oly.jpg)
