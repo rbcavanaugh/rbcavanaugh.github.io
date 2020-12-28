@@ -30,10 +30,11 @@ html {
   --aside-color:     rgba(0, 0, 0, 0.6);
   --fig-cap-color:   rgba(0, 0, 0, 0.6);
   /*-- Specify custom fonts ~~~ must be imported above   --*/
-  --heading-font:    "Garamond", sans-serif;
+  --heading-font:    "Garamond", serif;
   --mono-font:       "DM Mono", monospace;
-  --body-font:       Roboto;
-  --navbar-font:     Roboto;  /* websites + blogs only */
+  --body-font:       "Roboto", sans-serif;
+  --navbar-font:     "Roboto", sans-serif; /* websites + blogs only */
+  --aside-font:      "Roboto", sans-serif;
 }
 
 /*-- ARTICLE METADATA --*/
