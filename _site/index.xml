@@ -13,6 +13,7 @@
       <dc:creator>Rob Cavanaugh</dc:creator>
       <link>https://robcavanaugh.com/posts/2021-01-29-tbdbr</link>
       <description>Introduction to the TBDBr package for accessing TalkBankDB and AphasiaBank data through an R API</description>
+      <category>discourse</category>
       <guid>https://robcavanaugh.com/posts/2021-01-29-tbdbr</guid>
       <pubDate>Fri, 29 Jan 2021 00:00:00 +0000</pubDate>
       <media:content url="https://robcavanaugh.com/posts/2021-01-29-tbdbr/tbdbr_files/figure-html5/unnamed-chunk-13-1.png" medium="image" type="image/png" width="1248" height="768"/>

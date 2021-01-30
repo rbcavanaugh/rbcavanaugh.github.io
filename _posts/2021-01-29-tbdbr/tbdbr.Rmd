@@ -11,6 +11,8 @@ output:
     self_contained: false
     toc: true
     toc_depth: 2
+categories:
+  - discourse
 ---
 
 ```{r setup, include=FALSE}
@@ -226,7 +228,7 @@ length(unique(verbs$participant))
 Now we can ask whether or not the proportion of verbs produced differs between stimuli. For this, I'm using a generalized mixed-effect approach to model differences in the proportion of verbs to all words produced while accounting for nesting in the data. This nesting includes participants collected at different sites. Also, some participants completed the protocol more than once. I've tried to visualize the nesting structure below.
 
 
-```{r, fig.height=8, layout="l-page"}
+```{r, fig.height=6, layout="l-page"}
 library(plotly)
 
 sunb <- verbs %>% 
