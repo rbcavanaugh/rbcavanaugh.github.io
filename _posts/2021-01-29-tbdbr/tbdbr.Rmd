@@ -1,0 +1,282 @@
+---
+title: "TBDBr"
+description: |
+ Introduction to the TBDBr package for accessing TalkBankDB and AphasiaBank data through an R API
+author:
+  - name: Rob Cavanaugh
+    url: {}
+date: 01-29-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+library(here)
+library(kableExtra)
+library(data.table)
+
+knitr::opts_chunk$set(echo = TRUE)
+tokens <- read.csv(here('data', 'tokens.csv'))
+utterances <- read.csv(here('data', 'utt.csv'))
+
+as.sunburstDF <- function(DF, valueCol = NULL){
+  require(data.table)
+  
+  colNamesDF <- names(DF)
+  
+  if(is.data.table(DF)){
+    DT <- copy(DF)
+  } else {
+    DT <- data.table(DF, stringsAsFactors = FALSE)
+  }
+  
+  DT[, root := "Total"]
+  colNamesDT <- names(DT)
+  
+  if(is.null(valueCol)){
+    setcolorder(DT, c("root", colNamesDF))
+  } else {
+    setnames(DT, valueCol, "values", skip_absent=TRUE)
+    setcolorder(DT, c("root", setdiff(colNamesDF, valueCol), "values"))
+  }
+  
+  hierarchyCols <- setdiff(colNamesDT, "values")
+  hierarchyList <- list()
+  
+  for(i in seq_along(hierarchyCols)){
+    currentCols <- colNamesDT[1:i]
+    if(is.null(valueCol)){
+      currentDT <- unique(DT[, ..currentCols][, values := .N, by = currentCols], by = currentCols)
+    } else {
+      currentDT <- DT[, lapply(.SD, sum, na.rm = TRUE), by=currentCols, .SDcols = "values"]
+    }
+    setnames(currentDT, length(currentCols), "labels")
+    hierarchyList[[i]] <- currentDT
+  }
+  
+  hierarchyDT <- rbindlist(hierarchyList, use.names = TRUE, fill = TRUE)
+  
+  parentCols <- setdiff(names(hierarchyDT), c("labels", "values", valueCol))
+  hierarchyDT[, parents := apply(.SD, 1, function(x){fifelse(all(is.na(x)), yes = NA_character_, no = paste(x[!is.na(x)], sep = ":", collapse = " - "))}), .SDcols = parentCols]
+  hierarchyDT[, ids := apply(.SD, 1, function(x){paste(x[!is.na(x)], collapse = " - ")}), .SDcols = c("parents", "labels")]
+  hierarchyDT[, c(parentCols) := NULL]
+  return(hierarchyDT)
+}
+
+
+
+
+
+
+```
+
+# Introduction to TBDBr
+
+Recently, I've been working with John Kowalski at Carnegie Mellon University to develop a basic R package to access data within the Talk Bank database (hence, TBDBr). Working together was a good combination of the R skills I've been developing and his computer science expertise and work on developing TalkBankDB. Our first release of TBDBr is far from perfect, but I think it's a good start at making the talkbank database more accessible to language researchers, and especially those in aphasiology. It's also a good dataset for learning how to use R and run mixed-effect models, as there is clear nesting within the database data. this vignette is a quick example workflow of how TBDBr might be used for aphasia research, using the AphasiaBank collection. 
+
+## Getting Started
+
+I'm going to assume a base understanding of R, but I've also tried to comment my code so that it's relatively clear. In this workflow, we'll compare the proportion of verbs generated between three of the AphasiaBank discourse tasks (broken window, refused umbrella, cat rescue).
+
+To get started, we'll load a few packages (including TBDBr).
+
+```{r load, message = F, warning = F}
+# if TBDB or tidyverse is not installed, run:
+#install.packages(c('tidyverse'))
+#devtools::install_github("Talkbank/TBDBr")
+
+library(tidyverse) # contains lots of handy data wrangling functions
+library(TBDBr) # TBDBr!
+library(brms) # for mixed-effect modeling
+
+```
+
+TBDBr only includes a handful of functions. They are:
+
+-   getTranscripts()
+-   getParticipants()
+-   getTokens()
+-   getTokenTypes()
+-   getUtterances()
+-   getNgrams()
+-   getCQL()
+
+## Database Structure
+
+To pull data from talkbaseDB, you'll need to understand the database structure. You can figure this out by looking at https://talkbank.org/DB/ but we've also created a function called getLegalValues() to interactively display the possible options at each level of the database.
+
+```{r, eval = F}
+getLegalValues()
+```
+
+
+After entering "aphasia", we're given options to choose a language (English) and then another level for which we will select "Aphasia." If we were interested in data from Control participants, or from the famous people protocol or other protocols, they are available at this level. Note, because data in the clinical banks is password protected, you'll need to enter the username and password for AphasiaBank at this stage. Right now, we've set it up so that running any function with the auth = T argument pops up a quick screen to enter the username and password. In the future we'll try to make this more streamlined. 
+
+## Database Query
+
+For this workflow, we'll use getTokens to pull each word produced in the AphasiaBank transcripts and the getUtterances function, which contains information about which utterances are related to which task stimulus. 
+
+```{r, eval = F, warning = F, message = F}
+tokens <- getTokens(corpusName = 'aphasia',
+                    corpora = c('aphasia', 'English', 'Aphasia'),
+                    auth = T)
+
+utterances <- getUtterances(corpusName = 'aphasia',
+                    corpora = c('aphasia', 'English', 'Aphasia'),
+                    auth = T)
+
+```
+
+Lets take a quick look at tokens. Note that it does not contain information about the task. 
+
+```{r}
+rmarkdown::paged_table(head(tokens, 10))
+```
+
+Quick look at utterances. Note that both tokens and utterances contain a 'uid' variable which we can use to join data between the datasets. And utterances contains information about the specific task (called gems) 
+
+```{r}
+rmarkdown::paged_table(head(utterances, 10))
+```
+
+## Data Wrangling
+
+To join the datasets, we'll narrow utterances down to a dataframe that just contains the participantID, the task, and the uid numbers that go with each task (for each participant). Then we'll join that information to the tokens dataframe after we filter for words generated by the participants (not the investigators) and selected the columns we want. 
+
+```{r}
+# make a new df from utterances called add_task
+add_task <- utterances %>%
+  # select columns we want
+  select(uid, gems, participant = filename) 
+
+# make a new df called tokens_id
+tokens_id <- tokens %>%
+  # we only want productions from the participant (not investigator)
+  dplyr::filter(who == 'PAR') %>%
+  # select and rename columns 
+  select(participant = filename, word, uid, pos) %>%
+  # join add_task to tokens by utterance ID and participant
+  left_join(add_task, by = c('uid', 'participant'))
+
+# check new dataframe
+rmarkdown::paged_table(head(tokens_id, 10))
+```
+
+Lets see what tasks are available
+
+```{r}
+unique(tokens_id$gems)
+```
+
+We'll need to clean this up a bit and then filter for the tasks we want
+
+```{r}
+window_umbrella_cat <- tokens_id %>%
+  # clean up the task column
+  mutate(gems = tolower(gems)) %>%
+  # filter for only these three tasks
+  dplyr::filter(gems == 'window' | gems == 'umbrella' | gems == 'cat')
+```
+
+Then we can generate counts the the part of speech for each participant for each task, the total number of tokens producted, and then the proportion of each part of speech to total words
+
+```{r}
+task_summary <- window_umbrella_cat %>%
+  # count the number of each part of speech produced for each task/participant
+  count(gems, pos, participant) %>%
+  # for each task and participant
+  group_by(gems, participant) %>%
+  # calculate the total number of words produced 
+  # and proportion for each part of speech
+  mutate(total_words = sum(n),
+         proportion = n/total_words)
+```
+
+Now, we can filter for just verbs
+
+```{r}
+# filter for only verbs
+verbs <- task_summary %>%
+  dplyr::filter(pos == 'v') %>%
+  # participant/site column to all lowercase
+  mutate(participant = tolower(participant)) %>%
+  # separate the site from the participant ID for each site
+  separate(participant, into = c('site', 'num', 'time'),
+           sep = "(?=[A-Za-z])(?<=[0-9])|(?=[0-9])(?<=[A-Za-z])") %>%
+  # one site did not report timepoint (a, b, c...) so I've removed it to be safe
+  drop_na() %>%
+  # make a new participant column without the timepoint
+  unite(col= 'participant', site, num, sep = '', remove = F)
+
+  
+```
+
+What's our sample size - the number of participants and the number of sites?
+
+```{r}
+length(unique(verbs$site))
+length(unique(verbs$participant))
+```
+
+## A quick model
+
+Now we can ask whether or not the proportion of verbs produced differs between stimuli. For this, I'm using a generalized mixed-effect approach to model differences in the proportion of verbs to all words produced while accounting for nesting in the data. This nesting includes participants collected at different sites. Also, some participants completed the protocol more than once. I've tried to visualize the nesting structure below.
+
+
+```{r, fig.height=8, layout="l-page"}
+library(plotly)
+
+sunb <- verbs %>% 
+  ungroup() %>%
+  select(site, participant, gems)
+
+sunburstDF <- as.sunburstDF(sunb)
+
+plot_ly(data = sunburstDF, ids = ~ids,
+        labels= ~labels, parents = ~parents,
+        values= ~values, type='sunburst',
+        branchvalues = 'total',
+        textinfo='label')
+```
+
+Ok...on to the modeling
+
+```{r, cache = T}
+# gems (i.e. task - broken window, umbrella, cat rescue) should be a factor
+verbs$gems <- as.factor(verbs$gems)
+# check the contrasts. cat is the reference condition (default is alphabetical)
+contrasts(verbs$gems) # umbrella is the reference condition
+
+# model the proportion of verbals to total productions
+# with with random intercepts for participant nested 
+# within collection site  
+verb_model <- brm(n | trials(total_words) ~ gems + (1|site/participant),
+                    data = verbs,
+                    family = binomial(),
+                  iter = 2000,
+                  warmup = 1000,
+                  inits = 'random',
+                  chains = 4,
+                  cores = 4,
+                  backend = 'cmdstan',
+                  refresh = 0
+)
+
+```
+
+And plot the results (shamelessly skipping model diagnostics) 
+
+```{r}
+plot(conditional_effects(verb_model, prob = .89), plot = F)[[1]] +
+  scale_y_continuous(breaks = seq(0.08,.14, .02), limits = c(0.08,.14)) +
+  labs(x = 'Stimulus', y = 'Predicted Proportion of Verbs',
+       title = 'Differences in verb use by AphasiaBank stimulus')
+```
+It looks like there might be subtle differences in the proportion of verbs produced between the cat rescue, refused umbrella, and broken window tasks in the AphasiaBank protocol. Are these differences large enough to care?
+
+## Summary
+
+This brief vignette walked through how TBDBr package can be used to extract data from TalkBankDB as part of a data-analysis flow. We have plans to make the functions more straightforward. We're also hoping to build interactive dashboard to visualize the data within TalkBankDB. Question, suggestion, or issues can be raised at github.com/TalkBank/TBDBr

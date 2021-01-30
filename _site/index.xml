@@ -7,9 +7,18 @@
     <description>Personal website for Rob Cavanaugh M.S. CCC-SLP
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 15 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 Jan 2021 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>Simpler tools for clinical implementation of discourse analysis</title>
+      <title>TBDBr</title>
+      <dc:creator>Rob Cavanaugh</dc:creator>
+      <link>https://robcavanaugh.com/posts/2021-01-29-tbdbr</link>
+      <description>Introduction to the TBDBr package for accessing TalkBankDB and AphasiaBank data through an R API</description>
+      <guid>https://robcavanaugh.com/posts/2021-01-29-tbdbr</guid>
+      <pubDate>Fri, 29 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://robcavanaugh.com/posts/2021-01-29-tbdbr/tbdbr_files/figure-html5/unnamed-chunk-13-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Simpler tools for implementation of discourse analysis</title>
       <dc:creator>Rob Cavanaugh</dc:creator>
       <link>https://robcavanaugh.com/posts/2020-10-15-clinical-implementation-discourse</link>
       <description>Analyzing dicourse production is increasingly the focus of clinical research but time consuming to implement in clinical pratice. This post discusses the use of interactive web-apps to quickly analyze orthographically trascribed discourse samples</description>
