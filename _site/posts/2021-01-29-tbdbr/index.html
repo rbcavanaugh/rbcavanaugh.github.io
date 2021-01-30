@@ -1,0 +1,2716 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+<title>Rob Cavanaugh | PhD Student: TBDBr</title>
+
+<meta property="description" itemprop="description" content="Introduction to the TBDBr package for accessing TalkBankDB and AphasiaBank data through an R API"/>
+
+<link rel="canonical" href="https://robcavanaugh.com/posts/2021-01-29-tbdbr/"/>
+
+<!--  https://schema.org/Article -->
+<meta property="article:published" itemprop="datePublished" content="2021-01-29"/>
+<meta property="article:created" itemprop="dateCreated" content="2021-01-29"/>
+<meta name="article:author" content="Rob Cavanaugh"/>
+
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta property="og:title" content="Rob Cavanaugh | PhD Student: TBDBr"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="Introduction to the TBDBr package for accessing TalkBankDB and AphasiaBank data through an R API"/>
+<meta property="og:url" content="https://robcavanaugh.com/posts/2021-01-29-tbdbr/"/>
+<meta property="og:image" content="https://robcavanaugh.com/posts/2021-01-29-tbdbr/tbdbr_files/figure-html5/unnamed-chunk-13-1.png"/>
+<meta property="og:image:width" content="1248"/>
+<meta property="og:image:height" content="768"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="Rob Cavanaugh | PhD Student"/>
+
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:title" content="Rob Cavanaugh | PhD Student: TBDBr"/>
+<meta property="twitter:description" content="Introduction to the TBDBr package for accessing TalkBankDB and AphasiaBank data through an R API"/>
+<meta property="twitter:url" content="https://robcavanaugh.com/posts/2021-01-29-tbdbr/"/>
+<meta property="twitter:image" content="https://robcavanaugh.com/posts/2021-01-29-tbdbr/tbdbr_files/figure-html5/unnamed-chunk-13-1.png"/>
+<meta property="twitter:image:width" content="1248"/>
+<meta property="twitter:image:height" content="768"/>
+
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="Rob Cavanaugh | PhD Student: TBDBr"/>
+<meta name="citation_fulltext_html_url" content="https://robcavanaugh.com/posts/2021-01-29-tbdbr/"/>
+<meta name="citation_online_date" content="2021/01/29"/>
+<meta name="citation_publication_date" content="2021/01/29"/>
+<meta name="citation_author" content="Rob Cavanaugh"/>
+<!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+<script type="text/json" id="radix-rmarkdown-metadata">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["TBDBr"]},{"type":"character","attributes":{},"value":["Introduction to the TBDBr package for accessing TalkBankDB and AphasiaBank data through an R API"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Rob Cavanaugh"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["01-29-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]},{"type":"character","attributes":{},"value":["https://robcavanaugh.com/posts/2021-01-29-tbdbr/"]},{"type":"character","attributes":{},"value":["https://robcavanaugh.com/posts/2021-01-29-tbdbr/"]}]}
+</script>
+<!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["tbdbr_files/anchor-4.2.2/anchor.min.js","tbdbr_files/bowser-1.9.3/bowser.min.js","tbdbr_files/crosstalk-1.1.0.1/css/crosstalk.css","tbdbr_files/crosstalk-1.1.0.1/js/crosstalk.js","tbdbr_files/crosstalk-1.1.0.1/js/crosstalk.js.map","tbdbr_files/crosstalk-1.1.0.1/js/crosstalk.min.js","tbdbr_files/crosstalk-1.1.0.1/js/crosstalk.min.js.map","tbdbr_files/distill-2.2.21/template.v2.js","tbdbr_files/figure-html5/unnamed-chunk-13-1.png","tbdbr_files/header-attrs-2.6/header-attrs.js","tbdbr_files/htmlwidgets-1.5.3/htmlwidgets.js","tbdbr_files/jquery-1.11.3/jquery-AUTHORS.txt","tbdbr_files/jquery-1.11.3/jquery.js","tbdbr_files/jquery-1.11.3/jquery.min.js","tbdbr_files/jquery-1.11.3/jquery.min.map","tbdbr_files/pagedtable-1.1/css/pagedtable.css","tbdbr_files/pagedtable-1.1/js/pagedtable.js","tbdbr_files/plotly-binding-4.9.3/plotly.js","tbdbr_files/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css","tbdbr_files/plotly-main-1.57.1/plotly-latest.min.js","tbdbr_files/typedarray-0.1/typedarray.min.js","tbdbr_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+<meta name="distill:offset" content="../.."/>
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      tolerance: 5,
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.distill-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.distill-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #0F2E3D;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.distill-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.distill-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .distill-site-nav {
+    display: none;
+  }
+}
+
+.distill-site-header {
+
+}
+
+.distill-site-footer {
+
+}
+
+
+/* Site Header */
+
+.distill-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.distill-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.distill-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.distill-site-header a,
+.distill-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.distill-site-header .title {
+  font-size: 18px;
+  min-width: 150px;
+}
+
+.distill-site-header .logo {
+  padding: 0;
+}
+
+.distill-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.distill-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .distill-site-header .logo img {
+    display: inline-block;
+  }
+  .distill-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .distill-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.distill-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+  .distill-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .distill-site-header .title {
+    margin-left: 0;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 0;
+  }
+  .distill-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-header.responsive {position: relative; min-height: 500px; }
+  .distill-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .distill-site-header.responsive a,
+  .distill-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .distill-site-header.responsive .nav-left,
+  .distill-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .distill-site-header.responsive .nav-dropdown {float: none;}
+  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.distill-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+</style>
+
+<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
+<script src="../../site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
+<script src="../../site_libs/fuse-6.4.1/fuse.min.js"></script>
+
+<script type="application/javascript">
+
+function getMeta(metaName) {
+  var metas = document.getElementsByTagName('meta');
+  for (let i = 0; i < metas.length; i++) {
+    if (metas[i].getAttribute('name') === metaName) {
+      return metas[i].getAttribute('content');
+    }
+  }
+  return '';
+}
+
+function offsetURL(url) {
+  var offset = getMeta('distill:offset');
+  return offset ? offset + '/' + url : url;
+}
+
+function createFuseIndex() {
+
+  // create fuse index
+  var options = {
+    keys: [
+      { name: 'title', weight: 20 },
+      { name: 'categories', weight: 15 },
+      { name: 'description', weight: 10 },
+      { name: 'contents', weight: 5 },
+    ],
+    ignoreLocation: true,
+    threshold: 0
+  };
+  var fuse = new window.Fuse([], options);
+
+  // fetch the main search.json
+  return fetch(offsetURL('search.json'))
+    .then(function(response) {
+      if (response.status == 200) {
+        return response.json().then(function(json) {
+          // index main articles
+          json.articles.forEach(function(article) {
+            fuse.add(article);
+          });
+          // download collections and index their articles
+          return Promise.all(json.collections.map(function(collection) {
+            return fetch(offsetURL(collection)).then(function(response) {
+              if (response.status === 200) {
+                return response.json().then(function(articles) {
+                  articles.forEach(function(article) {
+                    fuse.add(article);
+                  });
+                })
+              } else {
+                return Promise.reject(
+                  new Error('Unexpected status from search index request: ' +
+                            response.status)
+                );
+              }
+            });
+          })).then(function() {
+            return fuse;
+          });
+        });
+
+      } else {
+        return Promise.reject(
+          new Error('Unexpected status from search index request: ' +
+                      response.status)
+        );
+      }
+    });
+}
+
+window.document.addEventListener("DOMContentLoaded", function (event) {
+
+  // get search element (bail if we don't have one)
+  var searchEl = window.document.getElementById('distill-search');
+  if (!searchEl)
+    return;
+
+  createFuseIndex()
+    .then(function(fuse) {
+
+      // make search box visible
+      searchEl.classList.remove('hidden');
+
+      // initialize autocomplete
+      var options = {
+        autoselect: true,
+        hint: false,
+        minLength: 2,
+      };
+      window.autocomplete(searchEl, options, [{
+        source: function(query, callback) {
+          const searchOptions = {
+            isCaseSensitive: false,
+            shouldSort: true,
+            minMatchCharLength: 2,
+            limit: 10,
+          };
+          var results = fuse.search(query, searchOptions);
+          callback(results
+            .map(function(result) { return result.item; })
+            .filter(function(item) { return !!item.description; })
+          );
+        },
+        templates: {
+          suggestion: function(suggestion) {
+            var html = `
+              <div class="search-item">
+                <h3>${suggestion.title}</h3>
+                <div class="search-item-description">
+                  ${suggestion.description}
+                </div>
+                <div class="search-item-preview">
+                  <img src="${suggestion.preview ? offsetURL(suggestion.preview) : ''}"</img>
+                </div>
+              </div>
+            `;
+            return html;
+          }
+        }
+      }]).on('autocomplete:selected', function(event, suggestion) {
+        window.location.href = offsetURL(suggestion.path);
+      });
+      // remove inline display style on autocompleter (we want to
+      // manage responsive display via css)
+      $('.algolia-autocomplete').css("display", "");
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+
+});
+
+</script>
+
+<style type="text/css">
+
+/* Algolioa Autocomplete */
+
+.algolia-autocomplete {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: sub;
+  background-color: white;
+  color: black;
+  padding: 6px;
+  padding-top: 8px;
+  padding-bottom: 0;
+  border-radius: 6px;
+  border: 1px #0F2E3D solid;
+  width: 180px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-nav .algolia-autocomplete {
+    display: none;
+    visibility: hidden;
+  }
+  .distill-site-nav.responsive .algolia-autocomplete {
+    display: inline-block;
+    visibility: visible;
+  }
+  .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
+    margin-left: 0;
+    width: 400px;
+    max-height: 400px;
+  }
+}
+
+.algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+  width: 90%;
+  outline: none;
+  border: none;
+}
+
+.algolia-autocomplete .aa-hint {
+  color: #999;
+}
+.algolia-autocomplete .aa-dropdown-menu {
+  width: 550px;
+  max-height: 70vh;
+  overflow-x: visible;
+  overflow-y: scroll;
+  padding: 5px;
+  margin-top: 3px;
+  margin-left: -150px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #999;
+  border-top: none;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+  cursor: pointer;
+  padding: 5px 4px;
+  border-bottom: 1px solid #eee;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
+  border-bottom: none;
+  margin-bottom: 2px;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
+  overflow: hidden;
+  font-size: 0.8em;
+  line-height: 1.4em;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
+  margin-block-start: 0;
+  margin-block-end: 5px;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
+  display: inline-block;
+  overflow: hidden;
+  height: 2.8em;
+  width: 80%;
+  margin-right: 4%;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
+  display: inline-block;
+  width: 15%;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
+  height: 3em;
+  width: auto;
+  display: none;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
+  display: initial;
+}
+
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+  background-color: #eee;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+</style>
+
+
+<!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+<style type="text/css">
+
+body {
+  background-color: white;
+}
+
+.pandoc-table {
+  width: 100%;
+}
+
+.pandoc-table>caption {
+  margin-bottom: 10px;
+}
+
+.pandoc-table th:not([align]) {
+  text-align: left;
+}
+
+.pagedtable-footer {
+  font-size: 15px;
+}
+
+d-byline .byline {
+  grid-template-columns: 2fr 2fr;
+}
+
+d-byline .byline h3 {
+  margin-block-start: 1.5em;
+}
+
+d-byline .byline .authors-affiliations h3 {
+  margin-block-start: 0.5em;
+}
+
+.authors-affiliations .orcid-id {
+  width: 16px;
+  height:16px;
+  margin-left: 4px;
+  margin-right: 4px;
+  vertical-align: middle;
+  padding-bottom: 2px;
+}
+
+d-title .dt-tags {
+  margin-top: 1em;
+  grid-column: text;
+}
+
+.dt-tags .dt-tag {
+  text-decoration: none;
+  display: inline-block;
+  color: rgba(0,0,0,0.6);
+  padding: 0em 0.4em;
+  margin-right: 0.5em;
+  margin-bottom: 0.4em;
+  font-size: 70%;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+d-article table.gt_table td,
+d-article table.gt_table th {
+  border-bottom: none;
+}
+
+.html-widget {
+  margin-bottom: 2.0em;
+}
+
+.l-screen-inset {
+  padding-right: 16px;
+}
+
+.l-screen .caption {
+  margin-left: 10px;
+}
+
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
+.text-output {
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+d-article {
+  padding-top: 2.5rem;
+  padding-bottom: 30px;
+}
+
+d-appendix {
+  padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article h2 {
+  margin: 1rem 0 1.5rem 0;
+}
+
+d-article h3 {
+  margin-top: 1.5rem;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
+}
+
+/* Tweak code blocks */
+
+d-article div.sourceCode code,
+d-article pre code {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+d-article pre,
+d-article div.sourceCode,
+d-article div.sourceCode pre {
+  overflow: auto;
+}
+
+d-article div.sourceCode {
+  background-color: white;
+}
+
+d-article div.sourceCode pre {
+  padding-left: 10px;
+  font-size: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+d-article pre {
+  font-size: 12px;
+  color: black;
+  background: none;
+  margin-top: 0;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+d-article pre a {
+  border-bottom: none;
+}
+
+d-article pre a:hover {
+  border-bottom: none;
+  text-decoration: underline;
+}
+
+@media(min-width: 768px) {
+
+d-article pre,
+d-article div.sourceCode,
+d-article div.sourceCode pre {
+  overflow: visible !important;
+}
+
+d-article div.sourceCode pre {
+  padding-left: 18px;
+  font-size: 14px;
+}
+
+d-article pre {
+  font-size: 14px;
+}
+
+}
+
+figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* CSS for d-contents */
+
+.d-contents {
+  grid-column: text;
+  color: rgba(0,0,0,0.8);
+  font-size: 0.9em;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  padding-left: 0.25em;
+  justify-self: start;
+}
+
+@media(min-width: 1000px) {
+  .d-contents.d-contents-float {
+    height: 0;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    justify-self: center;
+    padding-right: 3em;
+    padding-left: 2em;
+  }
+}
+
+.d-contents nav h3 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.d-contents li {
+  list-style-type: none
+}
+
+.d-contents nav > ul {
+  padding-left: 0;
+}
+
+.d-contents ul {
+  padding-left: 1em
+}
+
+.d-contents nav ul li {
+  margin-top: 0.6em;
+  margin-bottom: 0.2em;
+}
+
+.d-contents nav a {
+  font-size: 13px;
+  border-bottom: none;
+  text-decoration: none
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.d-contents nav a:hover {
+  text-decoration: underline solid rgba(0, 0, 0, 0.6)
+}
+
+.d-contents nav > ul > li > a {
+  font-weight: 600;
+}
+
+.d-contents nav > ul > li > ul {
+  font-weight: inherit;
+}
+
+.d-contents nav > ul > li > ul > li {
+  margin-top: 0.2em;
+}
+
+
+.d-contents nav ul {
+  margin-top: 0;
+  margin-bottom: 0.25em;
+}
+
+.d-article-with-toc h2:nth-child(2) {
+  margin-top: 0;
+}
+
+
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+/* Citations */
+
+d-article .citation {
+  color: inherit;
+  cursor: inherit;
+}
+
+div.hanging-indent{
+  margin-left: 1em; text-indent: -1em;
+}
+
+
+/* Tweak 1000px media break to show more text */
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+  figure .caption, .figure .caption, figure figcaption {
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+/* Get the citation styles for the appendix (not auto-injected on render since
+   we do our own rendering of the citation appendix) */
+
+d-appendix .citation-appendix,
+.d-appendix .citation-appendix {
+  font-size: 11px;
+  line-height: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 10px 18px;
+  border-radius: 3px;
+  color: rgba(150, 150, 150, 1);
+  overflow: hidden;
+  margin-top: -12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Include appendix styles here so they can be overridden */
+
+d-appendix {
+  contain: layout style;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-top: 60px;
+  margin-bottom: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0,0,0,0.5);
+  padding-top: 60px;
+  padding-bottom: 48px;
+}
+
+d-appendix h3 {
+  grid-column: page-start / text-start;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 1em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.65);
+}
+
+d-appendix h3 + * {
+  margin-top: 1em;
+}
+
+d-appendix ol {
+  padding: 0 0 0 15px;
+}
+
+@media (min-width: 768px) {
+  d-appendix ol {
+    padding: 0 0 0 30px;
+    margin-left: -30px;
+  }
+}
+
+d-appendix li {
+  margin-bottom: 1em;
+}
+
+d-appendix a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+d-appendix > * {
+  grid-column: text;
+}
+
+d-appendix > d-footnote-list,
+d-appendix > d-citation-list,
+d-appendix > distill-appendix {
+  grid-column: screen;
+}
+
+/* Include footnote styles here so they can be overridden */
+
+d-footnote-list {
+  contain: layout style;
+}
+
+d-footnote-list > * {
+  grid-column: text;
+}
+
+d-footnote-list a.footnote-backlink {
+  color: rgba(0,0,0,0.3);
+  padding-left: 0.5em;
+}
+
+
+
+/* Anchor.js */
+
+.anchorjs-link {
+  /*transition: all .25s linear; */
+  text-decoration: none;
+  border-bottom: none;
+}
+*:hover > .anchorjs-link {
+  margin-left: -1.125em !important;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+/* Social footer */
+
+.social_footer {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.67);
+}
+
+.disqus-comments {
+  margin-right: 30px;
+}
+
+.disqus-comment-count {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-sharing a {
+  border-bottom: none;
+  margin-right: 8px;
+}
+
+.article-sharing a:hover {
+  border-bottom: none;
+}
+
+.sidebar-section.subscribe {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.subscribe p {
+  margin-bottom: 0.5em;
+}
+
+
+.article-footer .subscribe {
+  font-size: 15px;
+  margin-top: 45px;
+}
+
+
+.sidebar-section.custom {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.custom p {
+  margin-bottom: 0.5em;
+}
+
+/* Styles for listing layout (hide title) */
+.layout-listing d-title, .layout-listing .d-title {
+  display: none;
+}
+
+/* Styles for posts lists (not auto-injected) */
+
+
+.posts-with-sidebar {
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+.posts-list .description h2,
+.posts-list .description p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+.posts-list .description h2 {
+  font-weight: 700;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.posts-list h2.post-tag {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 12px;
+}
+.posts-list {
+  margin-top: 60px;
+  margin-bottom: 24px;
+}
+
+.posts-list .post-preview {
+  text-decoration: none;
+  overflow: hidden;
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 24px 0;
+}
+
+.post-preview-last {
+  border-bottom: none !important;
+}
+
+.posts-list .posts-list-caption {
+  grid-column: screen;
+  font-weight: 400;
+}
+
+.posts-list .post-preview h2 {
+  margin: 0 0 6px 0;
+  line-height: 1.2em;
+  font-style: normal;
+  font-size: 24px;
+}
+
+.posts-list .post-preview p {
+  margin: 0 0 12px 0;
+  line-height: 1.4em;
+  font-size: 16px;
+}
+
+.posts-list .post-preview .thumbnail {
+  box-sizing: border-box;
+  margin-bottom: 24px;
+  position: relative;
+  max-width: 500px;
+}
+.posts-list .post-preview img {
+  width: 100%;
+  display: block;
+}
+
+.posts-list .metadata {
+  font-size: 12px;
+  line-height: 1.4em;
+  margin-bottom: 18px;
+}
+
+.posts-list .metadata > * {
+  display: inline-block;
+}
+
+.posts-list .metadata .publishedDate {
+  margin-right: 2em;
+}
+
+.posts-list .metadata .dt-authors {
+  display: block;
+  margin-top: 0.3em;
+  margin-right: 2em;
+}
+
+.posts-list .dt-tags {
+  display: block;
+  line-height: 1em;
+}
+
+.posts-list .dt-tags .dt-tag {
+  display: inline-block;
+  color: rgba(0,0,0,0.6);
+  padding: 0.3em 0.4em;
+  margin-right: 0.2em;
+  margin-bottom: 0.4em;
+  font-size: 60%;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.posts-list img {
+  opacity: 1;
+}
+
+.posts-list img[data-src] {
+  opacity: 0;
+}
+
+.posts-more {
+  clear: both;
+}
+
+
+.posts-sidebar {
+  font-size: 16px;
+}
+
+.posts-sidebar h3 {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.sidebar-section {
+  margin-bottom: 30px;
+}
+
+.categories ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.categories li {
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 0;
+}
+
+.categories li>a {
+  border-bottom: none;
+}
+
+.categories li>a:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.categories .active {
+  font-weight: 600;
+}
+
+.categories .category-count {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+
+@media(min-width: 768px) {
+  .posts-list .post-preview h2 {
+    font-size: 26px;
+  }
+  .posts-list .post-preview .thumbnail {
+    float: right;
+    width: 30%;
+    margin-bottom: 0;
+  }
+  .posts-list .post-preview .description {
+    float: left;
+    width: 45%;
+  }
+  .posts-list .post-preview .metadata {
+    float: left;
+    width: 20%;
+    margin-top: 8px;
+  }
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.5em;
+    font-size: 16px;
+  }
+  .posts-with-sidebar .posts-list {
+    float: left;
+    width: 75%;
+  }
+  .posts-with-sidebar .posts-sidebar {
+    float: right;
+    width: 20%;
+    margin-top: 60px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+
+/* Improve display for browsers without grid (IE/Edge <= 15) */
+
+.downlevel {
+  line-height: 1.6em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.downlevel .d-title {
+  padding-top: 6rem;
+  padding-bottom: 1.5rem;
+}
+
+.downlevel .d-title h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+.downlevel .d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  margin-top: 0;
+}
+
+.downlevel .d-byline {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+
+.downlevel .section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.downlevel .d-article {
+  font-size: 1.06rem;
+  line-height: 1.7em;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.downlevel .d-appendix {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.downlevel .footnotes ol {
+  padding-left: 13px;
+}
+
+.downlevel .base-grid,
+.downlevel .distill-header,
+.downlevel .d-title,
+.downlevel .d-abstract,
+.downlevel .d-article,
+.downlevel .d-appendix,
+.downlevel .distill-appendix,
+.downlevel .d-byline,
+.downlevel .d-footnote-list,
+.downlevel .d-citation-list,
+.downlevel .distill-footer,
+.downlevel .appendix-bottom,
+.downlevel .posts-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media(min-width: 768px) {
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+  padding-left: 150px;
+  padding-right: 150px;
+  max-width: 900px;
+}
+}
+
+.downlevel pre code {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.downlevel code, .downlevel pre {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+.downlevel .posts-list .post-preview {
+  color: inherit;
+}
+
+
+
+</style>
+
+<script type="application/javascript">
+
+function is_downlevel_browser() {
+  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                 window.navigator.userAgent)) {
+    return true;
+  } else {
+    return window.load_distill_framework === undefined;
+  }
+}
+
+// show body when load is complete
+function on_load_complete() {
+
+  // add anchors
+  if (window.anchors) {
+    window.anchors.options.placement = 'left';
+    window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+  }
+
+
+  // set body to visible
+  document.body.style.visibility = 'visible';
+
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
+  // trigger 'shown' so htmlwidgets resize
+  $('d-article').trigger('shown');
+}
+
+function init_distill() {
+
+  init_common();
+
+  // create front matter
+  var front_matter = $('<d-front-matter></d-front-matter>');
+  $('#distill-front-matter').wrap(front_matter);
+
+  // create d-title
+  $('.d-title').changeElementType('d-title');
+
+  // create d-byline
+  var byline = $('<d-byline></d-byline>');
+  $('.d-byline').replaceWith(byline);
+
+  // create d-article
+  var article = $('<d-article></d-article>');
+  $('.d-article').wrap(article).children().unwrap();
+
+  // move posts container into article
+  $('.posts-container').appendTo($('d-article'));
+
+  // create d-appendix
+  $('.d-appendix').changeElementType('d-appendix');
+
+  // flag indicating that we have appendix items
+  var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+  // replace footnotes with <d-footnote>
+  $('.footnote-ref').each(function(i, val) {
+    appendix = true;
+    var href = $(this).attr('href');
+    var id = href.replace('#', '');
+    var fn = $('#' + id);
+    var fn_p = $('#' + id + '>p');
+    fn_p.find('.footnote-back').remove();
+    var text = fn_p.html();
+    var dtfn = $('<d-footnote></d-footnote>');
+    dtfn.html(text);
+    $(this).replaceWith(dtfn);
+  });
+  // remove footnotes
+  $('.footnotes').remove();
+
+  // move refs into #references-listing
+  $('#references-listing').replaceWith($('#refs'));
+
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    var id = $(this).attr('id');
+    $('.d-contents a[href="#' + id + '"]').parent().remove();
+    appendix = true;
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+  });
+
+  // show d-appendix if we have appendix content
+  $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+  // localize layout chunks to just output
+  $('.layout-chunk').each(function(i, val) {
+
+    // capture layout
+    var layout = $(this).attr('data-layout');
+
+    // apply layout to markdown level block elements
+    var elements = $(this).children().not('div.sourceCode, pre, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
+
+    // unwrap the layout-chunk div
+    $(this).children().unwrap();
+  });
+
+  // remove code block used to force  highlighting css
+  $('.distill-force-highlighting-css').parent().remove();
+
+  // remove empty line numbers inserted by pandoc when using a
+  // custom syntax highlighting theme
+  $('code.sourceCode a:empty').remove();
+
+  // load distill framework
+  load_distill_framework();
+
+  // wait for window.distillRunlevel == 4 to do post processing
+  function distill_post_process() {
+
+    if (!window.distillRunlevel || window.distillRunlevel < 4)
+      return;
+
+    // hide author/affiliations entirely if we have no authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+    if (!have_authors)
+      $('d-byline').addClass('hidden');
+
+    // article with toc class
+    $('.d-contents').parent().addClass('d-article-with-toc');
+
+    // strip links that point to #
+    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+    // add orcid ids
+    $('.authors-affiliations').find('.author').each(function(i, el) {
+      var orcid_id = front_matter.authors[i].orcidID;
+      if (orcid_id) {
+        var a = $('<a></a>');
+        a.attr('href', 'https://orcid.org/' + orcid_id);
+        var img = $('<img></img>');
+        img.addClass('orcid-id');
+        img.attr('alt', 'ORCID ID');
+        img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+        a.append(img);
+        $(this).append(a);
+      }
+    });
+
+    // hide elements of author/affiliations grid that have no value
+    function hide_byline_column(caption) {
+      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+    }
+
+    // affiliations
+    var have_affiliations = false;
+    for (var i = 0; i<front_matter.authors.length; ++i) {
+      var author = front_matter.authors[i];
+      if (author.affiliation !== "&nbsp;") {
+        have_affiliations = true;
+        break;
+      }
+    }
+    if (!have_affiliations)
+      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+    // published date
+    if (!front_matter.publishedDate)
+      hide_byline_column("Published");
+
+    // document object identifier
+    var doi = $('d-byline').find('h3:contains("DOI")');
+    var doi_p = doi.next().empty();
+    if (!front_matter.doi) {
+      // if we have a citation and valid citationText then link to that
+      if ($('#citation').length > 0 && front_matter.citationText) {
+        doi.html('Citation');
+        $('<a href="#citation"></a>')
+          .text(front_matter.citationText)
+          .appendTo(doi_p);
+      } else {
+        hide_byline_column("DOI");
+      }
+    } else {
+      $('<a></a>')
+         .attr('href', "https://doi.org/" + front_matter.doi)
+         .html(front_matter.doi)
+         .appendTo(doi_p);
+    }
+
+     // change plural form of authors/affiliations
+    if (front_matter.authors.length === 1) {
+      var grid = $('.authors-affiliations');
+      grid.children('h3:contains("Authors")').text('Author');
+      grid.children('h3:contains("Affiliations")').text('Affiliation');
+    }
+
+    // remove d-appendix and d-footnote-list local styles
+    $('d-appendix > style:first-child').remove();
+    $('d-footnote-list > style:first-child').remove();
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // clear polling timer
+    clearInterval(tid);
+
+    // show body now that everything is ready
+    on_load_complete();
+  }
+
+  var tid = setInterval(distill_post_process, 50);
+  distill_post_process();
+
+}
+
+function init_downlevel() {
+
+  init_common();
+
+   // insert hr after d-title
+  $('.d-title').after($('<hr class="section-separator"/>'));
+
+  // check if we have authors
+  var front_matter = JSON.parse($("#distill-front-matter").html());
+  var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+  // manage byline/border
+  if (!have_authors)
+    $('.d-byline').remove();
+  $('.d-byline').after($('<hr class="section-separator"/>'));
+  $('.d-byline a').remove();
+
+  // remove toc
+  $('.d-contents').remove();
+
+  // move appendix elements
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+  });
+
+
+  // inject headers into references and footnotes
+  var refs_header = $('<h3></h3>');
+  refs_header.text('References');
+  $('#refs').prepend(refs_header);
+
+  var footnotes_header = $('<h3></h3');
+  footnotes_header.text('Footnotes');
+  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+  // move appendix-bottom entries to the bottom
+  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+  $('.appendix-bottom').remove();
+
+  // remove appendix if it's empty
+  if ($('.d-appendix').children().length === 0)
+    $('.d-appendix').remove();
+
+  // prepend separator above appendix
+  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+  // trim code
+  $('pre>code').each(function(i, val) {
+    $(this).html($.trim($(this).html()));
+  });
+
+  // move posts-container right before article
+  $('.posts-container').insertBefore($('.d-article'));
+
+  $('body').addClass('downlevel');
+
+  on_load_complete();
+}
+
+
+function init_common() {
+
+  // jquery plugin to change element types
+  (function($) {
+    $.fn.changeElementType = function(newType) {
+      var attrs = {};
+
+      $.each(this[0].attributes, function(idx, attr) {
+        attrs[attr.nodeName] = attr.nodeValue;
+      });
+
+      this.replaceWith(function() {
+        return $("<" + newType + "/>", attrs).append($(this).contents());
+      });
+    };
+  })(jQuery);
+
+  // prevent underline for linked images
+  $('a > img').parent().css({'border-bottom' : 'none'});
+
+  // mark non-body figures created by knitr chunks as 100% width
+  $('.layout-chunk').each(function(i, val) {
+    var figures = $(this).find('img, .html-widget');
+    if ($(this).attr('data-layout') !== "l-body") {
+      figures.css('width', '100%');
+    } else {
+      figures.css('max-width', '100%');
+      figures.filter("[width]").each(function(i, val) {
+        var fig = $(this);
+        fig.css('width', fig.attr('width') + 'px');
+      });
+
+    }
+  });
+
+  // auto-append index.html to post-preview links in file: protocol
+  // and in rstudio ide preview
+  $('.post-preview').each(function(i, val) {
+    if (window.location.protocol === "file:")
+      $(this).attr('href', $(this).attr('href') + "index.html");
+  });
+
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.distill-site-header a[href]').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
+  // add class to pandoc style tables
+  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+  $('.kable-table').children('table').addClass('pandoc-table');
+
+  // add figcaption style to table captions
+  $('caption').parent('table').addClass("figcaption");
+
+  // initialize posts list
+  if (window.init_posts_list)
+    window.init_posts_list();
+
+  // implmement disqus comment link
+  $('.disqus-comment-count').click(function() {
+    window.headroom_prevent_pin = true;
+    $('#disqus_thread').toggleClass('hidden');
+    if (!$('#disqus_thread').hasClass('hidden')) {
+      var offset = $(this).offset();
+      $(window).resize();
+      $('html, body').animate({
+        scrollTop: offset.top - 35
+      });
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (is_downlevel_browser())
+    init_downlevel();
+  else
+    window.addEventListener('WebComponentsReady', init_distill);
+});
+
+</script>
+
+<style type="text/css">
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+
+
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      50px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      12px;
+  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+  --title-color:     #000000;
+  --header-color:    rgba(0, 0, 0, 0.8);
+  --body-color:      rgba(0, 0, 0, 0.8);
+  --aside-color:     rgba(0, 0, 0, 0.6);
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    sans-serif;
+  --mono-font:       monospace;
+  --body-font:       sans-serif;
+  --navbar-font:     sans-serif;  /* websites + blogs only */
+}
+
+/*-- ARTICLE METADATA --*/
+d-byline {
+  --heading-size:    0.6rem;
+  --heading-color:   rgba(0, 0, 0, 0.5);
+  --body-size:       0.8rem;
+  --body-color:      rgba(0, 0, 0, 0.8);
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    18px;
+  --contents-size:   13px;
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size:    15px;
+  --heading-color:   rgba(0, 0, 0, 0.65);
+  --text-size:       0.8em;
+  --text-color:      rgba(0, 0, 0, 0.5);
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+/* These properties only apply to Distill sites and blogs  */
+
+.distill-site-header {
+  --title-size:       18px;
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #0F2E3D;
+}
+
+.distill-site-footer {
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #0F2E3D;
+}
+
+/*-- Additional custom styles --*/
+/* Add any additional CSS rules below                      */
+</style>
+<style type="text/css">
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono');
+@import url('https://fonts.googleapis.com/css2?family=Bitter');
+
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      40px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      14px;
+  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+  --title-color:     #000000;
+  --header-color:    rgba(0, 0, 0, 0.8);
+  --body-color:      rgba(0, 0, 0, 0.8);
+  --aside-color:     #00523f;
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    "Bitter", serif;
+  --mono-font:       "DM Mono", monospace;
+  --body-font:       "Roboto", sans-serif;
+  --navbar-font:     "Bitter", sans-serif; /* websites + blogs only */
+  --aside-font:      "Roboto", sans-serif;
+}
+
+/*-- ARTICLE METADATA --*/
+d-byline {
+  --heading-size:    1rem;
+  --heading-color:   rgba(0, 0, 0, 0.5);
+  --body-size:       1rem;
+  --body-color:      rgba(0, 0, 0, 0.8);
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    18px;
+  --contents-size:   13px;
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size:    15px;
+  --heading-color:   rgba(0, 0, 0, 0.65);
+  --text-size:       0.8em;
+  --text-color:      rgba(0, 0, 0, 0.5);
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+/* These properties only apply to Distill sites and blogs  */
+
+.distill-site-header {
+  --title-size:       18px;
+  --text-color:       #ECEFF1;
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #005D8F;
+}
+
+.distill-site-footer {
+  --text-color:       #ECEFF1;
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #005D8F;
+}
+
+/*-- Additional custom styles --*/
+/* Add any additional CSS rules below                      */
+
+.posts-list .metadata {
+    font-size: 14px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+}
+
+/* Change link appearance */
+d-article a {
+  border-bottom: 2px solid #00523f;
+  text-decoration: none;
+}</style>
+<style type="text/css">
+/* base style */
+
+/* FONT FAMILIES */
+
+:root {
+  --heading-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono-default: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+body,
+.posts-list .post-preview p,
+.posts-list .description p {
+  font-family: var(--body-font), var(--body-default);
+}
+
+h1, h2, h3, h4, h5, h6,
+.posts-list .post-preview h2,
+.posts-list .description h2 {
+  font-family: var(--heading-font), var(--heading-default);
+}
+
+d-article div.sourceCode code,
+d-article pre code {
+	font-family: var(--mono-font), var(--mono-default);
+}
+
+
+/*-- TITLE --*/
+d-title h1,
+.posts-list > h1 {
+  color: var(--title-color, black);
+}
+
+d-title h1 {
+  font-size: var(--title-size, 50px);
+}
+
+/*-- HEADERS --*/
+d-article h1,
+d-article h2,
+d-article h3,
+d-article h4,
+d-article h5,
+d-article h6 {
+  color: var(--header-color, rgba(0, 0, 0, 0.8));
+}
+
+/*-- BODY --*/
+/* only text inside of <p> tags */
+d-article > p {
+  color: var(--body-color, rgba(0, 0, 0, 0.8));
+  font-size: var(--body-size, 1.06rem);
+}
+
+/*-- CODE --*/
+d-article div.sourceCode code,
+d-article pre code {
+	font-size: var(--code-size, 14px);
+}
+
+/*-- ASIDE --*/
+d-article aside {
+	font-size: var(--aside-size, 12px);
+	color: var(--aside-color, rgba(0, 0, 0, 0.6));
+}
+
+/*-- FIGURE CAPTIONS --*/
+figure .caption,
+figure figcaption,
+.figure .caption {
+	font-size: var(--fig-cap-size, 13px);
+	color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
+}
+
+/*-- METADATA --*/
+d-byline h3 {
+	font-size: var(--heading-size, 0.6rem);
+	color: var(--heading-color, rgba(0, 0, 0, 0.5));
+}
+
+d-byline {
+	font-size: var(--body-size, 0.8rem);
+	color: var(--body-color, rgba(0, 0, 0, 0.8));
+}
+
+d-byline a,
+d-article d-byline a {
+	color: var(--body-color, rgba(0, 0, 0, 0.8));
+}
+
+/*-- TABLE OF CONTENTS --*/
+.d-contents nav h3 {
+	font-size: var(--heading-size, 18px);
+}
+
+.d-contents nav a {
+	font-size: var(--contents-size, 13px);
+}
+
+/*-- APPENDIX --*/
+d-appendix h3 {
+  font-size: var(--heading-size, 15px);
+	color: var(--heading-color, rgba(0, 0, 0, 0.65));
+}
+
+d-appendix {
+  font-size: var(--text-size, 0.8em);
+	color: var(--text-color, rgba(0, 0, 0, 0.5));
+}
+
+d-appendix d-footnote-list a.footnote-backlink {
+	color: var(--text-color, rgba(0, 0, 0, 0.5));
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+.distill-site-header .title {
+	font-size: var(--title-size, 18px);
+	font-family: var(--navbar-font), var(--heading-default);
+}
+
+.distill-site-header a,
+.nav-dropdown .nav-dropbtn {
+  font-family: var(--navbar-font), var(--heading-default);
+}
+
+.distill-site-header a:hover {
+	color: var(--hover-color, white);
+}
+
+.distill-site-header {
+	font-size: var(--text-size, 15px);
+	color: var(--text-color, rgba(255, 255, 255, 0.8));
+	background-color: var(--bkgd-color, #0F2E3D);
+}
+
+.distill-site-footer {
+	font-size: var(--text-size, 15px);
+	color: var(--text-color, rgba(255, 255, 255, 0.8));
+	background-color: var(--bkgd-color, #0F2E3D);
+}
+
+.distill-site-footer a:hover {
+	color: var(--hover-color, white);
+}</style>
+<!--/radix_placeholder_distill-->
+  <script src="../../site_libs/header-attrs-2.6/header-attrs.js"></script>
+  <link href="../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+  <script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+  <script src="../../site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+  <script src="../../site_libs/plotly-binding-4.9.3/plotly.js"></script>
+  <script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
+  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <link href="../../site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+  <script src="../../site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+  <link href="../../site_libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+  <script src="../../site_libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
+  <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
+  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-179425806-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-179425806-1');
+</script>
+<!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"TBDBr","description":"Introduction to the TBDBr package for accessing TalkBankDB and AphasiaBank data through an R API","authors":[{"author":"Rob Cavanaugh","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-01-29T00:00:00.000+00:00","citationText":"Cavanaugh, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a href="../../index.html" class="title">Rob Cavanaugh | PhD Student</a>
+<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
+</div>
+<div class="nav-right">
+<a href="../../index.html">Home</a>
+<a href="../../about.html">About</a>
+<a href="../../Research.html">Research</a>
+<a href="https://www.dropbox.com/s/we5lztxh7vka47o/Current-CV.pdf?dl=0">CV</a>
+<a href="https://github.com/rbcavanaugh">
+<i class="fab fa-github" aria-hidden="true"></i>
+</a>
+<a href="https://twitter.com/littlejohnsband">
+<i class="fab fa-twitter" aria-hidden="true"></i>
+</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>TBDBr</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>Introduction to the TBDBr package for accessing TalkBankDB and AphasiaBank data through an R API</p></p>
+</div>
+
+<div class="d-byline">
+  Rob Cavanaugh true 
+  
+<br/>01-29-2021
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#introduction-to-tbdbr">Introduction to TBDBr</a>
+<ul>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#database-structure">Database Structure</a></li>
+<li><a href="#database-query">Database Query</a></li>
+<li><a href="#data-wrangling">Data Wrangling</a></li>
+<li><a href="#a-quick-model">A quick model</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+<h1 id="introduction-to-tbdbr">Introduction to TBDBr</h1>
+<p>Recently, I’ve been working with John Kowalski at Carnegie Mellon University to develop a basic R package to access data within the Talk Bank database (hence, TBDBr). Working together was a good combination of the R skills I’ve been developing and his computer science expertise and work on developing TalkBankDB. Our first release of TBDBr is far from perfect, but I think it’s a good start at making the talkbank database more accessible to language researchers, and especially those in aphasiology. It’s also a good dataset for learning how to use R and run mixed-effect models, as there is clear nesting within the database data. this vignette is a quick example workflow of how TBDBr might be used for aphasia research, using the AphasiaBank collection.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>I’m going to assume a base understanding of R, but I’ve also tried to comment my code so that it’s relatively clear. In this workflow, we’ll compare the proportion of verbs generated between three of the AphasiaBank discourse tasks (broken window, refused umbrella, cat rescue).</p>
+<p>To get started, we’ll load a few packages (including TBDBr).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'># if TBDB or tidyverse is not installed, run:</span>
+<span class='co'>#install.packages(c('tidyverse'))</span>
+<span class='co'>#devtools::install_github("Talkbank/TBDBr")</span>
+
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span> <span class='co'># contains lots of handy data wrangling functions</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/TalkBank/TalkBankDB-R'>TBDBr</a></span><span class='op'>)</span> <span class='co'># TBDBr!</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/paul-buerkner/brms'>brms</a></span><span class='op'>)</span> <span class='co'># for mixed-effect modeling</span>
+</code></pre>
+</div>
+</div>
+<p>TBDBr only includes a handful of functions. They are:</p>
+<ul>
+<li>getTranscripts()</li>
+<li>getParticipants()</li>
+<li>getTokens()</li>
+<li>getTokenTypes()</li>
+<li>getUtterances()</li>
+<li>getNgrams()</li>
+<li>getCQL()</li>
+</ul>
+<h2 id="database-structure">Database Structure</h2>
+<p>To pull data from talkbaseDB, you’ll need to understand the database structure. You can figure this out by looking at <a href="https://talkbank.org/DB/" class="uri">https://talkbank.org/DB/</a> but we’ve also created a function called getLegalValues() to interactively display the possible options at each level of the database.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/pkg/TBDBr/man/getLegalValues.html'>getLegalValues</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>After entering “aphasia”, we’re given options to choose a language (English) and then another level for which we will select “Aphasia.” If we were interested in data from Control participants, or from the famous people protocol or other protocols, they are available at this level. Note, because data in the clinical banks is password protected, you’ll need to enter the username and password for AphasiaBank at this stage. Right now, we’ve set it up so that running any function with the auth = T argument pops up a quick screen to enter the username and password. In the future we’ll try to make this more streamlined.</p>
+<h2 id="database-query">Database Query</h2>
+<p>For this workflow, we’ll use getTokens to pull each word produced in the AphasiaBank transcripts and the getUtterances function, which contains information about which utterances are related to which task stimulus.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>tokens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/TBDBr/man/getTokens.html'>getTokens</a></span><span class='op'>(</span>corpusName <span class='op'>=</span> <span class='st'>'aphasia'</span>,
+                    corpora <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'aphasia'</span>, <span class='st'>'English'</span>, <span class='st'>'Aphasia'</span><span class='op'>)</span>,
+                    auth <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span>
+
+<span class='va'>utterances</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/TBDBr/man/getUtterances.html'>getUtterances</a></span><span class='op'>(</span>corpusName <span class='op'>=</span> <span class='st'>'aphasia'</span>,
+                    corpora <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'aphasia'</span>, <span class='st'>'English'</span>, <span class='st'>'Aphasia'</span><span class='op'>)</span>,
+                    auth <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Lets take a quick look at tokens. Note that it does not contain information about the task.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>rmarkdown</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rmarkdown/man/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>tokens</span>, <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["X"],"name":[1],"type":["int"],"align":["right"]},{"label":["filename"],"name":[2],"type":["chr"],"align":["left"]},{"label":["path"],"name":[3],"type":["chr"],"align":["left"]},{"label":["uid"],"name":[4],"type":["int"],"align":["right"]},{"label":["wordnum"],"name":[5],"type":["int"],"align":["right"]},{"label":["role"],"name":[6],"type":["chr"],"align":["left"]},{"label":["who"],"name":[7],"type":["chr"],"align":["left"]},{"label":["word"],"name":[8],"type":["chr"],"align":["left"]},{"label":["stem"],"name":[9],"type":["chr"],"align":["left"]},{"label":["pos"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"0","5":"0","6":"Investigator","7":"INV","8":"I'm","9":"I","10":"pro:sub","_rn_":"1"},{"1":"2","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"0","5":"1","6":"Investigator","7":"INV","8":"going","9":"go","10":"part","_rn_":"2"},{"1":"3","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"0","5":"2","6":"Investigator","7":"INV","8":"to","9":"to","10":"inf","_rn_":"3"},{"1":"4","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"0","5":"3","6":"Investigator","7":"INV","8":"be","9":"be","10":"aux","_rn_":"4"},{"1":"5","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"0","5":"4","6":"Investigator","7":"INV","8":"asking","9":"ask","10":"part","_rn_":"5"},{"1":"6","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"0","5":"5","6":"Investigator","7":"INV","8":"you","9":"you","10":"pro:per","_rn_":"6"},{"1":"7","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"0","5":"6","6":"Investigator","7":"INV","8":"to","9":"to","10":"inf","_rn_":"7"},{"1":"8","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"0","5":"7","6":"Investigator","7":"INV","8":"do","9":"do","10":"v","_rn_":"8"},{"1":"9","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"0","5":"8","6":"Investigator","7":"INV","8":"some","9":"some","10":"qn","_rn_":"9"},{"1":"10","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"0","5":"9","6":"Investigator","7":"INV","8":"talking","9":"talk","10":"n:gerund","_rn_":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<p>Quick look at utterances. Note that both tokens and utterances contain a ‘uid’ variable which we can use to join data between the datasets. And utterances contains information about the specific task (called gems)</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>rmarkdown</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rmarkdown/man/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>utterances</span>, <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["X"],"name":[1],"type":["int"],"align":["right"]},{"label":["filename"],"name":[2],"type":["chr"],"align":["left"]},{"label":["path"],"name":[3],"type":["chr"],"align":["left"]},{"label":["uid"],"name":[4],"type":["int"],"align":["right"]},{"label":["who"],"name":[5],"type":["chr"],"align":["left"]},{"label":["role"],"name":[6],"type":["chr"],"align":["left"]},{"label":["postcodes"],"name":[7],"type":["chr"],"align":["left"]},{"label":["gems"],"name":[8],"type":["chr"],"align":["left"]},{"label":["utterance"],"name":[9],"type":["chr"],"align":["left"]},{"label":["startTime"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["endTime"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"0","5":"INV","6":"Investigator","7":"NA","8":"Speech","9":"I'm going to be asking you to do some talking","10":"6.000","11":"9.430","_rn_":"1"},{"1":"2","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"1","5":"PAR","6":"Participant","7":"NA","8":"Speech","9":"yeah well","10":"9.430","11":"12.876","_rn_":"2"},{"1":"3","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"2","5":"INV","6":"Investigator","7":"NA","8":"Speech","9":"how do you think your speech is these days","10":"12.876","11":"15.181","_rn_":"3"},{"1":"4","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"3","5":"PAR","6":"Participant","7":"gram","8":"Speech","9":"I yeah you_know dada dada","10":"15.181","11":"20.445","_rn_":"4"},{"1":"5","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"4","5":"INV","6":"Investigator","7":"NA","8":"Speech","9":"okay","10":"20.445","11":"22.128","_rn_":"5"},{"1":"6","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"5","5":"INV","6":"Investigator","7":"NA","8":"Speech","9":"anything else","10":"22.128","11":"23.046","_rn_":"6"},{"1":"7","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"6","5":"INV","6":"Investigator","7":"NA","8":"Stroke","9":"do you remember when you had your stroke","10":"23.046","11":"24.756","_rn_":"7"},{"1":"8","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"7","5":"PAR","6":"Participant","7":"NA","8":"Stroke","9":"yes it's two thousand two days","10":"24.756","11":"33.655","_rn_":"8"},{"1":"9","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"8","5":"PAR","6":"Participant","7":"NA","8":"Stroke","9":"no","10":"33.655","11":"34.070","_rn_":"9"},{"1":"10","2":"ACWT01a","3":"aphasia/English/Aphasia/ACWT/ACWT01a","4":"9","5":"PAR","6":"Participant","7":"gram","8":"Stroke","9":"after New_Year's_Day two thousand","10":"34.070","11":"43.822","_rn_":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<h2 id="data-wrangling">Data Wrangling</h2>
+<p>To join the datasets, we’ll narrow utterances down to a dataframe that just contains the participantID, the task, and the uid numbers that go with each task (for each participant). Then we’ll join that information to the tokens dataframe after we filter for words generated by the participants (not the investigators) and selected the columns we want.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'># make a new df from utterances called add_task</span>
+<span class='va'>add_task</span> <span class='op'>&lt;-</span> <span class='va'>utterances</span> <span class='op'>%&gt;%</span>
+  <span class='co'># select columns we want</span>
+  <span class='fu'>select</span><span class='op'>(</span><span class='va'>uid</span>, <span class='va'>gems</span>, participant <span class='op'>=</span> <span class='va'>filename</span><span class='op'>)</span> 
+
+<span class='co'># make a new df called tokens_id</span>
+<span class='va'>tokens_id</span> <span class='op'>&lt;-</span> <span class='va'>tokens</span> <span class='op'>%&gt;%</span>
+  <span class='co'># we only want productions from the participant (not investigator)</span>
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>who</span> <span class='op'>==</span> <span class='st'>'PAR'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='co'># select and rename columns </span>
+  <span class='fu'>select</span><span class='op'>(</span>participant <span class='op'>=</span> <span class='va'>filename</span>, <span class='va'>word</span>, <span class='va'>uid</span>, <span class='va'>pos</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='co'># join add_task to tokens by utterance ID and participant</span>
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>add_task</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'uid'</span>, <span class='st'>'participant'</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'># check new dataframe</span>
+<span class='fu'>rmarkdown</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rmarkdown/man/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>tokens_id</span>, <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["participant"],"name":[1],"type":["chr"],"align":["left"]},{"label":["word"],"name":[2],"type":["chr"],"align":["left"]},{"label":["uid"],"name":[3],"type":["int"],"align":["right"]},{"label":["pos"],"name":[4],"type":["chr"],"align":["left"]},{"label":["gems"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"ACWT01a","2":"yeah","3":"1","4":"co","5":"Speech","_rn_":"1"},{"1":"ACWT01a","2":"well","3":"1","4":"co","5":"Speech","_rn_":"2"},{"1":"ACWT01a","2":"I","3":"3","4":"pro:sub","5":"Speech","_rn_":"3"},{"1":"ACWT01a","2":"yeah","3":"3","4":"co","5":"Speech","_rn_":"4"},{"1":"ACWT01a","2":"you_know","3":"3","4":"co","5":"Speech","_rn_":"5"},{"1":"ACWT01a","2":"dada","3":"3","4":"bab","5":"Speech","_rn_":"6"},{"1":"ACWT01a","2":"dada","3":"3","4":"bab","5":"Speech","_rn_":"7"},{"1":"ACWT01a","2":"yes","3":"7","4":"co","5":"Stroke","_rn_":"8"},{"1":"ACWT01a","2":"it's","3":"7","4":"pro:per","5":"Stroke","_rn_":"9"},{"1":"ACWT01a","2":"two","3":"7","4":"det:num","5":"Stroke","_rn_":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<p>Lets see what tasks are available</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>tokens_id</span><span class='op'>$</span><span class='va'>gems</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code> [1] &quot;Speech&quot;                       &quot;Stroke&quot;                      
+ [3] &quot;Important_Event&quot;              &quot;Window&quot;                      
+ [5] &quot;Umbrella&quot;                     &quot;Cat&quot;                         
+ [7] &quot;Cinderella_Intro&quot;             &quot;Cinderella&quot;                  
+ [9] &quot;Sandwich&quot;                     &quot;BNT&quot;                         
+[11] &quot;repetition&quot;                   &quot;Sandwich_Picture&quot;            
+[13] NA                             &quot;VNT&quot;                         
+[15] &quot;Repetition&quot;                   &quot;Flood&quot;                       
+[17] &quot;Cinderella_intro&quot;             &quot;Sandwich_Intro&quot;              
+[19] &quot;Nine_Eleven&quot;                  &quot;Cookie&quot;                      
+[21] &quot;pleasant experience&quot;          &quot;Scary_Experience&quot;            
+[23] &quot;Runaway&quot;                      &quot;Three_Bears&quot;                 
+[25] &quot;Important_Event_Substitution&quot; &quot;Sandwich_other&quot;              
+[27] &quot;CAT&quot;                          &quot;Sandwich_Other&quot;              
+[29] &quot;speech&quot;                       &quot;stroke&quot;                      
+[31] &quot;important_event&quot;              &quot;cat&quot;                         
+[33] &quot;sandwich&quot;                     &quot;window&quot;                      
+[35] &quot;umbrella&quot;                     &quot;Testing&quot;                     
+[37] &quot;Recovery&quot;                    </code></pre>
+</div>
+<p>We’ll need to clean this up a bit and then filter for the tasks we want</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>window_umbrella_cat</span> <span class='op'>&lt;-</span> <span class='va'>tokens_id</span> <span class='op'>%&gt;%</span>
+  <span class='co'># clean up the task column</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>gems <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/chartr.html'>tolower</a></span><span class='op'>(</span><span class='va'>gems</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='co'># filter for only these three tasks</span>
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>gems</span> <span class='op'>==</span> <span class='st'>'window'</span> <span class='op'>|</span> <span class='va'>gems</span> <span class='op'>==</span> <span class='st'>'umbrella'</span> <span class='op'>|</span> <span class='va'>gems</span> <span class='op'>==</span> <span class='st'>'cat'</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Then we can generate counts the the part of speech for each participant for each task, the total number of tokens producted, and then the proportion of each part of speech to total words</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>task_summary</span> <span class='op'>&lt;-</span> <span class='va'>window_umbrella_cat</span> <span class='op'>%&gt;%</span>
+  <span class='co'># count the number of each part of speech produced for each task/participant</span>
+  <span class='fu'>count</span><span class='op'>(</span><span class='va'>gems</span>, <span class='va'>pos</span>, <span class='va'>participant</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='co'># for each task and participant</span>
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>gems</span>, <span class='va'>participant</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='co'># calculate the total number of words produced </span>
+  <span class='co'># and proportion for each part of speech</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>total_words <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span>,
+         proportion <span class='op'>=</span> <span class='va'>n</span><span class='op'>/</span><span class='va'>total_words</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Now, we can filter for just verbs</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'># filter for only verbs</span>
+<span class='va'>verbs</span> <span class='op'>&lt;-</span> <span class='va'>task_summary</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>pos</span> <span class='op'>==</span> <span class='st'>'v'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='co'># participant/site column to all lowercase</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>participant <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/chartr.html'>tolower</a></span><span class='op'>(</span><span class='va'>participant</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='co'># separate the site from the participant ID for each site</span>
+  <span class='fu'>separate</span><span class='op'>(</span><span class='va'>participant</span>, into <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>'site'</span>, <span class='st'>'num'</span>, <span class='st'>'time'</span><span class='op'>)</span>,
+           sep <span class='op'>=</span> <span class='st'>"(?=[A-Za-z])(?&lt;=[0-9])|(?=[0-9])(?&lt;=[A-Za-z])"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='co'># one site did not report timepoint (a, b, c...) so I've removed it to be safe</span>
+  <span class='fu'>drop_na</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='co'># make a new participant column without the timepoint</span>
+  <span class='fu'>unite</span><span class='op'>(</span>col<span class='op'>=</span> <span class='st'>'participant'</span>, <span class='va'>site</span>, <span class='va'>num</span>, sep <span class='op'>=</span> <span class='st'>''</span>, remove <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>What’s our sample size - the number of participants and the number of sites?</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>verbs</span><span class='op'>$</span><span class='va'>site</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 22</code></pre>
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>verbs</span><span class='op'>$</span><span class='va'>participant</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 294</code></pre>
+</div>
+<h2 id="a-quick-model">A quick model</h2>
+<p>Now we can ask whether or not the proportion of verbs produced differs between stimuli. For this, I’m using a generalized mixed-effect approach to model differences in the proportion of verbs to all words produced while accounting for nesting in the data. This nesting includes participants collected at different sites. Also, some participants completed the protocol more than once. I’ve tried to visualize the nesting structure below.</p>
+<div class="layout-chunk" data-layout="l-page">
+<div class="sourceCode">
+<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://plotly-r.com'>plotly</a></span><span class='op'>)</span>
+
+<span class='va'>sunb</span> <span class='op'>&lt;-</span> <span class='va'>verbs</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>ungroup</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>site</span>, <span class='va'>participant</span>, <span class='va'>gems</span><span class='op'>)</span>
+
+<span class='va'>sunburstDF</span> <span class='op'>&lt;-</span> <span class='fu'>as.sunburstDF</span><span class='op'>(</span><span class='va'>sunb</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/pkg/plotly/man/plot_ly.html'>plot_ly</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>sunburstDF</span>, ids <span class='op'>=</span> <span class='op'>~</span><span class='va'>ids</span>,
+        labels<span class='op'>=</span> <span class='op'>~</span><span class='va'>labels</span>, parents <span class='op'>=</span> <span class='op'>~</span><span class='va'>parents</span>,
+        values<span class='op'>=</span> <span class='op'>~</span><span class='va'>values</span>, type<span class='op'>=</span><span class='st'>'sunburst'</span>,
+        branchvalues <span class='op'>=</span> <span class='st'>'total'</span>,
+        textinfo<span class='op'>=</span><span class='st'>'label'</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div id="htmlwidget-5cb942a5601a3e761851" style="width:624px;height:768px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5cb942a5601a3e761851">{"x":{"visdat":{"5df08deee08":["function () ","plotlyVisDat"]},"cur_data":"5df08deee08","attrs":{"5df08deee08":{"ids":{},"labels":{},"parents":{},"values":{},"branchvalues":"total","textinfo":"label","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"sunburst"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"ids":["Total","Total - acwt","Total - adler","Total - bu","Total - cmu","Total - elman","Total - fridriksson","Total - garrett","Total - kansas","Total - kempler","Total - kurland","Total - msu","Total - scale","Total - star","Total - tap","Total - tcu","Total - thompson","Total - tucson","Total - unh","Total - whiteside","Total - williamson","Total - wozniak","Total - wright","Total - acwt - acwt01","Total - acwt - acwt02","Total - acwt - acwt03","Total - acwt - acwt04","Total - acwt - acwt07","Total - acwt - acwt09","Total - acwt - acwt11","Total - acwt - acwt12","Total - adler - adler01","Total - adler - adler02","Total - adler - adler03","Total - adler - adler04","Total - adler - adler05","Total - adler - adler06","Total - adler - adler07","Total - adler - adler08","Total - adler - adler09","Total - adler - adler12","Total - adler - adler13","Total - adler - adler14","Total - adler - adler15","Total - adler - adler16","Total - adler - adler17","Total - adler - adler18","Total - adler - adler20","Total - adler - adler21","Total - adler - adler22","Total - adler - adler23","Total - adler - adler24","Total - adler - adler25","Total - bu - bu01","Total - bu - bu02","Total - bu - bu04","Total - bu - bu05","Total - bu - bu06","Total - bu - bu07","Total - bu - bu08","Total - bu - bu09","Total - bu - bu10","Total - bu - bu11","Total - bu - bu12","Total - cmu - cmu01","Total - cmu - cmu02","Total - cmu - cmu03","Total - elman - elman01","Total - elman - elman02","Total - elman - elman03","Total - elman - elman04","Total - elman - elman05","Total - elman - elman06","Total - elman - elman07","Total - elman - elman08","Total - elman - elman09","Total - elman - elman10","Total - elman - elman11","Total - elman - elman12","Total - elman - elman13","Total - elman - elman14","Total - elman - elman15","Total - fridriksson - fridriksson01","Total - fridriksson - fridriksson02","Total - fridriksson - fridriksson03","Total - fridriksson - fridriksson04","Total - fridriksson - fridriksson05","Total - fridriksson - fridriksson06","Total - fridriksson - fridriksson07","Total - fridriksson - fridriksson09","Total - fridriksson - fridriksson10","Total - fridriksson - fridriksson11","Total - fridriksson - fridriksson12","Total - fridriksson - fridriksson13","Total - garrett - garrett01","Total - garrett - garrett02","Total - kansas - kansas03","Total - kansas - kansas04","Total - kansas - kansas05","Total - kansas - kansas07","Total - kansas - kansas10","Total - kansas - kansas11","Total - kansas - kansas13","Total - kansas - kansas14","Total - kansas - kansas15","Total - kansas - kansas16","Total - kansas - kansas17","Total - kansas - kansas18","Total - kansas - kansas20","Total - kansas - kansas21","Total - kansas - kansas22","Total - kansas - kansas23","Total - kempler - kempler02","Total - kempler - kempler03","Total - kempler - kempler04","Total - kurland - kurland01","Total - kurland - kurland02","Total - kurland - kurland03","Total - kurland - kurland04","Total - kurland - kurland05","Total - kurland - kurland06","Total - kurland - kurland07","Total - kurland - kurland08","Total - kurland - kurland09","Total - kurland - kurland10","Total - kurland - kurland12","Total - kurland - kurland13","Total - kurland - kurland14","Total - kurland - kurland15","Total - kurland - kurland16","Total - kurland - kurland17","Total - kurland - kurland18","Total - kurland - kurland19","Total - kurland - kurland20","Total - kurland - kurland21","Total - kurland - kurland22","Total - kurland - kurland23","Total - kurland - kurland24","Total - kurland - kurland25","Total - kurland - kurland26","Total - kurland - kurland27","Total - kurland - kurland28","Total - kurland - kurland29","Total - msu - msu01","Total - msu - msu02","Total - msu - msu03","Total - msu - msu04","Total - msu - msu05","Total - msu - msu06","Total - msu - msu07","Total - msu - msu08","Total - scale - scale01","Total - scale - scale02","Total - scale - scale03","Total - scale - scale04","Total - scale - scale05","Total - scale - scale06","Total - scale - scale07","Total - scale - scale08","Total - scale - scale10","Total - scale - scale11","Total - scale - scale12","Total - scale - scale13","Total - scale - scale14","Total - scale - scale15","Total - scale - scale16","Total - scale - scale17","Total - scale - scale18","Total - scale - scale19","Total - scale - scale20","Total - scale - scale21","Total - scale - scale22","Total - scale - scale23","Total - scale - scale24","Total - scale - scale25","Total - scale - scale26","Total - scale - scale30","Total - scale - scale31","Total - scale - scale32","Total - scale - scale33","Total - scale - scale34","Total - scale - scale35","Total - scale - scale36","Total - scale - scale38","Total - star - star03","Total - tap - tap01","Total - tap - tap02","Total - tap - tap04","Total - tap - tap05","Total - tap - tap07","Total - tap - tap08","Total - tap - tap09","Total - tap - tap10","Total - tap - tap12","Total - tap - tap13","Total - tap - tap14","Total - tap - tap15","Total - tap - tap16","Total - tap - tap18","Total - tap - tap19","Total - tcu - tcu01","Total - tcu - tcu02","Total - tcu - tcu03","Total - tcu - tcu05","Total - tcu - tcu07","Total - tcu - tcu08","Total - tcu - tcu09","Total - tcu - tcu10","Total - thompson - thompson01","Total - thompson - thompson02","Total - thompson - thompson03","Total - thompson - thompson04","Total - thompson - thompson05","Total - thompson - thompson06","Total - thompson - thompson07","Total - thompson - thompson08","Total - thompson - thompson09","Total - thompson - thompson10","Total - thompson - thompson11","Total - thompson - thompson12","Total - thompson - thompson13","Total - thompson - thompson14","Total - tucson - tucson01","Total - tucson - tucson02","Total - tucson - tucson03","Total - tucson - tucson04","Total - tucson - tucson06","Total - tucson - tucson07","Total - tucson - tucson08","Total - tucson - tucson09","Total - tucson - tucson10","Total - tucson - tucson11","Total - tucson - tucson12","Total - tucson - tucson13","Total - tucson - tucson14","Total - tucson - tucson15","Total - tucson - tucson16","Total - tucson - tucson17","Total - tucson - tucson18","Total - tucson - tucson19","Total - tucson - tucson20","Total - tucson - tucson22","Total - unh - unh01","Total - unh - unh02","Total - unh - unh03","Total - unh - unh04","Total - unh - unh05","Total - unh - unh06","Total - unh - unh07","Total - unh - unh08","Total - unh - unh10","Total - unh - unh11","Total - whiteside - whiteside01","Total - whiteside - whiteside02","Total - whiteside - whiteside04","Total - whiteside - whiteside05","Total - whiteside - whiteside06","Total - whiteside - whiteside07","Total - whiteside - whiteside08","Total - whiteside - whiteside10","Total - whiteside - whiteside12","Total - whiteside - whiteside13","Total - whiteside - whiteside14","Total - whiteside - whiteside15","Total - whiteside - whiteside17","Total - whiteside - whiteside18","Total - whiteside - whiteside19","Total - whiteside - whiteside20","Total - williamson - williamson01","Total - williamson - williamson02","Total - williamson - williamson03","Total - williamson - williamson04","Total - williamson - williamson05","Total - williamson - williamson06","Total - williamson - williamson07","Total - williamson - williamson08","Total - williamson - williamson09","Total - williamson - williamson10","Total - williamson - williamson11","Total - williamson - williamson12","Total - williamson - williamson13","Total - williamson - williamson14","Total - williamson - williamson15","Total - williamson - williamson16","Total - williamson - williamson17","Total - williamson - williamson18","Total - williamson - williamson19","Total - williamson - williamson21","Total - williamson - williamson22","Total - williamson - williamson23","Total - williamson - williamson24","Total - wozniak - wozniak01","Total - wozniak - wozniak02","Total - wozniak - wozniak03","Total - wozniak - wozniak04","Total - wozniak - wozniak05","Total - wozniak - wozniak06","Total - wozniak - wozniak07","Total - wright - wright201","Total - wright - wright202","Total - wright - wright203","Total - wright - wright204","Total - wright - wright205","Total - wright - wright206","Total - wright - wright207","Total - bu - bu03","Total - kansas - kansas02","Total - kansas - kansas12","Total - kansas - kansas19","Total - scale - scale28","Total - whiteside - whiteside03","Total - whiteside - whiteside09","Total - whiteside - whiteside11","Total - whiteside - whiteside16","Total - acwt - acwt10","Total - kansas - kansas01","Total - kansas - kansas06","Total - acwt - acwt01 - cat","Total - acwt - acwt02 - cat","Total - acwt - acwt03 - cat","Total - acwt - acwt04 - cat","Total - acwt - acwt07 - cat","Total - acwt - acwt09 - cat","Total - acwt - acwt11 - cat","Total - acwt - acwt12 - cat","Total - adler - adler01 - cat","Total - adler - adler02 - cat","Total - adler - adler03 - cat","Total - adler - adler04 - cat","Total - adler - adler05 - cat","Total - adler - adler06 - cat","Total - adler - adler07 - cat","Total - adler - adler08 - cat","Total - adler - adler09 - cat","Total - adler - adler12 - cat","Total - adler - adler13 - cat","Total - adler - adler14 - cat","Total - adler - adler15 - cat","Total - adler - adler16 - cat","Total - adler - adler17 - cat","Total - adler - adler18 - cat","Total - adler - adler20 - cat","Total - adler - adler21 - cat","Total - adler - adler22 - cat","Total - adler - adler23 - cat","Total - adler - adler24 - cat","Total - adler - adler25 - cat","Total - bu - bu01 - cat","Total - bu - bu02 - cat","Total - bu - bu04 - cat","Total - bu - bu05 - cat","Total - bu - bu06 - cat","Total - bu - bu07 - cat","Total - bu - bu08 - cat","Total - bu - bu09 - cat","Total - bu - bu10 - cat","Total - bu - bu11 - cat","Total - bu - bu12 - cat","Total - cmu - cmu01 - cat","Total - cmu - cmu02 - cat","Total - cmu - cmu03 - cat","Total - elman - elman01 - cat","Total - elman - elman02 - cat","Total - elman - elman03 - cat","Total - elman - elman04 - cat","Total - elman - elman05 - cat","Total - elman - elman06 - cat","Total - elman - elman07 - cat","Total - elman - elman08 - cat","Total - elman - elman09 - cat","Total - elman - elman10 - cat","Total - elman - elman11 - cat","Total - elman - elman12 - cat","Total - elman - elman13 - cat","Total - elman - elman14 - cat","Total - elman - elman15 - cat","Total - fridriksson - fridriksson01 - cat","Total - fridriksson - fridriksson02 - cat","Total - fridriksson - fridriksson03 - cat","Total - fridriksson - fridriksson04 - cat","Total - fridriksson - fridriksson05 - cat","Total - fridriksson - fridriksson06 - cat","Total - fridriksson - fridriksson07 - cat","Total - fridriksson - fridriksson09 - cat","Total - fridriksson - fridriksson10 - cat","Total - fridriksson - fridriksson11 - cat","Total - fridriksson - fridriksson12 - cat","Total - fridriksson - fridriksson13 - cat","Total - garrett - garrett01 - cat","Total - garrett - garrett02 - cat","Total - kansas - kansas03 - cat","Total - kansas - kansas04 - cat","Total - kansas - kansas05 - cat","Total - kansas - kansas07 - cat","Total - kansas - kansas10 - cat","Total - kansas - kansas11 - cat","Total - kansas - kansas13 - cat","Total - kansas - kansas14 - cat","Total - kansas - kansas15 - cat","Total - kansas - kansas16 - cat","Total - kansas - kansas17 - cat","Total - kansas - kansas18 - cat","Total - kansas - kansas20 - cat","Total - kansas - kansas21 - cat","Total - kansas - kansas22 - cat","Total - kansas - kansas23 - cat","Total - kempler - kempler02 - cat","Total - kempler - kempler03 - cat","Total - kempler - kempler04 - cat","Total - kurland - kurland01 - cat","Total - kurland - kurland02 - cat","Total - kurland - kurland03 - cat","Total - kurland - kurland04 - cat","Total - kurland - kurland05 - cat","Total - kurland - kurland06 - cat","Total - kurland - kurland07 - cat","Total - kurland - kurland08 - cat","Total - kurland - kurland09 - cat","Total - kurland - kurland10 - cat","Total - kurland - kurland12 - cat","Total - kurland - kurland13 - cat","Total - kurland - kurland14 - cat","Total - kurland - kurland15 - cat","Total - kurland - kurland16 - cat","Total - kurland - kurland17 - cat","Total - kurland - kurland18 - cat","Total - kurland - kurland19 - cat","Total - kurland - kurland20 - cat","Total - kurland - kurland21 - cat","Total - kurland - kurland22 - cat","Total - kurland - kurland23 - cat","Total - kurland - kurland24 - cat","Total - kurland - kurland25 - cat","Total - kurland - kurland26 - cat","Total - kurland - kurland27 - cat","Total - kurland - kurland28 - cat","Total - kurland - kurland29 - cat","Total - msu - msu01 - cat","Total - msu - msu02 - cat","Total - msu - msu03 - cat","Total - msu - msu04 - cat","Total - msu - msu05 - cat","Total - msu - msu06 - cat","Total - msu - msu07 - cat","Total - msu - msu08 - cat","Total - scale - scale01 - cat","Total - scale - scale02 - cat","Total - scale - scale03 - cat","Total - scale - scale04 - cat","Total - scale - scale05 - cat","Total - scale - scale06 - cat","Total - scale - scale07 - cat","Total - scale - scale08 - cat","Total - scale - scale10 - cat","Total - scale - scale11 - cat","Total - scale - scale12 - cat","Total - scale - scale13 - cat","Total - scale - scale14 - cat","Total - scale - scale15 - cat","Total - scale - scale16 - cat","Total - scale - scale17 - cat","Total - scale - scale18 - cat","Total - scale - scale19 - cat","Total - scale - scale20 - cat","Total - scale - scale21 - cat","Total - scale - scale22 - cat","Total - scale - scale23 - cat","Total - scale - scale24 - cat","Total - scale - scale25 - cat","Total - scale - scale26 - cat","Total - scale - scale30 - cat","Total - scale - scale31 - cat","Total - scale - scale32 - cat","Total - scale - scale33 - cat","Total - scale - scale34 - cat","Total - scale - scale35 - cat","Total - scale - scale36 - cat","Total - scale - scale38 - cat","Total - star - star03 - cat","Total - tap - tap01 - cat","Total - tap - tap02 - cat","Total - tap - tap04 - cat","Total - tap - tap05 - cat","Total - tap - tap07 - cat","Total - tap - tap08 - cat","Total - tap - tap09 - cat","Total - tap - tap10 - cat","Total - tap - tap12 - cat","Total - tap - tap13 - cat","Total - tap - tap14 - cat","Total - tap - tap15 - cat","Total - tap - tap16 - cat","Total - tap - tap18 - cat","Total - tap - tap19 - cat","Total - tcu - tcu01 - cat","Total - tcu - tcu02 - cat","Total - tcu - tcu03 - cat","Total - tcu - tcu05 - cat","Total - tcu - tcu07 - cat","Total - tcu - tcu08 - cat","Total - tcu - tcu09 - cat","Total - tcu - tcu10 - cat","Total - thompson - thompson01 - cat","Total - thompson - thompson02 - cat","Total - thompson - thompson03 - cat","Total - thompson - thompson04 - cat","Total - thompson - thompson05 - cat","Total - thompson - thompson06 - cat","Total - thompson - thompson07 - cat","Total - thompson - thompson08 - cat","Total - thompson - thompson09 - cat","Total - thompson - thompson10 - cat","Total - thompson - thompson11 - cat","Total - thompson - thompson12 - cat","Total - thompson - thompson13 - cat","Total - thompson - thompson14 - cat","Total - tucson - tucson01 - cat","Total - tucson - tucson02 - cat","Total - tucson - tucson03 - cat","Total - tucson - tucson04 - cat","Total - tucson - tucson06 - cat","Total - tucson - tucson07 - cat","Total - tucson - tucson08 - cat","Total - tucson - tucson09 - cat","Total - tucson - tucson10 - cat","Total - tucson - tucson11 - cat","Total - tucson - tucson12 - cat","Total - tucson - tucson13 - cat","Total - tucson - tucson14 - cat","Total - tucson - tucson15 - cat","Total - tucson - tucson16 - cat","Total - tucson - tucson17 - cat","Total - tucson - tucson18 - cat","Total - tucson - tucson19 - cat","Total - tucson - tucson20 - cat","Total - tucson - tucson22 - cat","Total - unh - unh01 - cat","Total - unh - unh02 - cat","Total - unh - unh03 - cat","Total - unh - unh04 - cat","Total - unh - unh05 - cat","Total - unh - unh06 - cat","Total - unh - unh07 - cat","Total - unh - unh08 - cat","Total - unh - unh10 - cat","Total - unh - unh11 - cat","Total - whiteside - whiteside01 - cat","Total - whiteside - whiteside02 - cat","Total - whiteside - whiteside04 - cat","Total - whiteside - whiteside05 - cat","Total - whiteside - whiteside06 - cat","Total - whiteside - whiteside07 - cat","Total - whiteside - whiteside08 - cat","Total - whiteside - whiteside10 - cat","Total - whiteside - whiteside12 - cat","Total - whiteside - whiteside13 - cat","Total - whiteside - whiteside14 - cat","Total - whiteside - whiteside15 - cat","Total - whiteside - whiteside17 - cat","Total - whiteside - whiteside18 - cat","Total - whiteside - whiteside19 - cat","Total - whiteside - whiteside20 - cat","Total - williamson - williamson01 - cat","Total - williamson - williamson02 - cat","Total - williamson - williamson03 - cat","Total - williamson - williamson04 - cat","Total - williamson - williamson05 - cat","Total - williamson - williamson06 - cat","Total - williamson - williamson07 - cat","Total - williamson - williamson08 - cat","Total - williamson - williamson09 - cat","Total - williamson - williamson10 - cat","Total - williamson - williamson11 - cat","Total - williamson - williamson12 - cat","Total - williamson - williamson13 - cat","Total - williamson - williamson14 - cat","Total - williamson - williamson15 - cat","Total - williamson - williamson16 - cat","Total - williamson - williamson17 - cat","Total - williamson - williamson18 - cat","Total - williamson - williamson19 - cat","Total - williamson - williamson21 - cat","Total - williamson - williamson22 - cat","Total - williamson - williamson23 - cat","Total - williamson - williamson24 - cat","Total - wozniak - wozniak01 - cat","Total - wozniak - wozniak02 - cat","Total - wozniak - wozniak03 - cat","Total - wozniak - wozniak04 - cat","Total - wozniak - wozniak05 - cat","Total - wozniak - wozniak06 - cat","Total - wozniak - wozniak07 - cat","Total - wright - wright201 - cat","Total - wright - wright202 - cat","Total - wright - wright203 - cat","Total - wright - wright204 - cat","Total - wright - wright205 - cat","Total - wright - wright206 - cat","Total - wright - wright207 - cat","Total - acwt - acwt01 - umbrella","Total - acwt - acwt02 - umbrella","Total - acwt - acwt03 - umbrella","Total - acwt - acwt04 - umbrella","Total - acwt - acwt07 - umbrella","Total - acwt - acwt11 - umbrella","Total - acwt - acwt12 - umbrella","Total - adler - adler01 - umbrella","Total - adler - adler02 - umbrella","Total - adler - adler03 - umbrella","Total - adler - adler04 - umbrella","Total - adler - adler05 - umbrella","Total - adler - adler06 - umbrella","Total - adler - adler07 - umbrella","Total - adler - adler08 - umbrella","Total - adler - adler09 - umbrella","Total - adler - adler12 - umbrella","Total - adler - adler13 - umbrella","Total - adler - adler14 - umbrella","Total - adler - adler15 - umbrella","Total - adler - adler16 - umbrella","Total - adler - adler17 - umbrella","Total - adler - adler18 - umbrella","Total - adler - adler20 - umbrella","Total - adler - adler21 - umbrella","Total - adler - adler22 - umbrella","Total - adler - adler23 - umbrella","Total - adler - adler24 - umbrella","Total - adler - adler25 - umbrella","Total - bu - bu01 - umbrella","Total - bu - bu02 - umbrella","Total - bu - bu03 - umbrella","Total - bu - bu04 - umbrella","Total - bu - bu05 - umbrella","Total - bu - bu06 - umbrella","Total - bu - bu07 - umbrella","Total - bu - bu08 - umbrella","Total - bu - bu09 - umbrella","Total - bu - bu10 - umbrella","Total - bu - bu11 - umbrella","Total - bu - bu12 - umbrella","Total - cmu - cmu01 - umbrella","Total - cmu - cmu02 - umbrella","Total - cmu - cmu03 - umbrella","Total - elman - elman01 - umbrella","Total - elman - elman02 - umbrella","Total - elman - elman03 - umbrella","Total - elman - elman04 - umbrella","Total - elman - elman05 - umbrella","Total - elman - elman06 - umbrella","Total - elman - elman07 - umbrella","Total - elman - elman08 - umbrella","Total - elman - elman10 - umbrella","Total - elman - elman11 - umbrella","Total - elman - elman12 - umbrella","Total - elman - elman13 - umbrella","Total - elman - elman14 - umbrella","Total - elman - elman15 - umbrella","Total - fridriksson - fridriksson01 - umbrella","Total - fridriksson - fridriksson02 - umbrella","Total - fridriksson - fridriksson03 - umbrella","Total - fridriksson - fridriksson04 - umbrella","Total - fridriksson - fridriksson05 - umbrella","Total - fridriksson - fridriksson06 - umbrella","Total - fridriksson - fridriksson07 - umbrella","Total - fridriksson - fridriksson09 - umbrella","Total - fridriksson - fridriksson10 - umbrella","Total - fridriksson - fridriksson11 - umbrella","Total - fridriksson - fridriksson12 - umbrella","Total - garrett - garrett01 - umbrella","Total - garrett - garrett02 - umbrella","Total - kansas - kansas02 - umbrella","Total - kansas - kansas03 - umbrella","Total - kansas - kansas04 - umbrella","Total - kansas - kansas05 - umbrella","Total - kansas - kansas07 - umbrella","Total - kansas - kansas10 - umbrella","Total - kansas - kansas11 - umbrella","Total - kansas - kansas12 - umbrella","Total - kansas - kansas13 - umbrella","Total - kansas - kansas14 - umbrella","Total - kansas - kansas15 - umbrella","Total - kansas - kansas16 - umbrella","Total - kansas - kansas17 - umbrella","Total - kansas - kansas18 - umbrella","Total - kansas - kansas19 - umbrella","Total - kansas - kansas20 - umbrella","Total - kansas - kansas21 - umbrella","Total - kansas - kansas22 - umbrella","Total - kansas - kansas23 - umbrella","Total - kempler - kempler02 - umbrella","Total - kempler - kempler04 - umbrella","Total - kurland - kurland01 - umbrella","Total - kurland - kurland02 - umbrella","Total - kurland - kurland03 - umbrella","Total - kurland - kurland04 - umbrella","Total - kurland - kurland05 - umbrella","Total - kurland - kurland06 - umbrella","Total - kurland - kurland07 - umbrella","Total - kurland - kurland08 - umbrella","Total - kurland - kurland09 - umbrella","Total - kurland - kurland10 - umbrella","Total - kurland - kurland12 - umbrella","Total - kurland - kurland13 - umbrella","Total - kurland - kurland14 - umbrella","Total - kurland - kurland15 - umbrella","Total - kurland - kurland16 - umbrella","Total - kurland - kurland17 - umbrella","Total - kurland - kurland18 - umbrella","Total - kurland - kurland19 - umbrella","Total - kurland - kurland20 - umbrella","Total - kurland - kurland21 - umbrella","Total - kurland - kurland22 - umbrella","Total - kurland - kurland23 - umbrella","Total - kurland - kurland24 - umbrella","Total - kurland - kurland25 - umbrella","Total - kurland - kurland26 - umbrella","Total - kurland - kurland27 - umbrella","Total - kurland - kurland28 - umbrella","Total - kurland - kurland29 - umbrella","Total - msu - msu01 - umbrella","Total - msu - msu02 - umbrella","Total - msu - msu03 - umbrella","Total - msu - msu04 - umbrella","Total - msu - msu05 - umbrella","Total - msu - msu06 - umbrella","Total - msu - msu07 - umbrella","Total - msu - msu08 - umbrella","Total - scale - scale01 - umbrella","Total - scale - scale02 - umbrella","Total - scale - scale03 - umbrella","Total - scale - scale05 - umbrella","Total - scale - scale06 - umbrella","Total - scale - scale07 - umbrella","Total - scale - scale08 - umbrella","Total - scale - scale11 - umbrella","Total - scale - scale12 - umbrella","Total - scale - scale13 - umbrella","Total - scale - scale14 - umbrella","Total - scale - scale15 - umbrella","Total - scale - scale16 - umbrella","Total - scale - scale17 - umbrella","Total - scale - scale18 - umbrella","Total - scale - scale19 - umbrella","Total - scale - scale20 - umbrella","Total - scale - scale21 - umbrella","Total - scale - scale22 - umbrella","Total - scale - scale23 - umbrella","Total - scale - scale24 - umbrella","Total - scale - scale25 - umbrella","Total - scale - scale28 - umbrella","Total - scale - scale30 - umbrella","Total - scale - scale31 - umbrella","Total - scale - scale32 - umbrella","Total - scale - scale33 - umbrella","Total - scale - scale34 - umbrella","Total - scale - scale35 - umbrella","Total - scale - scale36 - umbrella","Total - scale - scale38 - umbrella","Total - star - star03 - umbrella","Total - tap - tap01 - umbrella","Total - tap - tap02 - umbrella","Total - tap - tap04 - umbrella","Total - tap - tap05 - umbrella","Total - tap - tap07 - umbrella","Total - tap - tap08 - umbrella","Total - tap - tap09 - umbrella","Total - tap - tap10 - umbrella","Total - tap - tap13 - umbrella","Total - tap - tap14 - umbrella","Total - tap - tap15 - umbrella","Total - tap - tap16 - umbrella","Total - tap - tap18 - umbrella","Total - tap - tap19 - umbrella","Total - tcu - tcu01 - umbrella","Total - tcu - tcu02 - umbrella","Total - tcu - tcu03 - umbrella","Total - tcu - tcu05 - umbrella","Total - tcu - tcu07 - umbrella","Total - tcu - tcu08 - umbrella","Total - tcu - tcu09 - umbrella","Total - tcu - tcu10 - umbrella","Total - thompson - thompson01 - umbrella","Total - thompson - thompson02 - umbrella","Total - thompson - thompson03 - umbrella","Total - thompson - thompson04 - umbrella","Total - thompson - thompson05 - umbrella","Total - thompson - thompson06 - umbrella","Total - thompson - thompson07 - umbrella","Total - thompson - thompson08 - umbrella","Total - thompson - thompson09 - umbrella","Total - thompson - thompson10 - umbrella","Total - thompson - thompson11 - umbrella","Total - thompson - thompson12 - umbrella","Total - thompson - thompson13 - umbrella","Total - thompson - thompson14 - umbrella","Total - tucson - tucson01 - umbrella","Total - tucson - tucson02 - umbrella","Total - tucson - tucson03 - umbrella","Total - tucson - tucson04 - umbrella","Total - tucson - tucson06 - umbrella","Total - tucson - tucson07 - umbrella","Total - tucson - tucson08 - umbrella","Total - tucson - tucson09 - umbrella","Total - tucson - tucson10 - umbrella","Total - tucson - tucson11 - umbrella","Total - tucson - tucson12 - umbrella","Total - tucson - tucson13 - umbrella","Total - tucson - tucson15 - umbrella","Total - tucson - tucson16 - umbrella","Total - tucson - tucson17 - umbrella","Total - tucson - tucson18 - umbrella","Total - tucson - tucson19 - umbrella","Total - tucson - tucson22 - umbrella","Total - unh - unh01 - umbrella","Total - unh - unh02 - umbrella","Total - unh - unh03 - umbrella","Total - unh - unh05 - umbrella","Total - unh - unh06 - umbrella","Total - unh - unh08 - umbrella","Total - unh - unh11 - umbrella","Total - whiteside - whiteside01 - umbrella","Total - whiteside - whiteside02 - umbrella","Total - whiteside - whiteside03 - umbrella","Total - whiteside - whiteside05 - umbrella","Total - whiteside - whiteside06 - umbrella","Total - whiteside - whiteside07 - umbrella","Total - whiteside - whiteside08 - umbrella","Total - whiteside - whiteside09 - umbrella","Total - whiteside - whiteside10 - umbrella","Total - whiteside - whiteside11 - umbrella","Total - whiteside - whiteside12 - umbrella","Total - whiteside - whiteside13 - umbrella","Total - whiteside - whiteside14 - umbrella","Total - whiteside - whiteside15 - umbrella","Total - whiteside - whiteside16 - umbrella","Total - whiteside - whiteside17 - umbrella","Total - whiteside - whiteside18 - umbrella","Total - whiteside - whiteside19 - umbrella","Total - whiteside - whiteside20 - umbrella","Total - williamson - williamson01 - umbrella","Total - williamson - williamson02 - umbrella","Total - williamson - williamson03 - umbrella","Total - williamson - williamson04 - umbrella","Total - williamson - williamson05 - umbrella","Total - williamson - williamson06 - umbrella","Total - williamson - williamson07 - umbrella","Total - williamson - williamson08 - umbrella","Total - williamson - williamson09 - umbrella","Total - williamson - williamson10 - umbrella","Total - williamson - williamson11 - umbrella","Total - williamson - williamson12 - umbrella","Total - williamson - williamson13 - umbrella","Total - williamson - williamson14 - umbrella","Total - williamson - williamson15 - umbrella","Total - williamson - williamson16 - umbrella","Total - williamson - williamson17 - umbrella","Total - williamson - williamson18 - umbrella","Total - williamson - williamson21 - umbrella","Total - williamson - williamson22 - umbrella","Total - williamson - williamson23 - umbrella","Total - williamson - williamson24 - umbrella","Total - wozniak - wozniak01 - umbrella","Total - wozniak - wozniak02 - umbrella","Total - wozniak - wozniak03 - umbrella","Total - wozniak - wozniak04 - umbrella","Total - wozniak - wozniak05 - umbrella","Total - wozniak - wozniak06 - umbrella","Total - wozniak - wozniak07 - umbrella","Total - wright - wright202 - umbrella","Total - wright - wright203 - umbrella","Total - wright - wright204 - umbrella","Total - wright - wright206 - umbrella","Total - wright - wright207 - umbrella","Total - acwt - acwt02 - window","Total - acwt - acwt04 - window","Total - acwt - acwt07 - window","Total - acwt - acwt09 - window","Total - acwt - acwt10 - window","Total - acwt - acwt11 - window","Total - acwt - acwt12 - window","Total - adler - adler01 - window","Total - adler - adler02 - window","Total - adler - adler03 - window","Total - adler - adler04 - window","Total - adler - adler05 - window","Total - adler - adler06 - window","Total - adler - adler07 - window","Total - adler - adler08 - window","Total - adler - adler09 - window","Total - adler - adler12 - window","Total - adler - adler13 - window","Total - adler - adler14 - window","Total - adler - adler15 - window","Total - adler - adler16 - window","Total - adler - adler17 - window","Total - adler - adler20 - window","Total - adler - adler21 - window","Total - adler - adler22 - window","Total - adler - adler23 - window","Total - adler - adler24 - window","Total - adler - adler25 - window","Total - bu - bu01 - window","Total - bu - bu02 - window","Total - bu - bu03 - window","Total - bu - bu04 - window","Total - bu - bu05 - window","Total - bu - bu06 - window","Total - bu - bu07 - window","Total - bu - bu08 - window","Total - bu - bu09 - window","Total - bu - bu10 - window","Total - bu - bu11 - window","Total - bu - bu12 - window","Total - cmu - cmu01 - window","Total - cmu - cmu02 - window","Total - cmu - cmu03 - window","Total - elman - elman01 - window","Total - elman - elman02 - window","Total - elman - elman04 - window","Total - elman - elman05 - window","Total - elman - elman06 - window","Total - elman - elman07 - window","Total - elman - elman08 - window","Total - elman - elman09 - window","Total - elman - elman10 - window","Total - elman - elman11 - window","Total - elman - elman12 - window","Total - elman - elman13 - window","Total - elman - elman14 - window","Total - elman - elman15 - window","Total - fridriksson - fridriksson01 - window","Total - fridriksson - fridriksson02 - window","Total - fridriksson - fridriksson03 - window","Total - fridriksson - fridriksson04 - window","Total - fridriksson - fridriksson05 - window","Total - fridriksson - fridriksson06 - window","Total - fridriksson - fridriksson07 - window","Total - fridriksson - fridriksson09 - window","Total - fridriksson - fridriksson10 - window","Total - fridriksson - fridriksson11 - window","Total - fridriksson - fridriksson12 - window","Total - garrett - garrett01 - window","Total - garrett - garrett02 - window","Total - kansas - kansas01 - window","Total - kansas - kansas03 - window","Total - kansas - kansas04 - window","Total - kansas - kansas05 - window","Total - kansas - kansas06 - window","Total - kansas - kansas07 - window","Total - kansas - kansas10 - window","Total - kansas - kansas11 - window","Total - kansas - kansas12 - window","Total - kansas - kansas13 - window","Total - kansas - kansas14 - window","Total - kansas - kansas15 - window","Total - kansas - kansas16 - window","Total - kansas - kansas17 - window","Total - kansas - kansas18 - window","Total - kansas - kansas19 - window","Total - kansas - kansas20 - window","Total - kansas - kansas21 - window","Total - kansas - kansas22 - window","Total - kansas - kansas23 - window","Total - kempler - kempler02 - window","Total - kempler - kempler03 - window","Total - kempler - kempler04 - window","Total - kurland - kurland01 - window","Total - kurland - kurland02 - window","Total - kurland - kurland03 - window","Total - kurland - kurland04 - window","Total - kurland - kurland05 - window","Total - kurland - kurland06 - window","Total - kurland - kurland07 - window","Total - kurland - kurland08 - window","Total - kurland - kurland09 - window","Total - kurland - kurland10 - window","Total - kurland - kurland12 - window","Total - kurland - kurland13 - window","Total - kurland - kurland14 - window","Total - kurland - kurland16 - window","Total - kurland - kurland17 - window","Total - kurland - kurland18 - window","Total - kurland - kurland19 - window","Total - kurland - kurland20 - window","Total - kurland - kurland21 - window","Total - kurland - kurland22 - window","Total - kurland - kurland23 - window","Total - kurland - kurland24 - window","Total - kurland - kurland25 - window","Total - kurland - kurland26 - window","Total - kurland - kurland27 - window","Total - kurland - kurland28 - window","Total - kurland - kurland29 - window","Total - msu - msu01 - window","Total - msu - msu02 - window","Total - msu - msu03 - window","Total - msu - msu04 - window","Total - msu - msu05 - window","Total - msu - msu06 - window","Total - msu - msu07 - window","Total - msu - msu08 - window","Total - scale - scale01 - window","Total - scale - scale02 - window","Total - scale - scale03 - window","Total - scale - scale06 - window","Total - scale - scale08 - window","Total - scale - scale10 - window","Total - scale - scale11 - window","Total - scale - scale12 - window","Total - scale - scale13 - window","Total - scale - scale14 - window","Total - scale - scale15 - window","Total - scale - scale16 - window","Total - scale - scale17 - window","Total - scale - scale18 - window","Total - scale - scale19 - window","Total - scale - scale20 - window","Total - scale - scale21 - window","Total - scale - scale22 - window","Total - scale - scale23 - window","Total - scale - scale24 - window","Total - scale - scale25 - window","Total - scale - scale26 - window","Total - scale - scale28 - window","Total - scale - scale30 - window","Total - scale - scale31 - window","Total - scale - scale32 - window","Total - scale - scale33 - window","Total - scale - scale34 - window","Total - scale - scale35 - window","Total - scale - scale36 - window","Total - scale - scale38 - window","Total - star - star03 - window","Total - tap - tap01 - window","Total - tap - tap02 - window","Total - tap - tap04 - window","Total - tap - tap05 - window","Total - tap - tap07 - window","Total - tap - tap08 - window","Total - tap - tap09 - window","Total - tap - tap10 - window","Total - tap - tap12 - window","Total - tap - tap13 - window","Total - tap - tap14 - window","Total - tap - tap15 - window","Total - tap - tap18 - window","Total - tap - tap19 - window","Total - tcu - tcu01 - window","Total - tcu - tcu02 - window","Total - tcu - tcu05 - window","Total - tcu - tcu07 - window","Total - tcu - tcu08 - window","Total - tcu - tcu09 - window","Total - tcu - tcu10 - window","Total - thompson - thompson01 - window","Total - thompson - thompson02 - window","Total - thompson - thompson03 - window","Total - thompson - thompson04 - window","Total - thompson - thompson05 - window","Total - thompson - thompson06 - window","Total - thompson - thompson07 - window","Total - thompson - thompson08 - window","Total - thompson - thompson09 - window","Total - thompson - thompson10 - window","Total - thompson - thompson11 - window","Total - thompson - thompson12 - window","Total - thompson - thompson13 - window","Total - thompson - thompson14 - window","Total - tucson - tucson01 - window","Total - tucson - tucson02 - window","Total - tucson - tucson03 - window","Total - tucson - tucson04 - window","Total - tucson - tucson06 - window","Total - tucson - tucson07 - window","Total - tucson - tucson08 - window","Total - tucson - tucson10 - window","Total - tucson - tucson11 - window","Total - tucson - tucson12 - window","Total - tucson - tucson13 - window","Total - tucson - tucson15 - window","Total - tucson - tucson16 - window","Total - tucson - tucson18 - window","Total - tucson - tucson19 - window","Total - tucson - tucson20 - window","Total - tucson - tucson22 - window","Total - unh - unh01 - window","Total - unh - unh03 - window","Total - unh - unh04 - window","Total - unh - unh05 - window","Total - unh - unh06 - window","Total - unh - unh08 - window","Total - unh - unh10 - window","Total - unh - unh11 - window","Total - whiteside - whiteside01 - window","Total - whiteside - whiteside02 - window","Total - whiteside - whiteside03 - window","Total - whiteside - whiteside05 - window","Total - whiteside - whiteside06 - window","Total - whiteside - whiteside07 - window","Total - whiteside - whiteside08 - window","Total - whiteside - whiteside09 - window","Total - whiteside - whiteside10 - window","Total - whiteside - whiteside12 - window","Total - whiteside - whiteside13 - window","Total - whiteside - whiteside14 - window","Total - whiteside - whiteside15 - window","Total - whiteside - whiteside17 - window","Total - whiteside - whiteside18 - window","Total - whiteside - whiteside19 - window","Total - whiteside - whiteside20 - window","Total - williamson - williamson01 - window","Total - williamson - williamson02 - window","Total - williamson - williamson03 - window","Total - williamson - williamson04 - window","Total - williamson - williamson05 - window","Total - williamson - williamson06 - window","Total - williamson - williamson07 - window","Total - williamson - williamson08 - window","Total - williamson - williamson09 - window","Total - williamson - williamson10 - window","Total - williamson - williamson11 - window","Total - williamson - williamson12 - window","Total - williamson - williamson13 - window","Total - williamson - williamson14 - window","Total - williamson - williamson15 - window","Total - williamson - williamson16 - window","Total - williamson - williamson17 - window","Total - williamson - williamson18 - window","Total - williamson - williamson19 - window","Total - williamson - williamson21 - window","Total - williamson - williamson23 - window","Total - williamson - williamson24 - window","Total - wozniak - wozniak01 - window","Total - wozniak - wozniak02 - window","Total - wozniak - wozniak04 - window","Total - wozniak - wozniak05 - window","Total - wozniak - wozniak06 - window","Total - wozniak - wozniak07 - window","Total - wright - wright201 - window","Total - wright - wright202 - window","Total - wright - wright203 - window","Total - wright - wright204 - window","Total - wright - wright206 - window","Total - wright - wright207 - window"],"labels":["Total","acwt","adler","bu","cmu","elman","fridriksson","garrett","kansas","kempler","kurland","msu","scale","star","tap","tcu","thompson","tucson","unh","whiteside","williamson","wozniak","wright","acwt01","acwt02","acwt03","acwt04","acwt07","acwt09","acwt11","acwt12","adler01","adler02","adler03","adler04","adler05","adler06","adler07","adler08","adler09","adler12","adler13","adler14","adler15","adler16","adler17","adler18","adler20","adler21","adler22","adler23","adler24","adler25","bu01","bu02","bu04","bu05","bu06","bu07","bu08","bu09","bu10","bu11","bu12","cmu01","cmu02","cmu03","elman01","elman02","elman03","elman04","elman05","elman06","elman07","elman08","elman09","elman10","elman11","elman12","elman13","elman14","elman15","fridriksson01","fridriksson02","fridriksson03","fridriksson04","fridriksson05","fridriksson06","fridriksson07","fridriksson09","fridriksson10","fridriksson11","fridriksson12","fridriksson13","garrett01","garrett02","kansas03","kansas04","kansas05","kansas07","kansas10","kansas11","kansas13","kansas14","kansas15","kansas16","kansas17","kansas18","kansas20","kansas21","kansas22","kansas23","kempler02","kempler03","kempler04","kurland01","kurland02","kurland03","kurland04","kurland05","kurland06","kurland07","kurland08","kurland09","kurland10","kurland12","kurland13","kurland14","kurland15","kurland16","kurland17","kurland18","kurland19","kurland20","kurland21","kurland22","kurland23","kurland24","kurland25","kurland26","kurland27","kurland28","kurland29","msu01","msu02","msu03","msu04","msu05","msu06","msu07","msu08","scale01","scale02","scale03","scale04","scale05","scale06","scale07","scale08","scale10","scale11","scale12","scale13","scale14","scale15","scale16","scale17","scale18","scale19","scale20","scale21","scale22","scale23","scale24","scale25","scale26","scale30","scale31","scale32","scale33","scale34","scale35","scale36","scale38","star03","tap01","tap02","tap04","tap05","tap07","tap08","tap09","tap10","tap12","tap13","tap14","tap15","tap16","tap18","tap19","tcu01","tcu02","tcu03","tcu05","tcu07","tcu08","tcu09","tcu10","thompson01","thompson02","thompson03","thompson04","thompson05","thompson06","thompson07","thompson08","thompson09","thompson10","thompson11","thompson12","thompson13","thompson14","tucson01","tucson02","tucson03","tucson04","tucson06","tucson07","tucson08","tucson09","tucson10","tucson11","tucson12","tucson13","tucson14","tucson15","tucson16","tucson17","tucson18","tucson19","tucson20","tucson22","unh01","unh02","unh03","unh04","unh05","unh06","unh07","unh08","unh10","unh11","whiteside01","whiteside02","whiteside04","whiteside05","whiteside06","whiteside07","whiteside08","whiteside10","whiteside12","whiteside13","whiteside14","whiteside15","whiteside17","whiteside18","whiteside19","whiteside20","williamson01","williamson02","williamson03","williamson04","williamson05","williamson06","williamson07","williamson08","williamson09","williamson10","williamson11","williamson12","williamson13","williamson14","williamson15","williamson16","williamson17","williamson18","williamson19","williamson21","williamson22","williamson23","williamson24","wozniak01","wozniak02","wozniak03","wozniak04","wozniak05","wozniak06","wozniak07","wright201","wright202","wright203","wright204","wright205","wright206","wright207","bu03","kansas02","kansas12","kansas19","scale28","whiteside03","whiteside09","whiteside11","whiteside16","acwt10","kansas01","kansas06","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","cat","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","umbrella","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window","window"],"parents":[null,"Total","Total","Total","Total","Total","Total","Total","Total","Total","Total","Total","Total","Total","Total","Total","Total","Total","Total","Total","Total","Total","Total","Total - acwt","Total - acwt","Total - acwt","Total - acwt","Total - acwt","Total - acwt","Total - acwt","Total - acwt","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - adler","Total - bu","Total - bu","Total - bu","Total - bu","Total - bu","Total - bu","Total - bu","Total - bu","Total - bu","Total - bu","Total - bu","Total - cmu","Total - cmu","Total - cmu","Total - elman","Total - elman","Total - elman","Total - elman","Total - elman","Total - elman","Total - elman","Total - elman","Total - elman","Total - elman","Total - elman","Total - elman","Total - elman","Total - elman","Total - elman","Total - fridriksson","Total - fridriksson","Total - fridriksson","Total - fridriksson","Total - fridriksson","Total - fridriksson","Total - fridriksson","Total - fridriksson","Total - fridriksson","Total - fridriksson","Total - fridriksson","Total - fridriksson","Total - garrett","Total - garrett","Total - kansas","Total - kansas","Total - kansas","Total - kansas","Total - kansas","Total - kansas","Total - kansas","Total - kansas","Total - kansas","Total - kansas","Total - kansas","Total - kansas","Total - kansas","Total - kansas","Total - kansas","Total - kansas","Total - kempler","Total - kempler","Total - kempler","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - kurland","Total - msu","Total - msu","Total - msu","Total - msu","Total - msu","Total - msu","Total - msu","Total - msu","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - scale","Total - star","Total - tap","Total - tap","Total - tap","Total - tap","Total - tap","Total - tap","Total - tap","Total - tap","Total - tap","Total - tap","Total - tap","Total - tap","Total - tap","Total - tap","Total - tap","Total - tcu","Total - tcu","Total - tcu","Total - tcu","Total - tcu","Total - tcu","Total - tcu","Total - tcu","Total - thompson","Total - thompson","Total - thompson","Total - thompson","Total - thompson","Total - thompson","Total - thompson","Total - thompson","Total - thompson","Total - thompson","Total - thompson","Total - thompson","Total - thompson","Total - thompson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - tucson","Total - unh","Total - unh","Total - unh","Total - unh","Total - unh","Total - unh","Total - unh","Total - unh","Total - unh","Total - unh","Total - whiteside","Total - whiteside","Total - whiteside","Total - whiteside","Total - whiteside","Total - whiteside","Total - whiteside","Total - whiteside","Total - whiteside","Total - whiteside","Total - whiteside","Total - whiteside","Total - whiteside","Total - whiteside","Total - whiteside","Total - whiteside","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - williamson","Total - wozniak","Total - wozniak","Total - wozniak","Total - wozniak","Total - wozniak","Total - wozniak","Total - wozniak","Total - wright","Total - wright","Total - wright","Total - wright","Total - wright","Total - wright","Total - wright","Total - bu","Total - kansas","Total - kansas","Total - kansas","Total - scale","Total - whiteside","Total - whiteside","Total - whiteside","Total - whiteside","Total - acwt","Total - kansas","Total - kansas","Total - acwt - acwt01","Total - acwt - acwt02","Total - acwt - acwt03","Total - acwt - acwt04","Total - acwt - acwt07","Total - acwt - acwt09","Total - acwt - acwt11","Total - acwt - acwt12","Total - adler - adler01","Total - adler - adler02","Total - adler - adler03","Total - adler - adler04","Total - adler - adler05","Total - adler - adler06","Total - adler - adler07","Total - adler - adler08","Total - adler - adler09","Total - adler - adler12","Total - adler - adler13","Total - adler - adler14","Total - adler - adler15","Total - adler - adler16","Total - adler - adler17","Total - adler - adler18","Total - adler - adler20","Total - adler - adler21","Total - adler - adler22","Total - adler - adler23","Total - adler - adler24","Total - adler - adler25","Total - bu - bu01","Total - bu - bu02","Total - bu - bu04","Total - bu - bu05","Total - bu - bu06","Total - bu - bu07","Total - bu - bu08","Total - bu - bu09","Total - bu - bu10","Total - bu - bu11","Total - bu - bu12","Total - cmu - cmu01","Total - cmu - cmu02","Total - cmu - cmu03","Total - elman - elman01","Total - elman - elman02","Total - elman - elman03","Total - elman - elman04","Total - elman - elman05","Total - elman - elman06","Total - elman - elman07","Total - elman - elman08","Total - elman - elman09","Total - elman - elman10","Total - elman - elman11","Total - elman - elman12","Total - elman - elman13","Total - elman - elman14","Total - elman - elman15","Total - fridriksson - fridriksson01","Total - fridriksson - fridriksson02","Total - fridriksson - fridriksson03","Total - fridriksson - fridriksson04","Total - fridriksson - fridriksson05","Total - fridriksson - fridriksson06","Total - fridriksson - fridriksson07","Total - fridriksson - fridriksson09","Total - fridriksson - fridriksson10","Total - fridriksson - fridriksson11","Total - fridriksson - fridriksson12","Total - fridriksson - fridriksson13","Total - garrett - garrett01","Total - garrett - garrett02","Total - kansas - kansas03","Total - kansas - kansas04","Total - kansas - kansas05","Total - kansas - kansas07","Total - kansas - kansas10","Total - kansas - kansas11","Total - kansas - kansas13","Total - kansas - kansas14","Total - kansas - kansas15","Total - kansas - kansas16","Total - kansas - kansas17","Total - kansas - kansas18","Total - kansas - kansas20","Total - kansas - kansas21","Total - kansas - kansas22","Total - kansas - kansas23","Total - kempler - kempler02","Total - kempler - kempler03","Total - kempler - kempler04","Total - kurland - kurland01","Total - kurland - kurland02","Total - kurland - kurland03","Total - kurland - kurland04","Total - kurland - kurland05","Total - kurland - kurland06","Total - kurland - kurland07","Total - kurland - kurland08","Total - kurland - kurland09","Total - kurland - kurland10","Total - kurland - kurland12","Total - kurland - kurland13","Total - kurland - kurland14","Total - kurland - kurland15","Total - kurland - kurland16","Total - kurland - kurland17","Total - kurland - kurland18","Total - kurland - kurland19","Total - kurland - kurland20","Total - kurland - kurland21","Total - kurland - kurland22","Total - kurland - kurland23","Total - kurland - kurland24","Total - kurland - kurland25","Total - kurland - kurland26","Total - kurland - kurland27","Total - kurland - kurland28","Total - kurland - kurland29","Total - msu - msu01","Total - msu - msu02","Total - msu - msu03","Total - msu - msu04","Total - msu - msu05","Total - msu - msu06","Total - msu - msu07","Total - msu - msu08","Total - scale - scale01","Total - scale - scale02","Total - scale - scale03","Total - scale - scale04","Total - scale - scale05","Total - scale - scale06","Total - scale - scale07","Total - scale - scale08","Total - scale - scale10","Total - scale - scale11","Total - scale - scale12","Total - scale - scale13","Total - scale - scale14","Total - scale - scale15","Total - scale - scale16","Total - scale - scale17","Total - scale - scale18","Total - scale - scale19","Total - scale - scale20","Total - scale - scale21","Total - scale - scale22","Total - scale - scale23","Total - scale - scale24","Total - scale - scale25","Total - scale - scale26","Total - scale - scale30","Total - scale - scale31","Total - scale - scale32","Total - scale - scale33","Total - scale - scale34","Total - scale - scale35","Total - scale - scale36","Total - scale - scale38","Total - star - star03","Total - tap - tap01","Total - tap - tap02","Total - tap - tap04","Total - tap - tap05","Total - tap - tap07","Total - tap - tap08","Total - tap - tap09","Total - tap - tap10","Total - tap - tap12","Total - tap - tap13","Total - tap - tap14","Total - tap - tap15","Total - tap - tap16","Total - tap - tap18","Total - tap - tap19","Total - tcu - tcu01","Total - tcu - tcu02","Total - tcu - tcu03","Total - tcu - tcu05","Total - tcu - tcu07","Total - tcu - tcu08","Total - tcu - tcu09","Total - tcu - tcu10","Total - thompson - thompson01","Total - thompson - thompson02","Total - thompson - thompson03","Total - thompson - thompson04","Total - thompson - thompson05","Total - thompson - thompson06","Total - thompson - thompson07","Total - thompson - thompson08","Total - thompson - thompson09","Total - thompson - thompson10","Total - thompson - thompson11","Total - thompson - thompson12","Total - thompson - thompson13","Total - thompson - thompson14","Total - tucson - tucson01","Total - tucson - tucson02","Total - tucson - tucson03","Total - tucson - tucson04","Total - tucson - tucson06","Total - tucson - tucson07","Total - tucson - tucson08","Total - tucson - tucson09","Total - tucson - tucson10","Total - tucson - tucson11","Total - tucson - tucson12","Total - tucson - tucson13","Total - tucson - tucson14","Total - tucson - tucson15","Total - tucson - tucson16","Total - tucson - tucson17","Total - tucson - tucson18","Total - tucson - tucson19","Total - tucson - tucson20","Total - tucson - tucson22","Total - unh - unh01","Total - unh - unh02","Total - unh - unh03","Total - unh - unh04","Total - unh - unh05","Total - unh - unh06","Total - unh - unh07","Total - unh - unh08","Total - unh - unh10","Total - unh - unh11","Total - whiteside - whiteside01","Total - whiteside - whiteside02","Total - whiteside - whiteside04","Total - whiteside - whiteside05","Total - whiteside - whiteside06","Total - whiteside - whiteside07","Total - whiteside - whiteside08","Total - whiteside - whiteside10","Total - whiteside - whiteside12","Total - whiteside - whiteside13","Total - whiteside - whiteside14","Total - whiteside - whiteside15","Total - whiteside - whiteside17","Total - whiteside - whiteside18","Total - whiteside - whiteside19","Total - whiteside - whiteside20","Total - williamson - williamson01","Total - williamson - williamson02","Total - williamson - williamson03","Total - williamson - williamson04","Total - williamson - williamson05","Total - williamson - williamson06","Total - williamson - williamson07","Total - williamson - williamson08","Total - williamson - williamson09","Total - williamson - williamson10","Total - williamson - williamson11","Total - williamson - williamson12","Total - williamson - williamson13","Total - williamson - williamson14","Total - williamson - williamson15","Total - williamson - williamson16","Total - williamson - williamson17","Total - williamson - williamson18","Total - williamson - williamson19","Total - williamson - williamson21","Total - williamson - williamson22","Total - williamson - williamson23","Total - williamson - williamson24","Total - wozniak - wozniak01","Total - wozniak - wozniak02","Total - wozniak - wozniak03","Total - wozniak - wozniak04","Total - wozniak - wozniak05","Total - wozniak - wozniak06","Total - wozniak - wozniak07","Total - wright - wright201","Total - wright - wright202","Total - wright - wright203","Total - wright - wright204","Total - wright - wright205","Total - wright - wright206","Total - wright - wright207","Total - acwt - acwt01","Total - acwt - acwt02","Total - acwt - acwt03","Total - acwt - acwt04","Total - acwt - acwt07","Total - acwt - acwt11","Total - acwt - acwt12","Total - adler - adler01","Total - adler - adler02","Total - adler - adler03","Total - adler - adler04","Total - adler - adler05","Total - adler - adler06","Total - adler - adler07","Total - adler - adler08","Total - adler - adler09","Total - adler - adler12","Total - adler - adler13","Total - adler - adler14","Total - adler - adler15","Total - adler - adler16","Total - adler - adler17","Total - adler - adler18","Total - adler - adler20","Total - adler - adler21","Total - adler - adler22","Total - adler - adler23","Total - adler - adler24","Total - adler - adler25","Total - bu - bu01","Total - bu - bu02","Total - bu - bu03","Total - bu - bu04","Total - bu - bu05","Total - bu - bu06","Total - bu - bu07","Total - bu - bu08","Total - bu - bu09","Total - bu - bu10","Total - bu - bu11","Total - bu - bu12","Total - cmu - cmu01","Total - cmu - cmu02","Total - cmu - cmu03","Total - elman - elman01","Total - elman - elman02","Total - elman - elman03","Total - elman - elman04","Total - elman - elman05","Total - elman - elman06","Total - elman - elman07","Total - elman - elman08","Total - elman - elman10","Total - elman - elman11","Total - elman - elman12","Total - elman - elman13","Total - elman - elman14","Total - elman - elman15","Total - fridriksson - fridriksson01","Total - fridriksson - fridriksson02","Total - fridriksson - fridriksson03","Total - fridriksson - fridriksson04","Total - fridriksson - fridriksson05","Total - fridriksson - fridriksson06","Total - fridriksson - fridriksson07","Total - fridriksson - fridriksson09","Total - fridriksson - fridriksson10","Total - fridriksson - fridriksson11","Total - fridriksson - fridriksson12","Total - garrett - garrett01","Total - garrett - garrett02","Total - kansas - kansas02","Total - kansas - kansas03","Total - kansas - kansas04","Total - kansas - kansas05","Total - kansas - kansas07","Total - kansas - kansas10","Total - kansas - kansas11","Total - kansas - kansas12","Total - kansas - kansas13","Total - kansas - kansas14","Total - kansas - kansas15","Total - kansas - kansas16","Total - kansas - kansas17","Total - kansas - kansas18","Total - kansas - kansas19","Total - kansas - kansas20","Total - kansas - kansas21","Total - kansas - kansas22","Total - kansas - kansas23","Total - kempler - kempler02","Total - kempler - kempler04","Total - kurland - kurland01","Total - kurland - kurland02","Total - kurland - kurland03","Total - kurland - kurland04","Total - kurland - kurland05","Total - kurland - kurland06","Total - kurland - kurland07","Total - kurland - kurland08","Total - kurland - kurland09","Total - kurland - kurland10","Total - kurland - kurland12","Total - kurland - kurland13","Total - kurland - kurland14","Total - kurland - kurland15","Total - kurland - kurland16","Total - kurland - kurland17","Total - kurland - kurland18","Total - kurland - kurland19","Total - kurland - kurland20","Total - kurland - kurland21","Total - kurland - kurland22","Total - kurland - kurland23","Total - kurland - kurland24","Total - kurland - kurland25","Total - kurland - kurland26","Total - kurland - kurland27","Total - kurland - kurland28","Total - kurland - kurland29","Total - msu - msu01","Total - msu - msu02","Total - msu - msu03","Total - msu - msu04","Total - msu - msu05","Total - msu - msu06","Total - msu - msu07","Total - msu - msu08","Total - scale - scale01","Total - scale - scale02","Total - scale - scale03","Total - scale - scale05","Total - scale - scale06","Total - scale - scale07","Total - scale - scale08","Total - scale - scale11","Total - scale - scale12","Total - scale - scale13","Total - scale - scale14","Total - scale - scale15","Total - scale - scale16","Total - scale - scale17","Total - scale - scale18","Total - scale - scale19","Total - scale - scale20","Total - scale - scale21","Total - scale - scale22","Total - scale - scale23","Total - scale - scale24","Total - scale - scale25","Total - scale - scale28","Total - scale - scale30","Total - scale - scale31","Total - scale - scale32","Total - scale - scale33","Total - scale - scale34","Total - scale - scale35","Total - scale - scale36","Total - scale - scale38","Total - star - star03","Total - tap - tap01","Total - tap - tap02","Total - tap - tap04","Total - tap - tap05","Total - tap - tap07","Total - tap - tap08","Total - tap - tap09","Total - tap - tap10","Total - tap - tap13","Total - tap - tap14","Total - tap - tap15","Total - tap - tap16","Total - tap - tap18","Total - tap - tap19","Total - tcu - tcu01","Total - tcu - tcu02","Total - tcu - tcu03","Total - tcu - tcu05","Total - tcu - tcu07","Total - tcu - tcu08","Total - tcu - tcu09","Total - tcu - tcu10","Total - thompson - thompson01","Total - thompson - thompson02","Total - thompson - thompson03","Total - thompson - thompson04","Total - thompson - thompson05","Total - thompson - thompson06","Total - thompson - thompson07","Total - thompson - thompson08","Total - thompson - thompson09","Total - thompson - thompson10","Total - thompson - thompson11","Total - thompson - thompson12","Total - thompson - thompson13","Total - thompson - thompson14","Total - tucson - tucson01","Total - tucson - tucson02","Total - tucson - tucson03","Total - tucson - tucson04","Total - tucson - tucson06","Total - tucson - tucson07","Total - tucson - tucson08","Total - tucson - tucson09","Total - tucson - tucson10","Total - tucson - tucson11","Total - tucson - tucson12","Total - tucson - tucson13","Total - tucson - tucson15","Total - tucson - tucson16","Total - tucson - tucson17","Total - tucson - tucson18","Total - tucson - tucson19","Total - tucson - tucson22","Total - unh - unh01","Total - unh - unh02","Total - unh - unh03","Total - unh - unh05","Total - unh - unh06","Total - unh - unh08","Total - unh - unh11","Total - whiteside - whiteside01","Total - whiteside - whiteside02","Total - whiteside - whiteside03","Total - whiteside - whiteside05","Total - whiteside - whiteside06","Total - whiteside - whiteside07","Total - whiteside - whiteside08","Total - whiteside - whiteside09","Total - whiteside - whiteside10","Total - whiteside - whiteside11","Total - whiteside - whiteside12","Total - whiteside - whiteside13","Total - whiteside - whiteside14","Total - whiteside - whiteside15","Total - whiteside - whiteside16","Total - whiteside - whiteside17","Total - whiteside - whiteside18","Total - whiteside - whiteside19","Total - whiteside - whiteside20","Total - williamson - williamson01","Total - williamson - williamson02","Total - williamson - williamson03","Total - williamson - williamson04","Total - williamson - williamson05","Total - williamson - williamson06","Total - williamson - williamson07","Total - williamson - williamson08","Total - williamson - williamson09","Total - williamson - williamson10","Total - williamson - williamson11","Total - williamson - williamson12","Total - williamson - williamson13","Total - williamson - williamson14","Total - williamson - williamson15","Total - williamson - williamson16","Total - williamson - williamson17","Total - williamson - williamson18","Total - williamson - williamson21","Total - williamson - williamson22","Total - williamson - williamson23","Total - williamson - williamson24","Total - wozniak - wozniak01","Total - wozniak - wozniak02","Total - wozniak - wozniak03","Total - wozniak - wozniak04","Total - wozniak - wozniak05","Total - wozniak - wozniak06","Total - wozniak - wozniak07","Total - wright - wright202","Total - wright - wright203","Total - wright - wright204","Total - wright - wright206","Total - wright - wright207","Total - acwt - acwt02","Total - acwt - acwt04","Total - acwt - acwt07","Total - acwt - acwt09","Total - acwt - acwt10","Total - acwt - acwt11","Total - acwt - acwt12","Total - adler - adler01","Total - adler - adler02","Total - adler - adler03","Total - adler - adler04","Total - adler - adler05","Total - adler - adler06","Total - adler - adler07","Total - adler - adler08","Total - adler - adler09","Total - adler - adler12","Total - adler - adler13","Total - adler - adler14","Total - adler - adler15","Total - adler - adler16","Total - adler - adler17","Total - adler - adler20","Total - adler - adler21","Total - adler - adler22","Total - adler - adler23","Total - adler - adler24","Total - adler - adler25","Total - bu - bu01","Total - bu - bu02","Total - bu - bu03","Total - bu - bu04","Total - bu - bu05","Total - bu - bu06","Total - bu - bu07","Total - bu - bu08","Total - bu - bu09","Total - bu - bu10","Total - bu - bu11","Total - bu - bu12","Total - cmu - cmu01","Total - cmu - cmu02","Total - cmu - cmu03","Total - elman - elman01","Total - elman - elman02","Total - elman - elman04","Total - elman - elman05","Total - elman - elman06","Total - elman - elman07","Total - elman - elman08","Total - elman - elman09","Total - elman - elman10","Total - elman - elman11","Total - elman - elman12","Total - elman - elman13","Total - elman - elman14","Total - elman - elman15","Total - fridriksson - fridriksson01","Total - fridriksson - fridriksson02","Total - fridriksson - fridriksson03","Total - fridriksson - fridriksson04","Total - fridriksson - fridriksson05","Total - fridriksson - fridriksson06","Total - fridriksson - fridriksson07","Total - fridriksson - fridriksson09","Total - fridriksson - fridriksson10","Total - fridriksson - fridriksson11","Total - fridriksson - fridriksson12","Total - garrett - garrett01","Total - garrett - garrett02","Total - kansas - kansas01","Total - kansas - kansas03","Total - kansas - kansas04","Total - kansas - kansas05","Total - kansas - kansas06","Total - kansas - kansas07","Total - kansas - kansas10","Total - kansas - kansas11","Total - kansas - kansas12","Total - kansas - kansas13","Total - kansas - kansas14","Total - kansas - kansas15","Total - kansas - kansas16","Total - kansas - kansas17","Total - kansas - kansas18","Total - kansas - kansas19","Total - kansas - kansas20","Total - kansas - kansas21","Total - kansas - kansas22","Total - kansas - kansas23","Total - kempler - kempler02","Total - kempler - kempler03","Total - kempler - kempler04","Total - kurland - kurland01","Total - kurland - kurland02","Total - kurland - kurland03","Total - kurland - kurland04","Total - kurland - kurland05","Total - kurland - kurland06","Total - kurland - kurland07","Total - kurland - kurland08","Total - kurland - kurland09","Total - kurland - kurland10","Total - kurland - kurland12","Total - kurland - kurland13","Total - kurland - kurland14","Total - kurland - kurland16","Total - kurland - kurland17","Total - kurland - kurland18","Total - kurland - kurland19","Total - kurland - kurland20","Total - kurland - kurland21","Total - kurland - kurland22","Total - kurland - kurland23","Total - kurland - kurland24","Total - kurland - kurland25","Total - kurland - kurland26","Total - kurland - kurland27","Total - kurland - kurland28","Total - kurland - kurland29","Total - msu - msu01","Total - msu - msu02","Total - msu - msu03","Total - msu - msu04","Total - msu - msu05","Total - msu - msu06","Total - msu - msu07","Total - msu - msu08","Total - scale - scale01","Total - scale - scale02","Total - scale - scale03","Total - scale - scale06","Total - scale - scale08","Total - scale - scale10","Total - scale - scale11","Total - scale - scale12","Total - scale - scale13","Total - scale - scale14","Total - scale - scale15","Total - scale - scale16","Total - scale - scale17","Total - scale - scale18","Total - scale - scale19","Total - scale - scale20","Total - scale - scale21","Total - scale - scale22","Total - scale - scale23","Total - scale - scale24","Total - scale - scale25","Total - scale - scale26","Total - scale - scale28","Total - scale - scale30","Total - scale - scale31","Total - scale - scale32","Total - scale - scale33","Total - scale - scale34","Total - scale - scale35","Total - scale - scale36","Total - scale - scale38","Total - star - star03","Total - tap - tap01","Total - tap - tap02","Total - tap - tap04","Total - tap - tap05","Total - tap - tap07","Total - tap - tap08","Total - tap - tap09","Total - tap - tap10","Total - tap - tap12","Total - tap - tap13","Total - tap - tap14","Total - tap - tap15","Total - tap - tap18","Total - tap - tap19","Total - tcu - tcu01","Total - tcu - tcu02","Total - tcu - tcu05","Total - tcu - tcu07","Total - tcu - tcu08","Total - tcu - tcu09","Total - tcu - tcu10","Total - thompson - thompson01","Total - thompson - thompson02","Total - thompson - thompson03","Total - thompson - thompson04","Total - thompson - thompson05","Total - thompson - thompson06","Total - thompson - thompson07","Total - thompson - thompson08","Total - thompson - thompson09","Total - thompson - thompson10","Total - thompson - thompson11","Total - thompson - thompson12","Total - thompson - thompson13","Total - thompson - thompson14","Total - tucson - tucson01","Total - tucson - tucson02","Total - tucson - tucson03","Total - tucson - tucson04","Total - tucson - tucson06","Total - tucson - tucson07","Total - tucson - tucson08","Total - tucson - tucson10","Total - tucson - tucson11","Total - tucson - tucson12","Total - tucson - tucson13","Total - tucson - tucson15","Total - tucson - tucson16","Total - tucson - tucson18","Total - tucson - tucson19","Total - tucson - tucson20","Total - tucson - tucson22","Total - unh - unh01","Total - unh - unh03","Total - unh - unh04","Total - unh - unh05","Total - unh - unh06","Total - unh - unh08","Total - unh - unh10","Total - unh - unh11","Total - whiteside - whiteside01","Total - whiteside - whiteside02","Total - whiteside - whiteside03","Total - whiteside - whiteside05","Total - whiteside - whiteside06","Total - whiteside - whiteside07","Total - whiteside - whiteside08","Total - whiteside - whiteside09","Total - whiteside - whiteside10","Total - whiteside - whiteside12","Total - whiteside - whiteside13","Total - whiteside - whiteside14","Total - whiteside - whiteside15","Total - whiteside - whiteside17","Total - whiteside - whiteside18","Total - whiteside - whiteside19","Total - whiteside - whiteside20","Total - williamson - williamson01","Total - williamson - williamson02","Total - williamson - williamson03","Total - williamson - williamson04","Total - williamson - williamson05","Total - williamson - williamson06","Total - williamson - williamson07","Total - williamson - williamson08","Total - williamson - williamson09","Total - williamson - williamson10","Total - williamson - williamson11","Total - williamson - williamson12","Total - williamson - williamson13","Total - williamson - williamson14","Total - williamson - williamson15","Total - williamson - williamson16","Total - williamson - williamson17","Total - williamson - williamson18","Total - williamson - williamson19","Total - williamson - williamson21","Total - williamson - williamson23","Total - williamson - williamson24","Total - wozniak - wozniak01","Total - wozniak - wozniak02","Total - wozniak - wozniak04","Total - wozniak - wozniak05","Total - wozniak - wozniak06","Total - wozniak - wozniak07","Total - wright - wright201","Total - wright - wright202","Total - wright - wright203","Total - wright - wright204","Total - wright - wright206","Total - wright - wright207"],"values":[1089,22,65,35,10,49,43,6,55,8,235,48,143,3,43,23,48,64,25,52,74,20,18,2,3,2,3,3,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,3,6,3,2,3,3,3,3,3,2,3,6,3,3,3,3,3,3,5,3,3,6,3,5,5,3,3,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,3,16,12,6,6,6,6,10,9,6,6,10,7,6,3,10,11,10,8,3,11,3,11,11,11,11,9,8,9,6,6,6,6,6,6,6,6,3,5,3,1,6,12,2,3,2,6,9,3,6,10,3,5,12,3,3,3,3,3,3,3,2,6,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,3,3,3,2,3,3,3,3,2,3,3,3,3,3,3,3,3,3,3,3,9,3,3,3,3,3,3,3,3,3,3,3,6,3,6,2,3,3,3,3,1,6,3,2,3,3,2,3,3,2,3,2,3,3,1,3,2,3,3,3,1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,6,3,3,4,3,6,3,3,3,3,2,3,2,3,3,3,3,2,3,3,3,3,2,3,3,3,1,3,3,2,1,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,2,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,2,1,1,2,1,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,6,6,2,2,2,2,4,3,2,2,4,2,2,1,4,5,4,4,1,4,1,5,5,5,5,5,4,5,2,2,2,2,2,2,2,2,1,2,1,1,3,4,1,1,1,2,3,1,2,3,1,2,4,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,2,1,2,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,2,1,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,2,2,2,2,2,3,3,1,2,3,3,2,2,3,3,3,2,1,3,1,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,1,1,1,3,4,1,1,2,3,1,2,3,1,2,4,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,2,1,2,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,2,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,4,2,2,2,2,3,3,3,2,3,2,2,3,3,3,2,1,4,1,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,1,2,1,4,1,1,2,3,1,2,4,1,1,4,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,1,1,1,1,1,1,1,1,1,1,2,1,2,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,2,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"branchvalues":"total","textinfo":"label","type":"sunburst","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(255,255,255,1)"}},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<p>Ok…on to the modeling</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='co'># gems (i.e. task - broken window, umbrella, cat rescue) should be a factor</span>
+<span class='va'>verbs</span><span class='op'>$</span><span class='va'>gems</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>verbs</span><span class='op'>$</span><span class='va'>gems</span><span class='op'>)</span>
+<span class='co'># check the contrasts. cat is the reference condition (default is alphabetical)</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/contrasts.html'>contrasts</a></span><span class='op'>(</span><span class='va'>verbs</span><span class='op'>$</span><span class='va'>gems</span><span class='op'>)</span> <span class='co'># umbrella is the reference condition</span>
+</code></pre>
+</div>
+<pre><code>         umbrella window
+cat             0      0
+umbrella        1      0
+window          0      1</code></pre>
+<div class="sourceCode">
+<pre><code><span class='co'># model the proportion of verbs to total productions</span>
+<span class='co'># with with random intercepts for participant nested </span>
+<span class='co'># within collection site  </span>
+<span class='va'>verb_model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/brms/man/brm.html'>brm</a></span><span class='op'>(</span><span class='va'>n</span> <span class='op'>|</span> <span class='fu'>trials</span><span class='op'>(</span><span class='va'>total_words</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>gems</span> <span class='op'>+</span> <span class='op'>(</span><span class='fl'>1</span><span class='op'>|</span><span class='va'>site</span><span class='op'>/</span><span class='va'>participant</span><span class='op'>)</span>,
+                    data <span class='op'>=</span> <span class='va'>verbs</span>,
+                    family <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/family.html'>binomial</a></span><span class='op'>(</span><span class='op'>)</span>,
+                  iter <span class='op'>=</span> <span class='fl'>2000</span>,
+                  warmup <span class='op'>=</span> <span class='fl'>1000</span>,
+                  inits <span class='op'>=</span> <span class='st'>'random'</span>,
+                  chains <span class='op'>=</span> <span class='fl'>4</span>,
+                  cores <span class='op'>=</span> <span class='fl'>4</span>,
+                  backend <span class='op'>=</span> <span class='st'>'cmdstan'</span>,
+                  refresh <span class='op'>=</span> <span class='fl'>0</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Running MCMC with 4 parallel chains...
+
+Chain 2 finished in 12.4 seconds.
+Chain 4 finished in 14.7 seconds.
+Chain 3 finished in 15.4 seconds.
+Chain 1 finished in 16.3 seconds.
+
+All 4 chains finished successfully.
+Mean chain execution time: 14.7 seconds.
+Total execution time: 16.6 seconds.</code></pre>
+</div>
+<p>And plot the results (shamelessly skipping model diagnostics)</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/brms/man/conditional_effects.brmsfit.html'>conditional_effects</a></span><span class='op'>(</span><span class='va'>verb_model</span>, prob <span class='op'>=</span> <span class='fl'>.89</span><span class='op'>)</span>, plot <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>+</span>
+  <span class='fu'>scale_y_continuous</span><span class='op'>(</span>breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0.08</span>,<span class='fl'>.14</span>, <span class='fl'>.02</span><span class='op'>)</span>, limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.08</span>,<span class='fl'>.14</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>'Stimulus'</span>, y <span class='op'>=</span> <span class='st'>'Predicted Proportion of Verbs'</span>,
+       title <span class='op'>=</span> <span class='st'>'Differences in verb use by AphasiaBank stimulus'</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="tbdbr_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
+</div>
+<p>It looks like there might be subtle differences in the proportion of verbs produced between the cat rescue, refused umbrella, and broken window tasks in the AphasiaBank protocol. Are these differences large enough to care?</p>
+<h2 id="summary">Summary</h2>
+<p>This brief vignette walked through how TBDBr package can be used to extract data from TalkBankDB as part of a data-analysis flow. We have plans to make the functions more straightforward. We’re also hoping to build interactive dashboard to visualize the data within TalkBankDB. Question, suggestion, or issues can be raised at github.com/TalkBank/TBDBr</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">Cavanaugh (2021, Jan. 29). Rob Cavanaugh | PhD Student: TBDBr. Retrieved from https://robcavanaugh.com/posts/2021-01-29-tbdbr/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{cavanaugh2021tbdbr,
+  author = {Cavanaugh, Rob},
+  title = {Rob Cavanaugh | PhD Student: TBDBr},
+  url = {https://robcavanaugh.com/posts/2021-01-29-tbdbr/},
+  year = {2021}
+}</pre>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

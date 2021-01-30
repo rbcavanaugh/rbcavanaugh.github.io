@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
+  <url>
+    <loc>https://robcavanaugh.com/about.html</loc>
+    <lastmod>2020-12-28T10:00:31-05:00</lastmod>
+  </url>
+  <url>
+    <loc>https://robcavanaugh.com/cv.html</loc>
+    <lastmod>2020-12-28T10:03:07-05:00</lastmod>
+  </url>
+  <url>
+    <loc>https://robcavanaugh.com/</loc>
+    <lastmod>2021-01-26T16:39:10-05:00</lastmod>
+  </url>
+  <url>
+    <loc>https://robcavanaugh.com/research.html</loc>
+    <lastmod>2020-12-28T10:01:09-05:00</lastmod>
+  </url>
+  <url>
+    <loc>https://robcavanaugh.com/posts/2021-01-29-tbdbr/</loc>
+    <lastmod>2021-01-30T17:59:01-05:00</lastmod>
+  </url>
+  <url>
+    <loc>https://robcavanaugh.com/posts/2020-10-15-clinical-implementation-discourse/</loc>
+    <lastmod>2020-12-28T13:25:03-05:00</lastmod>
+  </url>
+  <url>
+    <loc>https://robcavanaugh.com/posts/2020-09-14-effect-sizes-in-single-subject-designs/</loc>
+    <lastmod>2020-12-28T09:55:04-05:00</lastmod>
+  </url>
+</urlset>
