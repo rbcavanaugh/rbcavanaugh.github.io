@@ -250,7 +250,7 @@ verbs$gems <- as.factor(verbs$gems)
 # check the contrasts. cat is the reference condition (default is alphabetical)
 contrasts(verbs$gems) # umbrella is the reference condition
 
-# model the proportion of verbals to total productions
+# model the proportion of verbs to total productions
 # with with random intercepts for participant nested 
 # within collection site  
 verb_model <- brm(n | trials(total_words) ~ gems + (1|site/participant),
