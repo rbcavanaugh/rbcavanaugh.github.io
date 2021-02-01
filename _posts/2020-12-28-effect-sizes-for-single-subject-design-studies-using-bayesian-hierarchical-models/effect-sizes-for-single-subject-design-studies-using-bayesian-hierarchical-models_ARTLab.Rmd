@@ -10,20 +10,24 @@ categories:
   - aphasia treatment
 output:
   distill::distill_article:
-    self_contained: false
+    self_contained: true
     toc: true
     toc_depth: 4
 draft: true
 bibliography: citations.bib
+nocite: | 
+  @wiley2018, @burkner2018, @nalborczyk2019, @burkner2017, @creswell2011best, @mcelreath2020statistical
 ---
 
 ```{r setup, include=FALSE}
+library(here) ##### add figure and table captions
+library(knitr)
 knitr::opts_chunk$set(echo = T, warning = F, message = F)
 ```
 
 ## Introduction
 
-This document describes procedures for Bayesian multilevel modeling of single-subject design treatment data. Recommended reading prior to reviewing this document: <https://easystats.github.io/bayestestR/articles/bayestestR.html>. Another accessible source is here: <https://m-clark.github.io/bayesian-basics/intro.html>. Excepts from these vignettes follows:
+This document describes procedures for Bayesian multilevel modeling of single-subject design treatment data. Recommended reading prior to reviewing this document: <https://easystats.github.io/bayestestR/articles/bayestestR.html>. Another accessible source is here: <https://m-clark.github.io/bayesian-basics/intro.html>[@bayestestR]. Excepts from these vignettes follows:
 
 > Adopting the Bayesian framework is more of a shift in the paradigm than a change in the methodology. Indeed, all the common statistical procedures (t-tests, correlations, ANOVAs, regressions, ...) can be achieved using the Bayesian framework. One of the core difference is that in the frequentist view (the "classic" statistics, with p and t values, as well as some weird degrees of freedom), the effects are fixed (but unknown) and data are random. On the other hand, in the Bayesian inference process, instead of having estimates of the "true effect", [the probability of different effects given the observed data is computed]{.ul}, resulting in a distribution of possible values for the parameters, called the posterior distribution.
 
@@ -31,7 +35,9 @@ From Michael Clark:
 
 > To summarize conceptually, we have some belief about the state of the world, expressed as a mathematical model (such as the linear model used in regression). The Bayesian approach provides an updated belief as a weighted combination of prior beliefs regarding that state and the currently available evidence, with the possibility of the current evidence overwhelming prior beliefs, or prior beliefs remaining largely intact in the face of scant evidence.
 
-![](images/prior2post_2-1.svg "Example of a prior distribution, likelihood, and posterior distribution (Credit: Michael Clark)"){width="451"}
+```{r, fig.cap="Informative Prior from https://micl.shinyapps.io/prior2post/", out.extra="class=external", echo=F}
+knitr::include_graphics("prior1.png")
+```
 
 ## Prior Beliefs
 
@@ -43,9 +49,23 @@ Exercise: assign prior distributions to the following:
 
 How much prior distributions influence findings depends on the certainty assigned to these distributions and the amount of data that composes the likelihood. Often, we don't want to influence any effects, so we assign priors that are composed of reasonable values, but centered around zero. Assigning a prior distribution of reasonable values often helps model convergence. In these cases, findings from Bayesian and frequentist models typically converge around the same result.
 
+```{r, fig.cap="Weakly Informative Prior. Figure from https://micl.shinyapps.io/prior2post/", out.extra="class=external", echo=F}
+knitr::include_graphics("prior2.png")
+```
+
 ## Posterior Distributions
 
-Practically, there's one key bit of information to know here. Because our new way of thinking results in a distribution of possible values for a given effect, we can now estimate the certainty of that effect. In the mixed-effect context, Bayesian models return posterior distributions for *every* model parameter (fixed and random) as well as for model predictions.
+Key takeaway: The Bayesian way of thinking results in a distribution of possible values for a given effect (our updated belief, the prior distribution). There are a few big advantages of the posterior distribution rather than a test-statistics or p-value. 
+
+First, we can calculate how much of this distribution exceeds some value, often called the posterior probability. For example, the posterior probability that an effect is greater than 0 is found by calculating the amount of the distribution that is greater than zero. While p-values impose an arbitrary cutoff (and leave us wondering how to interpret p = 0.06), the posterior probability lets us think on a continuous probability about our results. 
+
+Second, and related, Bayesian modeling returns the Bayesian credible interval in lieu of a confidence interval. The credible interval is a range containing a given percentage of the posterior distribution. 
+
+**Credible Interval:** *"Given the observed data, the effect has 95% probability of falling within this range" [@bayestestR].*
+
+**Confidence interval:** *"There is a 95% probability that when computing a confidence interval from data of this sort, the effect falls within this range"[@bayestestR].*
+
+In the mixed-effects context, Bayesian models return posterior distributions for *every* model parameter (fixed and random) as well as for model predictions. A refresher on mixed-effects models: http://mfviz.com/hierarchical-models/. 
 
 ## Setup
 
@@ -78,7 +98,7 @@ df <- read_csv('~/Desktop/SDTBI001_LongData.csv') %>%
          phase = as.factor(phase)) %>%
   mutate_if(is.character, as.factor) 
 
-kable(head(df, 10))
+kableExtra::kable(head(df, 10), caption = "Preview of item-level data structure")
 ```
 
 ### Preview Data
@@ -86,7 +106,7 @@ kable(head(df, 10))
 Aggregate performance for 5 participants over 5 baseline and 10 treatment probe sessions. The simulation was run with 30 'words' total which were selected so that the average baseline performance across 500 participants was roughly 30%.
 
 
-```{r visualize, warning = F, message = F, echo = T}
+```{r visualize, warning = F, message = F, echo = T, fig.cap="Performance over time for treated and untreated words"}
 
 df %>%
   group_by(condition, session, phase) %>%
@@ -117,7 +137,7 @@ Here, $\beta_0$ (the intercept) describes performance prior to the first baselin
 
 Note: I've considered the post-treatment time points an extension of the treatment variables for simplicity, but we should have a discussion about how to treat these timepoints. 
 
-```{r, layout="l-body-outset"}
+```{r}
 df_coded <- df %>%
   filter(session < 13) %>%
   mutate(phase = ifelse(phase == 'Pre', 0, 1),
@@ -126,12 +146,12 @@ df_coded <- df %>%
          ) %>%
   select(id, set, condition, response, session, phase, session.cent, slope_change)
 
-kable(head(df_coded, 15))
+kable(head(df_coded, 15), caption = "Data structure for interrupted time series model")
 ```
 
 ### Implementation
 
-In this example, we'll implement the model for one participant. If the number of participants is 9 or 10 or more, it becomes more reasonable to utilize a group-level model, which is demonstrated further below. I'm going to assume some knowledge of mixed effect models, but we can slow down if needed. 
+In this example, we'll implement the model for one participant. If the number of participants is 9 or 10 or more, it becomes more reasonable to utilize a group-level model, which is demonstrated further below.
 
 In 'frequentist' world (e.g. lme4), the code for the above model is as follows:
 
@@ -148,7 +168,7 @@ glmer_model <- glmer(response ~ session + phase + slope_change +
 
 In the BRMS package, the syntax is effectively the same, with a few added arguments.
 
-```{r model fitting, warning = F, message = F, echo = T, cache = T, results = 'hide'}
+```{r model fitting,  message = F, echo = T, cache = T}
 # Model Fitting
 # weakly informative priors assist model estimation
 
@@ -164,22 +184,24 @@ m.1 <- brm(response ~ 0 + Intercept + session + phase + slope_change + (session 
            prior = c(prior(cauchy(0, 5), class = b), # prior distributions!
                      prior(cauchy(0, 5), class = sd)),
            sample_prior = T,
-           backend = 'cmdstan'
+           backend = 'cmdstan',
+           seed = 42,
+           refresh = 0 #this is only for the markdown document. 
 )
 
 ```
 
 What are these prior distributions? The cauchy distribution is similar to a normal distribution, but with 'fatter' tails. I've chosen the cauchy here as coefficients in binary logistic regression can be larger than normal gaussian regression. The prior distribution applied to the standard deviations in the model is technically a 'half cauchy' which reflects the fact that standard deviation values will only be positive. I have set the same priors to all beta-values and standard deviations, but they can also be set individually. See all options by calling prior_summary()
 
-```{r prior sum}
+```{r prior-sum}
 
-kable(prior_summary(m.1))
+kable(prior_summary(m.1), caption = "Default priors for our model")
 
 ```
 
 This choice reflects my prior beliefs about the expected results: I am expecting all parameter estimates to easily fall within 0 +/- 10 logits. If they fall outside of this range, that would be highly unexpected. For example, an average baseline performance of 33% would correspond to a logit of roughly -0.7. An intercept of -10 would correspond to an average baseline performance that is effectively 0 (specifically, 0.0005), which is possibly, but unlikely given the way this study has designed stimuli selection and inclusion/exclusion criteria. A logit of 10 would correspond to baseline performance that is approaching 1. The result here is that the prior distributions are considered 'weakly informative.' They will not influence the posterior distribution other than to aid model convergence by influence the range of values that they model considers possible, and probable.  
 
-```{r cauchy"}
+```{r cauchy, fig.cap="Three possibilities for assigning priors"}
 
 tibble(cauchy = rcauchy(10000,0,5),
        normal = rnorm(10000,0,5),
@@ -198,7 +220,7 @@ Here are some things you should do to evaluate whether the model converged befor
   
 Posterior Chains: these should look like a lot of noise, which they do. 
   
-```{r evaluate model, warning = F, message = F, echo = T, layout="l-body-outset"}
+```{r evaluate-model, warning = F, message = F, echo = T, fig.cap="MCMC trace plots. An unhelpful heuristic: it should look lik a hairy catepillar"}
 # model evaluation step #1: evaluate chains
 mcmc_plot(m.1, type = 'trace')
 ```
@@ -214,26 +236,26 @@ Effective Sample Size: these should be over 1000 per. Some are a little low. we 
 effective_sample(m.1, effects = "all") %>%
   arrange(ESS) %>%
   head(5) %>%
-  kable()
+  kable(caption = "Lowest effect sample sizes")
 ```
 
 Split-half Reduction Scale (rhat): absolutely need to be less than 1.05, which they are. 
   
-```{r rhat, warning = F, message = F, echo = T}
+```{r rhat, warning = F, message = F, echo = T, fig.cap = "Visualizing Rhat values"}
 # check rhat values are less than 1.05:
 mcmc_plot(m.1, type = "rhat")
 ```
 
 Evaluate Model Fit:the dark blue line (observed values) should be in the middle of the light grey lines (predicted values of the posterior distribution). Looks good. 
   
-```{r ppcheck1, warning = F, message = F, echo = T}
+```{r ppcheck1, warning = F, message = F, echo = T, fig.cap = "Posterior predictive check"}
 # this looks good
 pp_check(m.1, nsamples = 100)
 ```
 
 Having decided that our model is reasonable, we can interpret it. You can call summary(m.1) for a quick look. I've cobbled together this function to show the added value of thinking about effects in terms of distributions. Instead of dealing with insignificant p-values, we can ask "whats the probability this effect is greater than 0?" which is the posterior probability here. Another advantage is that we could define whats called the "ROPE" or the region of practical equivalence. Lets say we were interested in whether or not the intercept was meaningfully different from zero. We could define what 'meaningfully' means to us (lets say we consider 45% - 55% practically no different than 50%), and then calculate the probability the intercept falls outside this range. Perhaps this range defines a range of results that would not be clinically meaningful even if they were significant - we could ask for the probability that the effect we find falls outside of this range. 
 
-Anyways, you can see here that the 90% credible interval for all three parameters (excluding the intercept) includes zero. there is weak to modest evidence that these parameters are greater than zero. What's probability holding up this model is that the baseline phase only has 3 observations, and so the model is having a difficulty time estimating the session slope, which has trickle-down effects on estimating phase and slope_change. The model likely characterizes change relatively well, it just doesn't give us a ton of confidence that changes are due to treatment. Looking at the plot above, I think we can be pretty confident these changes are due to treatment. Probably the major drawback of this approach.  
+Anyways, the 90% credible interval for all three parameters (excluding the intercept) includes zero. there is weak to modest evidence that these parameters are greater than zero. What's probability holding up this model is that the baseline phase only has 3 observations, and so the model is having a difficult time estimating the session slope, which has trickle-down effects on estimating phase and slope_change. The model likely characterizes change relatively well, it just doesn't give us a ton of confidence that changes are due to treatment. Looking at the plot above, I think we can be pretty confident these changes are due to treatment. Probably the major drawback of the interrupted time series approach - and it may not be the best way to test for changes in level or slope with so few baseline sessions.   
 
 ```{r summ}
 
@@ -249,7 +271,7 @@ posterior_samples(model_name)[,1:4] %>%
 } 
  
  model_summary_with_posteriors(m.1) %>%
-  kable(digits = 2)
+  kable(digits = 2, caption = "M.1 model summary")
 
 ```
 
@@ -257,7 +279,7 @@ posterior_samples(model_name)[,1:4] %>%
 
 Let's calculate an effect size anyway.   We've been thinking about effect sizes in very practical terms. How many words did the participant gain as a result of treatment? Here's how we get there using this model: 
 
-Remember how I said bayesian models provide a posterior distribution for each parameter in the model? Well that includes all levels of the random effects. So we can extract the models' posterior distributions which reflect whether or not each word is produced correctly at the end of baseline (session 3) and the end of treatment (session 15). The number of samples in each posterior distribution (for each word) is the number of iterations included in the model (12,000!). For each iteration, we subtract the value at session 3 from the value at session 15. The resulting distribution is the posterior distribution of the difference in performance between session 15 and session 3. The median of that distribution is the models best guess at the effect size. 
+Remember how bayesian models provide a posterior distribution for each parameter in the model? Well that includes all levels of the random effects. So we can extract the models' posterior distributions which reflect whether or not each word is produced correctly at the end of baseline (session 3) and the end of treatment (session 15). The number of samples in each posterior distribution (for each word) is the number of iterations included in the model (12,000!). For each iteration, we subtract the value at session 3 from the value at session 15. The resulting distribution is the posterior distribution of the difference in performance between session 15 and session 3. The median of that distribution is the models best guess at the effect size. 
 
 
 ```{r}
@@ -313,7 +335,7 @@ es %>% # only need one variable
 
 And we can plot it. 
 
-```{r plot}
+```{r plot, fig.cap = "Distribution of effect size estimates for treated words"}
 es %>%
   ggplot(aes(x = effect_size)) +
   stat_halfeye() +
@@ -323,11 +345,12 @@ es %>%
 
 What do we do about the untreated condition? In this case, the simplest thing is probably to run another model just for untreated items. 
 
-```{r model fitting2, warning = F, message = F, echo = T, cache = T, results = 'hide', eval = T}
+```{r modelfitting2, message = F, echo = T, cache = T, eval = T}
 # Model Fitting
 # weakly informative priors assist model estimation
 
-m.1.untreated <- brm(response ~ 0 + Intercept + session + phase + slope_change + (session + phase + slope_change | id),
+m.1.untreated <- brm(response ~ 0 + Intercept + session + phase + slope_change +
+                       (session + phase + slope_change | id),
            family = bernoulli(),  #binomial in lme4
            data = df_coded %>% filter(condition == 'untreated'),
            iter = 4000, # number of total samples per chain
@@ -339,18 +362,20 @@ m.1.untreated <- brm(response ~ 0 + Intercept + session + phase + slope_change +
            prior = c(prior(cauchy(0, 5), class = b), # prior distributions!
                      prior(cauchy(0, 5), class = sd)),
            sample_prior = T,
-           backend = 'cmdstan'
+           seed = 42,
+           backend = 'cmdstan',
+           refresh = 0
 )
 
 ```
-```{R sum.un}
+```{R sumun}
  model_summary_with_posteriors(m.1.untreated) %>%
-  kable(digits = 2)
+  kable(digits = 2, caption = "M.1.untreated model summary")
 ```
 
 And calculate the estimate effect size for this model
 
-```{r}
+```{r, fig.cap = "Distribution of effect size for untreated words"}
 # setup an empty df to make predictions from:
 pred_d <- m.1.untreated$data %>% # this is the data that went into the model
   select(-response, -Intercept) %>% # we don't need these
@@ -381,7 +406,7 @@ Given the number of observations here, a simpler approach might be to simply com
 
 ### Implementation 
 
-``` {r prepost, warning = F, message = F, echo = T, cache = T, results = 'hide', eval = T}
+``` {r prepost,  message = F, echo = T, cache = T, eval = T}
 
 # A littl bit of datawrangling
 df.mod2 <- df %>%
@@ -409,9 +434,11 @@ m.2 <- brm(response ~ 0 + Intercept + phase*condition +
            backend = 'cmdstan',
            cores = 4,
            chains = 4,
+           seed = 42,
            control = list(adapt_delta = .99),
            data = df.mod2,
-           sample_prior = T
+           sample_prior = T,
+           refresh = 0
 )
 
 ```
@@ -420,22 +447,22 @@ m.2 <- brm(response ~ 0 + Intercept + phase*condition +
 
 A few quick posterior checks: 
 
-```{r m2checks1, layout="l-body-outset"}
+```{r m2checks1, fig.cap = "MCMC trace plot"}
 mcmc_plot(m.2, type = 'trace')
 ```
 
-```{r ess m2}
+```{r essm2}
 effective_sample(m.2, effects = "all") %>%
   arrange(ESS) %>%
   head(5) %>%
-  kable()
+  kable(caption = "Lowest effect sample sizes for m.2")
 ```
 
 ### Model Refitting
 
 This perhaps explains why the traceplot looks different for the random effect correlation, let's increase the number of iterations
 
-``` {r prepost2, warning = F, message = F, echo = T, cache = T, results = 'hide', eval = T}
+``` {r prepost2, message = F, echo = T, cache = T, eval = T}
 
 # Simple interaction model
 m.2 <- brm(response ~ 0 + Intercept + phase*condition + 
@@ -449,47 +476,53 @@ m.2 <- brm(response ~ 0 + Intercept + phase*condition +
            backend = 'cmdstan',
            cores = 4,
            chains = 4,
+           seed = 42,
            control = list(adapt_delta = .99),
            data = df.mod2,
-           sample_prior = T
+           sample_prior = T,
+           refresh=0
 )
 
 ```
-```{r ess2 m2}
+
+```{r ess2m2}
 effective_sample(m.2, effects = "all") %>%
   arrange(ESS) %>%
   head(5) %>%
-  kable()
+  kable(caption = "Lowest effect sample sizes after increasing iterations")
 ```
 
 much better. looking at the traceplot shows the improvement as well
 
-```{r m2checks2, layout="l-body-outset"}
+```{r m2checks2,  fig.cap = "MCMC trace plot"}
 mcmc_plot(m.2, type = 'trace')
 ```
 And checking rhat values shows that the model has certainly converged. 
 
-```{r rhat2}
+```{r rhat2, fig.cap = "Rhat values"}
 mcmc_plot(m.2, type = "rhat")
 
 ```
 And last lets check that the model fits the data well...looks lovely
 
-```{r m2checks}
+```{r m2checks, fig.cap = "Posterior predictive check"}
 brms::pp_check(m.2, nsamples = 100)
 ```
 
 For simpler models, visualizing is actually quite simple:
 
-```{r conditional effects m2}
-conditional_effects(m.2, prob = .89)
+```{r conditionaleffectsm2, fig.cap = "Probability correct for trained and untrained words with 89% credible intervals"}
+plot(conditional_effects(m.2, prob = .89), plot = F)[[3]] + 
+  scale_x_discrete(limits = c('Pre', 'Post')) +
+  labs(y = "Probability of a correct response")
 ```
-We could re-level pre and post so they are in the correct order before running the model, or simply construct a plot manually. 
 
-Because some coefficients are negative, the previous function for estimating posterior probability would need some tweaking, so we can just call summary for now:
+
+Because some coefficients are negative, the previous function for estimating posterior probability would need some tweaking, so we can just call a default funciton now. You can also call summary(model_name) for quick results (it doesn't format well in rmarkdown documents)
 
 ```{r sum2}
-broom.mixed::tidyMCMC(m.2, prob = .89, conf.int = T, conf.level = .90) %>% slice(1:7) %>%kable(digits = 2)
+broom.mixed::tidyMCMC(m.2, prob = .89, conf.int = T, conf.level = .90) %>% slice(1:7) %>%
+  kable(digits = 2, caption = "M.2 model summary")
 ```
 
 Interesting that the main effect of condition is large and robust. This is due to non-linear effect sizes on the odds-ratio scale. Because the untreated items have 0 correct during baseline, the beta-coefficient is quite large. This makes sense - the odds of a correct response at baseline is substantially larger in the treated condition because the odds of a correct response in the untreated condition are effectively zero. 
@@ -500,13 +533,13 @@ Otherwise, the model suggests large and robust improvements for treated items, a
 
 We can now estimate the effect size again for treated items like so:
 
-``` {r m2 effect sizes}
+``` {r m2effectsizes}
 
 pred_d <- m.2$data %>%
   select(-response, -Intercept) %>%
   distinct()
 
-es2 <- add_fitted_draws(m.2, newdata = pred_d, pred = 'value', seed = 42) %>% # predict each word at 3 & 15
+es2 <- add_fitted_draws(m.2, newdata = pred_d, pred = 'value', seed = 42) %>% 
   ungroup() %>%
   select(phase, condition, id, value = .value, draw = .draw) %>% # select entry and exit
   group_by(draw, phase, condition) %>% # for each sample and time point
@@ -522,7 +555,7 @@ es %>%
   kable(digits = 2)
 ```
 
-```{r esvis2}
+```{r esvis2, fig.cap = "Distribution of effect sizes for pre-post model"}
 es2 %>%
   ggplot(aes(x = effect_size, color = condition)) +
   stat_halfeye() +
@@ -534,7 +567,7 @@ es2 %>%
 
 It turns out that this estimate is very close to the estimate derived from the interrupted time series approach (47.8 vs. 48.6) with pretty similar credible intervals (44.3 - 50.7 vs. 44.7 to 51.8)
 
-``` {r escompare}
+``` {r escompare, fig.cap = "comparing effect size estimates between ITTS and pre-post model structures for treated words"}
 
 es_itts = es %>% mutate(method = 'ITTS')
 es_interaction = es2 %>% filter(condition == 'treated') %>% mutate(method = 'Interaction')
@@ -548,7 +581,7 @@ bind_rows(es_itts, es_interaction) %>%
 
 Here's a little perspective:
 
-``` {r escompare2}
+``` {r escompare2, fig.cap = "Zoomed out comparison"}
 
 es_itts = es %>% mutate(method = 'ITTS')
 es_interaction = es2 %>% filter(condition == 'treated') %>% mutate(method = 'Interaction')
