@@ -20,16 +20,16 @@ categories:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Nicholas and Brookshire's [-@nicholas1993] Correct Information Unit is one of the most commonly used discourse measures in aphasia [see @bryant2017clinical]. However, scoring CIUs can be a bit...tricky (refer appendix B of the 1993 article). Not to mention, after transcribing, scoring the words, and the CIUs, you still have to count them up by hand. Want to check scoring reliability at the word level? Have fun entering word level scores into a spreadsheet.
+Nicholas and Brookshire's [-@nicholas1993] Correct Information Unit is one of the most common discourse measures in aphasia [see @bryant2017clinical]. However, scoring CIUs can be a bit...tricky (refer appendix B of the 1993 article). Not to mention, after transcribing, scoring the words, and the CIUs, you still have to count them up by hand. Want to check scoring reliability at the word level? Have fun entering word level scores into a spreadsheet.
 
 The amazing folks over at [AphasiaBank](talkbank.org) have semi-automated CIU analysis, with only some minimal hand-scoring of transcripts [@fromm2020]. However, this does require knowledge and use of CLAN (which just takes some practice!).
 
 For those not interested in using CLAN, I've created a simple web application using R-Shiny to provide a hopefully straightforward app for hand scoring CIUs a little quicker with a little less anguish.
 
-The web-app requires an orthographic transcript following the rules for transcribing words, and provides a simple interface for marking CIUs. The total number of CIUs, % CIUs to words, and CIUs/minute are calculated as you go. The app also provides a means for downloading the scored transcript at the word-level for further reliability analysis. I'm hoping to add percentile scores soon for the 1993 Nicholas Brookshire stimuli as well as the AphasiaBank stimuli as published by Fergadiotis and Co. [-@fergadiotis2019modeling]
+The web-app requires an orthographic transcript following the rules for transcribing words, and provides a simple interface for marking CIUs. The total number of CIUs, % CIUs/words, and CIUs/minute are calculated as you go. The app also provides a means for downloading the scored transcript at the word-level for further reliability analysis. I'm hoping to add percentile scores soon for the 1993 Nicholas Brookshire stimuli as well as the AphasiaBank stimuli as published by Fergadiotis and Co. [-@fergadiotis2019modeling]
 
 ![](images/cius.png){width="570"}
 
-The app can be found here online here: [<https://rb-cavanaugh.shinyapps.io/aphasia-ciu/>](https://rb-cavanaugh.shinyapps.io/aphasia-ciu/?_ga=2.76658844.843295924.1613969520-1514125269.1612190117). It is also available on my github page, where it can be run directly from R: <https://github.com/rbcavanaugh/ciu_analysis>. Feedback is welcome!
+The app can be found here online here: <https://rb-cavanaugh.shinyapps.io/aphasia-ciu/>. It is also available on my github page, where it can be run directly from R: <https://github.com/rbcavanaugh/ciu_analysis>. Feedback is welcome!
 
 
