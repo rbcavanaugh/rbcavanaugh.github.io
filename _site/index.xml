@@ -7,7 +7,18 @@
     <description>Personal website for Rob Cavanaugh M.S. CCC-SLP
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 29 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 23 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Making CIU scoring slightly less painful</title>
+      <dc:creator>Rob Cavanaugh</dc:creator>
+      <link>https://robcavanaugh.com/posts/2021-02-23-making-ciu-scoring-slightly-less-painful</link>
+      <description>A simple web application for scoring Nicholas and Brookshire's Correct Information Units</description>
+      <category>discourse</category>
+      <category>R Shiny</category>
+      <guid>https://robcavanaugh.com/posts/2021-02-23-making-ciu-scoring-slightly-less-painful</guid>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://robcavanaugh.com/posts/2021-02-23-making-ciu-scoring-slightly-less-painful/images/cius.png" medium="image" type="image/png" width="2818" height="1538"/>
+    </item>
     <item>
       <title>TBDBr</title>
       <dc:creator>Rob Cavanaugh</dc:creator>
