@@ -3,12 +3,14 @@ title: "Shiny Web-Apps and other R Projects"
 output: 
   flexdashboard::flex_dashboard:
     vertical_layout: scroll
+    theme: cosmo
 ---
 
-```{=html}
-<style>
+```{css, echo=FALSE}
+
 body {
   padding: 50px 50px;
+  background-color: white;
 }
 
 .chart-wrapper {
@@ -20,8 +22,9 @@ body {
 .navbar{
   visibility: hidden
 }
-</style>
+
 ```
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(flexdashboard)

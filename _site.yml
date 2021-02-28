@@ -17,10 +17,7 @@ navbar:
       href: about.html
     - text: "CV"
       href: https://www.dropbox.com/s/we5lztxh7vka47o/Current-CV.pdf?dl=0
-    - icon: fab fa-github
-      href: https://github.com/rbcavanaugh
-    - icon: fab fa-twitter
-      href: https://twitter.com/littlejohnsband
+  search: false
 google_analytics: "UA-179425806-1"
 # cookie_consent:
 #   style: simple

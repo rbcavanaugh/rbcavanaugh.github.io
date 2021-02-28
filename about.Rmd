@@ -1,21 +1,27 @@
 ---
 title: "About me"
 image: "images/robamanda-oly.jpg"
+links:
+  - label: '`r fontawesome::fa("twitter")` Twitter'
+    url: "https://twitter.com/Littlejohnsband"
+  - label: '`r fontawesome::fa("github")` Github'
+    url: "https://github.com/rbcavanaugh"
+  - label: '`r fontawesome::fa("paper-plane")` Email'
+    url: "rob.cavanaugh@pitt.edu"
 output:
   postcards::jolla
+  
 ---
 
 ```{css, echo=FALSE}
 
 .rounded-circle {
-  height: 20rem!important;
+  height: 15rem!important;
   padding-top: 20px;
 }
 
 ```
 
-I'm a third-year Ph.D. student in the Department of Communication Sciences and Disorders and TL1 pre-doctoral fellow in the Institute for Clinical Research Education at the University of Pittsburgh. 
-
-Before returning to school in Pittsburgh, I worked as a clinical speech-language pathologist in Charlotte, NC in outpatient and inpatient rehabilitation settings. I completed my master's degree in Speech and Hearing Sciences from the University of North Carolina at Chapel Hill. 
+I'm a third-year Ph.D. student in the Department of Communication Sciences and Disorders and TL1 pre-doctoral fellow in the Institute for Clinical Research Education at the University of Pittsburgh. Before returning to school in Pittsburgh, I worked as a clinical speech-language pathologist in Charlotte, NC in outpatient and inpatient rehabilitation settings. 
 
 Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.
