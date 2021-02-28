@@ -1,21 +1,21 @@
 ---
 title: "About me"
 image: "images/robamanda-oly.jpg"
-color1: "#005D8F"
-color2: "#0b7db0"
-angle: 180
 output:
-  postcards::onofre
+  postcards::jolla
 ---
 
 ```{css, echo=FALSE}
 
 .rounded-circle {
-  height: 15rem!important;
+  height: 20rem!important;
   padding-top: 20px;
 }
 
 ```
- 
-I'm a third-year Ph.D. student in the Department of Communication Sciences and Disorders and TL1 pre-doctoral fellow in the Institute for Clinical Research Education at the University of Pittsburgh. Before returning to school in Pittsburgh, I worked as a clinical speech-language pathologist in Charlotte, NC in outpatient and inpatient rehabilitation settings. I completed my master's degree in Speech and Hearing Sciences from the University of North Carolina at Chapel Hill. Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.
 
+I'm a third-year Ph.D. student in the Department of Communication Sciences and Disorders and TL1 pre-doctoral fellow in the Institute for Clinical Research Education at the University of Pittsburgh. 
+
+Before returning to school in Pittsburgh, I worked as a clinical speech-language pathologist in Charlotte, NC in outpatient and inpatient rehabilitation settings. I completed my master's degree in Speech and Hearing Sciences from the University of North Carolina at Chapel Hill. 
+
+Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.
