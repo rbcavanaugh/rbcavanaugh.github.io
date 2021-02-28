@@ -13,6 +13,8 @@ navbar:
       href: about.html
     - text: "Research"
       href: Research.html
+    - text: "R Gallery"
+      href: Shiny.html
     - text: "CV"
       href: https://www.dropbox.com/s/we5lztxh7vka47o/Current-CV.pdf?dl=0
     - icon: fab fa-github
