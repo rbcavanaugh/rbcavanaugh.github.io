@@ -9,14 +9,14 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "Research"
+    - text: "Publications"
       href: Research.html
     - text: "R Gallery"
       href: Shiny.html
-    - text: "About"
-      href: about.html
+    - text: "Posts"
+      href: posts.html
     - text: "CV"
-      href: https://www.dropbox.com/s/we5lztxh7vka47o/Current-CV.pdf?dl=0
+      href: https://github.com/rbcavanaugh/CV/raw/master/Current-CV.pdf
   search: false
 google_analytics: "UA-179425806-1"
 # cookie_consent:

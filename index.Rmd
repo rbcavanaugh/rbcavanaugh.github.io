@@ -1,7 +1,82 @@
 ---
-title: "Posts"
+title: "About"
 site: distill::distill_website
-listing: posts
+links:
+  - label: '`r fontawesome::fa("twitter")` Twitter'
+    url: "https://twitter.com/Littlejohnsband"
+  - label: '`r fontawesome::fa("github")` Github'
+    url: "https://github.com/rbcavanaugh"
+  - label: '`r fontawesome::fa("paper-plane")` Email'
+    url: "rob.cavanaugh@pitt.edu"
+output: html_document
 ---
 
-<script type="text/javascript" src="links.js"></script>
+<br/>
+
+```{css, echo = F}
+
+p{
+  font-size:16px;
+  line-height: 1.7em;
+}
+
+.title{
+ display:none;
+}
+
+.navbar{
+ display:none;
+}
+
+#borders{
+   border: 2px; 
+   border-style: solid;
+   border-color: #546E7A;
+   padding: 5px;
+   border-radius: 5px;
+   color: #37474F;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+.centering {
+  text-align: center;
+  padding-top:5px;
+}
+```
+
+
+```{r echo = FALSE, out.extra = 'style = "float:left; padding:30px; border-radius: 50%; display: block; margin-left: auto; margin-right: auto; width: 40%;"'}
+knitr::include_graphics("images/robamanda-oly.jpg")
+```
+
+<br>
+
+<center>
+
+## About Me
+
+</center>
+
+I'm a third-year Ph.D. student in the Department of Communication Sciences and Disorders and TL1 pre-doctoral fellow in the Institute for Clinical Research Education at the University of Pittsburgh. Before returning to school in Pittsburgh, I worked as a clinical speech-language pathologist in Charlotte, NC in outpatient and inpatient rehabilitation settings.
+
+Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.
+
+<div class = "centering">
+
+[`r fontawesome::fa("twitter")` Twitter](https://twitter.com/Littlejohnsband){#borders} 
+[`r fontawesome::fa("github")` Github](https://github.com/rbcavanaugh){#borders} 
+[`r fontawesome::fa("paper-plane")` Email](rob.cavanaugh@pitt.edu){#borders}
+[`r fontawesome::fa("university")` Pitt Lab](https://lrcl.pitt.edu){#borders}
+
+</div>
+
+<div style="clear:both;"></div>
+
+### Research
+
+My long-term research agenda is to optimize everyday communication and quality of life outcomes for people with aphasia and related neurogenic communication disorders. My research strives to identify and resolve implementation gaps in aphasia rehabilitation, improve patient access to evidence-based care, and enhance treatment specification. My work seeks to use advanced statistical methods in aphasia rehabilitation research and communicate these methods effectively to researchers and clinicians. I'm also interested in statistical programming (R + python), data science, and data visualization - especially using these tools to improve science communication.
+

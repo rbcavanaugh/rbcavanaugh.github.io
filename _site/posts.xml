@@ -3,7 +3,7 @@
   <channel>
     <title>Rob Cavanaugh | PhD Student</title>
     <link>https://robcavanaugh.com/</link>
-    <atom:link href="https://robcavanaugh.com/index.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://robcavanaugh.com/posts.xml" rel="self" type="application/rss+xml"/>
     <description>Personal website for Rob Cavanaugh M.S. CCC-SLP
 </description>
     <generator>Distill</generator>
