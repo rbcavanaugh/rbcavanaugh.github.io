@@ -1,9 +1,19 @@
 ---
 title: "CV"
-description: |
-  Ongoing research and links to CV and such will go here. 
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+```{css, echo = F}
+.navbar{
+ display:none;
+}
+.title{
+ display:none;
+}
+```
+
+<iframe src="http://docs.google.com/gview?url=https://github.com/rbcavanaugh/CV/raw/master/Current-CV.pdf&embedded=true" style="width:100%; height:700px;" frameborder="0"></iframe>

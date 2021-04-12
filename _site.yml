@@ -16,7 +16,7 @@ navbar:
     - text: "Posts"
       href: posts.html
     - text: "CV"
-      href: https://github.com/rbcavanaugh/CV/raw/master/Current-CV.pdf
+      href: cv.html
   search: false
 google_analytics: "UA-179425806-1"
 # cookie_consent:
