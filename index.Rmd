@@ -11,8 +11,6 @@ links:
 output: html_document
 ---
 
-<br/>
-
 ```{css, echo = F}
 
 p{
