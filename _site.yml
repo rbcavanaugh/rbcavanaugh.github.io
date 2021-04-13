@@ -9,8 +9,6 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "Publications"
-      href: Research.html
     - text: "R Gallery"
       href: Shiny.html
     - text: "Posts"
