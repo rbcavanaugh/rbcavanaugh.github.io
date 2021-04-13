@@ -1,19 +1,413 @@
 ---
-title: "CV"
-output: html_document
+title: |
+  Curriculum Vitae
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-```{css, echo = F}
-.navbar{
- display:none;
-}
-.title{
- display:none;
-}
-```
+<!-- `r  icons::fontawesome('download')` -->
 
-<iframe src="http://docs.google.com/gview?url=https://github.com/rbcavanaugh/CV/raw/master/Current-CV.pdf&embedded=true" style="width:100%; height:700px;" frameborder="0"></iframe>
+## Education
+
+:::: {style="display: grid; grid-template-columns: 1fr 3fr; grid-column-gap: 10px;"}
+
+:::{}
+2018 - present\
+:::
+
+:::{}
+*Ph.D. Student, Communication Science and Disorders*\
+University of Pittsburgh, Pittsburgh, PA
+
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 3fr; grid-column-gap: 10px;"}
+
+:::{}
+2015
+:::
+
+:::{}
+*M.S. Speech and Hearing Sciences*\
+University of North Carolina at Chapel Hill, Chapel Hill, NC\
+Thesis: Working Memory Capacity and Subjective Communication\
+Difficulties in High Level Aphasia
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 3fr; grid-column-gap: 10px;"}
+
+:::{}
+2013
+:::
+
+:::{}
+*B.A. Communication Science and Disorders*\
+University of Pittsburgh, Pittsburgh, PA\
+Magna Cum Laude
+:::
+
+::::
+
+
+## Appointments and Positions
+
+:::: {style="display: grid; grid-template-columns: 1fr 3fr; grid-column-gap: 10px;"}
+
+:::{}
+4/2020 - 3/2021\
+:::
+
+:::{}
+*Predoctoral Fellow*\
+Clinical and Translational Science Institute\
+Clinical and Translational Science Fellowship Program\
+TL1TR001858 (Kraemer)
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 3fr; grid-column-gap: 10px;"}
+
+:::{}
+2018 - present\
+:::
+
+:::{}
+*Graduate Student Researcher*\
+Language Rehabilitation and Cognition Laboratory. PI: William Evans\
+Communication Science and Disorders, University of Pittsburgh
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 3fr; grid-column-gap: 10px;"}
+
+:::{}
+2018 - present\
+:::
+
+:::{}
+*Research Associate, WOC*\
+Department of Speech Pathology and Audiology\
+VA Pittsburgh Healthcare System
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 3fr; grid-column-gap: 10px;"}
+
+:::{}
+2013 - 2015\
+:::
+
+:::{}
+*Graduate Research Assistant*\
+Center for Aphasia and Related Disorders. PI: Katarina Haley\
+University of North Carolina at Chapel Hill
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 3fr; grid-column-gap: 10px;"}
+
+:::{}
+2010 - 2013
+:::
+
+:::{}
+*Undergraduate Research Assistant*\
+Eye and Ear Institute. PI: Patrick Sparto\
+University of Pittsburgh
+:::
+
+::::
+
+## Clinical Training
+
+:::: {style="display: grid; grid-template-columns: 1fr 3fr; grid-column-gap: 10px;"}
+
+:::{}
+7/2015 - 5/2016
+:::
+
+:::{}
+*Clinical Fellow, Speech-Language Pathology*\
+Carolinas Rehabilitation, Charlotte, NC
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 3fr; grid-column-gap: 10px;"}
+
+:::{}
+6/2016 - 7/2018
+:::
+
+:::{}
+*Speech-Language Pathologist*
+Carolinas Rehabilitation, Charlotte, NC
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 3fr; grid-column-gap: 10px;"}
+
+:::{}
+7/2015 - 7/2018
+:::
+
+:::{}
+*Speech-Language Pathologist*
+Carolinas Neurosciences Institute, Charlotte, NC
+:::
+
+::::
+
+## Publications
+
+### Published
+
+Evans, W. S., **Cavanaugh, R. B.**, Gravier, M. L., Autenreith, A. S., Doyle, P. J., Hula, W. D., Dickey Michael, W., & Dickey, M. W. (2020). Effects of Semantic Feature Type, Diversity, and Quantity on Semantic Feature Analysis Treatment Outcomes in Aphasia. American Journal of Speech-Language Pathology. https://doi.org/10.1044/2020_AJSLP-19-00112
+
+**Cavanaugh, R.**, & Haley, K. L. (2020). Subjective communication difficulties in very mild aphasia. American Journal of Speech-Language Pathology, 29(1S), 437–448. https://doi.org/10.1044/2019_AJSLP-CAC48-18-0222
+
+### In Press
+
+Evans, W. S., **Cavanaugh, R. B.**, Quique, Y. L., Boss, E., Starns, J. J., Hula, W. D. (manuscript under review). Playing with BEARS: Balancing Effort, Accuracy, and Response Speed in a Semantic Feature Verification Anomia Treatment Game.
+
+### Under Review
+
+**Cavanaugh, R.B.**, Kravetz, C., Jarold, L., Quique, Y., Turner, R., Evans, W.S. (manuscript under review). Is there a research-practice dosage gap in aphasia rehabilitation? 
+
+<!--  **Cavanaugh, R.B.**, Terhorst, L., Swiderski, A.W., Hula, W.D., Evans, W.S. (manuscript under review). A Systematic Appraisal of Individual Effect Sizes in Aphasia Single-Case Designs via Simulation -->
+
+<!--  **Cavanaugh, R.B.**, Quique, Y., Boss, E., Hula, W.D., Dickey, M.W., Evans, W.S. (manuscript under review). Active Ingredients and Mechanisms of Action in Semantic Feature Analysis -->
+
+<!-- ### In Preparation  -->
+
+<!-- Boyle, M,  Akers, C, **Cavanaugh, R.B.**, Hula, W.D, Elman, R., (manuscript in preparation). Informativeness of Structured Discourse Following Communication Group Treatment in Chronic Aphasia -->
+
+<!-- Quique, Y., **Cavanaugh, R.B.**, Lescht, E., Evans, W.S. (manuscript in preparation). Leveraging an adaptive retrieval spacing paradigm to train many exemplars in aphasia treatment.-->
+
+
+## Refereed Presentations
+
+**Cavanaugh, R.B.**, Kravetz, C., Jarold, L., Quique, Y., Turner, R., Evans, W.S. (2020). Is there a research-practice dosage gap in aphasia rehabilitation? Abstract for poster presentation, 16th Annual Rehabilitation Institute Research Day. Pittsburgh, PA
+
+ **Cavanaugh, R.B.**, Terhorst, L., Swiderski, A.W., Hula, W.D., Evans, W.S. (2020). A Systematic Appraisal of Individual Effect Sizes in Aphasia Single-Case Designs via Simulation. Abstract for poster presentation, 58th Academy of Aphasia, Philadelpha PA.
+
+**Cavanaugh, R.B.**, Quique, Y, Boss, E, Hula, W.D., and Evans, W.S. (2020). Practicing with BEARS: Active Ingredients in Semantic Feature Analysis. Abstract for poster presentation, 49th annual Clinical Aphasiology Conference, Whitefish, MT (Conference canceled).  
+
+Evans, W.S., **Cavanaugh, R.B.**, Quique, Y., Boss,E., Dickey, M.W., Doyle , P, Starns,J.J.,and Hula, W.D., (2020). BEARS-Balancing Effort, Accuracy, and Response Speed in semantic feature verification anomia treatment. Abstract for platform presentation, 49th annual Clinical Aphasiology Conference, Whitefish, MT (Conference canceled).  
+
+Quique,Y., **Cavanaugh, R.B.**, Starns, J.J., Boss, E., Hula, W.D., and Evans, W.S. (2020). Estimating the speed-accuracy tradeoff “Sweet Spot” in language performance for people with aphasia: replication and extension of a diffusion-model based approach. Abstract for poster presentation, 49th annual Clinical Aphasiology Conference, Whitefish, MT (Conference canceled).  
+
+**Cavanaugh, R.B.**, Kravetz, C., Evans, W.S. Utilization and Disparities in Outpatient Aphasia Rehabilitation in Western Pennsylvania. Abstract for poster presentation, Pennsylvania Speech-Language Hearing Association Annual Conference, Pittsburgh, PA (Conference Canceled).
+
+**Cavanaugh, R.B.**, Evans, W.S., Gravier, M., Autenreith, A., Ashmore, E., Doyle, P., Hula, W., Dickey, M.W., (2019). Do the kinds of features that patients generate during Semantic Feature Analysis affect treatment outcomes? Poster presented at the 2019 Clinical Aphasiology Conference in Whitefish, MT. 
+
+**Cavanaugh, R.B.**, Haley, K. (2018) Subjective communication difficulties in very mild aphasia. Abstract for poster presentation, 48th annual Clinical Aphasiology Conference, Austin, TX.
+
+**Cavanaugh, R.B.** & Haley, K. (2014, April) Accounting for Aphasia-Related Language Deficits in Verbal Working Memory Assessments: A Literature Review. Poster presented at the 2014 SPHS Student Research Day in Chapel Hill, NC.  
+
+## Teaching
+
+:::: {style="display: grid; grid-template-columns: 1fr 5fr; grid-column-gap: 10px;"}
+
+:::{}
+Fall/2019
+:::
+
+:::{}
+CSD 2230: Neurogenic Language and Cognitive Communication Disorders\
+Instructor: William S. Evans\
+Guest Lecture 1: TBI: Pathophysiology and Medical Considerations\
+Guest Lecture 2: Case studies in adult neurological communication disorders
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 5fr; grid-column-gap: 10px;"}
+
+:::{}
+Fall/2020
+:::
+
+:::{}
+SPHS 742: Aphasia (University of North Carolina at Chapel Hill)\
+Instructor: Katarina L. Haley\
+Invited Lecture: Applying treatment research in clinical practice settings
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 5fr; grid-column-gap: 10px;"}
+
+:::{}
+Fall/2020
+:::
+
+:::{}
+CSD 2230: Neurogenic Language and Cognitive Communication Disorders\
+Instructor: William S. Evans\
+Guest Lecture 1: TBI: Pathophysiology and Medical Considerations\
+Guest Lecture 2: TBI: Assessment and Intervention through case studies
+:::
+
+::::
+
+
+
+## Honors and Awards
+
+:::: {style="display: grid; grid-template-columns: 1fr 5fr; grid-column-gap: 10px;"}
+
+:::{}
+08/2020
+:::
+
+:::{}
+ANCDS Conference Student Fellowship
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 5fr; grid-column-gap: 10px;"}
+
+:::{}
+10/2020
+:::
+
+:::{}
+NIH-NIDCD Academy of Aphasia conference grant (R13 DC017375-01)
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 5fr; grid-column-gap: 10px;"}
+
+:::{}
+10/2019
+:::
+
+:::{}
+School of Health and Rehabilitation Sciences Research Development Fund
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 5fr; grid-column-gap: 10px;"}
+
+:::{}
+05/2019
+:::
+
+:::{}
+NIH-NIDCD Fellowship: Research Symposium in Clinical Aphasiology
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 5fr; grid-column-gap: 10px;"}
+
+:::{}
+09/2014
+:::
+
+:::{}
+Adult Communication Disorders Annual Scholarship, UNC-Chapel Hill
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 5fr; grid-column-gap: 10px;"}
+
+:::{}
+09/2014
+:::
+
+:::{}
+Robert W. Peters Award for excellence in research, UNC-Chapel Hill
+:::
+
+::::
+
+
+## Certification, Licensure, Memberships, and Service
+
+:::: {style="display: grid; grid-template-columns: 1fr 5fr; grid-column-gap: 10px;"}
+
+:::{}
+05/2016 - 
+:::
+
+:::{}
+CCC-SLP: American Speech-Language and Hearing Association (ASHA)
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 5fr; grid-column-gap: 10px;"}
+
+:::{}
+05/2015 -
+:::
+
+:::{}
+SLP: Board of Examiners in Speech-Language Pathology, North Carolina
+:::
+
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 5fr; grid-column-gap: 10px;"}
+
+:::{}
+05/2015 -
+:::
+
+:::{}
+Member, ASHA SIG 2: Neurogenic Communication Disorders
+:::
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 5fr; grid-column-gap: 10px;"}
+
+:::{}
+08/2020 -
+:::
+
+:::{}
+Member, Academy of Neurologic Communication Disorders and Sciences
+:::
+::::
+
+:::: {style="display: grid; grid-template-columns: 1fr 5fr; grid-column-gap: 10px;"}
+
+:::{}
+04/2020 - 
+:::
+
+:::{}
+Reviewer, ASHA Annual Convention: Adult Language Section
+:::
+::::
+
+</br>
+
+:::{.floating}
+<div style = "float:right;">
+Last Updated: `r format(Sys.time(), '%B, %Y')`
+</div>
+:::
