@@ -2,7 +2,7 @@
 # from data. Feel free to tweak it as you desire!
 
 
-#' Create a CV_Printer object.
+#' Create a CV_Printer object.ddd
 #'
 #' @param data_location Path of the spreadsheets holding all your data. This can be
 #'   either a URL to a google sheet with multiple sheets containing the four
