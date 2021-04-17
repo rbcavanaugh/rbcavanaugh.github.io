@@ -9,12 +9,12 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "R Gallery"
-      href: Shiny.html
-    - text: "Posts"
-      href: posts.html
     - text: "CV"
       href: cv.html
+    - text: "Posts"
+      href: posts.html
+    - text: "R Gallery"
+      href: Shiny.html
   search: false
 google_analytics: "UA-179425806-1"
 # cookie_consent:
