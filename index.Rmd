@@ -91,6 +91,8 @@ CV <- create_CV_object(
 
 ```
 
+</br>
+
 ### Recent Publications 
 
 ```{r results='asis', echo = FALSE}
