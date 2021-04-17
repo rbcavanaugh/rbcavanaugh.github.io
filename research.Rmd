@@ -2,39 +2,34 @@
 title: "Research"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  results='asis', 
+  echo = FALSE
+)
+
+library(magrittr) # For the pipe
+source("cv_printing_functions_website.r")
+
+# Read in all data and initialize a CV printer object
+CV <- create_CV_object(
+  data_location = "https://docs.google.com/spreadsheets/d/1B2gc55CwWn0QidoLk3aqWXFaKGFXqekKV94LVyY7Gug/edit?usp=sharing",  
+  pdf_mode = 'false'
+)
+
 ```
 
 ### Publications 
 
-#### Published
-
-Evans, W. S., **Cavanaugh, R. B.**, Gravier, M. L., Autenreith, A. S., Doyle, P. J., Hula, W. D., Dickey Michael, W., & Dickey, M. W. (2020). Effects of Semantic Feature Type, Diversity, and Quantity on Semantic Feature Analysis Treatment Outcomes in Aphasia. American Journal of Speech-Language Pathology. https://doi.org/10.1044/2020_AJSLP-19-00112
-
-**Cavanaugh, R.**, & Haley, K. L. (2020). Subjective communication difficulties in very mild aphasia. American Journal of Speech-Language Pathology, 29(1S), 437–448. https://doi.org/10.1044/2019_AJSLP-CAC48-18-0222
-
-#### Under Review
-
-Evans, W. S., **Cavanaugh, R. B.**, Quique, Y. L., Boss, E., Starns, J. J., Hula, W. D. (manuscript under review). Playing with BEARS: Balancing Effort, Accuracy, and Response Speed in a Semantic Feature Verification Anomia Treatment Game.
-
-**Cavanaugh, R.B.**, Kravetz, C., Jarold, L., Quique, Y., Turner, R., Evans, W.S. (manuscript under review). Is there a research-practice dosage gap in aphasia rehabilitation? 
-
- **Cavanaugh, R.B.**, Terhorst, L., Swiderski, A.W., Hula, W.D., Evans, W.S. (manuscript under review). A Systematic Appraisal of Individual Effect Sizes in Aphasia Single-Case Designs via Simulation
- 
- **Cavanaugh, R.B.**, Quique, Y., Boss, E., Hula, W.D., Dickey, M.W., Evans, W.S. (manuscript under review). Active Ingredients and Mechanisms of Action in Semantic Feature Analysis
- 
-### Software
-
-Kowalski, J., and Cavanaugh R.B. (2021). TBDBr: Easy Access To TalkBankDB via R API.
-  https://github.com/TalkBank/TalkBankDB-R, https://talkbank.github.io/TalkBankDB-R/.
+```{r}
+# Note the special double pipe so we modify the CV object in place
+CV %<>% print_section("publications") 
+```
  
 ### Selected Presentations
 
- **Cavanaugh, R.B.**, Terhorst, L., Swiderski, A.W., Hula, W.D., Evans, W.S. (2020). A Systematic Appraisal of Individual Effect Sizes in Aphasia Single-Case Designs via Simulation. Abstract for poster presentation, 58th Academy of Aphasia, Philadelpha PA.
+```{r}
+# Note the special double pipe so we modify the CV object in place
+CV %<>% print_section("presentations") 
+```
 
-Quique,Y., **Cavanaugh, R.B.**, Starns, J.J., Boss, E., Hula, W.D., and Evans, W.S. (2020). Estimating the speed-accuracy tradeoff “Sweet Spot” in language performance for people with aphasia: replication and extension of a diffusion-model based approach. Abstract for poster presentation, 49th annual Clinical Aphasiology Conference, Whitefish, MT (Conference canceled).  
-
-**Cavanaugh, R.B.**, Kravetz, C., Evans, W.S. Utilization and Disparities in Outpatient Aphasia Rehabilitation in Western Pennsylvania. (2020) Abstract for poster presentation, Pennsylvania Speech-Language Hearing Association Annual Conference, Pittsburgh, PA (Conference Canceled).
-
-**Cavanaugh, R.B.**, Evans, W.S., Gravier, M., Autenreith, A., Ashmore, E., Doyle, P., Hula, W., Dickey, M.W., (2019). Do the kinds of features that patients generate during Semantic Feature Analysis affect treatment outcomes? Poster presented at the 2019 Clinical Aphasiology Conference in Whitefish, MT. 
