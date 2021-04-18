@@ -44,14 +44,30 @@ a{
   text-align: center;
   padding-top:5px;
 }
+
+@media screen and (min-width: 800px)  {
+        .mobile-img { float:left; padding:30px; border-radius: 50%; width: 40%; display:block; margin-left:auto; margin-right:auto; margin-bottom:20px;}
+}
+
+@media screen and (max-width: 799px)  {
+        .mobile-img { width: 70%; border-radius: 50%; display:block; margin-left:auto; margin-right:auto; margin-bottom:20px; max-width: 300px; }
+}
+
+@media screen and (max-width: 799px)  {
+        .mobile-break {display:none;}
+}
+
+@media screen and (min-width: 600px)  {
+        .mobileonly-break {display:none;}
+}
 ```
 
 
-```{r echo = FALSE, out.extra = 'style = "float:left; padding:30px; border-radius: 50%; display: block; margin-left: auto; margin-right: auto; width: 40%;"'}
+```{r echo = FALSE, out.extra = 'class="mobile-img"'}
 knitr::include_graphics("images/robamanda-oly.jpg")
 ```
 
-<br>
+<br class = "mobile-break">
 
 <center>
 
@@ -73,6 +89,8 @@ Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors
 </div>
 
 <div style="clear:both;"></div>
+
+<br class = "mobileonly-break">
 
 ### Research
 

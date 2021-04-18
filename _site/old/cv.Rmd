@@ -13,8 +13,6 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-<!-- `r  icons::fontawesome('download')` -->
-
 ## Education
 
 :::: {style="display: grid; grid-template-columns: 1fr 3fr; grid-column-gap: 10px;"}

@@ -1010,9 +1010,25 @@ a{
   text-align: center;
   padding-top:5px;
 }
+
+@media screen and (min-width: 800px)  {
+        .mobile-img { float:left; padding:30px; border-radius: 50%; width: 40%; display:block; margin-left:auto; margin-right:auto; margin-bottom:20px;}
+}
+
+@media screen and (max-width: 799px)  {
+        .mobile-img { width: 70%; border-radius: 50%; display:block; margin-left:auto; margin-right:auto; margin-bottom:20px; max-width: 300px; }
+}
+
+@media screen and (max-width: 799px)  {
+        .mobile-break {display:none;}
+}
+
+@media screen and (min-width: 600px)  {
+        .mobileonly-break {display:none;}
+}
 </style>
-<p><img src="images/robamanda-oly.jpg" width="394" style = "float:left; padding:30px; border-radius: 50%; display: block; margin-left: auto; margin-right: auto; width: 40%;" /></p>
-<p><br></p>
+<p><img src="images/robamanda-oly.jpg" width="394" class="mobile-img" /></p>
+<p><br class = "mobile-break"></p>
 <center>
 <div id="rob-cavanaugh" class="section level2">
 <h2>Rob Cavanaugh</h2>
@@ -1025,6 +1041,7 @@ a{
 <div style="clear:both;">
 
 </div>
+<p><br class = "mobileonly-break"></p>
 <div id="research" class="section level3">
 <h3>Research</h3>
 <p>My long-term research agenda is to optimize everyday communication and quality of life outcomes for people with aphasia and related neurogenic communication disorders. My research strives to identify and resolve implementation gaps in aphasia rehabilitation, improve patient access to evidence-based care, and enhance treatment specification. My work seeks to use advanced statistical methods in aphasia rehabilitation research and communicate these methods effectively to researchers and clinicians. I’m also interested in statistical programming (R + python), data science, and data visualization - especially using these tools to improve science communication.</p>
