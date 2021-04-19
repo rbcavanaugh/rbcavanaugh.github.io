@@ -4,6 +4,8 @@
 # this script to cache a version of the CV_Printer class with data already
 # loaded and load the cached version in the .Rmd instead of re-fetching it twice
 # for the HTML and PDF rendering. This exercise is left to the reader.
+rmarkdown::render_site(encoding = 'UTF-8')
+
 library(here)
 # Knit the HTML version
 rmarkdown::render(here("CV", "cv.rmd"),
