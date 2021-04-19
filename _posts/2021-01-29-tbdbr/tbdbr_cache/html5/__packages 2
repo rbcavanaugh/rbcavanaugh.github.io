@@ -1,0 +1,17 @@
+base
+here
+kableExtra
+data.table
+tidyverse
+ggplot2
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats
+TBDBr
+Rcpp
+brms
+plotly
