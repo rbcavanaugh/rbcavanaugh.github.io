@@ -1,0 +1,25 @@
+- title: "Aphasia Effect Sizes"
+  img: images/es.png
+  href: https://rb-cavanaugh.shinyapps.io/aphasia-effect-sizes/
+  showcase: true
+- title: "Correct Information Units"
+  img: images/cius.png
+  href: https://rb-cavanaugh.shinyapps.io/aphasia-ciu/
+  showcase: true
+- title: "TBDBr R Package"
+  img: images/tbdb.png
+  href: https://talkbank.github.io/TBDBr/
+  showcase: true
+- title: "Gantts for Grants"
+  img: images/gantt.png
+  href: https://github.com/rbcavanaugh/gantt
+  showcase: true
+- title: "Lexical Diversity"
+  img: images/wim.png
+  href: https://rb-cavanaugh.shinyapps.io/WIM_MATTR/
+  showcase: true
+- title: "Core Lexicon & Main Concepts (soon!)"
+  img: images/core.png
+  href: "https://github.com/rbcavanaugh/clinical-discourse"
+  showcase: true
+  
