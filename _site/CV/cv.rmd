@@ -54,7 +54,7 @@ Aside
 
 
 <center>
-<img src="images/rr.jpeg" width = "80%" style = "border-radius:80px">
+<img src="rr.jpeg" width = "80%" style = "border-radius:80px">
 </center>
 
 Contact {#contact}
