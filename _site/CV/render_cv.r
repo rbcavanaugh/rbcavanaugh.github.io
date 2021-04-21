@@ -10,8 +10,8 @@ library(here)
 # Knit the HTML version
 rmarkdown::render(here("CV", "cv.rmd"),
                   #params = list(pdf_mode = FALSE),
-                  output_file = "~/Documents/github-repos/personal-website-distill/_site/cv.html")
+                  output_file = "~/Documents/github-repos/personal-website-distill/cv.html")
 
 # Convert to PDF using Pagedown
-pagedown::chrome_print(input = "~/Documents/github-repos/personal-website-distill/_site/cv.html",
+pagedown::chrome_print(input = "~/Documents/github-repos/personal-website-distill/cv.html",
                        output = here("CV", "cv.pdf"))
