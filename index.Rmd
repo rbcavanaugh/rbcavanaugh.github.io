@@ -26,14 +26,25 @@ p{
  display:none;
 }
 
-#borders{
-   border: 2px; 
+
+.borders{
+   display: inline-block;
+   border: 2px;
+   margin: 5px;
    border-style: solid;
    border-color: #546E7A;
    padding: 5px;
-   border-radius: 5px;
+   border-radius: 10px;
    color: #37474F;
 }
+
+.borders:hover{
+    background: #546E7A;
+    color: #f1f1f1;
+    
+}
+
+
 
 a{
   color: black;
@@ -81,10 +92,10 @@ Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors
 
 <div class = "centering">
 
-[`r fontawesome::fa("twitter")` Twitter](https://twitter.com/Littlejohnsband){#borders} 
-[`r fontawesome::fa("github")` Github](https://github.com/rbcavanaugh){#borders} 
-[`r fontawesome::fa("paper-plane")` Email](rob.cavanaugh@pitt.edu){#borders}
-[`r fontawesome::fa("university")` Pitt Lab](https://lrcl.pitt.edu){#borders}
+[`r fontawesome::fa("twitter")` Twitter](https://twitter.com/Littlejohnsband){class=borders} 
+[`r fontawesome::fa("github")` Github](https://github.com/rbcavanaugh){class=borders} 
+[`r fontawesome::fa("paper-plane")` Email](rob.cavanaugh@pitt.edu){class=borders}
+[`r fontawesome::fa("university")` Pitt Lab](https://lrcl.pitt.edu){class=borders}
 
 </div>
 
