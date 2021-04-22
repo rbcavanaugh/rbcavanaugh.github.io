@@ -6,5 +6,6 @@ Personal website built in distill
 - goal is that updating google doc will update both CV and website as needed
 
 
-To do:
-- update flexdashboard hacky page to flex or grid or something. 
+- bash script to update all: 
+
+update_website "commit message"
