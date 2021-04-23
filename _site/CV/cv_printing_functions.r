@@ -177,7 +177,7 @@ print_section <- function(cv, section_id, glue_template = "default"){
     
 {title}
 
-{institution}
+N/A
   
 {timeline}
 \n\n\n"
