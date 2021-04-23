@@ -151,7 +151,7 @@ print_section <- function(cv, section_id, glue_template = "article"){
  </a>
  </div>
  <div class="flex-right">
-{title}
+<p style="padding:0px;">{title}</p>
 </div>
 </div>
 \n\n\n'
