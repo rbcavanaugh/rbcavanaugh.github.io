@@ -144,11 +144,15 @@ print_section <- function(cv, section_id, glue_template = "article"){
   } else if(glue_template == "poster"){
     glue_template <- '
 
-<div>
+<div class="flex-container">
+ <div class="flex-left">
  <a href = "images/{loc}" id = "link_left">
 <img src="images/{institution}" id = "feat_img">   
  </a>
+ </div>
+ <div class="flex-right">
 {title}
+</div>
 </div>
 </br>
  

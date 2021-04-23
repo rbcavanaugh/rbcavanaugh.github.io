@@ -1038,9 +1038,31 @@ a{
         .mobileonly-break {display:none;}
 }
 
-#link_left {
-  float:left;
-  margin-bottom: 10px;
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-left {
+    width: 20%;
+}
+
+.flex-right {
+    width: 80%;
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column-reverse;
+  }
+  .flex-left {
+    width: 100%;
+  }
+  
+  .flex-right {
+    width: 100%;
+  }
 }
 
 #feat_img {
@@ -1098,24 +1120,44 @@ $(document).ready(function(){
 </div>
 <div id="selected-presentations" class="section level3">
 <h3>Selected Presentations</h3>
-<div>
-<p><a href = "images/AA_2021.pdf" id = "link_left"> <img src="images/AA_2021.png" id = "feat_img"><br />
-</a> <strong>Cavanaugh, R.B.</strong>, Kravetz, C., Jarold, L., Quique, Y., Turner, R., Evans, W.S. (2021). Is there a research-practice dosage gap in aphasia rehabilitation? Abstract for poster presentation, Aphasia Access Leadership Summit, online.</p>
+<div class="flex-container">
+<div class="flex-left">
+<a href = "images/AA_2021.pdf" id = "link_left"> <img src="images/AA_2021.png" id = "feat_img"><br />
+</a>
+</div>
+<div class="flex-right">
+<p><strong>Cavanaugh, R.B.</strong>, Kravetz, C., Jarold, L., Quique, Y., Turner, R., Evans, W.S. (2021). Is there a research-practice dosage gap in aphasia rehabilitation? Abstract for poster presentation, Aphasia Access Leadership Summit, online.</p>
+</div>
 </div>
 <p></br></p>
-<div>
-<p><a href = "images/AoA_2020.pdf" id = "link_left"> <img src="images/AoA_2020.png" id = "feat_img"><br />
-</a> <strong>Cavanaugh, R.B.,</strong> Terhorst, L., Swiderski, A.W., Hula, W.D., Evans, W.S. (2020). A Systematic Appraisal of Individual Effect Sizes in Aphasia Single-Case Designs via Simulation. Abstract for poster presentation, 58th Academy of Aphasia, Philadelpha PA.</p>
+<div class="flex-container">
+<div class="flex-left">
+<a href = "images/AoA_2020.pdf" id = "link_left"> <img src="images/AoA_2020.png" id = "feat_img"><br />
+</a>
+</div>
+<div class="flex-right">
+<p><strong>Cavanaugh, R.B.,</strong> Terhorst, L., Swiderski, A.W., Hula, W.D., Evans, W.S. (2020). A Systematic Appraisal of Individual Effect Sizes in Aphasia Single-Case Designs via Simulation. Abstract for poster presentation, 58th Academy of Aphasia, Philadelpha PA.</p>
+</div>
 </div>
 <p></br></p>
-<div>
-<p><a href = "images/CAC_2019.pdf" id = "link_left"> <img src="images/CAC_2019.png" id = "feat_img"><br />
-</a> <strong>Cavanaugh, R.B.,</strong> Evans, W.S., Gravier, M., Autenreith, A., Ashmore, E., Doyle, P., Hula, W., Dickey, M.W., (2019). Do the kinds of features that patients generate during Semantic Feature Analysis affect treatment outcomes? Poster presented at the 2019 Clinical Aphasiology Conference in Whitefish, MT.</p>
+<div class="flex-container">
+<div class="flex-left">
+<a href = "images/CAC_2019.pdf" id = "link_left"> <img src="images/CAC_2019.png" id = "feat_img"><br />
+</a>
+</div>
+<div class="flex-right">
+<p><strong>Cavanaugh, R.B.,</strong> Evans, W.S., Gravier, M., Autenreith, A., Ashmore, E., Doyle, P., Hula, W., Dickey, M.W., (2019). Do the kinds of features that patients generate during Semantic Feature Analysis affect treatment outcomes? Poster presented at the 2019 Clinical Aphasiology Conference in Whitefish, MT.</p>
+</div>
 </div>
 <p></br></p>
-<div>
-<p><a href = "images/CAC_2018.pdf" id = "link_left"> <img src="images/CAC_2018.png" id = "feat_img"><br />
-</a> <strong>Cavanaugh, R.B.,</strong> Haley, K.L. (2018) Subjective communication difficulties in very mild aphasia. Abstract for poster presentation, 48th annual Clinical Aphasiology Conference, Austin, TX.</p>
+<div class="flex-container">
+<div class="flex-left">
+<a href = "images/CAC_2018.pdf" id = "link_left"> <img src="images/CAC_2018.png" id = "feat_img"><br />
+</a>
+</div>
+<div class="flex-right">
+<p><strong>Cavanaugh, R.B.,</strong> Haley, K.L. (2018) Subjective communication difficulties in very mild aphasia. Abstract for poster presentation, 48th annual Clinical Aphasiology Conference, Austin, TX.</p>
+</div>
 </div>
 <p></br></p>
 </div>

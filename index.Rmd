@@ -72,9 +72,31 @@ a{
         .mobileonly-break {display:none;}
 }
 
-#link_left {
-  float:left;
-  margin-bottom: 10px;
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-left {
+    width: 20%;
+}
+
+.flex-right {
+    width: 80%;
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column-reverse;
+  }
+  .flex-left {
+    width: 100%;
+  }
+  
+  .flex-right {
+    width: 100%;
+  }
 }
 
 #feat_img {
@@ -122,7 +144,10 @@ I'm a third-year Ph.D. student in the Department of Communication Sciences and D
 Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.
 
 ::: {.centering}
-[`r fontawesome::fa("twitter")` Twitter](https://twitter.com/Littlejohnsband){.borders} [`r fontawesome::fa("github")` Github](https://github.com/rbcavanaugh){.borders} [`r fontawesome::fa("paper-plane")` Email](rob.cavanaugh@pitt.edu){.borders} [`r fontawesome::fa("university")` Pitt Lab](https://lrcl.pitt.edu){.borders}
+[`r fontawesome::fa("twitter")` Twitter](https://twitter.com/Littlejohnsband){.borders}
+[`r fontawesome::fa("github")` Github](https://github.com/rbcavanaugh){.borders}
+[`r fontawesome::fa("paper-plane")` Email](rob.cavanaugh@pitt.edu){.borders}
+[`r fontawesome::fa("university")` Pitt Lab](https://lrcl.pitt.edu){.borders}
 :::
 
 ::: {style="clear:both;"}
