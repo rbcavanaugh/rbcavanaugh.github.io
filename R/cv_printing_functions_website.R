@@ -142,9 +142,17 @@ print_section <- function(cv, section_id, glue_template = "article"){
 {title}
 \n\n\n"
   } else if(glue_template == "poster"){
-    glue_template <- "
-[{title}](images/{loc})
-\n\n\n"
+    glue_template <- '
+
+<div>
+ <a href = "images/{loc}" id = "link_left">
+<img src="images/{institution}" id = "feat_img">   
+ </a>
+{title}
+</div>
+</br>
+ 
+\n\n\n'
   }
 
   section_data <- dplyr::filter(cv$entries_data, section == section_id)
