@@ -74,6 +74,18 @@ a{
 ```
 
 
+```{js echo = FALSE}
+$(document).ready(function(){
+	
+   // external links to new window
+    $('a[href^="http://"]').not('a[href*="https://robcavanaugh.com"]').attr('target','_blank');
+    
+    // force PDF Files to open in new window
+    $('a[href$=".pdf"]').attr('target', '_blank');
+
+  });
+```
+
 ```{r echo = FALSE, out.extra = 'class="mobile-img"'}
 knitr::include_graphics("images/robamanda-oly.jpg")
 ```
@@ -90,16 +102,12 @@ I'm a third-year Ph.D. student in the Department of Communication Sciences and D
 
 Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.
 
-<div class = "centering">
+::: {.centering}
+[`r fontawesome::fa("twitter")` Twitter](https://twitter.com/Littlejohnsband){.borders} [`r fontawesome::fa("github")` Github](https://github.com/rbcavanaugh){.borders} [`r fontawesome::fa("paper-plane")` Email](rob.cavanaugh@pitt.edu){.borders} [`r fontawesome::fa("university")` Pitt Lab](https://lrcl.pitt.edu){.borders}
+:::
 
-[`r fontawesome::fa("twitter")` Twitter](https://twitter.com/Littlejohnsband){class=borders} 
-[`r fontawesome::fa("github")` Github](https://github.com/rbcavanaugh){class=borders} 
-[`r fontawesome::fa("paper-plane")` Email](rob.cavanaugh@pitt.edu){class=borders}
-[`r fontawesome::fa("university")` Pitt Lab](https://lrcl.pitt.edu){class=borders}
-
-</div>
-
-<div style="clear:both;"></div>
+::: {style="clear:both;"}
+:::
 
 <br class = "mobileonly-break">
 
@@ -122,16 +130,16 @@ CV <- create_CV_object(
 
 </br>
 
-### Recent Publications 
+### Recent Publications
 
 ```{r results='asis', echo = FALSE}
 # Note the special double pipe so we modify the CV object in place
 CV %<>% print_section("publications") 
 ```
- 
+
 ### Selected Presentations
 
 ```{r results='asis', echo = FALSE}
 # Note the special double pipe so we modify the CV object in place
-CV %<>% print_section("presentations") 
+CV %<>% print_section("presentations", glue_template = "poster") 
 ```

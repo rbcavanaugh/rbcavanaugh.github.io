@@ -143,7 +143,7 @@ print_section <- function(cv, section_id, glue_template = "article"){
 \n\n\n"
   } else if(glue_template == "poster"){
     glue_template <- "
-[{title}]
+[{title}](images/{loc})
 \n\n\n"
   }
 
