@@ -154,8 +154,6 @@ print_section <- function(cv, section_id, glue_template = "article"){
 {title}
 </div>
 </div>
-</br>
- 
 \n\n\n'
   }
 
