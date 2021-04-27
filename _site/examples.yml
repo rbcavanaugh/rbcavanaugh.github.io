@@ -1,10 +1,10 @@
 - title: "Aphasia Effect Sizes"
   img: images/es.png
-  href: https://rb-cavanaugh.shinyapps.io/aphasia-effect-sizes/
+  href: https://robcavanaugh.app/shiny/effect-sizes/
   showcase: true
 - title: "Correct Information Units"
   img: images/cius.png
-  href: https://rb-cavanaugh.shinyapps.io/aphasia-ciu/
+  href: https://robcavanaugh.app/shiny/ciu/
   showcase: true
 - title: "TBDBr R Package"
   img: images/tbdb.png
@@ -16,7 +16,7 @@
   showcase: true
 - title: "Lexical Diversity"
   img: images/wim.png
-  href: https://rb-cavanaugh.shinyapps.io/WIM_MATTR/
+  href: https://robcavanaugh.app/shiny/lexical-diversity
   showcase: true
 - title: "Core Lexicon & Main Concepts (soon!)"
   img: images/core.png
