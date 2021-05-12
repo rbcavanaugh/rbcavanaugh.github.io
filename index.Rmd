@@ -141,7 +141,7 @@ knitr::include_graphics("images/robamanda-oly.jpg")
 
 </center>
 
-I'm a third-year Ph.D. student in the Department of Communication Sciences and Disorders and TL1 pre-doctoral fellow in the Institute for Clinical Research Education at the University of Pittsburgh. Before returning to school in Pittsburgh, I worked as a clinical speech-language pathologist in Charlotte, NC in outpatient and inpatient rehabilitation settings.
+I'm a third-year Ph.D. student in the Department of Communication Sciences and Disorders and TL1 pre-doctoral fellow in the Institute for Clinical Research Education at the University of Pittsburgh. I am also a clinical speech-language pathologist specializing in neurorehabilitation.
 
 Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.
 
@@ -159,7 +159,7 @@ Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors
 
 ### Research
 
-My long-term research agenda is to optimize everyday communication and quality of life outcomes for people with aphasia and related neurogenic communication disorders. My research strives to identify and resolve implementation gaps in aphasia rehabilitation, improve patient access to evidence-based care, and enhance treatment specification. My work seeks to use advanced statistical methods in aphasia rehabilitation research and communicate these methods effectively to researchers and clinicians. I'm also interested in statistical programming (R + python), data science, and data visualization - especially using these tools to improve science communication.
+My long-term research goal is to improve everyday communication and quality of life outcomes for people with aphasia and related neurogenic communication disorders. My research strives to identify and resolve implementation gaps in aphasia rehabilitation, improve patient access to evidence-based care, and enhance treatment specification and effectiveness. I'm also interested in statistics and data science, programming (R + python + js), data visualization, and science communication.
 
 ```{r, include=FALSE}
 
