@@ -7,7 +7,7 @@
 
 library(here)
 # Knit the HTML version
-rmarkdown::render(here("CV", "cv.rmd"),
+knitr::knit(here("CV", "cv.rmd"),
                   #params = list(pdf_mode = FALSE),
                   output_file = "~/Documents/github-repos/personal-website-distill/cv.html")
 
