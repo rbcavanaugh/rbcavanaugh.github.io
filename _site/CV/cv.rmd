@@ -176,7 +176,7 @@ CV %<>% print_section('honors', glue_template = "other")
 ```
 
 
-Certification, Licensure, Memberships, and Service {data-icon=certificate}
+Certification, licensure, memberships, and service {data-icon=certificate}
 --------------------------------------------------------------------------------
 
 
