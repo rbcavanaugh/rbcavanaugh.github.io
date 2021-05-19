@@ -9,7 +9,7 @@ library(here)
 # Knit the HTML version
 knitr::knit(here("CV", "cv.rmd"),
                   #params = list(pdf_mode = FALSE),
-                  output_file = "~/Documents/github-repos/personal-website-distill/cv.html")
+                  output = "~/Documents/github-repos/personal-website-distill/cv.html")
 
 # Convert to PDF using Pagedown
 pagedown::chrome_print(input = "~/Documents/github-repos/personal-website-distill/cv.html",
