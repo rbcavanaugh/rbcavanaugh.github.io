@@ -84,7 +84,7 @@ Disclaimer {#disclaimer}
 
 ```{r}
 if(!params$pdf_mode){
-    cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/rbcavanaugh/CV/raw/master/cv.pdf/)")
+    cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/rbcavanaugh/personal-website-distill/raw/master/CV/cv.pdf)")
 }
 ```
 
