@@ -116,6 +116,23 @@ a{
 }
 ```
 
+```{r, include=FALSE, results='asis'}
+library(metathis)
+
+meta() %>%
+  meta_social(
+    title = "Rob Cavanaugh Personal Website",
+    description = "Rob Cavanaugh's research portfolio",
+    url = "https://robcavanaugh.me/",
+    image = "images/olympus.jpg",
+    image_alt = "Mount Olympus, WA",
+    og_type = "website",
+    og_author = "Rob Cavanaugh",
+    twitter_card_type = "summary",
+    twitter_creator = "@littlejohnsband"
+  )
+
+```
 
 ```{js echo = FALSE}
 $(document).ready(function(){
