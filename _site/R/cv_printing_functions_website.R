@@ -140,10 +140,9 @@ print_section <- function(cv, section_id, glue_template = "article"){
   if(glue_template == "article"){
     glue_template <- "
 {title}
-\n\n\n"
+\n\n"
   } else if(glue_template == "poster"){
     glue_template <- '
-
 <div class="flex-container">
  <div class="flex-left">
  <a href = "images/{loc}" id = "link_left">
@@ -154,7 +153,7 @@ print_section <- function(cv, section_id, glue_template = "article"){
 <p style="margin:0px">{title}</p>
 </div>
 </div>
-\n\n\n'
+\n\n'
   }
 
   section_data <- dplyr::filter(cv$entries_data, section == section_id)
