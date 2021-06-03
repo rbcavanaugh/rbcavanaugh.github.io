@@ -165,7 +165,7 @@ Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors
 ::: {.centering}
 [`r fontawesome::fa("twitter")` Twitter](https://twitter.com/Littlejohnsband){.borders}
 [`r fontawesome::fa("github")` Github](https://github.com/rbcavanaugh){.borders}
-[`r fontawesome::fa("paper-plane")` Email](rob.cavanaugh@pitt.edu){.borders}
+[`r fontawesome::fa("paper-plane")` Email](mailto:rob.cavanaugh@pitt.edu){.borders}
 [`r fontawesome::fa("university")` Pitt Lab](https://lrcl.pitt.edu){.borders}
 :::
 
