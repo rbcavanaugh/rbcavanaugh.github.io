@@ -1,6 +1,10 @@
 
 html, body {
   overflow-x: hidden;
+  width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -40,10 +44,6 @@ p{
     color: #f1f1f1;
     text-decoration: none;
 }
-
-/*.section h2 {
-  padding-top:50px!important;
-}*/
 
 a{
   color: #005D8F;
@@ -117,14 +117,14 @@ a{
   margin: 0 -9999rem;
   padding: 5rem 9999rem;
   background-color: #FFF;
-  display: grid;
+  border:0;
 }
 
 #recent-publications {
   margin: 0 -9999rem;
   padding: 5rem 9999rem;
   background-color: #f2f5f7;
-  display: grid;
+  border: 0;
 }
 
 #foot {
