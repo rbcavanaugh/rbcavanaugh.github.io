@@ -12,8 +12,6 @@ output:
   html_document:
     css: "web.css"
 ---
-
-
 ```{r, include=FALSE, results='asis'}
 library(metathis)
 
@@ -45,14 +43,13 @@ CV <- create_CV_object(
 
 ```
 
-
 ```{r, echo = F, out.extra= 'class="mobile-img"'}
 knitr::include_graphics("images/robamanda-oly.jpg")
 ```
 
 <br class = "mobile-break">
 
-<center style = "color:#ECEFF1;">
+<center style = "color:#ECEFF1;padding:0px;margin:0px;">
 
 ## Rob Cavanaugh
 
