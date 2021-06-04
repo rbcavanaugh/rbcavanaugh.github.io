@@ -5,6 +5,7 @@ html, body {
 
 body {
   background-color:#005D8F;
+  padding-bottom:0;
 }
 
 p{
@@ -113,15 +114,24 @@ a{
 }
 
 #research, #selected-presentations {
-  margin: 0 -9999rem;
-  padding: 5rem 9999rem;
+  margin: 0 -601.5rem;
+  padding: 5rem 1.5rem;
   background-color: #FFF;
   z-index:1000;
+  border-left: 600rem solid white;
+  border-right: 600rem solid white;
 }
 
 #recent-publications {
-  margin: 0 -9999rem;
-  padding: 5rem 9999rem;
+  margin: 0 -601.5rem;
+  padding: 5rem 1.5rem;
   background-color: #f2f5f7;
+  border-left: 600rem solid #f2f5f7;
+  border-right: 600rem solid #f2f5f7;
   z-index:1000;
+}
+
+#foot {
+    width: 100%;
+    height: 0px;
 }
