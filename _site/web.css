@@ -3,8 +3,11 @@ html, body {
   overflow-x: hidden;
   width: 100%;
     height: auto;
-    margin: 0;
-    padding: 0;
+    margin-left: 0;
+        margin-right: 0;
+    padding-left: 0;
+        padding-right: 0;
+
 }
 
 body {
