@@ -117,7 +117,7 @@ a{
   margin: 0 -9999rem;
   padding: 5rem 9999rem;
   background-color: #FFF;
-  position:static;
+  position:relative;
   /*z-index:1000;*/
 }
 
