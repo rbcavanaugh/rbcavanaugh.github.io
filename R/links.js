@@ -1,6 +1,4 @@
-$('a[href^=http]:not([href^=http://www.gusdecool.com],[href^=http://gusdecool.com])')
-    .add('a[href^=www]:not([href^=www.gusdecool.com])')
-        .attr('target','_blank');
+
         
 window.onload = function(){
     l=document.links.length;
@@ -12,3 +10,13 @@ window.onload = function(){
         }
     }
 }
+
+$(document).ready(function(){
+	
+   // external links to new window
+    $('a[href^="http://"]').not('a[href*="https://robcavanaugh.com"]').attr('target','_blank');
+    
+    // force PDF Files to open in new window
+    $('a[href$=".pdf"]').attr('target', '_blank');
+
+  });
