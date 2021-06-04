@@ -125,7 +125,7 @@ CV %<>% print_section("presentations", glue_template = "poster")
 <center>
 
 <p style="padding-bottom:10px;">
-<span style="color:white;font-style:italic;padding-bottom:30px;>Made with</span>
+<span style="color:white;font-style:italic;padding-bottom:30px;">Made with</span>
 <a href="https://www.tidyverse.org/" target="_blank">
   <img border="0" alt="tidyverse logo" src = "images/tidyverse.svg" height="50px" width="auto" style="margin:0 10px;">
 </a>
