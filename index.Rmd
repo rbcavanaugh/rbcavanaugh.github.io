@@ -46,7 +46,10 @@ CV <- create_CV_object(
 ```
 
 
-![picture of rob and amanda](images/robamanda-oly.jpg){class="mobile-img"}
+```{r, echo = F, out.extra= 'class="mobile-img"'}
+knitr::include_graphics("images/robamanda-oly.jpg")
+```
+
 <br class = "mobile-break">
 
 <center style = "color:#ECEFF1;">
