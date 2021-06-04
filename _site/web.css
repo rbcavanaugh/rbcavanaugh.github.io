@@ -117,8 +117,7 @@ a{
   margin: 0 -9999rem;
   padding: 5rem 9999rem;
   background-color: #FFF;
-  position:absolute;
-
+  position:static;
   /*z-index:1000;*/
 }
 
@@ -126,7 +125,8 @@ a{
   margin: 0 -9999rem;
   padding: 5rem 9999rem;
   background-color: #f2f5f7;
-  position:absolute;
+  position:static;
+
   /*z-index:1000;*/
 }
 
