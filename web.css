@@ -40,9 +40,9 @@ p{
     text-decoration: none;
 }
 
-.section h2 {
-  padding-top:30px!important;
-}
+/*.section h2 {
+  padding-top:50px!important;
+}*/
 
 a{
   color: #005D8F;
@@ -61,7 +61,7 @@ a{
         .mobile-img { width: 70%; border-radius: 50%; display:block; margin-left:auto; margin-right:auto; margin-bottom:30px; max-width: 300px;border: 5px solid #ECEFF1; }
 }
 
-@media screen and (max-width: 799px)  {
+@media screen and (min-width: 800px)  {
         .mobile-break {display:none;}
 }
 
