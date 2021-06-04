@@ -117,17 +117,14 @@ a{
   margin: 0 -9999rem;
   padding: 5rem 9999rem;
   background-color: #FFF;
-  position:relative;
-  /*z-index:1000;*/
+  display: grid;
 }
 
 #recent-publications {
   margin: 0 -9999rem;
   padding: 5rem 9999rem;
   background-color: #f2f5f7;
-  position:static;
-
-  /*z-index:1000;*/
+  display: grid;
 }
 
 #foot {
