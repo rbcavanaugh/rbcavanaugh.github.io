@@ -9,7 +9,7 @@ links:
     url: "https://twitter.com/littlejohnsband"
   - label: GitHub
     url: "https://github.com/rbcavanaugh"
-  - label: University
+  - label: Pitt
     url: "https://lrcl.pitt.edu"
 output:
   postcards::trestles
