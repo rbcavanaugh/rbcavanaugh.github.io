@@ -43,10 +43,6 @@ CV <- create_CV_object(
 
 ```
 
-### Research
-
-My long-term research goal is to improve everyday communication and quality of life outcomes for people with aphasia and related neurogenic communication disorders. My research strives to identify and resolve implementation gaps in aphasia rehabilitation, improve patient access to evidence-based care, and enhance treatment specification and effectiveness. I'm also interested in statistics and data science, programming (R + python + js), data visualization, and science communication.
-
 ### Recent Publications
 
 ```{r results='asis', echo = FALSE}
