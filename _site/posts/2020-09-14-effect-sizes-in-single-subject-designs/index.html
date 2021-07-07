@@ -1625,7 +1625,10 @@ function init_distill() {
 
     // hoverable references
     $('span.citation[data-cites]').each(function() {
-      var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+      var refs = $(this).attr('data-cites').split(" ");
+      var refHtml = refs.map(function(ref) {
+        return "<p>" + $('#ref-' + ref).html() + "</p>";
+      }).join("\n");
       window.tippy(this, {
         allowHTML: true,
         content: refHtml,
@@ -2128,6 +2131,36 @@ d-appendix d-footnote-list a.footnote-backlink {
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+     if (!/posts/.test(location.pathname)) {
+       return;
+     }
+
+     var script = document.createElement("script");
+     script.src = "https://utteranc.es/client.js";
+     script.setAttribute("repo", "rbcavanaugh/personal-website-distill");
+     script.setAttribute("issue-term", "title");
+     script.setAttribute("crossorigin", "anonymous");
+     script.setAttribute("label", "Comment");
+     script.setAttribute("theme", "github-light");
+
+     /* wait for article to load, append script to article element */
+     var observer = new MutationObserver(function (mutations, observer) {
+       var article = document.querySelector("d-article");
+       if (article) {
+         observer.disconnect();
+         /* HACK: article scroll */
+         article.setAttribute("style", "overflow-y: hidden");
+         article.appendChild(script);
+       }
+     });
+
+     observer.observe(document.body, { childList: true });
+   });
+ </script>
+
+
 <script type="text/javascript" cookie-consent="tracking" async src="https://www.googletagmanager.com/gtag/js?id=UA-179425806-1"></script>
 <script type="text/javascript" cookie-consent="tracking">
 window.dataLayer = window.dataLayer || [];
@@ -2145,7 +2178,7 @@ gtag('config', 'UA-179425806-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Effect Sizes in single-subject designs","description":"Effect sizes are a critical outcome in single-case design research, but choosing the appropriate effect size for a given study can be challenging.","authors":[{"author":"Rob Cavanaugh","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-09-14T00:00:00.000+00:00","citationText":"Cavanaugh, 2020"}
+{"title":"Effect Sizes in single-subject designs","description":"Effect sizes are a critical outcome in single-case design research, but choosing the appropriate effect size for a given study can be challenging.","authors":[{"author":"Rob Cavanaugh","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-09-14T00:00:00.000-04:00","citationText":"Cavanaugh, 2020"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2157,6 +2190,7 @@ gtag('config', 'UA-179425806-1');
 </div>
 <div class="nav-right">
 <a href="../../index.html">Home</a>
+<a href="../../research.html">Research</a>
 <a href="../../posts.html">Posts</a>
 <a href="../../Shiny.html">R Gallery</a>
 <a href="../../cv.html">CV</a>

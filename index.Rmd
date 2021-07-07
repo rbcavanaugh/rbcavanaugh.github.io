@@ -1,44 +1,21 @@
 ---
-title: "About"
+title: "Rob Cavanaugh"
+image: "images/robamanda-oly.jpg"
 site: distill::distill_website
 links:
-  - label: '`r fontawesome::fa("twitter")` Twitter'
-    url: "https://twitter.com/Littlejohnsband"
-  - label: '`r fontawesome::fa("github")` Github'
+  - label: Email
+    url: "mailto:rob.cavanaugh@pitt.edu"
+  - label: Twitter
+    url: "https://twitter.com/littlejohnsband"
+  - label: GitHub
     url: "https://github.com/rbcavanaugh"
-  - label: '`r fontawesome::fa("paper-plane")` Email'
-    url: "rob.cavanaugh@pitt.edu"
-output: 
-  html_document:
-    css: "web.css"
+  - label: University
+    url: "https://lrcl.pitt.edu"
+output:
+  postcards::trestles
 ---
 
-```{js, echo = F}
-
-window.onload = function(){
-    l=document.links.length;
-    for(i = 0; i<l; i++) {
-        n = document.links[i].href.indexOf(".pdf");
-
-        if (n > 0){
-            document.links[i].setAttribute('target', '_blank');
-        }
-    }
-}
-
-$(document).ready(function(){
-	
-   // external links to new window
-    $('a[href^="http://"]').not('a[href*="https://robcavanaugh.com"]').attr('target','_blank');
-    
-    // force PDF Files to open in new window
-    $('a[href$=".pdf"]').attr('target', '_blank');
-
-  });
-```
-
-
-
+ 
 ```{r, include=FALSE, results='asis'}
 library(metathis)
 
@@ -57,92 +34,46 @@ meta() %>%
 
 ```
 
-```{r, include=FALSE}
+## About
 
-library(magrittr) # For the pipe
-source("R/cv_printing_functions_website.r")
-
-# Read in all data and initialize a CV printer object
-CV <- create_CV_object(
-  data_location = "https://docs.google.com/spreadsheets/d/1B2gc55CwWn0QidoLk3aqWXFaKGFXqekKV94LVyY7Gug/edit?usp=sharing",  
-  pdf_mode = 'false'
-)
-
-```
-
-```{r, echo = F, out.extra= 'class="mobile-img"'}
-knitr::include_graphics("images/robamanda-oly.jpg")
-```
-
-<br class = "mobile-break">
-
-<center style = "color:#ECEFF1;padding:0px;margin:0px;">
-
-## Rob Cavanaugh
-
-</center>
-
-<div style = "color:#ECEFF1;">
-
-I'm a third-year Ph.D. student in the Department of Communication Sciences and Disorders and TL1 pre-doctoral fellow in the Institute for Clinical Research Education at the University of Pittsburgh. I am also a clinical speech-language pathologist specializing in neurorehabilitation.
+I'm a third-year Ph.D. student in the Department of Communication Sciences and Disorders at the University of Pittsburgh. I am also a clinical speech-language pathologist. My research aims to improve everyday communication and quality of life outcomes for people with aphasia and related neurogenic communication disorders. Specifically, I focus on identifying and resolving implementation gaps in aphasia rehabilitation, improving patient access to evidence-based care, and enhancing treatment specification and effectiveness. I'm also interested in statistics and data science, programming (R + python + js), data visualization, and science communication.
 
 Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.
 
-</div>
-
-::: {.centering}
-[`r fontawesome::fa("twitter")` Twitter](https://twitter.com/Littlejohnsband){.borders}
-[`r fontawesome::fa("github")` Github](https://github.com/rbcavanaugh){.borders}
-[`r fontawesome::fa("paper-plane")` Email](mailto:rob.cavanaugh@pitt.edu){.borders}
-[`r fontawesome::fa("university")` Pitt Lab](https://lrcl.pitt.edu){.borders}
-:::
-
-::: {style="clear:both;"}
-:::
-
-<br class = "mobileonly-break">
-
-### Research
-
-My long-term research goal is to improve everyday communication and quality of life outcomes for people with aphasia and related neurogenic communication disorders. My research strives to identify and resolve implementation gaps in aphasia rehabilitation, improve patient access to evidence-based care, and enhance treatment specification and effectiveness. I'm also interested in statistics and data science, programming (R + python + js), data visualization, and science communication.
-
-### Recent Publications
-
-```{r results='asis', echo = FALSE}
-# Note the special double pipe so we modify the CV object in place
-CV %<>% print_section("publications") 
-```
-
-### Selected Presentations
-
-```{r results='asis', echo = FALSE}
-# Note the special double pipe so we modify the CV object in place
-CV %<>% print_section("presentations", glue_template = "poster") 
-```
-
-### {id="foot"}
-
-<center>
+<div style = "box-sizing: border-box;
+    min-height: 100%;
+    padding: 0 0 50px;
+    position: relative;">
+    
+<center style = "bottom: 0;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    width: 100%;">
+    
+<hr>
 
 <p style="padding-bottom:10px;">
 <a href="https://www.tidyverse.org/" target="_blank">
-  <img border="0" alt="tidyverse logo" src = "images/tidyverse.svg" height="50px" width="auto" style="margin:0 10px;">
+  <img border="0" alt="tidyverse logo" src = "images/tidyverse.svg" height="25px" width="auto" style="margin:0 10px;">
 </a>
 <a href="https://rmarkdown.rstudio.com/" target="_blank">
-  <img border="0" alt="rmarkdown logo" src = "images/rmarkdown.png" height="50px" width="auto" style="margin:0 10px;">
+  <img border="0" alt="rmarkdown logo" src = "images/rmarkdown.png" height="25px" width="auto" style="margin:0 10px;">
 </a>
 <a href="https://rstudio.github.io/distill/" target="_blank">
-  <img border="0" alt="distill logo" src = "images/distill.png" height="50px" width="auto" style="margin:0 10px;">
+  <img border="0" alt="distill logo" src = "images/distill.png" height="25px" width="auto" style="margin:0 10px;">
 </a>
 <a href="https://github.com/rstudio/pagedown" target="_blank">
-  <img border="0" alt="pagedown logo" src = "images/pagedown.png" height="50px" width="auto" style="margin:0 10px;">
+  <img border="0" alt="pagedown logo" src = "images/pagedown.png" height="25px" width="auto" style="margin:0 10px;">
 </a>
 <a href="http://nickstrayer.me/datadrivencv/" target="_blank">
-  <img border="0" alt="datadriven cv logo" src = "images/ddcv.svg" height="50px" width="auto" style="border-radius:10px; margin:0 10px;">
+  <img border="0" alt="datadriven cv logo" src = "images/ddcv.svg" height="25px" width="auto" style="border-radius:10px; margin:0 10px;">
 </a>
 <a href="https://pkg.garrickadenbuie.com/metathis/" target="_blank">
-  <img border="0" alt="metathis logo" src = "images/metathis.png" height="50px" width="auto" style="margin:0 10px;">
+  <img border="0" alt="metathis logo" src = "images/metathis.png" height="25px" width="auto" style="margin:0 10px;">
 </a>
 </p>
 
 </center>
+
+</div>

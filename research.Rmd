@@ -1,0 +1,62 @@
+---
+title: "Research"
+site: distill::distill_website
+output: 
+  distill::distill_article
+---
+
+```{js, echo = F}
+
+window.onload = function(){
+    l=document.links.length;
+    for(i = 0; i<l; i++) {
+        n = document.links[i].href.indexOf(".pdf");
+
+        if (n > 0){
+            document.links[i].setAttribute('target', '_blank');
+        }
+    }
+}
+
+$(document).ready(function(){
+	
+   // external links to new window
+    $('a[href^="http://"]').not('a[href*="https://robcavanaugh.com"]').attr('target','_blank');
+    
+    // force PDF Files to open in new window
+    $('a[href$=".pdf"]').attr('target', '_blank');
+
+  });
+```
+
+
+```{r, include=FALSE}
+
+library(magrittr) # For the pipe
+source("R/cv_printing_functions_website.r")
+
+# Read in all data and initialize a CV printer object
+CV <- create_CV_object(
+  data_location = "https://docs.google.com/spreadsheets/d/1B2gc55CwWn0QidoLk3aqWXFaKGFXqekKV94LVyY7Gug/edit?usp=sharing",  
+  pdf_mode = 'false'
+)
+
+```
+
+### Research
+
+My long-term research goal is to improve everyday communication and quality of life outcomes for people with aphasia and related neurogenic communication disorders. My research strives to identify and resolve implementation gaps in aphasia rehabilitation, improve patient access to evidence-based care, and enhance treatment specification and effectiveness. I'm also interested in statistics and data science, programming (R + python + js), data visualization, and science communication.
+
+### Recent Publications
+
+```{r results='asis', echo = FALSE}
+# Note the special double pipe so we modify the CV object in place
+CV %<>% print_section("publications") 
+```
+
+### Selected Presentations
+
+```{r results='asis', echo = FALSE}
+# Note the special double pipe so we modify the CV object in place
+CV %<>% print_section("presentations", glue_template = "poster") 
+```
