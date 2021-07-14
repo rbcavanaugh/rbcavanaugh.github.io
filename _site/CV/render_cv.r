@@ -9,8 +9,8 @@ library(here)
 # Knit the HTML version
   rmarkdown::render("CV/cv.rmd")
   
-  file.rename(here("CV", "cv.html"),
-              here("cv.html"))
+  file.copy(here("CV", "cv.html"),
+              here("cv.html"), overwrite = T)
  
 
 # Convert to PDF using Pagedown
