@@ -86,20 +86,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Rob Cavanaugh | PhD Student: Research</title>
+  <title>Rob Cavanaugh | PhD Candidate: Research</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Rob Cavanaugh | PhD Student: Research"/>
+  <meta property="og:title" content="Rob Cavanaugh | PhD Candidate: Research"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="Rob Cavanaugh | PhD Student"/>
+  <meta property="og:site_name" content="Rob Cavanaugh | PhD Candidate"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Rob Cavanaugh | PhD Student: Research"/>
+  <meta property="twitter:title" content="Rob Cavanaugh | PhD Candidate: Research"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
@@ -2109,36 +2109,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
-  <script>
-     document.addEventListener("DOMContentLoaded", function () {
-       if (!/posts/.test(location.pathname)) {
-         return;
-       }
-
-       var script = document.createElement("script");
-       script.src = "https://utteranc.es/client.js";
-       script.setAttribute("repo", "rbcavanaugh/personal-website-distill");
-       script.setAttribute("issue-term", "title");
-       script.setAttribute("crossorigin", "anonymous");
-       script.setAttribute("label", "Comment");
-       script.setAttribute("theme", "github-light");
-
-       /* wait for article to load, append script to article element */
-       var observer = new MutationObserver(function (mutations, observer) {
-         var article = document.querySelector("d-article");
-         if (article) {
-           observer.disconnect();
-           /* HACK: article scroll */
-           article.setAttribute("style", "overflow-y: hidden");
-           article.appendChild(script);
-         }
-       });
-
-       observer.observe(document.body, { childList: true });
-     });
-   </script>
-
-
   <script type="text/javascript" cookie-consent="tracking" async src="https://www.googletagmanager.com/gtag/js?id=UA-179425806-1"></script>
   <script type="text/javascript" cookie-consent="tracking">
   window.dataLayer = window.dataLayer || [];
@@ -2164,7 +2134,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <header class="header header--fixed" role="banner">
 <nav class="distill-site-nav distill-site-header">
 <div class="nav-left">
-<a href="index.html" class="title">Rob Cavanaugh | PhD Student</a>
+<a href="index.html" class="title">Rob Cavanaugh | PhD Candidate</a>
 </div>
 <div class="nav-right">
 <a href="index.html">Home</a>

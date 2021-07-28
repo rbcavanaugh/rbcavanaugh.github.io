@@ -1,5 +1,5 @@
 name: "personal-website-distill"
-title: "Rob Cavanaugh | PhD Student"
+title: "Rob Cavanaugh | PhD Candidate"
 theme: theme_1.css
 description: |
  Personal website for Rob Cavanaugh M.S. CCC-SLP
@@ -26,6 +26,4 @@ google_analytics: "UA-179425806-1"
 #   lang: en
 #   cookies_policy: url
 output:
-  distill::distill_article:
-    includes:
-      in_header: utterances.html
+  distill::distill_article

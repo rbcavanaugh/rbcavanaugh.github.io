@@ -364,36 +364,6 @@
           <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
           <!--/radix_placeholder_navigation_in_header-->
           <!--radix_placeholder_site_in_header-->
-          <script>
-             document.addEventListener("DOMContentLoaded", function () {
-               if (!/posts/.test(location.pathname)) {
-                 return;
-               }
-
-               var script = document.createElement("script");
-               script.src = "https://utteranc.es/client.js";
-               script.setAttribute("repo", "rbcavanaugh/personal-website-distill");
-               script.setAttribute("issue-term", "title");
-               script.setAttribute("crossorigin", "anonymous");
-               script.setAttribute("label", "Comment");
-               script.setAttribute("theme", "github-light");
-
-               /* wait for article to load, append script to article element */
-               var observer = new MutationObserver(function (mutations, observer) {
-                 var article = document.querySelector("d-article");
-                 if (article) {
-                   observer.disconnect();
-                   /* HACK: article scroll */
-                   article.setAttribute("style", "overflow-y: hidden");
-                   article.appendChild(script);
-                 }
-               });
-
-               observer.observe(document.body, { childList: true });
-             });
-           </script>
-
-
           <script type="text/javascript" cookie-consent="tracking" async src="https://www.googletagmanager.com/gtag/js?id=UA-179425806-1"></script>
           <script type="text/javascript" cookie-consent="tracking">
           window.dataLayer = window.dataLayer || [];
@@ -759,7 +729,7 @@
           <header class="header header--fixed" role="banner">
           <nav class="distill-site-nav distill-site-header">
           <div class="nav-left">
-          <a href="index.html" class="title">Rob Cavanaugh | PhD Student</a>
+          <a href="index.html" class="title">Rob Cavanaugh | PhD Candidate</a>
           </div>
           <div class="nav-right">
           <a href="index.html">Home</a>
@@ -827,7 +797,7 @@
           <div class="my-5" id="content">
             <div id="about" class="section level2">
             <h2>About</h2>
-            <p>I’m a third-year Ph.D. student in the Department of Communication Sciences and Disorders at the University of Pittsburgh. I’m also a clinical speech-language pathologist. My research aims to improve everyday communication and quality of life outcomes for people with aphasia and related neurogenic communication disorders. Specifically, I’m focused on identifying and resolving implementation gaps in aphasia rehabilitation, improving patient access to evidence-based care, and enhancing treatment specification and effectiveness. I’m also interested in statistics and data science, programming (R + python + js), data visualization, and science communication.</p>
+            <p>I’m a third-year Ph.D. Candidate in the Department of Communication Sciences and Disorders at the University of Pittsburgh. I’m also a clinical speech-language pathologist. My research aims to improve everyday communication and quality of life outcomes for people with aphasia and related neurogenic communication disorders. Specifically, I’m focused on identifying and resolving implementation gaps in aphasia rehabilitation, improving patient access to evidence-based care, and enhancing treatment specification and effectiveness. I’m also interested in statistics and data science, programming (R + python + js), data visualization, and science communication.</p>
             <p>Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.</p>
             <div style = "box-sizing: border-box;
                 min-height: 100%;
@@ -841,7 +811,7 @@
                 width: 100%;">
             <hr>
             <p style="padding-bottom:10px;">
-            <a href="https://www.tidyverse.org/" target="_blank"> <img border="0" alt="tidyverse logo" src = "images/tidyverse.svg" height="25px" width="auto" style="margin:0 10px;"> </a> <a href="https://rmarkdown.rstudio.com/" target="_blank"> <img border="0" alt="rmarkdown logo" src = "images/rmarkdown.png" height="25px" width="auto" style="margin:0 10px;"> </a> <a href="https://rstudio.github.io/distill/" target="_blank"> <img border="0" alt="distill logo" src = "images/distill.png" height="25px" width="auto" style="margin:0 10px;"> </a> <a href="https://github.com/rstudio/pagedown" target="_blank"> <img border="0" alt="pagedown logo" src = "images/pagedown.png" height="25px" width="auto" style="margin:0 10px;"> </a> <a href="http://nickstrayer.me/datadrivencv/" target="_blank"> <img border="0" alt="datadriven cv logo" src = "images/ddcv.svg" height="25px" width="auto" style="border-radius:10px; margin:0 10px;"> </a> <a href="https://pkg.garrickadenbuie.com/metathis/" target="_blank"> <img border="0" alt="metathis logo" src = "images/metathis.png" height="25px" width="auto" style="margin:0 10px;"> </a>
+            <em style="font-size:.75rem;">Built with:</em> <a href="https://www.tidyverse.org/" target="_blank"> <img border="0" alt="tidyverse logo" src = "images/tidyverse.svg" height="25px" width="auto" style="margin:0 10px;"> </a> <a href="https://rmarkdown.rstudio.com/" target="_blank"> <img border="0" alt="rmarkdown logo" src = "images/rmarkdown.png" height="25px" width="auto" style="margin:0 10px;"> </a> <a href="https://rstudio.github.io/distill/" target="_blank"> <img border="0" alt="distill logo" src = "images/distill.png" height="25px" width="auto" style="margin:0 10px;"> </a> <a href="https://github.com/rstudio/pagedown" target="_blank"> <img border="0" alt="pagedown logo" src = "images/pagedown.png" height="25px" width="auto" style="margin:0 10px;"> </a> <a href="http://nickstrayer.me/datadrivencv/" target="_blank"> <img border="0" alt="datadriven cv logo" src = "images/ddcv.svg" height="25px" width="auto" style="border-radius:10px; margin:0 10px;"> </a> <a href="https://pkg.garrickadenbuie.com/metathis/" target="_blank"> <img border="0" alt="metathis logo" src = "images/metathis.png" height="25px" width="auto" style="margin:0 10px;"> </a>
             </p>
             </center>
             </div>
@@ -892,7 +862,7 @@
             <div class="p pt-4 px-5">
               <div id="about" class="section level2">
               <h2>About</h2>
-              <p>I’m a third-year Ph.D. student in the Department of Communication Sciences and Disorders at the University of Pittsburgh. I’m also a clinical speech-language pathologist. My research aims to improve everyday communication and quality of life outcomes for people with aphasia and related neurogenic communication disorders. Specifically, I’m focused on identifying and resolving implementation gaps in aphasia rehabilitation, improving patient access to evidence-based care, and enhancing treatment specification and effectiveness. I’m also interested in statistics and data science, programming (R + python + js), data visualization, and science communication.</p>
+              <p>I’m a third-year Ph.D. Candidate in the Department of Communication Sciences and Disorders at the University of Pittsburgh. I’m also a clinical speech-language pathologist. My research aims to improve everyday communication and quality of life outcomes for people with aphasia and related neurogenic communication disorders. Specifically, I’m focused on identifying and resolving implementation gaps in aphasia rehabilitation, improving patient access to evidence-based care, and enhancing treatment specification and effectiveness. I’m also interested in statistics and data science, programming (R + python + js), data visualization, and science communication.</p>
               <p>Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.</p>
               <div style = "box-sizing: border-box;
                   min-height: 100%;
@@ -906,7 +876,7 @@
                   width: 100%;">
               <hr>
               <p style="padding-bottom:10px;">
-              <a href="https://www.tidyverse.org/" target="_blank"> <img border="0" alt="tidyverse logo" src = "images/tidyverse.svg" height="25px" width="auto" style="margin:0 10px;"> </a> <a href="https://rmarkdown.rstudio.com/" target="_blank"> <img border="0" alt="rmarkdown logo" src = "images/rmarkdown.png" height="25px" width="auto" style="margin:0 10px;"> </a> <a href="https://rstudio.github.io/distill/" target="_blank"> <img border="0" alt="distill logo" src = "images/distill.png" height="25px" width="auto" style="margin:0 10px;"> </a> <a href="https://github.com/rstudio/pagedown" target="_blank"> <img border="0" alt="pagedown logo" src = "images/pagedown.png" height="25px" width="auto" style="margin:0 10px;"> </a> <a href="http://nickstrayer.me/datadrivencv/" target="_blank"> <img border="0" alt="datadriven cv logo" src = "images/ddcv.svg" height="25px" width="auto" style="border-radius:10px; margin:0 10px;"> </a> <a href="https://pkg.garrickadenbuie.com/metathis/" target="_blank"> <img border="0" alt="metathis logo" src = "images/metathis.png" height="25px" width="auto" style="margin:0 10px;"> </a>
+              <em style="font-size:.75rem;">Built with:</em> <a href="https://www.tidyverse.org/" target="_blank"> <img border="0" alt="tidyverse logo" src = "images/tidyverse.svg" height="25px" width="auto" style="margin:0 10px;"> </a> <a href="https://rmarkdown.rstudio.com/" target="_blank"> <img border="0" alt="rmarkdown logo" src = "images/rmarkdown.png" height="25px" width="auto" style="margin:0 10px;"> </a> <a href="https://rstudio.github.io/distill/" target="_blank"> <img border="0" alt="distill logo" src = "images/distill.png" height="25px" width="auto" style="margin:0 10px;"> </a> <a href="https://github.com/rstudio/pagedown" target="_blank"> <img border="0" alt="pagedown logo" src = "images/pagedown.png" height="25px" width="auto" style="margin:0 10px;"> </a> <a href="http://nickstrayer.me/datadrivencv/" target="_blank"> <img border="0" alt="datadriven cv logo" src = "images/ddcv.svg" height="25px" width="auto" style="border-radius:10px; margin:0 10px;"> </a> <a href="https://pkg.garrickadenbuie.com/metathis/" target="_blank"> <img border="0" alt="metathis logo" src = "images/metathis.png" height="25px" width="auto" style="margin:0 10px;"> </a>
               </p>
               </center>
               </div>
