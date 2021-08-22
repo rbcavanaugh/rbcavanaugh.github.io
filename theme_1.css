@@ -88,19 +88,19 @@ d-appendix {
 
 /* Change link appearance */
 d-article a {
-  border-bottom: 2px solid #00523f;
+  /*border-bottom: 2px solid #00523f;*/
   text-decoration: none;
 }
 
 #pdfbutton {
-  border-width: 0px!important;
-  font-size: 1.1rem!important;
-  cursor: pointer!important;
-  background-color: transparent!important;
-  color: #005D8F!important;
+  border-width: 0px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background-color: transparent;
+  color: #005D8F;
 }
 
 #pdflink {
-  text-decoration: none!important;
-  border-bottom: none!important;
+  text-decoration: none;
+  border-bottom: none;
 }
