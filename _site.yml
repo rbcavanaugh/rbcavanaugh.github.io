@@ -1,6 +1,6 @@
 name: "personal-website-distill"
 title: "Rob Cavanaugh | PhD Candidate"
-favicon: images/mountain-solid.svg
+#favicon: images/mountain-solid.svg
 theme: theme_1.css
 description: |
  Personal website for Rob Cavanaugh M.S. CCC-SLP
