@@ -138,9 +138,10 @@ sanitize_links <- function(cv, text){
 print_section <- function(cv, section_id, glue_template = "article"){
 
   if(glue_template == "article"){
-    glue_template <- "
+    glue_template <- '
 {title}
-\n\n"
+<a href = "images/{loc}">{loc}</a>
+\n\n'
   } else if(glue_template == "poster"){
     glue_template <- '
 <div class="flex-container">

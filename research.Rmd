@@ -33,6 +33,7 @@ $(document).ready(function(){
 ```{r, include=FALSE}
 
 library(magrittr) # For the pipe
+library(dplyr)
 source("R/cv_printing_functions_website.r")
 
 # Read in all data and initialize a CV printer object
@@ -40,6 +41,7 @@ CV <- create_CV_object(
   data_location = "https://docs.google.com/spreadsheets/d/1B2gc55CwWn0QidoLk3aqWXFaKGFXqekKV94LVyY7Gug/edit?usp=sharing",  
   pdf_mode = 'false'
 )
+CV$entries_data$loc[CV$entries_data$loc=="N/A"] <- ""
 
 ```
 
