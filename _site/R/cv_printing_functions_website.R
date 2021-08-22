@@ -140,7 +140,7 @@ print_section <- function(cv, section_id, glue_template = "article"){
   if(glue_template == "article"){
     glue_template <- '
 {title}
-<a href = "images/{loc}">{loc}</a>
+<a href = "images/{loc}"><button id="pdfbutton">{institution}</button></a>
 \n\n'
   } else if(glue_template == "poster"){
     glue_template <- '

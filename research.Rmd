@@ -41,7 +41,7 @@ CV <- create_CV_object(
   data_location = "https://docs.google.com/spreadsheets/d/1B2gc55CwWn0QidoLk3aqWXFaKGFXqekKV94LVyY7Gug/edit?usp=sharing",  
   pdf_mode = 'false'
 )
-CV$entries_data$loc[CV$entries_data$loc=="N/A"] <- ""
+CV$entries_data$institution[CV$entries_data$institution=="N/A"] <- ""
 
 ```
 
