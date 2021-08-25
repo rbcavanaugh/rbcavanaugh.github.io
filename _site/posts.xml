@@ -6,6 +6,11 @@
     <atom:link href="https://robcavanaugh.com/posts.xml" rel="self" type="application/rss+xml"/>
     <description>Personal website for Rob Cavanaugh M.S. CCC-SLP
 </description>
+    <image>
+      <title>Rob Cavanaugh | PhD Candidate</title>
+      <url>https://robcavanaugh.com/images/mountain-solid.svg</url>
+      <link>https://robcavanaugh.com/</link>
+    </image>
     <generator>Distill</generator>
     <lastBuildDate>Tue, 23 Feb 2021 00:00:00 +0000</lastBuildDate>
     <item>
