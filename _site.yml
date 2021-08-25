@@ -12,8 +12,8 @@ navbar:
       href: index.html
     - text: "Research"
       href: research.html
-    - text: "Posts"
-      href: posts.html
+    # - text: "Posts"
+    #   href: posts.html
     - text: "R Gallery"
       href: Shiny.html
     - text: "CV"
