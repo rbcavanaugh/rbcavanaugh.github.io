@@ -17,4 +17,7 @@ library(here)
 pagedown::chrome_print(input = "~/Documents/github-repos/personal-website-distill/cv.html",
                        output = here("CV", "cv.pdf"))
 
+file.copy(here("CV", "cv.pdf"),
+          here("cv.pdf"), overwrite = T)
+
 rmarkdown::render_site(encoding = 'UTF-8')
