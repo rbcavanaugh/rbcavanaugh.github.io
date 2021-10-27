@@ -168,6 +168,13 @@ Refereed Presentations {data-icon=chalkboard-teacher}
 CV %<>% print_section('presentations', glue_template = "citation")
 ```
 
+Publications Under Review & Revision {data-icon=chalkboard-teacher}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('review', glue_template = "citation")
+```
+
 Teaching {data-icon=university}
 --------------------------------------------------------------------------------
 
