@@ -100,6 +100,7 @@ if(!params$pdf_mode){
 
 Last updated on `r Sys.Date()`.
 
+CV generated using {RMarkdown}
 
 
 Main
