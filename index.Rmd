@@ -36,7 +36,8 @@ meta() %>%
 
 ## About
 
-I'm a fourth-year Ph.D. Candidate in the Department of Communication Sciences and Disorders at the University of Pittsburgh. I'm also a clinical speech-language pathologist. My research aims to improve everyday communication and quality of life outcomes for people with aphasia and related neurogenic communication disorders. Specifically, I'm focused on identifying and resolving implementation gaps in aphasia rehabilitation, improving patient access to evidence-based care, and enhancing treatment specification and effectiveness. I'm also interested in applied statistics and data science, statistical programming (R + python + js), data visualization, and science communication. 
+I'm a fourth-year Ph.D. Candidate in the Department of Communication Sciences and Disorders at the University of Pittsburgh. I'm also a clinical speech-language pathologist. My research emphasizes quantitative methods and open science in pursuit of improving treatment outcomes and research translation in aphasia rehabilitation. 
+Specifically, I'm focused on improving treatment specification and effectiveness, clinical implementation, and access to evidence-based care. I'm also interested in reproducible research and science communication.
 
 Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.
 
