@@ -12,7 +12,7 @@
   showcase: true
 - title: "Core Lexicon Analysis (beta)"
   img: images/corelex.png
-  href: "https://aphasia-apps.shinyapps.io/coreLexicont"
+  href: "https://aphasia-apps.shinyapps.io/coreLexicon"
   showcase: true
 - title: "Correct Information Units"
   img: images/cius.png
