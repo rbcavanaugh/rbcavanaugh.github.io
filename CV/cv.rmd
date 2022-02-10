@@ -83,9 +83,7 @@ Key Interests
 
 - `r fontawesome::fa("hospital-user")` Implementation Science
 
-- `r fontawesome::fa("chart-pie")` Data science & Statistics
-
-- `r fontawesome::fa("r-project")` #R Stats & R Shiny 
+- `r fontawesome::fa("chart-pie")` Quantitative Methods
 
 
 Disclaimer {#disclaimer}
