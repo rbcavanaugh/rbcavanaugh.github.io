@@ -87,15 +87,17 @@ create_CV_object <-  function(data_location,
       has_start = !no_start,
       no_end = is.na(end),
       has_end = !no_end,
+      ongoing = end == "current",
       timeline = dplyr::case_when(
         no_start  & no_end  ~ "N/A",
         no_start  & has_end ~ as.character(end),
         has_start & no_end  ~ paste("", start),
-        TRUE                ~ paste(end, "-", start)
+        has_start & ongoing ~ paste("", start, "—"),
+        TRUE                ~ paste(start, "—", end)
       )
     ) %>%
     dplyr::arrange(desc(parse_dates(end))) %>%
-    dplyr::mutate_all(~ ifelse(is.na(.), 'N/A', .))
+    dplyr::mutate_all(~ ifelse(is.na(.), '', .))
   
   cv
 }
@@ -134,27 +136,40 @@ sanitize_links <- function(cv, text){
 #' @description Take a position data frame and the section id desired and prints the section to markdown.
 #' @param section_id ID of the entries section to be printed as encoded by the `section` column of the `entries` table
 #' @param glue_template controls formatting. optiosn are default,  other, grant, citation
-print_section <- function(cv, section_id, glue_template = "default"){
-  
+print_section <- function(cv, section_id, glue_template = "default", boring = T){
+  if(boring){placeholder = "hideme"}
   if(glue_template == "default"){
     glue_template <- "
 ### {title}
 
-{loc}
-
-{institution}
+{loc}, {institution}
+    
+{placeholder}
 
 {timeline}
 
 {description_bullets}
 \n\n\n"
+  } else if(glue_template == "positions"){
+    glue_template <- "
+### {title}
+
+{loc}
+    
+{placeholder}
+
+{timeline}
+
+{description_bullets}
+\n\n\n"
+    
   } else if(glue_template == "other"){
     glue_template <- "
 ### 
     
 {title}
 
-{loc}
+{placeholder}
   
 {timeline}
     
@@ -166,7 +181,7 @@ print_section <- function(cv, section_id, glue_template = "default"){
 
 {loc}
 
-{institution}
+{placeholder}
 
 {timeline}
 \n\n\n"

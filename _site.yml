@@ -17,7 +17,7 @@ navbar:
     - text: "R Gallery"
       href: Shiny.html
     - text: "CV"
-      href: cv.html
+      href: cv2.html
   search: false
 google_analytics: "UA-179425806-1"
 # cookie_consent:
