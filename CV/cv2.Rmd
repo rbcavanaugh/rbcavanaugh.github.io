@@ -29,10 +29,12 @@ CV <- create_CV_object(
 
 ```
 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta charset="utf-8">
 <script src="https://kit.fontawesome.com/bee4f5cfa6.js" crossorigin="anonymous"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Andada+Pro&display=swap" rel="stylesheet">
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+<!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+<!-- <link href="https://fonts.googleapis.com/css2?family=Tinos&display=swap" rel="stylesheet"> -->
 
 ```{r}
 # When in pdf export mode the little dots are unaligned, so fix that with some conditional CSS.

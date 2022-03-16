@@ -232,22 +232,6 @@ print_text_block <- function(cv, label){
 
 
 
-
-#' @description Prints out text block identified by a given label.
-#' @param label ID of the text block to print as encoded in `label` column of `text_blocks` table.
-print_text_block <- function(cv, label){
-  text_block <- dplyr::filter(cv$text_blocks, loc == label) %>%
-    dplyr::pull(text)
-  
-  strip_res <- sanitize_links(cv, text_block)
-  
-  cat(strip_res$text)
-  
-  invisible(strip_res$cv)
-}
-
-
-
 #' @description Construct a bar chart of skills
 #' @param out_of The relative maximum for skills. Used to set what a fully filled in skill bar is.
 print_skill_bars <- function(cv, out_of = 5, bar_color = "#969696", bar_background = "#d9d9d9", glue_template = "default"){
