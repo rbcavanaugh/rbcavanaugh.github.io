@@ -5,6 +5,43 @@ output:
   distill::distill_article
 ---
 
+```{css, echo = F}
+.fcolumns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 10px
+}
+.fcolumn1 {
+  flex: 10%;
+}
+.fcolumn2 {
+  flex: 90%;
+}
+
+.fcolumn3 {
+  flex: 15%;
+}
+.fcolumn4 {
+  flex: 80%;
+}
+
+.fcolumnspace {
+  flex: 5%;
+}
+
+
+d-title {
+    display: none;
+  }
+
+.feat_img{
+  height: auto;
+  width: 95%!important;
+}
+```
+
 ```{js, echo = F}
 
 window.onload = function(){
@@ -45,16 +82,18 @@ CV$entries_data$institution[CV$entries_data$institution=="N/A"] <- ""
 
 ```
 
-### Recent Publications
+```{r, echo = F, layout = "l-body-outset"}
+htmltools::tags$h2("Publications")
+```
 
-```{r results='asis', echo = FALSE}
-# Note the special double pipe so we modify the CV object in place
+```{r results='asis', echo = FALSE, layout = "l-body-outset"}
 CV %<>% print_section("publications") 
 ```
 
-### Selected Presentations
+```{r, echo = F, layout = "l-body-outset"}
+htmltools::tags$h2("Presentations")
+```
 
-```{r results='asis', echo = FALSE}
-# Note the special double pipe so we modify the CV object in place
+```{r results='asis', echo = FALSE, layout = "l-body-outset"}
 CV %<>% print_section("presentations", glue_template = "poster") 
 ```

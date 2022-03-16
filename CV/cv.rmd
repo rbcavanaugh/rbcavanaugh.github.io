@@ -36,6 +36,10 @@ CV <- create_CV_object(
   --main-width: calc(var(--content-width) - var(--sidebar-width));
   --decorator-horizontal-margin: 0.2in;
 }
+
+.details .location{
+  display: none;
+}
 ```
 
 <script src="https://kit.fontawesome.com/bee4f5cfa6.js" crossorigin="anonymous"></script>

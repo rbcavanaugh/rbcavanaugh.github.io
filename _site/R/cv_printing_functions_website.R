@@ -77,10 +77,11 @@ create_CV_object <-  function(data_location,
       col = "description_bullets",
       sep = "\n- ",
       na.rm = TRUE
-    ) %>%
+    ) %>% 
     dplyr::mutate(
       description_bullets = ifelse(description_bullets != "", paste0("- ", description_bullets), ""),
       start = ifelse(start == "NULL", NA, start),
+      start_NA = ifelse(is.na(start), "", start),
       end = ifelse(end == "NULL", NA, end),
       start_year = extract_year(start),
       end_year = extract_year(end),
@@ -139,20 +140,29 @@ print_section <- function(cv, section_id, glue_template = "article"){
 
   if(glue_template == "article"){
     glue_template <- '
+<div class="fcolumns">
+<div class="fcolumn1">
+{start_NA}
+</div>
+<div class="fcolumn2">
 {title}
 <a href = "images/{loc}" id="pdflink"><button id="pdfbutton">{institution}</button></a>
+</div>
+</div>
 \n\n'
   } else if(glue_template == "poster"){
     glue_template <- '
-<div class="flex-container">
- <div>
+<div class="fcolumns">
+<div class="fcolumn3">
+<a href = "images/{loc}">
+<img src="images/{institution}" class = "feat_img">   
+ </a>
+</div>
+<div class="fcolumnspace">
+</div>
+<div class="fcolumn4">
 <p style="margin:0px">{title}</p>
 </div>
- <div>
- <a href = "images/{loc}" id = "link_left">
-<img src="images/{institution}" id = "feat_img" height="100px">   
- </a>
- </div>
 </div>
 <hr style="padding:0;margin:10px">
 \n\n'
