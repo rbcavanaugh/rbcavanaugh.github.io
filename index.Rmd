@@ -36,8 +36,7 @@ meta() %>%
 
 ## About
 
-I'm a fourth-year Ph.D. Candidate in the Department of Communication Sciences and Disorders at the University of Pittsburgh. I'm also a clinical speech-language pathologist. My research emphasizes quantitative methods and open science in pursuit of improving treatment outcomes and research translation in aphasia rehabilitation. 
-Specifically, I'm focused on improving treatment specification and effectiveness, clinical implementation, and access to evidence-based care. I'm also interested in reproducible research and science communication.
+I am a fourth-year Ph.D. Candidate in the Department of Communication Sciences and Disorders at the University of Pittsburgh. I’m also a clinical speech-language pathologist. My research is focused on improving treatment effectiveness, clinical implementation, and access to evidence-based care in neurogenic communication disorders. I’m also interested in quantitative methods, open science, and science communication.
 
 Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.
 
