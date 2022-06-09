@@ -14,7 +14,7 @@ library(here)
  
 
 # Convert to PDF using Pagedown
-pagedown::chrome_print(input = "~/github-repos/personal-website-distill/cv.html",
+pagedown::chrome_print(input = "~/github-repos/personal-website-distill/cv2.html",
                        output = here("CV", "cv2.pdf"))
 
 file.copy(here("CV", "cv2.pdf"),

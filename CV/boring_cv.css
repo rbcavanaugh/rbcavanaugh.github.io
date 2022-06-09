@@ -15,7 +15,7 @@
   --margin-right: 0.5in;
   --margin-left: 0.25in;
   --content-width: calc(var(--page-width) - var(--margin-right) - var(--margin-left));
-  --root-font-size: 10.5pt;
+  --root-font-size: 10pt;
   --sidebar-width: 15rem;
   --sidebar-background-color: #f2f2f2;
   --main-width: calc(var(--content-width) - var(--sidebar-width));
