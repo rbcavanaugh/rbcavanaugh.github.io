@@ -132,6 +132,8 @@ sanitize_links <- function(cv, text){
   list(cv = cv, text = text)
 }
 
+open = "{"
+close = "}"
 
 #' @description Take a position data frame and the section id desired and prints the section to markdown.
 #' @param section_id ID of the entries section to be printed as encoded by the `section` column of the `entries` table
@@ -165,7 +167,7 @@ print_section <- function(cv, section_id, glue_template = "default", boring = T)
     
   } else if(glue_template == "other"){
     glue_template <- "
-### 
+### {open}class=honors{close}
     
 {title}
 

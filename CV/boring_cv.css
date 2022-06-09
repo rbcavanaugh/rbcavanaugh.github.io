@@ -30,7 +30,7 @@
   /*--decorator-outer-dim: 9px;*/
   /*--decorator-border: 1px solid #ccc;*/
 
-  --row-blocks-padding-top: 0.5rem;
+  --row-blocks-padding-top: 0.25rem;
   --date-block-width: .9in;
 
   --main-blocks-title-icon-offset-left: calc(-17pt - 0.25 * var(--root-font-size));
@@ -294,6 +294,7 @@ img{
 
 h2 {
   break-after: avoid;
+  padding-top: 5px;
 }
 
 .blocks {
@@ -392,5 +393,10 @@ a {
     content: counter(page);
     font-size: 10px;
   }
+}
+
+
+.honors{
+  margin-bottom: -5px;
 }
 

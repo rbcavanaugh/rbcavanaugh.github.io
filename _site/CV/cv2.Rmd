@@ -114,6 +114,14 @@ CV %<>% print_section('grants', glue_template = "grant")
 ```
 
 
+Scholarships and Awards {data-icon=award}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('honors', glue_template = "other")
+```
+
+
 Publications {data-icon=file-alt}
 --------------------------------------------------------------------------------
 
@@ -122,52 +130,46 @@ Publications {data-icon=file-alt}
 CV %<>% print_section('publications', glue_template = "citation")
 ```
 
-
-Refereed Presentations {data-icon=chalkboard-teacher}
---------------------------------------------------------------------------------
-
-
-```{r}
-CV %<>% print_section('presentations', glue_template = "citation")
-```
-
-Publications Under Review & Revision {data-icon=chalkboard-teacher}
+Publications Under Review & /In Revision {data-icon=chalkboard-teacher}
 --------------------------------------------------------------------------------
 
 ```{r}
 CV %<>% print_section('review', glue_template = "citation")
 ```
 
-Teaching {data-icon=university}
+
+Refereed Presentations {data-icon=chalkboard-teacher}
 --------------------------------------------------------------------------------
 
+```{r}
+CV %<>% print_section('presentations', glue_template = "citation")
+```
+
+Software & Technology {data-icon=laptop}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('software', glue_template = "other")
+```
+
+Teaching {data-icon=university}
+--------------------------------------------------------------------------------
 
 ```{r}
 CV %<>% print_section('teaching', glue_template = "other")
 ```
 
-
-Honors and Awards {data-icon=award}
+Professional Memberships {data-icon=certificate}
 --------------------------------------------------------------------------------
-
-
-```{r}
-CV %<>% print_section('honors', glue_template = "other")
-```
-
-
-Certification, Licensure, Memberships, and Service {data-icon=certificate}
---------------------------------------------------------------------------------
-
 
 ```{r}
 CV %<>% print_section('certs', glue_template = "other")
 ```
 
-Software {data-icon=laptop}
+Service {data-icon=certificate}
 --------------------------------------------------------------------------------
 
-
 ```{r}
-CV %<>% print_section('software', glue_template = "other")
+CV %<>% print_section('service', glue_template = "other")
 ```
+
