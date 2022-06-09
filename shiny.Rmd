@@ -1,5 +1,5 @@
 ---
-title: "Web apps, websites and other tech stuff"
+title: "Web apps & Websites"
 css: "shiny.css"
 ---
 
