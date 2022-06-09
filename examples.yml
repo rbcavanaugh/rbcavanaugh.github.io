@@ -1,10 +1,18 @@
-- title: "Aphasia Effect Sizes"
-  img: images/es.png
-  href: https://robcavanaugh.app/shiny/effect-sizes/
+- title: "Aphasia Research Finder"
+  img: images/arf.png
+  href: https://aphasiaresearch.org
   showcase: true
 - title: "Computer Adaptive PNT (beta)"
   img: images/pnt2.png
   href: https://aphasia-apps.shinyapps.io/pnt-cat
+  showcase: true
+- title: "Reviewing Effect Sizes in Aphasia"
+  img: images/es.png
+  href: https://robcavanaugh.app/shiny/effect-sizes/
+  showcase: true
+- title: "Comparing Effect Size in Aphasia"
+  img: images/es2.png
+  href: https://rb-cavanaugh.shinyapps.io/SCED/
   showcase: true
 - title: "Main Concept Analysis (beta)"
   img: images/mca.png

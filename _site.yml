@@ -14,7 +14,7 @@ navbar:
       href: research.html
     # - text: "Posts"
     #   href: posts.html
-    - text: "R Gallery"
+    - text: "Apps & Websites"
       href: Shiny.html
     - text: "CV"
       href: cv2.html

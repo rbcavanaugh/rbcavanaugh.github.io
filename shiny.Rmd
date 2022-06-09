@@ -1,5 +1,5 @@
 ---
-title: "Shiny Web-Apps and other R Projects"
+title: "Web apps, websites and other tech stuff"
 css: "shiny.css"
 ---
 
