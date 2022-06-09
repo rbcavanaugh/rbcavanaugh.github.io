@@ -130,7 +130,7 @@ Publications {data-icon=file-alt}
 CV %<>% print_section('publications', glue_template = "citation")
 ```
 
-Publications Under Review & /In Revision {data-icon=chalkboard-teacher}
+Publications Under Review & In Revision {data-icon=chalkboard-teacher}
 --------------------------------------------------------------------------------
 
 ```{r}
