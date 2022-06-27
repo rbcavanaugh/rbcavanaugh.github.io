@@ -5,6 +5,7 @@ author:
     url: {}
 date: 2022-06-27
 draft: false
+preview: preview.png
 creative_commons: CC BY-NC
 output:
   distill::distill_article:
@@ -69,7 +70,7 @@ s1 = data_all %>%
                        expand = expansion(mult = c(0, 0.05))) +
   theme(legend.title = element_blank(), plot.title.position = "plot",
         legend.position = "bottom")
-  
+
 girafe(code = print(s1), height_svg = 4)
 
 ```
