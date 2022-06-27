@@ -469,9 +469,9 @@ data_all %>%
 :::::
 
 
-Overall, it does appear that general awareness of aphasia changed after Bruce Willis'
+Overall, it does appear that awareness of aphasia improved after Bruce Willis'
 diagnosis of aphasia and could reasonably be attributed to the publicity surrounding
-his diagnosis. It will be interesting to see whether this increased awareness persist
+his diagnosis. It will be interesting to see whether this increased awareness persists
 over time. 
 
 Here's the summary from the NAA: 
