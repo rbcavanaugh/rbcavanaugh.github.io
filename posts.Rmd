@@ -1,7 +1,10 @@
 ---
-title: "Research Snippets"
-site: distill::distill_website
-listing: posts
+title: "Gallery of featured posts"
+listing:
+  posts:
+    - 2022-06-25-aphasia-access-awareness-survey
 ---
 
-<script type="text/javascript" src="links.js"></script>
+
+
+

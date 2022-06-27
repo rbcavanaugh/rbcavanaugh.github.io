@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://robcavanaugh.com/</loc>
-    <lastmod>2022-06-10T12:40:43-04:00</lastmod>
+    <lastmod>2022-06-25T22:00:14-04:00</lastmod>
   </url>
   <url>
     <loc>https://robcavanaugh.com/posts.html</loc>
-    <lastmod>2021-07-07T02:00:19-04:00</lastmod>
+    <lastmod>2022-06-27T11:00:30-04:00</lastmod>
   </url>
   <url>
     <loc>https://robcavanaugh.com/research.html</loc>
@@ -17,19 +17,7 @@
     <lastmod>2022-06-09T12:30:39-04:00</lastmod>
   </url>
   <url>
-    <loc>https://robcavanaugh.com/posts/2021-02-23-making-ciu-scoring-slightly-less-painful/</loc>
-    <lastmod>2021-07-07T02:28:41-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://robcavanaugh.com/posts/2021-01-29-tbdbr/</loc>
-    <lastmod>2021-04-18T17:50:47-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://robcavanaugh.com/posts/2020-10-15-clinical-implementation-discourse/</loc>
-    <lastmod>2021-04-18T17:50:47-04:00</lastmod>
-  </url>
-  <url>
-    <loc>https://robcavanaugh.com/posts/2020-09-14-effect-sizes-in-single-subject-designs/</loc>
-    <lastmod>2021-04-18T17:50:47-04:00</lastmod>
+    <loc>https://robcavanaugh.com/posts/2022-06-25-aphasia-access-awareness-survey/</loc>
+    <lastmod>2022-06-27T12:51:18-04:00</lastmod>
   </url>
 </urlset>
