@@ -3,13 +3,13 @@ title: "Rob Cavanaugh"
 image: "images/robamanda-oly.jpg"
 site: distill::distill_website
 links:
-  - label: Email
+  - label: '`r fontawesome::fa("envelope")`    Email'
     url: "mailto:rob.cavanaugh@pitt.edu"
-  - label: Twitter
+  - label: '`r fontawesome::fa("twitter")` Twitter'
     url: "https://twitter.com/littlejohnsband"
-  - label: GitHub
+  - label: '`r fontawesome::fa("github")` Github'
     url: "https://github.com/rbcavanaugh"
-  - label: Pitt
+  - label: '`r fontawesome::fa("university")`'
     url: "https://lrcl.pitt.edu"
 output:
   postcards::trestles
