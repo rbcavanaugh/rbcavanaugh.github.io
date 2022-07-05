@@ -8,8 +8,20 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-    <style type="text/css">body {font-family: 'Roboto Slab', serif;}</style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style type="text/css">body {font-family: 'Roboto Mono', serif;}</style>
+
+    <style>
+      @media screen and (min-width: 768px) {
+        .container {
+          width: 768px;
+        }
+      }
+
+      body {
+        background-color: #f5e9dd;
+      }
+    </style>
 
     <title>Rob Cavanaugh</title>
 
@@ -753,115 +765,151 @@
           <!--radix_placeholder_site_before_body-->
           <!--/radix_placeholder_site_before_body-->
     
-    <div class="container-fluid d-none d-lg-block d-xl-block">
-      <div class="d-flex row flex-row vh-100">
-        <div class="d-flex flex-column col-5 align-items-center text-center align-self-center">
-          <div class="mx-auto text-center">
-            <div class="p-3">
-              <img src="images/robamanda-oly.jpg" style="height:15rem" class="rounded">
-            </div>
-            <div class="p-2">
-              <h1>Rob Cavanaugh</h1>
-            </div>
-            <hr style="width:60%;"/>
-            <div class="p-2">
-              <div id="icon-list">
-                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                    <a href=mailto:rob.cavanaugh@pitt.edu>
-                      <button type="button" class="btn btn-outline-dark mb-2">
-                        <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>
-                        Email
-                      </button>
-                    </a>
-                  </li>
-                                    <li class="list-inline-item">
-                    <a href=https://twitter.com/littlejohnsband>
-                      <button type="button" class="btn btn-outline-dark mb-2">
-                        <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
-                        Twitter
-                      </button>
-                    </a>
-                  </li>
-                                    <li class="list-inline-item">
-                    <a href=https://github.com/rbcavanaugh>
-                      <button type="button" class="btn btn-outline-dark mb-2">
-                        <svg aria-hidden="true" role="img" viewBox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-                        Github
-                      </button>
-                    </a>
-                  </li>
-                                    <li class="list-inline-item">
-                    <a href=https://lrcl.pitt.edu>
-                      <button type="button" class="btn btn-outline-dark mb-2">
-                        <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"/></svg>
-                        Pitt
-                      </button>
-                    </a>
-                  </li>
-                                  </ul>
-              </div>
-            </div>
+    <div class="container d-none d-lg-block d-xl-block">
+      <div class="row mt-5">
+        <div class="col-7 mt-5">
+          <h1>Rob Cavanaugh</h1>
+          <hr style="max-width: 200px; margin-left:0;" style="width:60%;"/>
+          <div class="my-3" id="icon-list">
+            <ul class="list-inline">
+                            <li class="list-inline-item">
+                <a href=mailto:rob.cavanaugh@pitt.edu>
+                  <button type="button" class="btn btn-outline-dark mb-2">
+                    <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>
+                    Email
+                  </button>
+                </a>
+              </li>
+                            <li class="list-inline-item">
+                <a href=https://twitter.com/littlejohnsband>
+                  <button type="button" class="btn btn-outline-dark mb-2">
+                    <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                    Twitter
+                  </button>
+                </a>
+              </li>
+                            <li class="list-inline-item">
+                <a href=https://github.com/rbcavanaugh>
+                  <button type="button" class="btn btn-outline-dark mb-2">
+                    <svg aria-hidden="true" role="img" viewBox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+                    Github
+                  </button>
+                </a>
+              </li>
+                            <li class="list-inline-item">
+                <a href=https://lrcl.pitt.edu>
+                  <button type="button" class="btn btn-outline-dark mb-2">
+                    <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"/></svg>
+                    Pitt
+                  </button>
+                </a>
+              </li>
+                          </ul>
           </div>
         </div>
-        <div class="d-flex flex-column vh-100 border-left"></div>
-        <div class="d-flex flex-column col px-5 align-items-center align-self-center mh-100" style="overflow-y: scroll;">
-          <div class="my-5" id="content">
-            <div id="about" class="section level2">
-            <h2>About</h2>
-            <p>I am a fifth-year Ph.D. Candidate in the Department of
-            Communication Sciences and Disorders at the University of
-            Pittsburgh and clinical speech-language pathologist. My
-            research is focused on improving treatment effectiveness,
-            clinical implementation, and access to evidence-based care
-            in neurogenic communication disorders. I’m also interested
-            in quantitative methods, open science, and science
-            communication in neurorehabilitation.</p>
-            <p>Outside of my day job, you can find me with my wife,
-            Amanda - somewhere outdoors, typically in a national park,
-            and ideally on top of a mountain.</p>
-            <div style = "box-sizing: border-box;
-                min-height: 100%;
-                padding: 0 0 50px;
-                position: relative;">
 
-            <center style = "bottom: 0;
-                height: 50px;
-                left: 0;
-                position: absolute;
-                width: 100%;">
-            <hr>
-            <p style="padding-bottom:10px;">
-            <em style="font-size:.75rem;">Built with:</em>
-            <a href="https://www.tidyverse.org/" target="_blank">
-            <img border="0" alt="tidyverse logo" src = "images/tidyverse.svg" height="25px" width="auto" style="margin:0 10px;">
-            </a>
-            <a href="https://rmarkdown.rstudio.com/" target="_blank">
-            <img border="0" alt="rmarkdown logo" src = "images/rmarkdown.png" height="25px" width="auto" style="margin:0 10px;">
-            </a>
-            <a href="https://rstudio.github.io/distill/" target="_blank">
-            <img border="0" alt="distill logo" src = "images/distill.png" height="25px" width="auto" style="margin:0 10px;">
-            </a>
-            <a href="https://github.com/rstudio/pagedown" target="_blank">
-            <img border="0" alt="pagedown logo" src = "images/pagedown.png" height="25px" width="auto" style="margin:0 10px;">
-            </a>
-            <a href="http://nickstrayer.me/datadrivencv/" target="_blank">
-            <img border="0" alt="datadriven cv logo" src = "images/ddcv.svg" height="25px" width="auto" style="border-radius:10px; margin:0 10px;">
-            </a>
-            <a href="https://pkg.garrickadenbuie.com/metathis/" target="_blank">
-            <img border="0" alt="metathis logo" src = "images/metathis.png" height="25px" width="auto" style="margin:0 10px;">
-            </a> <br> <em style="font-size:.5em"> Last updated on
-            2022-06-29 </em>
-            </p>
-            </center>
-            </div>
-            </div>
+        <div class="col mr-4 mt-5">
+          <img src="images/robamanda-oly.jpg" style="height:15rem" class="rounded float-right">
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col">
+          <style type="text/css">
+          button {
+                  background-color: #ffffff!important;
+                }
+                
+          body {
+                  background-color: #ffffff!important;
+                }
+          </style>
+          <p><br></p>
+          <p>I’m a Ph.D. Candidate in Communication Sciences and
+          Disorders at the <a
+          href="https://www.lrcl.pitt.edu/">University of Pittsburgh</a>
+          and clinical speech-language pathologist. My research
+          currently focuses on identifying and honing the active
+          ingredients in treatments for post-stroke aphasia and related
+          disorders, especially considering generalization to outcomes
+          prioritized by people with aphasia (e.g., connected speech).
+          Improving our understanding of the active ingredients can
+          inform treatment theory and improve treatment effectiveness.
+          When implemented via technology (e.g., apps) treatments, more
+          potent interventions can provide individuals with aphasia
+          access to greater treatment intensity while high value
+          face-to-face clinical time can be dedicated to counseling,
+          goal setting, and life participation.</p>
+          <p>Ultimately, my hope is that this work will promote
+          speech-language pathologists ability to integrate treatments
+          that address language difficulties, communication skills, life
+          participation and well being, even with <a
+          href="https://podcasts.apple.com/ph/podcast/episode-77-voltage-drop-and-aphasia-treatment/id1166457367?i=1000539987679">today’s
+          clinical practice constraints</a>. To achieve these goals, my
+          <a href="https://robcavanaugh.com/research.html">research</a>
+          leverages quantitative methods such as multilevel modeling,
+          Bayesian statistics, and natural language processing tools.
+          I’m also keen on promoting open science practices such as
+          reproducibility and replication. I’ve developed advanced
+          skills in statistical programming (R, python), including using
+          packages like R {shiny} for <a
+          href="https://robcavanaugh.app/shiny/effect-sizes/">science
+          communication</a> or <a
+          href="https://aphasia-apps.shinyapps.io/PNT-CAT/">making
+          research products available to clinicans</a> (<a
+          href="https://robcavanaugh.com/shiny">more tools listed
+          here</a>). I also enjoy small projects like building websites,
+          such as <a
+          href="https://aphasiaresearch.org">aphasiaresearch.org</a>,
+          which is intended to help individuals with aphasia find
+          research studies they might want to participate in.</p>
+          <p>Outside of my day job, you can find me with my wife, Amanda
+          - somewhere outdoors, typically in a national park, and
+          ideally on top of a mountain.</p>
+          <div style = "box-sizing: border-box;
+              min-height: 10%;
+              padding: 0 0 50px;
+              position: relative;">
+
+          <center style = "bottom: 0;
+              height: 50px;
+              left: 0;
+              position: absolute;
+              width: 100%;">
+          <hr>
+          <p style="padding-bottom:10px;">
+          <em style="font-size:.75rem;">Built with:</em>
+          <a href="https://www.tidyverse.org/" target="_blank">
+          <img border="0" alt="tidyverse logo" src = "images/tidyverse.svg" height="25px" width="auto" style="margin:0 10px;">
+          </a> <a href="https://rmarkdown.rstudio.com/" target="_blank">
+          <img border="0" alt="rmarkdown logo" src = "images/rmarkdown.png" height="25px" width="auto" style="margin:0 10px;">
+          </a>
+          <a href="https://rstudio.github.io/distill/" target="_blank">
+          <img border="0" alt="distill logo" src = "images/distill.png" height="25px" width="auto" style="margin:0 10px;">
+          </a>
+          <a href="https://github.com/rstudio/pagedown" target="_blank">
+          <img border="0" alt="pagedown logo" src = "images/pagedown.png" height="25px" width="auto" style="margin:0 10px;">
+          </a>
+          <a href="http://nickstrayer.me/datadrivencv/" target="_blank">
+          <img border="0" alt="datadriven cv logo" src = "images/ddcv.svg" height="25px" width="auto" style="border-radius:10px; margin:0 10px;">
+          </a>
+          <a href="https://pkg.garrickadenbuie.com/metathis/" target="_blank">
+          <img border="0" alt="metathis logo" src = "images/metathis.png" height="25px" width="auto" style="margin:0 10px;">
+          </a> <br> <em style="font-size:.5em"> Last updated on
+          2022-07-05 </em>
+          </p>
+          </center>
           </div>
+          <!-- body { -->
+          <!--         background-color: #FFFFFF; -->
+          <!--       } -->
+          <!--       .rounded { -->
+          <!--         border-radius:50%!important; -->
+          <!--       } -->
         </div>
       </div>
     </div>
 
-    <div class="container-flex min-vh-100 d-block d-lg-none d-xl-none">
+    <div class="container d-block d-lg-none d-xl-none">
       <div class="d-flex flex-row justify-content-center">
         <div class="d-flex flex-col">
           <div class="mx-auto">
@@ -877,25 +925,25 @@
               <div class="col-8 p-1 text-center">
                 <div class="list-group">
                                     <a href=mailto:rob.cavanaugh@pitt.edu>
-                    <button type="button" class="list-group-item list-group-item-action my-1 rounded">
+                    <button type="button" class="list-group-item list-group-item-action my-1 rounded" style="background-color: #f5e9dd; color: black;border-color: black;">
                       <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>
                       Email
                     </button>
                   </a>
                                     <a href=https://twitter.com/littlejohnsband>
-                    <button type="button" class="list-group-item list-group-item-action my-1 rounded">
+                    <button type="button" class="list-group-item list-group-item-action my-1 rounded" style="background-color: #f5e9dd; color: black;border-color: black;">
                       <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
                       Twitter
                     </button>
                   </a>
                                     <a href=https://github.com/rbcavanaugh>
-                    <button type="button" class="list-group-item list-group-item-action my-1 rounded">
+                    <button type="button" class="list-group-item list-group-item-action my-1 rounded" style="background-color: #f5e9dd; color: black;border-color: black;">
                       <svg aria-hidden="true" role="img" viewBox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
                       Github
                     </button>
                   </a>
                                     <a href=https://lrcl.pitt.edu>
-                    <button type="button" class="list-group-item list-group-item-action my-1 rounded">
+                    <button type="button" class="list-group-item list-group-item-action my-1 rounded" style="background-color: #f5e9dd; color: black;border-color: black;">
                       <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"/></svg>
                       Pitt
                     </button>
@@ -903,22 +951,63 @@
                                   </div>
               </div>
             </div>
-            <div class="p pt-4 px-5">
-              <div id="about" class="section level2">
-              <h2>About</h2>
-              <p>I am a fifth-year Ph.D. Candidate in the Department of
-              Communication Sciences and Disorders at the University of
-              Pittsburgh and clinical speech-language pathologist. My
-              research is focused on improving treatment effectiveness,
-              clinical implementation, and access to evidence-based care
-              in neurogenic communication disorders. I’m also interested
-              in quantitative methods, open science, and science
-              communication in neurorehabilitation.</p>
+            <div class="mt-4 mb-5 mx-2">
+              <style type="text/css">
+              button {
+                      background-color: #ffffff!important;
+                    }
+                    
+              body {
+                      background-color: #ffffff!important;
+                    }
+              </style>
+              <p><br></p>
+              <p>I’m a Ph.D. Candidate in Communication Sciences and
+              Disorders at the <a
+              href="https://www.lrcl.pitt.edu/">University of
+              Pittsburgh</a> and clinical speech-language pathologist.
+              My research currently focuses on identifying and honing
+              the active ingredients in treatments for post-stroke
+              aphasia and related disorders, especially considering
+              generalization to outcomes prioritized by people with
+              aphasia (e.g., connected speech). Improving our
+              understanding of the active ingredients can inform
+              treatment theory and improve treatment effectiveness. When
+              implemented via technology (e.g., apps) treatments, more
+              potent interventions can provide individuals with aphasia
+              access to greater treatment intensity while high value
+              face-to-face clinical time can be dedicated to counseling,
+              goal setting, and life participation.</p>
+              <p>Ultimately, my hope is that this work will promote
+              speech-language pathologists ability to integrate
+              treatments that address language difficulties,
+              communication skills, life participation and well being,
+              even with <a
+              href="https://podcasts.apple.com/ph/podcast/episode-77-voltage-drop-and-aphasia-treatment/id1166457367?i=1000539987679">today’s
+              clinical practice constraints</a>. To achieve these goals,
+              my <a
+              href="https://robcavanaugh.com/research.html">research</a>
+              leverages quantitative methods such as multilevel
+              modeling, Bayesian statistics, and natural language
+              processing tools. I’m also keen on promoting open science
+              practices such as reproducibility and replication. I’ve
+              developed advanced skills in statistical programming (R,
+              python), including using packages like R {shiny} for <a
+              href="https://robcavanaugh.app/shiny/effect-sizes/">science
+              communication</a> or <a
+              href="https://aphasia-apps.shinyapps.io/PNT-CAT/">making
+              research products available to clinicans</a> (<a
+              href="https://robcavanaugh.com/shiny">more tools listed
+              here</a>). I also enjoy small projects like building
+              websites, such as <a
+              href="https://aphasiaresearch.org">aphasiaresearch.org</a>,
+              which is intended to help individuals with aphasia find
+              research studies they might want to participate in.</p>
               <p>Outside of my day job, you can find me with my wife,
               Amanda - somewhere outdoors, typically in a national park,
               and ideally on top of a mountain.</p>
               <div style = "box-sizing: border-box;
-                  min-height: 100%;
+                  min-height: 10%;
                   padding: 0 0 50px;
                   position: relative;">
 
@@ -948,11 +1037,16 @@
               <a href="https://pkg.garrickadenbuie.com/metathis/" target="_blank">
               <img border="0" alt="metathis logo" src = "images/metathis.png" height="25px" width="auto" style="margin:0 10px;">
               </a> <br> <em style="font-size:.5em"> Last updated on
-              2022-06-29 </em>
+              2022-07-05 </em>
               </p>
               </center>
               </div>
-              </div>
+              <!-- body { -->
+              <!--         background-color: #FFFFFF; -->
+              <!--       } -->
+              <!--       .rounded { -->
+              <!--         border-radius:50%!important; -->
+              <!--       } -->
             </div>
         </div>
       </div>
@@ -964,10 +1058,10 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-      <!--radix_placeholder_site_after_body-->
-      <!--/radix_placeholder_site_after_body-->
-      <!--radix_placeholder_navigation_after_body-->
-      <!--/radix_placeholder_navigation_after_body-->
-  
+          <!--radix_placeholder_site_after_body-->
+          <!--/radix_placeholder_site_after_body-->
+          <!--radix_placeholder_navigation_after_body-->
+          <!--/radix_placeholder_navigation_after_body-->
+    
   </body>
 </html>

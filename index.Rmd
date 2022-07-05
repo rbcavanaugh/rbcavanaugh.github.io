@@ -12,9 +12,8 @@ links:
   - label: '`r fontawesome::fa("university")` Pitt'
     url: "https://lrcl.pitt.edu"
 output:
-  postcards::trestles
+  postcards::solana
 ---
-
  
 ```{r, include=FALSE, results='asis'}
 library(metathis)
@@ -34,14 +33,25 @@ meta() %>%
 
 ```
 
-## About
+```{css, echo = FALSE}
+button {
+        background-color: #ffffff!important;
+      }
+      
+body {
+        background-color: #ffffff!important;
+      }
+```
+<br>
 
-I am a fifth-year Ph.D. Candidate in the Department of Communication Sciences and Disorders at the University of Pittsburgh and clinical speech-language pathologist. My research is focused on improving treatment effectiveness, clinical implementation, and access to evidence-based care in neurogenic communication disorders. I'm also interested in quantitative methods, open science, and science communication in neurorehabilitation.
+I'm a Ph.D. Candidate in Communication Sciences and Disorders at the [University of Pittsburgh](https://www.lrcl.pitt.edu/) and clinical speech-language pathologist. My research currently focuses on identifying and honing the active ingredients in treatments for post-stroke aphasia and related disorders, especially considering  generalization to outcomes prioritized by people with aphasia (e.g., connected speech). Improving our understanding of the active ingredients can inform treatment theory and improve treatment effectiveness. When implemented via technology (e.g., apps) treatments, more potent interventions can provide individuals with aphasia access to greater treatment intensity while high value face-to-face clinical time can be dedicated to counseling, goal setting, and life participation. 
+
+Ultimately, my hope is that this work will promote speech-language pathologists ability to integrate treatments that address language difficulties, communication skills, life participation and well being, even with [today's clinical practice constraints](https://podcasts.apple.com/ph/podcast/episode-77-voltage-drop-and-aphasia-treatment/id1166457367?i=1000539987679). To achieve these goals, my [research](https://robcavanaugh.com/research.html) leverages quantitative methods such as multilevel modeling, Bayesian statistics, and natural language processing tools. I'm also keen on promoting open science practices such as reproducibility and replication. I've developed advanced skills in statistical programming (R, python), including using packages like R {shiny} for [science communication](https://robcavanaugh.app/shiny/effect-sizes/) or [making research products available to clinicans](https://aphasia-apps.shinyapps.io/PNT-CAT/) ([more tools listed here](https://robcavanaugh.com/shiny)). I also enjoy small projects like building websites, such as [aphasiaresearch.org](https://aphasiaresearch.org), which is intended to help individuals with aphasia find research studies they might want to participate in.  
 
 Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.
 
 <div style = "box-sizing: border-box;
-    min-height: 100%;
+    min-height: 10%;
     padding: 0 0 50px;
     position: relative;">
     
@@ -83,5 +93,13 @@ Last updated on `r Sys.Date()`
 
 </div>
 
+
+<!-- body { -->
+<!--         background-color: #FFFFFF; -->
+<!--       } -->
+
+<!--       .rounded { -->
+<!--         border-radius:50%!important; -->
+<!--       } -->
 
 
