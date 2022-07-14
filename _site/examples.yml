@@ -1,9 +1,13 @@
 - title: "Aphasia Research Finder"
-  img: images/arf.png
+  img: images/aphasiaresearch.png
   href: https://aphasiaresearch.org
   showcase: true
+- title: "Aphasia Communication Outcome Measure (ACOM)"
+  img: images/acom.png
+  href: https://rb-cavanaugh.shinyapps.io/acom/
+  showcase: true
 - title: "Computer Adaptive PNT (beta)"
-  img: images/pnt2.png
+  img: images/pnt3.png
   href: https://aphasia-apps.shinyapps.io/pnt-cat
   showcase: true
 - title: "Reviewing Effect Sizes in Aphasia"
