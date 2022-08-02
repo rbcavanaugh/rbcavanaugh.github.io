@@ -7,17 +7,17 @@
 
 library(here)
 # Knit the HTML version
-  rmarkdown::render("CV/cv2.rmd")
+  rmarkdown::render("CV/cv-cavanaugh.rmd")
   
-  file.copy(here("CV", "cv2.html"),
-              here("cv2.html"), overwrite = T)
+  file.copy(here("CV", "cv-cavanaugh.html"),
+              here("cv-cavanaugh.html"), overwrite = T)
  
 
 # Convert to PDF using Pagedown
 pagedown::chrome_print(input = "~/github-repos/personal-website-distill/cv2.html",
-                       output = here("CV", "cv2.pdf"))
+                       output = here("CV", "cv-cavanaugh.pdf"))
 
-file.copy(here("CV", "cv2.pdf"),
-          here("cv2.pdf"), overwrite = T)
+file.copy(here("CV", "cv-cavanaugh.pdf"),
+          here("cv-cavanaugh.pdf"), overwrite = T)
 
 rmarkdown::render_site(encoding = 'UTF-8')

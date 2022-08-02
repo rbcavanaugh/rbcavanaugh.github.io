@@ -9,8 +9,8 @@ links:
     url: "https://twitter.com/littlejohnsband"
   - label: '`r fontawesome::fa("github")` Github'
     url: "https://github.com/rbcavanaugh"
-  - label: '`r fontawesome::fa("university")` Pitt'
-    url: "https://lrcl.pitt.edu"
+  - label: '`r fontawesome::fa("graduation-cap")` Google Scholar'
+    url: "https://scholar.google.com/citations?user=7pMLCJsAAAAJ&hl=en"
 output:
   postcards::solana
 ---

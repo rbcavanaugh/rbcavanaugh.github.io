@@ -19,7 +19,7 @@ navbar:
     - text: "Apps & Websites"
       href: Shiny.html
     - text: "CV"
-      href: cv2.html
+      href: cv-cavanaugh.html
   search: false
 google_analytics: "UA-179425806-1"
 # cookie_consent:

@@ -71,6 +71,7 @@ create_CV_object <-  function(data_location,
   
   # Clean up entries dataframe to format we need it for printing
   cv$entries_data %<>%
+    dplyr::filter(in_resume == TRUE) %>%
     tidyr::unite(
       tidyr::starts_with('description'),
       col = "description_bullets",
