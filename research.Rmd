@@ -1,5 +1,5 @@
 ---
-title: "Research"
+title: "Publications"
 site: distill::distill_website
 output: 
   distill::distill_article
@@ -32,9 +32,9 @@ output:
 }
 
 
-d-title {
+/*d-title {
     display: none;
-  }
+  }*/
 
 .feat_img{
   height: auto;
@@ -83,7 +83,7 @@ CV$entries_data$institution[CV$entries_data$institution=="N/A"] <- ""
 ```
 
 ```{r, echo = F, layout = "l-body-outset"}
-htmltools::tags$h2("Publications")
+#htmltools::tags$h2("Publications")
 ```
 
 ```{r results='asis', echo = FALSE, layout = "l-body-outset"}
