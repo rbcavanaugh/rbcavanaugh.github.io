@@ -77,7 +77,7 @@ M.S. CCC-SLP `r knitr::asis_output("\U00B7")` Ph.D Candidate, University of Pitt
 <!-- ``` -->
 <!-- </div> -->
 
-I'm a PhD candidate and ASHA-certified speech-language pathologist. My research aims to improve the effectiveness and clinical implementation of aphasia treatment from two perspectives: (1) specifying the active ingredients of aphasia treatments and (2) developing technology-based tools to increase the clinical implementation of aphasia research. To achieve these goals, my research combines training in aphasia treatment theory, quantitative methods and statistical programming, implementation science, and my clinical experiences as a speech-language pathologist. I’m also passionate about sharing and promoting quantitative methods and open science practices within the field of communication sciences and disorders. 
+I'm a PhD candidate and ASHA-certified speech-language pathologist. My research aims to improve the effectiveness and clinical implementation of aphasia rehabilitation services from two perspectives: (1) specifying the active ingredients of aphasia treatments and (2) developing technology-based tools to accelerate the clinical implementation of aphasia research. To achieve these goals, my research combines training in aphasia treatment theory, quantitative methods and statistical programming, implementation science, and my clinical experiences as a speech-language pathologist. I’m also passionate about sharing and promoting quantitative methods and open science practices within the field of communication sciences and disorders. 
 
 Education {data-icon=graduation-cap }
 --------------------------------------------------------------------------------
