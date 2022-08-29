@@ -4,7 +4,7 @@ favicon: images/mountain-solid.svg
 theme: theme_1.css
 description: |
  Personal website for Rob Cavanaugh M.S. CCC-SLP
-output_dir: "_site"
+output_dir: "docs"
 base_url: https://robcavanaugh.com/
 navbar:
   right:

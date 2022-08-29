@@ -88,27 +88,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Rob Cavanaugh | PhD Candidate: Gallery of featured posts</title>
+  <title>Rob Cavanaugh | PhD Candidate: Publications</title>
 
 
   <link rel="icon" type="image/svg+xml" href="images/mountain-solid.svg"/>
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Rob Cavanaugh | PhD Candidate: Gallery of featured posts"/>
+  <meta property="og:title" content="Rob Cavanaugh | PhD Candidate: Publications"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Rob Cavanaugh | PhD Candidate"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Rob Cavanaugh | PhD Candidate: Gallery of featured posts"/>
+  <meta property="twitter:title" content="Rob Cavanaugh | PhD Candidate: Publications"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","listing"]}},"value":[{"type":"character","attributes":{},"value":["Gallery of featured posts"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["posts"]}},"value":[{"type":"character","attributes":{},"value":["2022-06-25-aphasia-access-awareness-survey"]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","output"]}},"value":[{"type":"character","attributes":{},"value":["Publications"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2139,7 +2139,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2161,12 +2161,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Gallery of featured posts","authors":[]}
+{"title":"Publications","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2189,168 +2189,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).on("load", function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      page_category = decodeURIComponent(page_category)
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + decodeURIComponent(window.location.hash) + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-apply-limit l-page">
-<div class="posts-list">
-<h1 class="posts-list-caption" data-caption="Gallery of featured posts">Gallery of featured posts</h1>
-<a href="posts/2022-06-25-aphasia-access-awareness-survey/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">June 27, 2022</div>
-<div class="dt-authors">
-<div class="dt-author">Rob Cavanaugh</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2022-06-25-aphasia-access-awareness-survey/preview.png"/>
-</div>
-<div class="description">
-<h2>Visualizing the 2016, 2020, and 2022 Aphasia Awareness Surveys</h2>
-<div class="dt-tags"></div>
-<p></p>
-</div>
-</a>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Gallery of featured posts</h1>
+<h1>Publications</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2358,6 +2199,399 @@ function init_posts_list() {
 
 
 <div class="d-article">
+<div class="layout-chunk" data-layout="l-body">
+<style type="text/css">
+.fcolumns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 10px
+}
+.fcolumn1 {
+  flex: 10%;
+}
+.fcolumn2 {
+  flex: 90%;
+}
+
+.fcolumn3 {
+  flex: 15%;
+}
+.fcolumn4 {
+  flex: 80%;
+}
+
+.fcolumnspace {
+  flex: 5%;
+}
+
+
+d-title {
+    display: none;
+  }
+
+.feat_img{
+  height: auto;
+  width: 95%!important;
+}
+</style>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<script type="text/javascript">
+
+window.onload = function(){
+    l=document.links.length;
+    for(i = 0; i<l; i++) {
+        n = document.links[i].href.indexOf(".pdf");
+
+        if (n > 0){
+            document.links[i].setAttribute('target', '_blank');
+        }
+    }
+}
+
+$(document).ready(function(){
+    
+   // external links to new window
+    $('a[href^="http://"]').not('a[href*="https://robcavanaugh.com"]').attr('target','_blank');
+    
+    // force PDF Files to open in new window
+    $('a[href$=".pdf"]').attr('target', '_blank');
+
+  });
+</script>
+</div>
+<p><br></p>
+<div class="layout-chunk" data-layout="l-body-outset">
+<h2>Publications</h2>
+</div>
+<div class="layout-chunk" data-layout="l-body-outset">
+<div class="fcolumns">
+<div class="fcolumn1">
+<p>2022</p>
+</div>
+<div class="fcolumn2">
+<p>Quique, Y. M., <strong>Cavanaugh, R.,</strong> Lescht, E., &amp;
+Evans, W. S. (2022). Applying adaptive distributed practice to
+self-managed computer-based anomia treatment: A single-case experimental
+design. Journal of Communication Disorders, 99, 106249. <a
+href="https://doi.org/10.1016/j.jcomdis.2022.106249"
+class="uri">https://doi.org/10.1016/j.jcomdis.2022.106249</a>
+<a href = "images/Quique2022-greenOA.pdf" id="pdflink"><button id="pdfbutton">Author
+PDF</button></a></p>
+</div>
+</div>
+<div class="fcolumns">
+<div class="fcolumn1">
+
+</div>
+<div class="fcolumn2">
+<p>Boyle, M., Akers, C. M., <strong>Cavanaugh, R.,</strong> Hula, W. D.,
+Swiderski, A. M., &amp; Elman, R. J. (2022). Changes in discourse
+informativeness and efficiency following communication-based group
+treatment for chronic aphasia. Aphasiology, 1-35.
+<a href = "images/boyle2022-greenOA.pdf" id="pdflink"><button id="pdfbutton">Author
+PDF</button></a></p>
+</div>
+</div>
+<div class="fcolumns">
+<div class="fcolumn1">
+
+</div>
+<div class="fcolumn2">
+<p>Nguy, B., Quique, Y.M., <strong>Cavanaugh, R.,</strong> Evans,
+William S. (2022) Representation in aphasia research: an examination of
+US treatment studies published between 2009 and 2019. American Journal
+of Speech-Language Pathology
+<a href = "images/nguy-2022-greenOA.pdf" id="pdflink"><button id="pdfbutton">Author
+PDF</button></a></p>
+</div>
+</div>
+<div class="fcolumns">
+<div class="fcolumn1">
+
+</div>
+<div class="fcolumn2">
+<p><strong>Cavanaugh R,</strong> Quique YM, Dickey MW, Hula WD, Boss E,
+&amp; Evans WS (2022). Practice-Related Predictors of Semantic Feature
+Verification Treatment for Aphasia. American Journal of Speech-Language
+Pathology. <a href="https://doi.org/10.1044/2021_AJSLP-21-00296"
+class="uri">https://doi.org/10.1044/2021_AJSLP-21-00296</a>
+<a href = "images/cavanaugh2022-greenOA.pdf" id="pdflink"><button id="pdfbutton">Author
+PDF</button></a></p>
+</div>
+</div>
+<div class="fcolumns">
+<div class="fcolumn1">
+<p>2021</p>
+</div>
+<div class="fcolumn2">
+<p><strong>Cavanaugh, R.,</strong> Kravetz C., Jarold L., Quique Y.,
+Turner R., &amp; Evans, W.S. (2021). Is There a Research–Practice Dosage
+Gap in Aphasia Rehabilitation? American Journal of Speech-Language
+Pathology, 30(5), 2115–2129. 10.1044/2021_AJSLP-20-00257.
+<a href = "images/cavanaugh2021-greenOA.pdf" id="pdflink"><button id="pdfbutton">Author
+PDF</button></a></p>
+</div>
+</div>
+<div class="fcolumns">
+<div class="fcolumn1">
+
+</div>
+<div class="fcolumn2">
+<p>Evans W.S., <strong>Cavanaugh R.,</strong> Quique Y, Boss E, Starns
+J.J., &amp; Hula W.D. (2021). Playing With BEARS: Balancing Effort,
+Accuracy, and Response Speed in a Semantic Feature Verification Anomia
+Treatment Game. Journal of Speech, Language, and Hearing Research. <a
+href="https://doi.org/10.1044/2021_JSLHR-20-00543"
+class="uri">https://doi.org/10.1044/2021_JSLHR-20-00543</a>
+<a href = "images/evans2021-greenOA.pdf" id="pdflink"><button id="pdfbutton">Author
+PDF</button></a></p>
+</div>
+</div>
+<div class="fcolumns">
+<div class="fcolumn1">
+
+</div>
+<div class="fcolumn2">
+<p>Kersey, J., Evans, W. S., Mullen, K., Askren, A., <strong>Cavanaugh,
+R.</strong>, Wallace, S. E., Hula, W. D., Walsh Dickey, M., Terhorst,
+L., &amp; Skidmore, E. (2021). Metacognitive Strategy Training Is
+Feasible for People With Aphasia. OTJR: Occupation, Participation and
+Health. <a href="https://doi.org/10.1177/15394492211023196"
+class="uri">https://doi.org/10.1177/15394492211023196</a>
+<a href = "images/kersey2021-greenOA.pdf" id="pdflink"><button id="pdfbutton">Author
+PDF</button></a></p>
+</div>
+</div>
+<div class="fcolumns">
+<div class="fcolumn1">
+
+</div>
+<div class="fcolumn2">
+<p>Evans, W. S., <strong>Cavanaugh, R.</strong>, Gravier, M. L.,
+Autenreith, A. S., Doyle, P. J., Hula, W. D., Dickey Michael, W., &amp;
+Dickey, M. W. (2021). Effects of Semantic Feature Type, Diversity, and
+Quantity on Semantic Feature Analysis Treatment Outcomes in Aphasia.
+American Journal of Speech-Language Pathology. <a
+href="https://doi.org/10.1044/2020_AJSLP-19-00112"
+class="uri">https://doi.org/10.1044/2020_AJSLP-19-00112</a>
+<a href = "images/evans2020-greenOA.pdf" id="pdflink"><button id="pdfbutton">Author
+PDF</button></a></p>
+</div>
+</div>
+<div class="fcolumns">
+<div class="fcolumn1">
+<p>2020</p>
+</div>
+<div class="fcolumn2">
+<p><strong>Cavanaugh, R.B.,</strong> Haley, K.L. (2020) Subjective
+communication difficulties in very mild aphasia. American Journal of
+Speech-Language Pathology, 29(1S), 437–448. <a
+href="https://doi.org/10.1044/2019_AJSLP-CAC48-18-0222"
+class="uri">https://doi.org/10.1044/2019_AJSLP-CAC48-18-0222</a>
+<a href = "images/cavanaugh2020-greenOA.pdf" id="pdflink"><button id="pdfbutton">Author
+PDF</button></a></p>
+</div>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body-outset">
+<h2>Pre-prints</h2>
+</div>
+<div class="layout-chunk" data-layout="l-body-outset">
+<div class="fcolumns">
+<div class="fcolumn1">
+<p>Under Review</p>
+</div>
+<div class="fcolumn2">
+<p><strong>Cavanaugh, R.,</strong> Quique, Y.M., Swiderski, A.M.,
+Kallhoff, L.,Terhorst, L., Wambaugh J., Hula, W.D., Evans, William S.
+(Under Review) Reproducibility in small-N treatment research in aphasia
+and related disorders: a tutorial. Preprint: <a
+href="https://osf.io/exyqp/" class="uri">https://osf.io/exyqp/</a>
+<a href = "images/N/A" id="pdflink"><button id="pdfbutton"></button></a></p>
+</div>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body-outset">
+<h2>Presentations</h2>
+</div>
+<div class="layout-chunk" data-layout="l-body-outset">
+<div class="fcolumns">
+<div class="fcolumn3">
+<p><a href = "images/cac2022_ptgi.pdf">
+<img src="images/cac2022_ptgi.png" class = "feat_img"><br />
+</a></p>
+</div>
+<div class="fcolumnspace">
+
+</div>
+<div class="fcolumn4">
+<p style="margin:0px">
+<strong>Cavanaugh, R,</strong> Brancamp, T, Harmon, T, Wallace, S, Biel,
+M, Hambridge, T, Caputo, M, Evans, WS (2022). Measuring Post-traumatic
+Growth in People with Aphasia. Abstract for poster presentation, annual
+Clinical Aphasiology Conference (May 2022). Wrightsville Beach, NC
+</p>
+</div>
+</div>
+<hr style="padding:0;margin:10px">
+<div class="fcolumns">
+<div class="fcolumn3">
+<p><a href = "images/Schliep2022-cac-roundtable.pdf">
+<img src="images/cac_schliep2022.png" class = "feat_img"><br />
+</a></p>
+</div>
+<div class="fcolumnspace">
+
+</div>
+<div class="fcolumn4">
+<p style="margin:0px">
+Schliep, M., <strong>Cavanaugh, R.,</strong> , Tierney-Hendricks, C.,
+Schnek, S., Douglas, N., (2022). Leveraging Implementation Science to
+Advance the Reach of Aphasia Best Practices. Abstract for roundtable
+presentation, annual Clinical Aphasiology Conference (May 2022).
+Wrightsville Beach, NC
+</p>
+</div>
+</div>
+<hr style="padding:0;margin:10px">
+<div class="fcolumns">
+<div class="fcolumn3">
+<p><a href = "images/impsci_2022steel.pdf">
+<img src="images/impsci_2022steel.png" class = "feat_img"><br />
+</a></p>
+</div>
+<div class="fcolumnspace">
+
+</div>
+<div class="fcolumn4">
+<p style="margin:0px">
+Steel, S., <strong>Cavanaugh R.,</strong> Fergadiotis, G., Hula, W.D.,
+(2022) Bridging the gap: Measuring perceived barriers and facilitators
+of a novel anomia assessment tool. Lightning talk, Implementation
+Science is for All: A CSD Practice-Research Exchange (April 2022).
+Online
+</p>
+</div>
+</div>
+<hr style="padding:0;margin:10px">
+<div class="fcolumns">
+<div class="fcolumn3">
+<p><a href = "images/AoA_2021Evans.pdf">
+<img src="images/AoA_2021Evans.png" class = "feat_img"><br />
+</a></p>
+</div>
+<div class="fcolumnspace">
+
+</div>
+<div class="fcolumn4">
+<p style="margin:0px">
+Evans, W.S., Quique, Y.M., <strong>Cavanaugh, R,</strong> Lescht, E.
+(2021). Effects of adaptive distributed practice and stimuli variability
+in flashcard-based anomia treatment. Abstract for poster presentation,
+59th Academy of Aphasia, Online
+</p>
+</div>
+</div>
+<hr style="padding:0;margin:10px">
+<div class="fcolumns">
+<div class="fcolumn3">
+<p><a href = "images/CAC_2021.pdf">
+<img src="images/CAC_2021.png" class = "feat_img"><br />
+</a></p>
+</div>
+<div class="fcolumnspace">
+
+</div>
+<div class="fcolumn4">
+<p style="margin:0px">
+<strong>Cavanaugh, R.</strong> Quique, Y, Boss, E, Hula, W.D., and
+Evans, W.S. (2021). Practicing with BEARS: Active Ingredients in
+Semantic Feature Analysis. Abstract for poster presentation, 51st annual
+Clinical Aphasiology Conference, Online
+</p>
+</div>
+</div>
+<hr style="padding:0;margin:10px">
+<div class="fcolumns">
+<div class="fcolumn3">
+<p><a href = "images/AA_2021.pdf">
+<img src="images/AA_2021.png" class = "feat_img"><br />
+</a></p>
+</div>
+<div class="fcolumnspace">
+
+</div>
+<div class="fcolumn4">
+<p style="margin:0px">
+<strong>Cavanaugh, R.</strong>, Kravetz, C., Jarold, L., Quique, Y.,
+Turner, R., Evans, W.S. (2021). Is there a research-practice dosage gap
+in aphasia rehabilitation? Abstract for poster presentation, Aphasia
+Access Leadership Summit, online.
+</p>
+</div>
+</div>
+<hr style="padding:0;margin:10px">
+<div class="fcolumns">
+<div class="fcolumn3">
+<p><a href = "images/AoA_2020.pdf">
+<img src="images/AoA_2020.png" class = "feat_img"><br />
+</a></p>
+</div>
+<div class="fcolumnspace">
+
+</div>
+<div class="fcolumn4">
+<p style="margin:0px">
+<strong>Cavanaugh, R.,</strong> Terhorst, L., Swiderski, A.W., Hula,
+W.D., Evans, W.S. (2020). A Systematic Appraisal of Individual Effect
+Sizes in Aphasia Single-Case Designs via Simulation. Abstract for poster
+presentation, 58th Academy of Aphasia, Philadelpha PA.
+</p>
+</div>
+</div>
+<hr style="padding:0;margin:10px">
+<div class="fcolumns">
+<div class="fcolumn3">
+<p><a href = "images/CAC_2019.pdf">
+<img src="images/CAC_2019.png" class = "feat_img"><br />
+</a></p>
+</div>
+<div class="fcolumnspace">
+
+</div>
+<div class="fcolumn4">
+<p style="margin:0px">
+<strong>Cavanaugh, R.,</strong> Evans, W.S., Gravier, M., Autenreith,
+A., Ashmore, E., Doyle, P., Hula, W., Dickey, M.W., (2019). Do the kinds
+of features that patients generate during Semantic Feature Analysis
+affect treatment outcomes? Poster presented at the 2019 Clinical
+Aphasiology Conference in Whitefish, MT.
+</p>
+</div>
+</div>
+<hr style="padding:0;margin:10px">
+<div class="fcolumns">
+<div class="fcolumn3">
+<p><a href = "images/CAC_2018.pdf">
+<img src="images/CAC_2018.png" class = "feat_img"><br />
+</a></p>
+</div>
+<div class="fcolumnspace">
+
+</div>
+<div class="fcolumn4">
+<p style="margin:0px">
+<strong>Cavanaugh, R.B.,</strong> Haley, K.L. (2018) Subjective
+communication difficulties in very mild aphasia. Abstract for poster
+presentation, 48th annual Clinical Aphasiology Conference, Austin, TX.
+</p>
+</div>
+</div>
+<hr style="padding:0;margin:10px">
+</div>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
