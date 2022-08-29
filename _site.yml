@@ -17,7 +17,7 @@ navbar:
     - text: "Posts"
       href: posts.html
     - text: "Apps & Websites"
-      href: Shiny.html
+      href: shiny.html
     - text: "CV"
       href: cv-cavanaugh.html
   search: false
