@@ -119,7 +119,7 @@ CV %<>% print_section('honors', glue_template = "other")
 ```
 
 
-Publications {data-icon=file-alt}
+Peer-reviewed Publications {data-icon=file-alt}
 --------------------------------------------------------------------------------
 
 
@@ -127,12 +127,12 @@ Publications {data-icon=file-alt}
 CV %<>% print_section('publications', glue_template = "citation")
 ```
 
-Publications Under Review & In Revision {data-icon=chalkboard-teacher}
---------------------------------------------------------------------------------
+<!-- Publications Under Review & In Revision {data-icon=chalkboard-teacher} -->
+<!-- -------------------------------------------------------------------------------- -->
 
-```{r}
-CV %<>% print_section('review', glue_template = "citation")
-```
+<!-- ```{r} -->
+<!-- CV %<>% print_section('review', glue_template = "citation") -->
+<!-- ``` -->
 
 
 Refereed Presentations {data-icon=chalkboard-teacher}

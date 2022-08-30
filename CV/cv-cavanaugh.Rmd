@@ -119,7 +119,7 @@ CV %<>% print_section('honors', glue_template = "other")
 ```
 
 
-Publications {data-icon=file-alt}
+Peer-reviewed Publications {data-icon=file-alt}
 --------------------------------------------------------------------------------
 
 

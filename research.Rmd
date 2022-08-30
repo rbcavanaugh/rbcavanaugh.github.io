@@ -96,8 +96,8 @@ CV %<>% print_section("publications")
 htmltools::tags$h2("Pre-prints")
 ```
 
-```{r results='asis', echo = FALSE, layout = "l-body-outset"}
-CV %<>% print_section("review") 
+```{r results='asis', echo = FALSE, layout = "l-body-outset", include = FALSE}
+# CV %<>% print_section("review") 
 ```
 
 ```{r, echo = F, layout = "l-body-outset"}
