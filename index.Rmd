@@ -6,7 +6,7 @@ links:
   - label: '`r fontawesome::fa("envelope")`    Email'
     url: "mailto:rob.cavanaugh@pitt.edu"
   - label: '`r fontawesome::fa("twitter")` Twitter'
-    url: "https://twitter.com/littlejohnsband"
+    url: "https://twitter.com/rb_cavanaugh"
   - label: '`r fontawesome::fa("github")` Github'
     url: "https://github.com/rbcavanaugh"
   - label: '`r fontawesome::fa("graduation-cap")` Scholar'
