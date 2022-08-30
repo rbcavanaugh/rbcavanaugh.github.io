@@ -4,7 +4,7 @@ image: "images/robamanda-oly.jpg"
 site: distill::distill_website
 links:
   - label: '`r fontawesome::fa("envelope")`    Email'
-    url: "mailto:rob.cavanaugh@pitt.edu"
+    url: "rob.cavanaugh@pitt.edu"
   - label: '`r fontawesome::fa("twitter")` Twitter'
     url: "https://twitter.com/rb_cavanaugh"
   - label: '`r fontawesome::fa("github")` Github'
