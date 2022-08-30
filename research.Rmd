@@ -92,7 +92,7 @@ htmltools::tags$h2("Publications")
 CV %<>% print_section("publications") 
 ```
 
-```{r, echo = F, layout = "l-body-outset"}
+```{r, echo = F, layout = "l-body-outset", include = FALSE}
 htmltools::tags$h2("Pre-prints")
 ```
 
