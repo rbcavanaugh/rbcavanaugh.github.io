@@ -64,7 +64,7 @@ M.S. CCC-SLP `r knitr::asis_output("\U00B7")` Ph.D Candidate, University of Pitt
 `r fontawesome::fa("globe")` [robcavanaugh.com](https://robcavanaugh.com) `r knitr::asis_output("\U00B7")`  
 `r fontawesome::fa("orcid")` [orcidID](https://orcid.org/0000-0002-2114-6565) `r knitr::asis_output("\U00B7")` 
 `r fontawesome::fa("github")` [Github](https://github.com/rbcavanaugh) `r knitr::asis_output("\U00B7")` 
-`r fontawesome::fa("twitter")` [Twitter](https://twitter.com/Littlejohnsband)  
+`r fontawesome::fa("twitter")` [Twitter](https://twitter.com/rb_cavanaugh)  
 <em style="font-size:0.8rem;">Last updated on `r Sys.Date()`</em>
 </div>
 
