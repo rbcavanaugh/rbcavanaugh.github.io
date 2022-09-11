@@ -59,6 +59,9 @@ table.dataTable thead th {
 table.dataTable.no-footer {
   border-bottom: none !important;
 }
+article table td {
+font-size: 1.06rem;
+}
 ```
 
 ```{js, echo = F}
