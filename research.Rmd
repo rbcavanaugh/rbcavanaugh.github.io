@@ -131,13 +131,12 @@ t = CV$entries_data %>%
     #Article = title,
     #`Download` = pdf)
  
-htmltools::div(style="min-height:50vh;", 
 DT::datatable(t,
               escape = FALSE,
               rownames = FALSE,
               class="compact hover",
               option = list(pageLength = 5, lengthChange = FALSE, searching = FALSE, info = FALSE))
-)
+
 ```
 
 ```{r, echo = F, layout = "l-body-outset", include = FALSE}
