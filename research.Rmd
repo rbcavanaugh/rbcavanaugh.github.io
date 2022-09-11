@@ -40,6 +40,25 @@ d-title {
   height: auto;
   width: 95%!important;
 }
+
+d-article p {
+margin-bottom: 0em;
+}
+
+tbody th, table.dataTable tbody td {
+padding: 5px 10px;
+}
+
+thead {    
+    display:none;   
+}
+
+table.dataTable thead th {
+  border-bottom: none !important;
+}
+table.dataTable.no-footer {
+  border-bottom: none !important;
+}
 ```
 
 ```{js, echo = F}
@@ -88,8 +107,34 @@ CV$entries_data$institution[CV$entries_data$institution=="N/A"] <- ""
 htmltools::tags$h2("Publications")
 ```
 
-```{r results='asis', echo = FALSE, layout = "l-body-outset"}
-CV %<>% print_section("publications") 
+```{r echo = FALSE, layout = "l-body-outset"}
+library(tidyr)
+library(stringr)
+#CV %<>% print_section("publications")
+t = CV$entries_data %>%
+  dplyr::filter(section == "publications", in_website == "TRUE") %>%
+  dplyr::mutate(start = ifelse(start == "N/A", NA, start)) %>%
+  fill(start) %>%
+  # separate(title, into = c("authors", "title"), sep = "\\([^)]*\\).") %>%
+  # mutate(title = str_trim(title)) %>%
+  # separate(title, into = "title", sep = "[.|?]") %>%
+  rowwise() %>%
+  mutate(pdf = glue::glue('<a href = "images/{loc}" id="pdflink"><button id="pdfbutton">Author PDF</button></a>'),
+         title = markdown::markdownToHTML(text = paste(title, pdf), fragment.only = TRUE)) %>%
+  #mutate(out = glue::glue('{title}<br><small>{authors}</small>'))%>%
+  select(
+   # Year = start,
+    Article = title)
+    #Article = title,
+    #`Download` = pdf)
+ 
+htmltools::div(style="min-height:50vh;", 
+DT::datatable(t,
+              escape = FALSE,
+              rownames = FALSE,
+              class="compact hover",
+              option = list(pageLength = 5, lengthChange = FALSE, searching = FALSE, info = FALSE))
+)
 ```
 
 ```{r, echo = F, layout = "l-body-outset", include = FALSE}
@@ -101,7 +146,7 @@ htmltools::tags$h2("Pre-prints")
 ```
 
 ```{r, echo = F, layout = "l-body-outset"}
-htmltools::tags$h2("Presentations")
+htmltools::tags$h3("Selected Presentations")
 ```
 
 ```{r results='asis', echo = FALSE, layout = "l-body-outset"}

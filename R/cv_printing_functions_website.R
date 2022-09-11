@@ -167,6 +167,7 @@ print_section <- function(cv, section_id, glue_template = "article"){
 <hr style="padding:0;margin:10px">
 \n\n'
   }
+  
 
   section_data <- dplyr::filter(cv$entries_data, section == section_id)
 
