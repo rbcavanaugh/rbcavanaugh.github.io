@@ -91,8 +91,6 @@ $(document).ready(function(){
 
 ```{r, include=FALSE}
 
-library(magrittr) # For the pipe
-library(dplyr)
 source("R/cv_printing_functions_website.r")
 
 # Read in all data and initialize a CV printer object
@@ -111,25 +109,20 @@ htmltools::tags$h2("Publications")
 ```
 
 ```{r echo = FALSE, layout = "l-body-outset"}
+#CV %<>% print_section("publications")
+
+library(magrittr)
+library(dplyr)
 library(tidyr)
 library(stringr)
-#CV %<>% print_section("publications")
 t = CV$entries_data %>%
   dplyr::filter(section == "publications", in_website == "TRUE") %>%
   dplyr::mutate(start = ifelse(start == "N/A", NA, start)) %>%
   fill(start) %>%
-  # separate(title, into = c("authors", "title"), sep = "\\([^)]*\\).") %>%
-  # mutate(title = str_trim(title)) %>%
-  # separate(title, into = "title", sep = "[.|?]") %>%
   rowwise() %>%
   mutate(pdf = glue::glue('<a href = "images/{loc}" id="pdflink"><button id="pdfbutton">Author PDF</button></a>'),
          title = markdown::markdownToHTML(text = paste(title, pdf), fragment.only = TRUE)) %>%
-  #mutate(out = glue::glue('{title}<br><small>{authors}</small>'))%>%
-  select(
-   # Year = start,
-    Article = title)
-    #Article = title,
-    #`Download` = pdf)
+  select(Article = title)
  
 DT::datatable(t,
               escape = FALSE,
