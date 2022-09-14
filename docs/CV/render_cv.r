@@ -14,10 +14,15 @@ library(here)
  
 
 # Convert to PDF using Pagedown
-pagedown::chrome_print(input = "~/github-repos/personal-website-distill/cv2.html",
-                       output = here("CV", "cv-cavanaugh.pdf"))
+pagedown::chrome_print(input = "~/github-repos/rbcavanaugh.github.io/cv-cavanaugh.html",
+                       output = here::here("CV", "cv-cavanaugh.pdf"))
 
 file.copy(here("CV", "cv-cavanaugh.pdf"),
           here("cv-cavanaugh.pdf"), overwrite = T)
 
 rmarkdown::render_site(encoding = 'UTF-8')
+
+
+# CUSTO
+# pagedown::chrome_print(input = "~/github-repos/rbcavanaugh.github.io/CV/cv-cavanaugh-custom.html",
+#                        output = here::here("CV", "cv-cavanaugh-custom.pdf"))
