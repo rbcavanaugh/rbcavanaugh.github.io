@@ -1934,8 +1934,8 @@ html {
   --fig-cap-size:    13px;
   /*-- Main font colors --*/
   --title-color:     #000000;
-  --header-color:    rgba(0, 0, 0, 0.8);
-  --body-color:      rgba(0, 0, 0, 0.8);
+  --header-color:    #000000;
+  --body-color:      #000000;
   --aside-color:     #00523f;
   --fig-cap-color:   rgba(0, 0, 0, 0.6);
   /*-- Specify custom fonts ~~~ must be imported above   --*/
@@ -1973,17 +1973,18 @@ d-appendix {
 
 .distill-site-header {
   --title-size:       18px;
-  --text-color:       #ECEFF1;
+  --text-color:       black;
   --text-size:        15px;
   --hover-color:      white;
-  --bkgd-color:       #005D8F;
+  --bkgd-color:       transparent;
 }
 
 .distill-site-footer {
-  --text-color:       #ECEFF1;
-  --text-size:        15px;
-  --hover-color:      white;
-  --bkgd-color:       #005D8F;
+  display: none;
+  --text-color:       transparent;
+  --text-size:        0px;
+  --hover-color:      transparent;
+  --bkgd-color:       transparent;
 }
 
 /*-- Additional custom styles --*/
@@ -2007,6 +2008,11 @@ d-article a {
 
 #pdflink {
   border-bottom: none;
+}
+
+.btn-outline-light {
+    color: black;
+    border-color: black;
 }</style>
 <style type="text/css">
 /* base style */
