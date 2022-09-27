@@ -1,8 +1,6 @@
 ---
 title: "Rob Cavanaugh"
 image: "images/robamanda-oly.jpg"
-color1: "#F1F1F1"
-color2: "#005D8F"
 fontcolor: "black"
 angle: 150
 site: distill::distill_website
@@ -16,7 +14,7 @@ links:
   - label: '`r fontawesome::fa("graduation-cap")` Scholar'
     url: "https://scholar.google.com/citations?user=7pMLCJsAAAAJ&hl=en"
 output:
-  postcards::onofre
+  postcards::solana
 ---
  
 ```{r, include=FALSE, results='asis'}
