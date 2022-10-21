@@ -23,6 +23,6 @@ file.copy(here("CV", "cv-cavanaugh.pdf"),
 rmarkdown::render_site(encoding = 'UTF-8')
 
 
-# CUSTO
+# # # CUSTO
 # pagedown::chrome_print(input = "~/github-repos/rbcavanaugh.github.io/CV/cv-cavanaugh-custom.html",
 #                        output = here::here("CV", "cv-cavanaugh-custom.pdf"))
