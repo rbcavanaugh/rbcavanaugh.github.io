@@ -1,0 +1,176 @@
+---
+title: "Rob Cavanaugh's CV"
+author: Rob Cavanaugh
+date: "`r Sys.Date()`"
+params:
+  pdf_mode:
+    value: true
+output:
+  pagedown::html_resume:
+    css: 'dd_cv.css'
+    self_contained: true
+---
+
+```{r, include=FALSE}
+
+knitr::opts_chunk$set(
+  results='asis', 
+  echo = FALSE
+)
+library(datadrivencv)
+library(here)
+library(magrittr) # For the pipe
+source(here("CV-short", "cv_printing_functions.r"))
+
+# Read in all data and initialize a CV printer object
+CV <- create_CV_object(
+  data_location = "https://docs.google.com/spreadsheets/d/1B2gc55CwWn0QidoLk3aqWXFaKGFXqekKV94LVyY7Gug/edit?usp=sharing",  
+  pdf_mode = params$pdf_mode
+)
+
+```
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta charset="utf-8">
+<script src="https://kit.fontawesome.com/bee4f5cfa6.js" crossorigin="anonymous"></script>
+
+
+Aside
+================================================================================
+
+```{r}
+# Build interactive network of positions colored by section
+# and connected if they occurred in the same year
+#datadrivencv::build_network_logo(CV$entries_data)
+```
+
+
+```{r}
+# if(params$pdf_mode){
+#   cat("View this CV online with links at _https://github.com/rbcavanaugh/personal-website-distill/CV-short/raw/master/cv.html_")
+# } else {
+#   cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/rbcavanaugh/personal-website-distill/CV-short/raw/master/cv.pdf)")
+# }
+```
+
+Contact {#contact}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %>% print_contact_info()
+```
+
+
+
+Language Skills {#skills}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %>% print_skill_bars()
+```
+
+
+
+Disclaimer {#disclaimer}
+--------------------------------------------------------------------------------
+
+Made with the R package [**pagedown**](https://github.com/rstudio/pagedown). 
+
+The source code is available [on github.com/nstrayer/cv](/Users/robcavanaugh/Documents/github-repos/personal-website-distill/CV-short).
+
+Last updated on `r Sys.Date()`.
+
+
+
+Main
+================================================================================
+
+Robert Cavanaugh {#title}
+--------------------------------------------------------------------------------
+
+```{r}
+# Note the special double pipe so we modify the CV object in place
+CV %<>% print_text_block("intro") 
+```
+
+
+Education {data-icon=graduation-cap }
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('education')
+```
+
+
+Professional Experience {data-icon=briefcase data-concise=true}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('positions', glue_template = "positions")
+```
+
+Grant Support {data-icon=pen-alt}
+--------------------------------------------------------------------------------
+
+```{r class.source="pubs"}
+CV %<>% print_section('grants', glue_template = "grant")
+```
+
+
+Scholarships and Awards {data-icon=award}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('honors', glue_template = "other")
+```
+
+
+Publications {data-icon=file-alt}
+--------------------------------------------------------------------------------
+
+
+```{r class.source="pubs"}
+CV %<>% print_section('publications', glue_template = "citation")
+```
+
+Refereed Presentations {data-icon=chalkboard-teacher}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('presentations', glue_template = "citation")
+```
+
+Software & Technology {data-icon=laptop}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('software', glue_template = "other")
+```
+
+Teaching {data-icon=university}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('teaching', glue_template = "other")
+```
+
+Professional Memberships {data-icon=certificate}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('certs', glue_template = "other")
+```
+
+Service {data-icon=certificate}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('service', glue_template = "other")
+```
+
+Media {data-icon=certificate}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('media', glue_template = "other")
+```
