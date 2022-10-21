@@ -2,6 +2,9 @@
 title: "Rob Cavanaugh"
 image: "images/robamanda-oly.jpg"
 site: distill::distill_website
+color1: "#005D8F"
+color2: "#f1f1f1"
+angle: 130
 links:
   - label: '`r fontawesome::fa("envelope")`    Email'
     url: "rob.cavanaugh@pitt.edu"
@@ -12,7 +15,7 @@ links:
   - label: '`r fontawesome::fa("graduation-cap")` Scholar'
     url: "https://scholar.google.com/citations?user=7pMLCJsAAAAJ&hl=en"
 output:
-  postcards::solana
+  postcards::onofre
 ---
  
 ```{r, include=FALSE, results='asis'}
@@ -22,76 +25,82 @@ meta() %>%
   meta_social(
     title = "Rob Cavanaugh Personal Website",
     description = "Rob Cavanaugh's research portfolio",
-    url = "https://robcavanaugh.me/",
+    url = "https://rbcavanaugh.github.io",
     image = "images/olympus.jpg",
     image_alt = "Mount Olympus, WA",
     og_type = "website",
     og_author = "Rob Cavanaugh",
     twitter_card_type = "summary",
-    twitter_creator = "@littlejohnsband"
+    twitter_creator = "@rb-cavanaugh"
   )
 
 ```
 
 ```{css, echo = FALSE}
-button {
+/*button {
         background-color: #ffffff!important;
       }
       
 body {
         background-color: #ffffff!important;
       }
+      */
+/*.mt-5, .my-5 {
+margin-top: 2rem!important;
+}*/
 ```
-<br>
 
-I’m a PhD candidate at the [University of Pittsburgh](https://www.lrcl.pitt.edu/) and ASHA-certified speech-language pathologist. My research aims to improve the effectiveness of aphasia rehabilitation services from two perspectives: (1) specifying the active ingredients of aphasia treatments and (2) accelerating the clinical implementation of aphasia research in clinical practice settings. To achieve these goals, my research combines training in aphasia treatment theory, quantitative methods and statistical programming, implementation science, and my clinical experiences as a speech-language pathologist. I’m also passionate about promoting quantitative methods and open science practices within the field of communication sciences and disorders. Ultimately, my hope is that this work will lead to more effective treatments for aphasia and related disorders that address language difficulties, communication skills, life participation, and well-being, even with [today's clinical practice constraints](https://podcasts.apple.com/ph/podcast/episode-77-voltage-drop-and-aphasia-treatment/id1166457367?i=1000539987679).
+I’m a PhD candidate at the University of Pittsburgh and ASHA-certified speech-language pathologist. My research aims to improve the effectiveness of aphasia rehabilitation services from two perspectives: (1) specifying the active ingredients of aphasia treatments and (2) accelerating the clinical implementation of aphasia research in clinical practice settings. To achieve these goals, my research combines training in aphasia treatment theory, quantitative methods and statistical programming, implementation science, and my clinical experiences as a speech-language pathologist. I’m also passionate about promoting quantitative methods and open science practices within the field of communication sciences and disorders. Ultimately, my hope is that this work will lead to more effective treatments for aphasia and related disorders that address language difficulties, communication skills, life participation, and well-being, even with [today's clinical practice constraints](https://podcasts.apple.com/ph/podcast/episode-77-voltage-drop-and-aphasia-treatment/id1166457367?i=1000539987679).
 
 Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.
 
 
-<div style = "box-sizing: border-box;
-    min-height: 10%;
-    padding: 0 0 50px;
-    position: relative;">
-    
-<center style = "bottom: 0;
-    height: 50px;
-    left: 0;
-    position: absolute;
-    width: 100%;">
-    
-<hr>
+<!-- <div style = "box-sizing: border-box; -->
+<!--     min-height: 10%; -->
+<!--     padding: 0 0 50px; -->
+<!--     position: relative;"> -->
 
-<p style="padding-bottom:10px;"><em style="font-size:.75rem;">Built with:</em>
-<a href="https://www.tidyverse.org/" target="_blank">
-  <img border="0" alt="tidyverse logo" src = "images/tidyverse.svg" height="25px" width="auto" style="margin:0 10px;">
-</a>
-<a href="https://rmarkdown.rstudio.com/" target="_blank">
-  <img border="0" alt="rmarkdown logo" src = "images/rmarkdown.png" height="25px" width="auto" style="margin:0 10px;">
-</a>
-<a href="https://rstudio.github.io/distill/" target="_blank">
-  <img border="0" alt="distill logo" src = "images/distill.png" height="25px" width="auto" style="margin:0 10px;">
-</a>
-<a href="https://github.com/rstudio/pagedown" target="_blank">
-  <img border="0" alt="pagedown logo" src = "images/pagedown.png" height="25px" width="auto" style="margin:0 10px;">
-</a>
-<a href="http://nickstrayer.me/datadrivencv/" target="_blank">
-  <img border="0" alt="datadriven cv logo" src = "images/ddcv.svg" height="25px" width="auto" style="border-radius:10px; margin:0 10px;">
-</a>
-<a href="https://pkg.garrickadenbuie.com/metathis/" target="_blank">
-  <img border="0" alt="metathis logo" src = "images/metathis.png" height="25px" width="auto" style="margin:0 10px;">
-</a>
-<br>
-<em style="font-size:.5em">
-Last updated on `r Sys.Date()`
-</em>
-</p>
+<!-- <center style = "bottom: 0; -->
+<!--     height: 50px; -->
+<!--     left: 0; -->
+<!--     position: absolute; -->
+<!--     width: 100%;"> -->
+
+<!-- <hr> -->
+
+<!-- <p style="padding-bottom:10px;"><em style="font-size:.75rem;">Built with:</em> -->
+<!-- <a href="https://www.tidyverse.org/" target="_blank"> -->
+<!--   <img border="0" alt="tidyverse logo" src = "images/tidyverse.svg" height="25px" width="auto" style="margin:0 10px;"> -->
+<!-- </a> -->
+<!-- <a href="https://rmarkdown.rstudio.com/" target="_blank"> -->
+<!--   <img border="0" alt="rmarkdown logo" src = "images/rmarkdown.png" height="25px" width="auto" style="margin:0 10px;"> -->
+<!-- </a> -->
+<!-- <a href="https://rstudio.github.io/distill/" target="_blank"> -->
+<!--   <img border="0" alt="distill logo" src = "images/distill.png" height="25px" width="auto" style="margin:0 10px;"> -->
+<!-- </a> -->
+<!-- <a href="https://github.com/rstudio/pagedown" target="_blank"> -->
+<!--   <img border="0" alt="pagedown logo" src = "images/pagedown.png" height="25px" width="auto" style="margin:0 10px;"> -->
+<!-- </a> -->
+<!-- <a href="http://nickstrayer.me/datadrivencv/" target="_blank"> -->
+<!--   <img border="0" alt="datadriven cv logo" src = "images/ddcv.svg" height="25px" width="auto" style="border-radius:10px; margin:0 10px;"> -->
+<!-- </a> -->
+<!-- <a href="https://pkg.garrickadenbuie.com/metathis/" target="_blank"> -->
+<!--   <img border="0" alt="metathis logo" src = "images/metathis.png" height="25px" width="auto" style="margin:0 10px;"> -->
+<!-- </a> -->
+<!-- <br> -->
+<!-- <em style="font-size:.5em"> -->
+<!-- Last updated on `r Sys.Date()` -->
+<!-- </em> -->
+<!-- </p> -->
 
 
-</center>
+<!-- </center> -->
 
-</div>
+<!-- </div> -->
 
+<!-- <em style="font-size:.5em"> -->
+<!-- Last updated on `r Sys.Date()` -->
+<!-- </em> -->
 
 <!-- body { -->
 <!--         background-color: #FFFFFF; -->
