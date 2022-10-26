@@ -14,7 +14,7 @@ links:
   - label: '`r fontawesome::fa("graduation-cap")` Scholar'
     url: "https://scholar.google.com/citations?user=7pMLCJsAAAAJ&hl=en"
 output:
-  postcards::solana
+  postcards::trestles
 ---
  
 ```{r, include=FALSE, results='asis'}

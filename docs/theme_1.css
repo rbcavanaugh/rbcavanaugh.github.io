@@ -1,0 +1,107 @@
+
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono');
+@import url('https://fonts.googleapis.com/css2?family=Bitter');
+
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      40px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      14px;
+  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+  --title-color:     #000000;
+  --header-color:    #000000;
+  --body-color:      #000000;
+  --aside-color:     #00523f;
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    "Bitter", serif;
+  --mono-font:       "DM Mono", monospace;
+  --body-font:       "Roboto", sans-serif;
+  --navbar-font:     "Bitter", sans-serif; /* websites + blogs only */
+  --aside-font:      "Roboto", sans-serif;
+}
+
+/*-- ARTICLE METADATA --*/
+d-byline {
+  --heading-size:    1rem;
+  --heading-color:   rgba(0, 0, 0, 0.5);
+  --body-size:       1rem;
+  --body-color:      rgba(0, 0, 0, 0.8);
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    18px;
+  --contents-size:   13px;
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size:    15px;
+  --heading-color:   rgba(0, 0, 0, 0.65);
+  --text-size:       0.8em;
+  --text-color:      rgba(0, 0, 0, 0.5);
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+/* These properties only apply to Distill sites and blogs  */
+
+.distill-site-header {
+  --title-size:       18px;
+  --text-color:       black;
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       transparent;
+}
+
+.distill-site-footer {
+  display: none;
+  --text-color:       transparent;
+  --text-size:        0px;
+  --hover-color:      transparent;
+  --bkgd-color:       transparent;
+}
+
+/*-- Additional custom styles --*/
+/* Add any additional CSS rules below                      */
+
+.posts-list .metadata {
+    font-size: 14px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+}
+
+/* Change link appearance */
+d-article a {
+  /*border-bottom: 2px solid #00523f;*/
+  text-decoration: none;
+}
+
+#pdfbutton {
+  cursor: pointer;
+}
+
+#pdflink {
+  border-bottom: none;
+}
+
+.btn-outline-light {
+    color: black;
+    border-color: black;
+}

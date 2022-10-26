@@ -1,0 +1,21 @@
+[
+  {
+    "path": "posts/2022-06-25-aphasia-access-awareness-survey/",
+    "title": "Visualizing the 2016, 2020, and 2022 Aphasia Awareness Surveys",
+    "description": {},
+    "author": [
+      {
+        "name": "Rob Cavanaugh",
+        "url": {}
+      }
+    ],
+    "date": "2022-06-27",
+    "categories": [],
+    "contents": "\nThe National Aphasia Association (NAA) recently released an update\nto their aphasia awareness survey, in response to the recent news of\nBruce Willis’ aphasia diagnosis.\n\nWe typically conduct this survey every four years but decided to\nalter the schedule in view of the recent media coverage of aphasia,\nfollowing the announcement by the Willis family.\n\nThe NAA’s post nicely shows the responses for 2022 and provides a\nnarrative description for how the responses changed in response to 2022.\nI thought it might be helpful to also visualize changes in survey\nresponses across the three survey years (2016, 2020, and 2022). The\nfollowing figures and tables attempt to show visually some of the\nnarrative comparisons from the NAA blog post.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe NAA used word clouds to show common responses to the question,\n“Where was the last place you recall reading or hearing about\naphasia?”\nFigure reprinted from https://www.aphasia.org/2022-aphasia-awareness-survey/To provide easy comparison, I calculate the most common words,\nbigrams (adjacent two-word combinations), and trigrams (adjacent\nthree-word combinations) by year. These tables can be searched,\nfiltered, or sorted by year, the number of mentions, and\nword/bigram/trigram.\n\n\nWords\n\n\n\nBigrams\n\n\n\nTrigrams\n\n\n\n\nThe survey also asked, “In your own words, how does aphasia affect\nthe afflicted person?”. To summarize the key words and phrases\nrespondents used to describe aphasia I also summarized the most frequent\nwords, bigrams and trigrams. Note that these are only for participants\nwho the NAA considered aphasia aware in that they reported they\nhad heard the term aphasia and could properly identify it as a language\ndisorder.\n\n\nWords\n\n\n\nBigrams\n\n\n\nTrigrams\n\n\n\n\nOverall, it does appear that awareness of aphasia improved after\nBruce Willis’ diagnosis of aphasia and could reasonably be attributed to\nthe publicity surrounding his diagnosis. It will be interesting to see\nwhether this increased awareness persists over time.\nHere’s the summary from the NAA:\n\nThis aphasia awareness numbers that we see in the 2022 survey are\nmuch higher than we saw in previous surveys, and more recently, in the\n2020 survey. More importantly, we’re seeing a higher percentage of\npeople that have heard of aphasia able to properly identify it as a\nlanguage disorder and understand that loss of language does not mean\nloss of intellect.\n\n\nAs more public figures are diagnosed with Aphasia, like Bruce Willis,\nEmilia Clarke, Gabby Giffords and so on, it’s important to help the\npublic better understand aphasia and know where they can get aphasia\nresources.\n\nR code for cleaning, combining and visualizing survey responses can\nbe found on github here: https://github.com/rbcavanaugh/personal-website-distill/tree/master/_posts/2022-06-25-aphasia-access-awareness-survey.\nThere is an R-script for cleaning the three survey documents. The code\nfor producing figures is in the .Rmd file.\nIf you have any suggestions for changes or additions, please don’t\nhesitate to reah out via email or twitter.\n\n\n\n",
+    "preview": "posts/2022-06-25-aphasia-access-awareness-survey/preview.png",
+    "last_modified": "2022-08-29T15:26:45-04:00",
+    "input_file": {},
+    "preview_width": 864,
+    "preview_height": 576
+  }
+]

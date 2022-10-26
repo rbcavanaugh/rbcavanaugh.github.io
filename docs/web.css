@@ -1,0 +1,136 @@
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+    height: auto;
+    margin-left: 0;
+        margin-right: 0;
+    padding-left: 0;
+        padding-right: 0;
+
+}
+
+body {
+  background-color:#005D8F;
+  padding-bottom:0;
+}
+
+p{
+  font-size:16px;
+  line-height: 1.7em;
+}
+
+
+.title{
+ display:none;
+}
+
+.navbar{
+ display:none;
+}
+
+
+.borders{
+   display: inline-block;
+   border: 2px;
+   margin: 5px;
+   border-style: solid;
+   border-color: #ECEFF1;
+   padding: 5px;
+   border-radius: 10px;
+   color: #ECEFF1;
+    text-decoration:none;
+}
+
+.borders:hover{
+    background: rgb(236, 239, 241, .2);
+    color: #f1f1f1;
+    text-decoration: none;
+}
+
+a{
+  color: #005D8F;
+}
+
+.centering {
+  text-align: center;
+  padding-top:5px;
+}
+
+@media screen and (min-width: 800px)  {
+        .mobile-img { float:left; padding:0px; border-radius: 50%; width: 30%; display:block; margin-left:auto; margin-right:30px; margin-bottom:20px;border: 5px solid #ECEFF1;}
+}
+
+@media screen and (max-width: 799px)  {
+        .mobile-img { width: 70%; border-radius: 50%; display:block; margin-left:auto; margin-right:auto; margin-bottom:30px; max-width: 300px;border: 5px solid #ECEFF1; }
+}
+
+@media screen and (min-width: 800px)  {
+        .mobile-break {display:none;}
+}
+
+@media screen and (min-width: 600px)  {
+        .mobileonly-break {display:none;}
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.flex-left {
+    width: 20%;
+}
+
+.flex-right {
+    width: 80%;
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column-reverse;
+    margin-bottom: 5px;
+  }
+  .flex-left {
+    width: 100%;
+  }
+  
+  .flex-right {
+    width: 100%;
+  }
+}
+
+.feat_img {
+  border: 1px solid #ddd; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 150px; /* Set a small width */
+  margin-right: 10px;
+  vertical-align:center;
+}
+
+/* Add a hover effect (blue shadow) */
+.feat_img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+#research, #selected-presentations {
+  margin: 0 -9999rem;
+  padding: 5rem 9999rem;
+  background-color: #FFF;
+  border:0;
+}
+
+#recent-publications {
+  margin: 0 -9999rem;
+  padding: 5rem 9999rem;
+  background-color: #f2f5f7;
+  border: 0;
+}
+
+#foot {
+    width: 100%;
+    height: 0px;
+}

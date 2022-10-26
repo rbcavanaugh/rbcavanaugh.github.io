@@ -1,0 +1,40 @@
+- title: "Aphasia Research Finder"
+  img: images/aphasiaresearch.png
+  href: https://aphasiaresearch.org
+  showcase: true
+- title: "Aphasia Communication Outcome Measure (ACOM)"
+  img: images/acom.png
+  href: https://rb-cavanaugh.shinyapps.io/acom/
+  showcase: true
+- title: "Computer Adaptive PNT (beta)"
+  img: images/pnt3.png
+  href: https://aphasia-apps.shinyapps.io/pnt-cat
+  showcase: true
+- title: "Reviewing Effect Sizes in Aphasia"
+  img: images/es.png
+  href: https://robcavanaugh.app/shiny/effect-sizes/
+  showcase: true
+- title: "Comparing Effect Size in Aphasia"
+  img: images/es2.png
+  href: https://rb-cavanaugh.shinyapps.io/SCED/
+  showcase: true
+- title: "Main Concept Analysis (beta)"
+  img: images/mca.png
+  href: "https://aphasia-apps.shinyapps.io/mainConcept"
+  showcase: true
+- title: "Core Lexicon Analysis (beta)"
+  img: images/corelex.png
+  href: "https://aphasia-apps.shinyapps.io/coreLexicon"
+  showcase: true
+- title: "Correct Information Units"
+  img: images/cius.png
+  href: https://robcavanaugh.app/shiny/ciu/
+  showcase: true
+- title: "TBDBr R Package"
+  img: images/tbdb.png
+  href: https://talkbank.github.io/TBDBr/
+  showcase: true
+- title: "Lexical Diversity"
+  img: images/wim.png
+  href: https://robcavanaugh.app/shiny/lexical-diversity
+  showcase: true
