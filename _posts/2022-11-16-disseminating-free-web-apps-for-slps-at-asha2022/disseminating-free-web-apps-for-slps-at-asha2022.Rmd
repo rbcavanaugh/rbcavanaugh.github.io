@@ -1,0 +1,65 @@
+---
+title: "Disseminating Free Web-Apps for SLPs at #ASHA2022"
+author:
+  - name: Rob Cavanaugh
+    url: {}
+date: 2022-11-16
+draft: false
+preview: preview.png
+creative_commons: CC BY-NC
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+I haven't attended ASHA since I was an SLP master's student at UNC-Chapel Hill, but I'm giving two talks in person this year and contributed to two other presentations you should obviously attend. Here they are:
+
+### **Computer Adaptive Naming Assessment for Aphasia: A New Tool for SLPs**
+
+*Robert Cavanaugh, Alexander M. Swiderski, Stacey Steel (also presenting!), William D. Hula, and Gerasimos Fergadiotis.*
+
+In this seminar we'll give a very clinician-oriented primer on measurement and item-response theory (IRT), how we can use IRT to create computer adaptive tests, and how these tests can have greater clinical utility and reduce testing burden for individuals.
+
+Then we'll review recent research using IRT to create an adaptive naming test for individuals with aphasia and demo a new, ***FREE!!!*** web-application that implements a computer adaptive version of the Philadelphia Naming Test.
+
+If you're a clinician that works with individuals with aphasia, we hope that you'll walk away with some new ideas about measurement and a new assessment tool for your toolbox that is more informative and more efficient.
+
+**Time: Friday 1:15pm\
+Location: CC/208-209**
+
+<a href="ASHA-CAVANAUGH-2022-PNT-HANDOUT.pdf" target="_blank">Download Handout</a>
+
+### **Novel Web Applications to Facilitate Discourse Analysis in Everyday Clinical Practice**
+
+*Robert Cavanaugh, Sarah Grace Dalton and Jessica Richardson.*
+
+In this 30-minute clinically-focused technical session, I'll briefly go over the Core Lexicon and Main Concept Analysis outcome measures for connected speech in aphasia (and related disorders). Then I'll demo another new, ***FREE!!!*** web-app that is intended to make scoring Core Lexicon and Main Concept Analysis much easier and more efficient.
+
+I'll end on a few notes about the current clinical utility of this work, and where it's going. This talk is intended to give SLPs another new tool in their toolbox.
+
+**Time: Friday 8:30am\
+Location: CC/346**
+
+<a href="ASHA-CAVANAUGH-2022-CL-MCA-HANDOUT.pdf" target="_blank">Download Handout</a>
+
+### **Basic Psychological Need Satisfaction and Frustration in Aphasia: Correlations With Aphasia Severity and Mood**
+
+*Abigail Smith, Camille Williams, Trish Hambridge, Tyson G. Harmon, Sarah E. Wallace, Tami Brancamp, Michael Biel, William Evans, and Robert Cavanaugh*
+
+This fantastic poster led by Abby Smith and Camille Williams at BYU aimed to Examine the relationship between aphasia severity and satisfaction of basic psychological needs and Determine how mood relates to frustration of basic psychological needs.
+
+Time: Friday 11:00am\
+Location: CC/Hall B1 (and virtual)
+
+### **Cognitive Functions Supporting Learning Over Time in Naming Treatment for Aphasia**
+
+*Emily Goldberg, William D. Hula, Robert Cavanaugh, Alexander Swiderski, Alyssa Autenwreith, and Michael Walsh Dickey*
+
+If you didn't catch Emily's stellar talk on how improvements unfold overtime during SFA at this years Clinical Aphasiology Conference, you have another opportunity to see it at ASHA. Emily used some fancy mixed-effects models to examine how 39 people improved during Semantic Feature Analysis treatment for aphasia. She also looked at whether cognitive processes like attention and visuospatial memory moderated the learning curve during treatment.
+
+Time: Friday 4:30pm\
+Location: CC/342
