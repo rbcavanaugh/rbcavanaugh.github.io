@@ -1,5 +1,5 @@
 ---
-title: "Disseminating Free Web-Apps for SLPs at #ASHA2022"
+title: "#ASHA2022: New tools for SLPs working with individuals with aphasia"
 author:
   - name: Rob Cavanaugh
     url: {}
@@ -16,7 +16,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-I haven't attended ASHA since I was an SLP master's student at UNC-Chapel Hill, but I'm giving two talks in person this year and contributed to two other presentations you should obviously attend. Here they are:
+I haven't attended ASHA since I was an SLP master's student at UNC-Chapel Hill, but back this year and giving two in-person person aligned with the release of a few new (and free!) web-apps for speech-language pathologists who work with individuals with aphasia. I also contributed to two other presentations you should obviously attend.
 
 ### **Computer Adaptive Naming Assessment for Aphasia: A New Tool for SLPs**
 
@@ -27,6 +27,8 @@ In this seminar we'll give a very clinician-oriented primer on measurement and i
 Then we'll review recent research using IRT to create an adaptive naming test for individuals with aphasia and demo a new, ***FREE!!!*** web-application that implements a computer adaptive version of the Philadelphia Naming Test.
 
 If you're a clinician that works with individuals with aphasia, we hope that you'll walk away with some new ideas about measurement and a new assessment tool for your toolbox that is more informative and more efficient.
+
+P.S. There's a surprise bonus web-app at the end of this talk!
 
 **Time: Friday 1:15pm\
 Location: CC/208-209**
