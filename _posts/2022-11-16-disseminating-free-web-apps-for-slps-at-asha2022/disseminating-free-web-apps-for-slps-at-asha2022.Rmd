@@ -22,11 +22,11 @@ I haven't attended ASHA since I was a master's student at UNC-Chapel Hill, but I
 
 *Robert Cavanaugh, Alexander M. Swiderski, Stacey Steel (also presenting!), William D. Hula, and Gerasimos Fergadiotis.*
 
-In this seminar we'll give a very clinician-oriented primer on measurement and item-response theory (IRT), how we can use IRT to create computer adaptive tests, and how these tests can have greater clinical utility and reduce testing burden for individuals.
+In this seminar we'll give a very clinician-oriented primer on measurement and item-response theory (IRT), how we can use IRT to create computer adaptive tests, and how these tests can have greater clinical utility and reduce testing burden.
 
 Then we'll review recent research using IRT to create an adaptive naming test for individuals with aphasia and demo a new, ***FREE!!!*** web-application that implements a computer adaptive version of the Philadelphia Naming Test.
 
-If you're a clinician that works with individuals with aphasia, we hope that you'll walk away with some new ideas about measurement and a new assessment tool for your toolbox that is more informative and more efficient.
+If you're a clinician who works with individuals with aphasia, we hope that you'll walk away with some new ideas about measurement and a new assessment tool that is more informative and efficient.
 
 P.S. There's a surprise bonus web-app at the end of this talk!
 
@@ -39,9 +39,9 @@ Location: CC/208-209**
 
 *Robert Cavanaugh, Sarah Grace Dalton and Jessica Richardson.*
 
-In this 30-minute clinically-focused technical session, I'll briefly go over the Core Lexicon and Main Concept Analysis outcome measures for connected speech in aphasia (and related disorders). Then I'll demo another new, ***FREE!!!*** web-app that is intended to make scoring Core Lexicon and Main Concept Analysis much easier and more efficient.
+In this 30-minute clinically-focused technical session, I'll briefly go over the Core Lexicon and Main Concept Analysis outcome measures for connected speech in aphasia (and related disorders). Then I'll demo another new, ***FREE!!!*** web-app that is intended to make scoring Core Lexicon and Main Concept Analysis much easier and more efficient. I'll end on a few notes about the current clinical utility of this work.
 
-I'll end on a few notes about the current clinical utility of this work, and where it's going. This talk is intended to give SLPs another new tool in their toolbox.
+This talk is intended to give SLPs another new tool in their toolbox and is the result of a very fun collaboration with Sarah Grace Dalton (Marquette University) and Jessica Richardson (University of New Mexico).
 
 **Time: Friday 8:30am\
 Location: CC/346**
@@ -52,7 +52,7 @@ Location: CC/346**
 
 *Abigail Smith, Camille Williams, Trish Hambridge, Tyson G. Harmon, Sarah E. Wallace, Tami Brancamp, Michael Biel, William Evans, and Robert Cavanaugh*
 
-This fantastic poster led by Abby Smith and Camille Williams at BYU aimed to Examine the relationship between aphasia severity and satisfaction of basic psychological needs and Determine how mood relates to frustration of basic psychological needs.
+This fantastic poster led by Abby Smith and Camille Williams at BYU aimed to examine the relationship between aphasia severity and satisfaction of basic psychological needs and Determine how mood relates to frustration of basic psychological needs.
 
 Time: Friday 11:00am\
 Location: CC/Hall B1 (and virtual)
