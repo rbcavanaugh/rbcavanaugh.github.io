@@ -21,7 +21,7 @@ navbar:
     - text: "CV"
       href: cv-cavanaugh.html
   search: false
-google_analytics: "G-ZS5ZDZ5G4L"
+google_analytics: "UA-179425806-1"
 # cookie_consent:
 #   style: simple
 #   type: express
