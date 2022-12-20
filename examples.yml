@@ -20,21 +20,21 @@
   showcase: true
 - title: "Main Concept Analysis (beta)"
   img: images/mca.png
-  href: "https://aphasia-apps.shinyapps.io/mainConcept"
+  href: https://rb-cavanaugh.shinyapps.io/mainConcept
   showcase: true
 - title: "Core Lexicon Analysis (beta)"
   img: images/corelex.png
-  href: "https://aphasia-apps.shinyapps.io/coreLexicon"
+  href: https://rb-cavanaugh.shinyapps.io/coreLexicon
   showcase: true
-- title: "Correct Information Units"
-  img: images/cius.png
-  href: https://robcavanaugh.app/shiny/ciu/
-  showcase: true
+# - title: "Correct Information Units"
+#   img: images/cius.png
+#   href: https://robcavanaugh.app/shiny/ciu/
+#  showcase: true
 - title: "TBDBr R Package"
   img: images/tbdb.png
   href: https://talkbank.github.io/TBDBr/
   showcase: true
-- title: "Lexical Diversity"
-  img: images/wim.png
-  href: https://robcavanaugh.app/shiny/lexical-diversity
-  showcase: true
+# - title: "Lexical Diversity"
+#   img: images/wim.png
+#   href: https://robcavanaugh.app/shiny/lexical-diversity
+#   showcase: true
