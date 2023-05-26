@@ -10,13 +10,17 @@
   img: images/pnt3.png
   href: https://william-hula.shinyapps.io/pnt-cat/
   showcase: true
+- title: "Aphasia Tech Map"
+  img: images/tech.png
+  href: https://rbcavanaugh.github.io/aphasia-tech-map/
+  showcase: true
 - title: "Reviewing Effect Sizes in Aphasia"
   img: images/es.png
-  href: https://robcavanaugh.app/shiny/effect-sizes/
+  href: https://rb-cavanaugh.shinyapps.io/aphasia-effect-sizes/
   showcase: true
 - title: "Comparing Effect Size in Aphasia"
   img: images/es2.png
-  href: https://rb-cavanaugh.shinyapps.io/SCED/
+  href: http://rb-cavanaugh.shinyapps.io/reproducible-small-N
   showcase: true
 - title: "Main Concept Analysis (beta)"
   img: images/mca.png

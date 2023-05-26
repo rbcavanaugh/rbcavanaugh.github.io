@@ -6,9 +6,7 @@ angle: 150
 site: distill::distill_website
 links:
   - label: '`r fontawesome::fa("envelope")`    Email'
-    url: "rob.cavanaugh@pitt.edu"
-  - label: '`r fontawesome::fa("twitter")` Twitter'
-    url: "https://twitter.com/rb_cavanaugh"
+    url: "r.cavanaugh@northeastern.edu"
   - label: '`r fontawesome::fa("github")` Github'
     url: "https://github.com/rbcavanaugh"
   - label: '`r fontawesome::fa("graduation-cap")` Scholar'
@@ -35,9 +33,11 @@ meta() %>%
 
 ```
 
-I’m a PhD candidate at the [University of Pittsburgh](https://www.lrcl.pitt.edu/) and ASHA-certified speech-language pathologist. My research aims to improve the effectiveness of aphasia rehabilitation services from two perspectives: (1) specifying the active ingredients of aphasia treatments and (2) accelerating the clinical implementation of aphasia research in clinical practice settings. To achieve these goals, my research combines training in aphasia treatment theory, quantitative methods and statistical programming, implementation science, and my clinical experiences as a speech-language pathologist. I’m also passionate about promoting quantitative methods and open science practices within the field of communication sciences and disorders. Ultimately, my hope is that this work will lead to more effective treatments for aphasia and related disorders that address language difficulties, communication skills, life participation, and well-being, even with [today's clinical practice constraints](https://podcasts.apple.com/ph/podcast/episode-77-voltage-drop-and-aphasia-treatment/id1166457367?i=1000539987679).
+I'm a research data analyst at the *Observational Health Data Sciences and Informatics Center* (OHDSI) at Northeastern University's Roux Institute in Portland, ME. At the Roux OHDSI Center, I work with Dr. Brianne Olivieri-Mui and Dr. Louisa Smith at the intersection of health services research, epidemiology, and informatics. I'm a clinical speech-language pathologist by training with expertise in stroke and traumatic brain injury. My recently completed doctoral research focused on improving the effectiveness of aphasia rehabilitation services from complementary perspectives: specifying the active ingredients of aphasia treatments, evaluating patterns of treatment-related change in discourse-level communication, and examining the current state of clinical speech-language services for individuals with post-stroke aphasia.
 
-Outside of my day job, you can find me with my wife, Amanda - somewhere outdoors, typically in a national park, and ideally on top of a mountain.
+In my current role, I'm building expertise in health services research, epidemiology, and data science, specifically focused on health services research using insurance claims and electronic health record data within the OMOP Common Data Model (CDM). I also develop open-source software in R and training materials for students who are looking to conduct research using OHDSI's OMOP CDM. My long term goals are to conduct high-impact research integrating health services research and implementation science in the area of neurogenic communication disorders and to mentor students who are passionate about building similar research lines in their own respective fields. 
+
+Outside of my day job, you can find me and my wife Amanda exploring the outdoors with our two dogs, Murphy and Willa.
 
 
 <!-- <div style = "box-sizing: border-box; -->
