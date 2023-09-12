@@ -18,6 +18,8 @@ navbar:
       href: posts.html
     - text: "Apps & Websites"
       href: shiny.html
+    - text: "Consulting"
+      href: consulting.html
     - text: "CV"
       href: cv-cavanaugh.html
   search: false

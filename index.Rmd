@@ -5,12 +5,12 @@ fontcolor: "black"
 angle: 150
 site: distill::distill_website
 links:
-  - label: '`r fontawesome::fa("envelope")`    Email'
-    url: "r.cavanaugh@northeastern.edu"
   - label: '`r fontawesome::fa("github")` Github'
     url: "https://github.com/rbcavanaugh"
   - label: '`r fontawesome::fa("graduation-cap")` Scholar'
     url: "https://scholar.google.com/citations?user=7pMLCJsAAAAJ&hl=en"
+  - label: '`r fontawesome::fa("linkedin")` LinkedIn'
+    url: "https://www.linkedin.com/in/rob-cavanaugh-0b94636a"
 output:
   postcards::trestles
 ---
@@ -22,74 +22,18 @@ meta() %>%
   meta_social(
     title = "Rob Cavanaugh Personal Website",
     description = "Rob Cavanaugh's research portfolio",
-    url = "https://robcavanaugh.me/",
+    url = "https://rbcavanaugh.github.io",
     image = "images/olympus.jpg",
     image_alt = "Mount Olympus, WA",
     og_type = "website",
-    og_author = "Rob Cavanaugh",
-    twitter_card_type = "summary",
-    twitter_creator = "@littlejohnsband"
+    og_author = "Rob Cavanaugh"
   )
 
 ```
 
-I'm a research data analyst at the ***Observational Health Data Sciences and Informatics Center*** (OHDSI) at Northeastern University's Roux Institute in Portland, ME. I work with Dr. Brianne Olivieri-Mui and Dr. Louisa Smith at the intersection of health services research, epidemiology, and data science, primarily using insurance claims and electronic health record data within the OMOP Common Data Model (CDM) to examine disparities in health care outcomes. I also develop open-source software in R and training materials for students who are looking to conduct research using OHDSI's OMOP CDM. 
+I'm a research data analyst at the [***Observational Health Data Sciences and Informatics Center***](https://ohdsi.northeastern.edu) (OHDSI) at Northeastern University's Roux Institute in Portland, ME. I work with Dr. Brianne Olivieri-Mui and Dr. Louisa Smith at the intersection of health services research, epidemiology, and data science, primarily using insurance claims and electronic health record data within the OMOP Common Data Model (CDM) to examine disparities in health care outcomes. I also develop open-source software in R and training materials for students who are looking to conduct research using OHDSI's OMOP CDM. 
 
 I'm a clinical speech-language pathologist by training with expertise in stroke and traumatic brain injury rehabilitation. My recently completed doctoral research focused on improving the effectiveness of aphasia rehabilitation services from complementary perspectives: (1) specifying the active ingredients of aphasia treatments, (2) evaluating patterns of treatment-related change in discourse-level communication, and (3) examining the current state of clinical speech-language services for individuals with post-stroke aphasia. My long term goals are to integrate my clinical background, translational research training, and growing expertise in health services research and data science to conduct and collaborate on high impact research that improves real-world clinical practice in neurorehabilitation. 
 
 Outside of my day job, you can find me and my wife Amanda exploring the outdoors with our two dogs, Murphy and Willa.
-
-
-<!-- <div style = "box-sizing: border-box; -->
-<!--     min-height: 10%; -->
-<!--     padding: 0 0 50px; -->
-<!--     position: relative;"> -->
-
-<!-- <center style = "bottom: 0; -->
-<!--     height: 50px; -->
-<!--     left: 0; -->
-<!--     position: absolute; -->
-<!--     width: 100%;"> -->
-
-<!-- <hr> -->
-
-<!-- <p style="padding-bottom:10px;"><em style="font-size:.75rem;">Built with:</em> -->
-<!-- <a href="https://www.tidyverse.org/" target="_blank"> -->
-<!--   <img border="0" alt="tidyverse logo" src = "images/tidyverse.svg" height="25px" width="auto" style="margin:0 10px;"> -->
-<!-- </a> -->
-<!-- <a href="https://rmarkdown.rstudio.com/" target="_blank"> -->
-<!--   <img border="0" alt="rmarkdown logo" src = "images/rmarkdown.png" height="25px" width="auto" style="margin:0 10px;"> -->
-<!-- </a> -->
-<!-- <a href="https://rstudio.github.io/distill/" target="_blank"> -->
-<!--   <img border="0" alt="distill logo" src = "images/distill.png" height="25px" width="auto" style="margin:0 10px;"> -->
-<!-- </a> -->
-<!-- <a href="https://github.com/rstudio/pagedown" target="_blank"> -->
-<!--   <img border="0" alt="pagedown logo" src = "images/pagedown.png" height="25px" width="auto" style="margin:0 10px;"> -->
-<!-- </a> -->
-<!-- <a href="http://nickstrayer.me/datadrivencv/" target="_blank"> -->
-<!--   <img border="0" alt="datadriven cv logo" src = "images/ddcv.svg" height="25px" width="auto" style="border-radius:10px; margin:0 10px;"> -->
-<!-- </a> -->
-<!-- <a href="https://pkg.garrickadenbuie.com/metathis/" target="_blank"> -->
-<!--   <img border="0" alt="metathis logo" src = "images/metathis.png" height="25px" width="auto" style="margin:0 10px;"> -->
-<!-- </a> -->
-<!-- <br> -->
-<!-- <em style="font-size:.5em"> -->
-<!-- Last updated on `r Sys.Date()` -->
-<!-- </em> -->
-<!-- </p> -->
-
-
-<!-- </center> -->
-
-<!-- </div> -->
-
-
-<!-- body { -->
-<!--         background-color: #FFFFFF; -->
-<!--       } -->
-
-<!--       .rounded { -->
-<!--         border-radius:50%!important; -->
-<!--       } -->
-
 
