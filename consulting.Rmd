@@ -23,7 +23,7 @@ I'm happy to consider other types of (related) projects or consulting work. Plea
 
 <br>
 <center>
-![](https://imgs.xkcd.com/comics/data_trap.png)
+<img src ="https://imgs.xkcd.com/comics/data_trap.png" title="It's important to make sure your analysis destroys as much information as it produces"></img>
 <br>
 <small>https://xkcd.com/2582</small>
 </center>
