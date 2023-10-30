@@ -7,7 +7,7 @@ params:
     value: false
 output:
   pagedown::html_resume:
-    css: ['boring_cv.css']
+    css: ['boring_cv.css', resume]
     self_contained: true
 ---
 
@@ -53,18 +53,17 @@ if(params$pdf_mode) {
 Main
 ================================================================================
 
-Robert B. Cavanaugh {#title}
+Robert B. Cavanaugh <span style="color:grey;font-size:0.7em;">PhD, CCC-SLP</span> {#title}
 --------------------------------------------------------------------------------
 <hr>
 <!-- <div style="font-size:14px;padding:0px;margin:0px;">M.S. CCC-SLP</div> -->
 <div id="intro">
-M.S. CCC-SLP `r knitr::asis_output("\U00B7")` Ph.D Candidate, University of Pittsburgh<br>
 <!-- <span style="font-size:0.9rem;">School of Health and Rehabilitation Sciences, University of Pittsburgh</span>   -->
-`r fontawesome::fa("envelope")` rob.cavanaugh@pitt.edu `r knitr::asis_output("\U00B7")`
-`r fontawesome::fa("globe")` [robcavanaugh.com](https://robcavanaugh.com) `r knitr::asis_output("\U00B7")`  
+`r fontawesome::fa("envelope")` r.cavanaugh@northeastern.edu `r knitr::asis_output("\U00B7")`
+`r fontawesome::fa("globe")` [rbcavanaugh.github.io](https://rbcavanaugh.github.io)  
 `r fontawesome::fa("orcid")` [orcidID](https://orcid.org/0000-0002-2114-6565) `r knitr::asis_output("\U00B7")` 
 `r fontawesome::fa("github")` [Github](https://github.com/rbcavanaugh) `r knitr::asis_output("\U00B7")` 
-`r fontawesome::fa("twitter")` [Twitter](https://twitter.com/rb_cavanaugh)  
+`r fontawesome::fa("graduation-cap")` [Google Scholar](https://scholar.google.com/citations?user=7pMLCJsAAAAJ&hl=en)  
 <em style="font-size:0.8rem;">Last updated on `r Sys.Date()`</em>
 </div>
 
@@ -77,13 +76,21 @@ M.S. CCC-SLP `r knitr::asis_output("\U00B7")` Ph.D Candidate, University of Pitt
 <!-- ``` -->
 <!-- </div> -->
 
-I'm a PhD candidate and ASHA-certified speech-language pathologist. My research aims to improve the effectiveness of aphasia rehabilitation services from two perspectives: (1) specifying the active ingredients of aphasia treatments and (2) accelerating the clinical implementation of aphasia research in clinical practice settings. To achieve these goals, my research combines training in aphasia treatment theory, quantitative methods and statistical programming, implementation science, and my clinical experiences as a speech-language pathologist. I’m also passionate about promoting quantitative methods and open science practices within the field of communication sciences and disorders. 
+<!-- I'm a PhD candidate and ASHA-certified speech-language pathologist. My research aims to improve the effectiveness of aphasia rehabilitation services from two perspectives: (1) specifying the active ingredients of aphasia treatments and (2) accelerating the clinical implementation of aphasia research in clinical practice settings. To achieve these goals, my research combines training in aphasia treatment theory, quantitative methods and statistical programming, implementation science, and my clinical experiences as a speech-language pathologist. I’m also passionate about promoting quantitative methods and open science practices within the field of communication sciences and disorders.  -->
+
+
+Academic and Clinical Appointments {data-icon=briefcase data-concise=true}
+--------------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('positions', glue_template = "positions")
+```
 
 Education {data-icon=graduation-cap }
 --------------------------------------------------------------------------------
 
 ```{r}
-CV %<>% print_section('education')
+CV %<>% print_section('education', glue_template = "education")
 ```
 
 
@@ -95,12 +102,6 @@ CV %<>% print_section('education')
 <!-- CV %<>% print_section('clinical') -->
 <!-- ``` -->
 
-Professional Experience {data-icon=briefcase data-concise=true}
---------------------------------------------------------------------------------
-
-```{r}
-CV %<>% print_section('positions', glue_template = "positions")
-```
 
 Grant Support {data-icon=pen-alt}
 --------------------------------------------------------------------------------

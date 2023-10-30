@@ -166,6 +166,19 @@ print_section <- function(cv, section_id, glue_template = "default", boring = T)
 {description_bullets}
 \n\n\n"
     
+  } else if(glue_template == "education"){
+    glue_template <- "
+### {loc}
+
+{title}
+    
+{placeholder}
+
+{timeline}
+
+{description_bullets}
+\n\n\n"
+    
   } else if(glue_template == "other"){
     glue_template <- "
 ### {open}class=honors{close}
