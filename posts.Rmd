@@ -2,11 +2,11 @@
 title: "Featured posts"
 listing:
   posts:
+    - 2023-11-15-asha-2023-aphasia-treatment-dosage-from-efficacy-to-real-world-evidence
     - 2022-11-16-disseminating-free-web-apps-for-slps-at-asha2022
     - 2022-06-25-aphasia-access-awareness-survey
 
 ---
-
 
 
 

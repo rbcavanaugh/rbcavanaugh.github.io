@@ -1,0 +1,24 @@
+---
+title: "ASHA 2023: Aphasia Treatment Dosage from Efficacy to Real World Evidence"
+author:
+  - name: Rob Cavanaugh
+    url: {}
+date: 2023-11-15
+draft: false
+preview: preview.png
+creative_commons: CC BY-NC
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+#### Treatment Dosage in Aphasia Rehabilitation: From Research Efficacy to Real-World Evidence 
+
+<!-- centered image of preview.png with a link to asha-2023.pdf with 80% width-->
+<a href="asha-2023.pdf"><img src="preview2.png" alt="ASHA 2023: Aphasia Treatment Dosage from Efficacy to Real World Evidence" style="width:80%;display:block;margin-left:auto;margin-right:auto;"></a>
+
+***2023 American Speech-Language Hearing Association Convention, Boston, MA***
