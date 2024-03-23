@@ -67,6 +67,8 @@ Aside
 <!-- <img src="rr.jpeg" width = "80%" style = "border-radius:80px"> -->
 <!-- </center> -->
 
+<div style = "padding-top:10px;"></div>
+
 Curriculum Vitae
 --------------------------------------------------------------------------------
 <hr>
@@ -83,7 +85,7 @@ Contact {#contact}
 CV %>% print_contact_info()
 ```
 
-<div style = "padding-top:20px;"></div>
+<div style = "padding-top:40px;"></div>
 
 <!-- Language Skills {#skills} -->
 <!-- -------------------------------------------------------------------------------- -->
@@ -118,6 +120,8 @@ Main
 
 Robert B. Cavanaugh <span style="color:grey;font-size:0.6em;">PhD, CCC-SLP</span> {#title}
 --------------------------------------------------------------------------------
+
+<div style = "padding-top: 24px;"></div>
 
 <!-- <div style="font-size:0.9rem;"> -->
 <!-- ```{r} -->

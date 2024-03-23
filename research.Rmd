@@ -120,7 +120,7 @@ t = CV$entries_data %>%
   dplyr::mutate(start = ifelse(start == "N/A", NA, start)) %>%
   fill(start) %>%
   rowwise() %>%
-  mutate(pdf = glue::glue('<a href = "images/{loc}" id="pdflink"><button id="pdfbutton">Author PDF</button></a>'),
+  mutate(pdf = ifelse(loc == "N/A", "", glue::glue('<a href = "images/{loc}" id="pdflink"><button id="pdfbutton">Author PDF</button></a>')),
          title = markdown::markdownToHTML(text = paste(title, pdf), fragment.only = TRUE)) %>%
   select(Article = title)
  
