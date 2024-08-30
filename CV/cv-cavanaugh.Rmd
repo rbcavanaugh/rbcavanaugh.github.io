@@ -119,6 +119,8 @@ CV %<>% print_section('grants', glue_template = "grant")
 Peer-reviewed Publications {data-icon=file-alt}
 --------------------------------------------------------------------------------
 <hr>
+*Mentored Student / Trainee works are underlined*
+
 
 ```{r class.source="pubs"}
 CV %<>% print_section('publications', glue_template = "citation")
@@ -135,9 +137,19 @@ CV %<>% print_section('publications', glue_template = "citation")
 Refereed Presentations {data-icon=chalkboard-teacher}
 --------------------------------------------------------------------------------
 <hr>
+*Mentored Student / Trainee works are underlined*
+
 
 ```{r}
 CV %<>% print_section('presentations', glue_template = "citation")
+```
+
+Teaching {data-icon=university}
+--------------------------------------------------------------------------------
+<hr>
+
+```{r}
+CV %<>% print_section('teaching', glue_template = "other")
 ```
 
 Media {data-icon=certificate}
@@ -162,14 +174,6 @@ Scholarships and Awards {data-icon=award}
 
 ```{r}
 CV %<>% print_section('honors', glue_template = "other")
-```
-
-Teaching {data-icon=university}
---------------------------------------------------------------------------------
-<hr>
-
-```{r}
-CV %<>% print_section('teaching', glue_template = "other")
 ```
 
 Professional Memberships {data-icon=certificate}
