@@ -12,4 +12,23 @@ quillt::examples(
  ) 
 ```
 
+### About
+
+This page includes web apps and other websites I've created since my time as a PhD students at the 
+University of Pittsburgh. Some are [R Shiny apps](https://shiny.rstudio.com/) built with the goal of improving
+research dissemination or communicated complex statistical principles. There are examples of assessment web-apps for 
+aphasia, including the computer adaptive Philadelphia Naming Test, computer adatpive Aphasia Communication Outcome Measure, 
+as well as non-transcription based discourse measures - core lexicon and main concept analysis. These web-apps are the result of
+collaborations with aphasia researchers who developed the assessments and were looking for ways to make them more accessible to clinicians and researchers. I have also used R Shiny to create web-apps for [disseiminating methods research](http://rb-cavanaugh.shinyapps.io/reproducible-small-N) and [explaining statistical concepts](https://rb-cavanaugh.shinyapps.io/aphasia-effect-sizes/). 
+
+There are also some static websites for disseminating information, 
+such as the recent [CSD Statistics resource page](https://rbcavanaugh.github.io/csd-stats), which was commissioned by [Will Evans](https://lrcl.pitt.edu) to provide a single location resource for CSD PhD students who want to learn R or increase their statistics skillset. The [Aphasia Tech Map](https://rbcavanaugh.github.io/aphasia-tech-map/) was the result of a collaboration with [John Pierce](https://scholars.latrobe.edu.au/jpierce) and [Miranda Rose](https://scholars.latrobe.edu.au/mlrose) as part of the Collaboration of Aphasia Trialists [Aphasia Rehabilitation Research Technology Mapping Project](https://www.aphasiatrials.org/aphasia-rehabilitation-research-technology-mapping-project/). And the [Aphasia Research Finder](https://aphasiaresearch.org/) originated from a challenge we frequently came across at Pitt - that there was no aphasia-friendly resource to help individuals with aphasia find research opportunities close to them or help them contact researchers. The website scrapes data from clinicaltrials.gov and displays it on a map, with suggestions for how to reach out to researchers. More recently, the National Aphasia Association has [created a database for this purpose](https://research.aphasia.org/research-studies/research-study-listings).
+
+I've also been dabbling recently in [Observable Framework](https://observablehq.com/) for creating interactive
+data visualizations. A simple side project includes the [Portland Tide](https://robcavanaugh.observablehq.cloud/portland-tide/) website which has an interactive
+figure of the Tides in Portland ME, so that my wife and I know when we should take our dogs to the beach. Observable is 
+really flexible since it allows the data to be processed in R, but the website to be generated in javascript - meaning there 
+is no need for a backend server (and associated costs!). R Shiny also has some recent upgrades, including [shinylive](https://posit-dev.github.io/r-shinylive/), which allows shiny apps to be run in a browser. The [QAB Macro Parser](https://rbcavanaugh.github.io/qab) is an example of this - a static webpage running R that allows users to upload one or more
+[QAB Scoring Macro Excel files](https://aphasialab.org/qab/) and download a combined and tidy dataset for further analysis. 
+
 

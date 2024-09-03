@@ -1,6 +1,18 @@
+- title: "QAB Macro Parser"
+  img: images/qab.png
+  href: https://rbcavanaugh.github.io/qab
+  showcase: true
+- title: "CSD Statistics Resources"
+  img: images/csd_stats.png
+  href: https://rbcavanaugh.github.io/csd-stats
+  showcase: true
 - title: "Aphasia Research Finder"
   img: images/aphasiaresearch.png
   href: https://aphasiaresearch.org
+  showcase: true
+- title: "Portland Tides"
+  img: images/portland_tide.png
+  href: https://robcavanaugh.observablehq.cloud/portland-tide/ 
   showcase: true
 - title: "Aphasia Communication Outcome Measure (ACOM)"
   img: images/acom.png
