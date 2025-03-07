@@ -55,12 +55,19 @@ Main
 
 Robert B. Cavanaugh <span style="color:grey;font-size:0.7em;">PhD, CCC-SLP</span> {#title}
 --------------------------------------------------------------------------------
+<div id="position">
+<span style="font-size:1.1rem">Assistant Professor</span><br>
+School of Health and Rehabilitation Sciences<br>
+MGH Institute of Health Professions<br>
+36 1st Avenue, Boston, MA 02129-4557
+<br>
+</div>
 <!-- <hr> -->
 <!-- <div style="font-size:14px;padding:0px;margin:0px;">M.S. CCC-SLP</div> -->
 <div id="intro">
 <!-- <span style="font-size:0.9rem;">School of Health and Rehabilitation Sciences, University of Pittsburgh</span>   -->
-`r fontawesome::fa("envelope")` r.cavanaugh@northeastern.edu `r knitr::asis_output("\U00B7")`
-`r fontawesome::fa("globe")` [rbcavanaugh.github.io](https://rbcavanaugh.github.io)  
+<!-- `r fontawesome::fa("envelope")` rcavanaugh1@mgb.org `r knitr::asis_output("\U00B7")` -->
+`r fontawesome::fa("globe")` [rbcavanaugh.github.io](https://rbcavanaugh.github.io)
 `r fontawesome::fa("orcid")` [orcidID](https://orcid.org/0000-0002-2114-6565) `r knitr::asis_output("\U00B7")` 
 `r fontawesome::fa("github")` [Github](https://github.com/rbcavanaugh) `r knitr::asis_output("\U00B7")` 
 `r fontawesome::fa("graduation-cap")` [Google Scholar](https://scholar.google.com/citations?user=7pMLCJsAAAAJ&hl=en)  
@@ -96,7 +103,13 @@ Academic and Clinical Positions {data-icon=briefcase data-concise=true}
 CV %<>% print_section('positions', glue_template = "positions")
 ```
 
+Certificates and Licensure {data-icon=certificate}
+--------------------------------------------------------------------------------
+<hr>
 
+```{r}
+CV %<>% print_section('certs', glue_template = "other")
+```
 
 <!-- Clinical Experience {data-icon=hospital data-concise=true} -->
 <!-- -------------------------------------------------------------------------------- -->
@@ -116,7 +129,7 @@ CV %<>% print_section('grants', glue_template = "grant")
 ```
 
 
-Peer-reviewed Publications {data-icon=file-alt}
+Publications {data-icon=file-alt}
 --------------------------------------------------------------------------------
 <hr>
 *Mentored Student / Trainee works are underlined*
@@ -134,7 +147,7 @@ CV %<>% print_section('publications', glue_template = "citation")
 <!-- ``` -->
 
 
-Refereed Presentations {data-icon=chalkboard-teacher}
+Presentations & Invited Talks {data-icon=chalkboard-teacher}
 --------------------------------------------------------------------------------
 <hr>
 *Mentored Student / Trainee works are underlined*
@@ -174,14 +187,6 @@ Scholarships and Awards {data-icon=award}
 
 ```{r}
 CV %<>% print_section('honors', glue_template = "other")
-```
-
-Professional Memberships {data-icon=certificate}
---------------------------------------------------------------------------------
-<hr>
-
-```{r}
-CV %<>% print_section('certs', glue_template = "other")
 ```
 
 Service {data-icon=certificate}

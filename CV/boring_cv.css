@@ -101,6 +101,19 @@ img{
   line-height: 1.6;
 }
 
+#position{
+  text-align:center;
+}
+
+#position p {
+  margin-block-start: .1em;
+  margin-block-end: 1em;
+}
+#intro p {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
 /* main */
 
 /** big title **/
