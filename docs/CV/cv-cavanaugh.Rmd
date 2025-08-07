@@ -124,10 +124,29 @@ Funding {data-icon=pen-alt}
 --------------------------------------------------------------------------------
 <hr>
 
+## Funded
+
 ```{r class.source="pubs"}
 CV %<>% print_section('grants', glue_template = "grant")
 ```
 
+<!-- ## Mentored -->
+
+```{r class.source="pubs"}
+#CV %<>% print_section('mentored_grants', glue_template = "grant")
+```
+
+## Pending
+
+```{r class.source="pubs"}
+CV %<>% print_section('pending_grants', glue_template = "grant")
+```
+
+## Not Funded
+
+```{r class.source="pubs"}
+CV %<>% print_section('not_funded_grants', glue_template = "grant")
+```
 
 Publications {data-icon=file-alt}
 --------------------------------------------------------------------------------
