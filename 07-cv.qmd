@@ -1,0 +1,10 @@
+---
+title-block-style: none
+page-layout: full
+---
+
+<iframe src="cv-cavanaugh.html" width="100%" height="900px" style="border: none;"></iframe>
+
+<p style="text-align: center; margin-top: 1rem;">
+<a href="cv-cavanaugh.pdf" target="_blank" class="btn btn-outline-secondary btn-sm">Download PDF</a>
+</p>

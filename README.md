@@ -1,5 +1,3 @@
-# robcavanaugh.com
-
 Personal website built with [Quarto](https://quarto.org/).
 
 ## Setup

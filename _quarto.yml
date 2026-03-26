@@ -25,7 +25,7 @@ website:
       - text: "Consulting"
         href: 04-consulting.qmd
       - text: "CV"
-        href: cv-cavanaugh.html
+        href: 07-cv.qmd
   page-footer:
     center: "Built with [Quarto](https://quarto.org/)"
   google-analytics: "UA-179425806-1"
