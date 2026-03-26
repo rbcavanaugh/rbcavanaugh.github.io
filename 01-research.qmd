@@ -23,6 +23,15 @@ CV <- create_CV_object(
 CV$entries_data$institution[CV$entries_data$institution=="N/A"] <- ""
 ```
 
+::: {.column-margin}
+<div style="margin-top: 1rem;">
+<label class="form-check form-switch" style="cursor: pointer;">
+  <input class="form-check-input" type="checkbox" id="pub-toggle" checked onchange="togglePubs(this.checked)">
+  <span class="form-check-label" id="pub-toggle-label">Selected publications</span>
+</label>
+</div>
+:::
+
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 library(dplyr)
 library(tidyr)
@@ -36,22 +45,34 @@ t <- CV$entries_data %>%
   rowwise() %>%
   mutate(
     pdf = ifelse(loc == "N/A", "", glue::glue('<a href="images/{loc}" target="_blank"><button class="btn btn-sm btn-outline-secondary">Author PDF</button></a>')),
+    title = gsub("(https?://doi\\.org/[^\\s<]+)", '<a href="\\1" target="_blank">\\1</a>', title, perl = TRUE),
     citation = paste(title, pdf),
-    year = as.integer(start)
+    year = as.integer(start),
+    selected = in_short_cv
   ) %>%
   ungroup() %>%
-  select(Year = year, Article = citation)
+  select(Year = year, Article = citation, selected)
 
 reactable(
   t,
+  elementId = "pub-table",
   columns = list(
     Year = colDef(width = 80, align = "center"),
-    Article = colDef(html = TRUE)
+    Article = colDef(html = TRUE),
+    selected = colDef(show = FALSE, filterMethod = htmlwidgets::JS("
+      function(rows, columnId, filterValue) {
+        if (filterValue === 'all') return rows;
+        return rows.filter(function(row) {
+          return row.values[columnId] === 'TRUE';
+        });
+      }
+    "))
   ),
+  filterable = TRUE,
   striped = TRUE,
   highlight = TRUE,
   bordered = FALSE,
-  defaultPageSize = 10,
+  defaultPageSize = 6,
   defaultSorted = list(Year = "desc"),
   theme = reactableTheme(
     color = "var(--bs-body-color)",
@@ -66,4 +87,28 @@ reactable(
     paginationStyle = list(color = "var(--bs-body-color)")
   )
 )
+```
+
+```{css, echo=FALSE}
+/* Hide the built-in filter inputs from reactable */
+#pub-table .rt-thead.-filters {
+  display: none;
+}
+```
+
+```{js, echo=FALSE}
+// Set initial filter once table is ready
+window.addEventListener('load', function() {
+  Reactable.setFilter('pub-table', 'selected', 'selected');
+});
+
+function togglePubs(showSelected) {
+  if (showSelected) {
+    Reactable.setFilter('pub-table', 'selected', 'selected');
+    document.getElementById('pub-toggle-label').textContent = 'Selected publications';
+  } else {
+    Reactable.setFilter('pub-table', 'selected', 'all');
+    document.getElementById('pub-toggle-label').textContent = 'All publications';
+  }
+}
 ```
