@@ -15,7 +15,8 @@ about:
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/rob-cavanaugh-0b94636a
-    - text: Bluesky
+    - icon: bluesky
+      text: Bluesky
       href: https://bsky.app/profile/rbcavanaugh.bsky.social
 open-graph:
   title: "Rob Cavanaugh Personal Website"

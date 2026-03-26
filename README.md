@@ -13,7 +13,7 @@ install.packages(c(
 ))
 
 # datadrivencv is not on CRAN — install from GitHub:
-devtools::install_github("Ash706/datadrivencv")
+devtools::install_github("rbcavanaugh/datadrivencv")
 ```
 
 3. Render the site:
