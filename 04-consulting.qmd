@@ -1,5 +1,6 @@
 ---
 title: "Consulting"
+draft: true
 ---
 
 <style>
@@ -16,7 +17,7 @@ These projects typically focus on data-related needs for studies in the field of
 - Data visualization using tools like ggplot, plotly, leaflet, or highcharter
 - Cleaning or synthesizing data using Natural Language Processing tools
 
-I'm happy to consider other types of (related) projects or consulting work. Please connect with me and we can discuss project fit, scope, and cost. Email <b>robcavanaugh.consulting@<span class="displaynone">null</span>gmail.com</b> or send me a message on [LinkedIn](https://www.linkedin.com/in/rob-cavanaugh-0b94636a).
+I'm happy to consider other types of (related) projects or consulting work. Please [connect with me](https://www.linkedin.com/in/rob-cavanaugh-0b94636a) and we can discuss project fit, scope, and cost.
 
 <br>
 <center>

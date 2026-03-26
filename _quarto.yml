@@ -22,8 +22,6 @@ website:
         href: 02-presentations.qmd
       - text: "Apps & Websites"
         href: 03-shiny.qmd
-      - text: "Consulting"
-        href: 04-consulting.qmd
       - text: "CV"
         href: 07-cv.qmd
   page-footer:
