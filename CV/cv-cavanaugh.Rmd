@@ -136,10 +136,10 @@ CV %<>% print_section('grants', glue_template = "grant")
 #CV %<>% print_section('mentored_grants', glue_template = "grant")
 ```
 
-## Pending
+<!-- ## Pending -->
 
 ```{r class.source="pubs"}
-CV %<>% print_section('pending_grants', glue_template = "grant")
+# CV %<>% print_section('pending_grants', glue_template = "grant")
 ```
 
 ## Not Funded
