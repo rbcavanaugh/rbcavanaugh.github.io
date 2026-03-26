@@ -1,0 +1,72 @@
+---
+title: "Selected Presentations"
+---
+
+```{css, echo=FALSE}
+.feat_img {
+  height: auto;
+  width: 95% !important;
+}
+```
+
+```{js, echo=FALSE}
+$(document).ready(function(){
+    var content = $('#quarto-content');
+    content.find('a[href$=".pdf"]').attr('target', '_blank');
+    content.find('a[href^="http://"], a[href^="https://"]')
+      .not('a[href*="robcavanaugh.com"]')
+      .attr('target', '_blank');
+});
+```
+
+```{r, include=FALSE}
+library(magrittr)
+source("R/cv_printing_functions_website.r")
+
+CV <- create_CV_object(
+  data_location = "https://docs.google.com/spreadsheets/d/1B2gc55CwWn0QidoLk3aqWXFaKGFXqekKV94LVyY7Gug/edit?usp=sharing",
+  pdf_mode = 'false'
+)
+CV$entries_data$institution[CV$entries_data$institution=="N/A"] <- ""
+```
+
+```{r echo=FALSE}
+pres_data <- dplyr::filter(CV$entries_data, section == "presentations")
+
+# Build carousel items
+items <- lapply(seq_len(nrow(pres_data)), function(i) {
+  active <- if (i == 1) "carousel-item active" else "carousel-item"
+  img_src <- paste0("images/", pres_data$institution[i])
+  link_href <- paste0("images/", pres_data$loc[i])
+  title_html <- markdown::markdownToHTML(text = pres_data$title[i], fragment.only = TRUE)
+
+  htmltools::tags$div(class = active,
+    htmltools::tags$a(href = link_href, target = "_blank",
+      htmltools::tags$img(src = img_src, class = "d-block w-100",
+        style = "object-fit: contain; max-height: 500px;")
+    ),
+    htmltools::tags$div(
+      style = "padding: 0.75rem 1rem; font-size: 0.9rem; line-height: 1.4; text-align: left; word-wrap: break-word;",
+      htmltools::HTML(title_html)
+    )
+  )
+})
+
+htmltools::tags$div(id = "presentationCarousel", class = "carousel slide",
+  `data-bs-ride` = "false",
+  style = "max-width: 800px; margin: auto;",
+  htmltools::tags$div(class = "carousel-inner", items),
+  htmltools::tags$button(class = "carousel-control-prev", type = "button",
+    `data-bs-target` = "#presentationCarousel", `data-bs-slide` = "prev",
+    htmltools::tags$span(class = "carousel-control-prev-icon", `aria-hidden` = "true",
+      style = "filter: invert(1);"),
+    htmltools::tags$span(class = "visually-hidden", "Previous")
+  ),
+  htmltools::tags$button(class = "carousel-control-next", type = "button",
+    `data-bs-target` = "#presentationCarousel", `data-bs-slide` = "next",
+    htmltools::tags$span(class = "carousel-control-next-icon", `aria-hidden` = "true",
+      style = "filter: invert(1);"),
+    htmltools::tags$span(class = "visually-hidden", "Next")
+  )
+)
+```

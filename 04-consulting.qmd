@@ -1,0 +1,26 @@
+---
+title: "Consulting"
+---
+
+<style>
+  span.displaynone { display:none; }
+  li {margin-bottom: 0em!important;}
+</style>
+
+Occasionally, I take on side projects as a consultant.
+These projects typically focus on data-related needs for studies in the field of communication sciences and disorders or in related fields. The scope of this work might include:
+
+- Developing reproducible data processing pipelines in R
+- Building R {shiny} apps or websites (see "Apps & Websites" page for examples)
+- Statistical consulting (especially related to mixed-effects models)
+- Data visualization using tools like ggplot, plotly, leaflet, or highcharter
+- Cleaning or synthesizing data using Natural Language Processing tools
+
+I'm happy to consider other types of (related) projects or consulting work. Please connect with me and we can discuss project fit, scope, and cost. Email <b>robcavanaugh.consulting@<span class="displaynone">null</span>gmail.com</b> or send me a message on [LinkedIn](https://www.linkedin.com/in/rob-cavanaugh-0b94636a).
+
+<br>
+<center>
+<img src ="https://imgs.xkcd.com/comics/data_trap.png" title="It's important to make sure your analysis destroys as much information as it produces"></img>
+<br>
+<small>https://xkcd.com/2582</small>
+</center>

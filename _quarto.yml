@@ -1,0 +1,42 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "!06-posts.qmd"
+    - "!posts/"
+
+website:
+  title: "Rob Cavanaugh PhD, CCC-SLP"
+  favicon: images/mountain-solid.svg
+  site-url: https://robcavanaugh.com/
+  description: "Personal website for Rob Cavanaugh M.S. CCC-SLP"
+  search: false
+  navbar:
+    right:
+      - text: "Home"
+        href: index.qmd
+      - text: "Publications"
+        href: 01-research.qmd
+      - text: "Presentations"
+        href: 02-presentations.qmd
+      - text: "Apps & Websites"
+        href: 03-shiny.qmd
+      - text: "Consulting"
+        href: 04-consulting.qmd
+      - text: "CV"
+        href: cv-cavanaugh.html
+  page-footer:
+    center: "Built with [Quarto](https://quarto.org/)"
+  google-analytics: "UA-179425806-1"
+
+format:
+  html:
+    theme:
+      dark:
+        - superhero
+        - custom.scss
+      light:
+        - cosmo
+        - custom.scss
+    css: styles.css

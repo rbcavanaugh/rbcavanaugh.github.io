@@ -1,0 +1,121 @@
+/*-- scss:defaults --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono');
+@import url('https://fonts.googleapis.com/css2?family=Bitter');
+
+$font-family-sans-serif: "Roboto", sans-serif;
+$font-family-monospace: "DM Mono", monospace;
+$headings-font-family: "Bitter", serif;
+
+$font-size-base: 1.06rem;
+$code-font-size: 14px;
+
+/*-- scss:rules --*/
+
+.navbar {
+  font-size: 15px;
+}
+
+.navbar-title {
+  font-size: 18px;
+}
+
+/* About page */
+.about-contents {
+  max-width: 900px;
+}
+
+.about-contents main.content p {
+  font-size: 0.95rem !important;
+}
+
+/* DT table striping - theme aware */
+table.dataTable.stripe tbody tr.odd {
+  background-color: rgba(128, 128, 128, 0.15);
+}
+
+/* Footer */
+.nav-footer {
+  font-size: 1rem;
+  opacity: 0.75;
+}
+
+/* Post metadata */
+.metadata {
+  font-size: 14px;
+  line-height: 1.4em;
+  margin-bottom: 18px;
+}
+
+/* Link styles */
+#pdfbutton {
+  cursor: pointer;
+}
+
+#pdflink {
+  border-bottom: none;
+}
+
+.btn {
+  font-size: 0.85rem;
+}
+
+/* App showcase grid */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+@media (max-width: 992px) {
+  .app-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .app-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.app-card {
+  display: block;
+  padding: 4px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--bs-border-color);
+  border-radius: 3px;
+  transition: border 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.app-card:hover {
+  border-color: #5a9ddb;
+  text-decoration: none;
+}
+
+.app-card p {
+  margin-bottom: 0;
+}
+
+.app-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.app-caption {
+  display: block;
+  padding: 4px 6px;
+  margin-bottom: 0;
+  color: var(--bs-heading-color, var(--bs-body-color));
+  font-size: 0.8em;
+  line-height: 1.2;
+}
