@@ -1,1 +1,1 @@
-Sitemap: https://robcavanaugh.com/sitemap.xml
+Sitemap: https://rbcavanaugh.github.io/sitemap.xml

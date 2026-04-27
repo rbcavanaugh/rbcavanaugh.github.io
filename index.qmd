@@ -1,5 +1,5 @@
 ---
-title: "Rob Cavanaugh"
+title: "Rob Cavanaugh <br> PhD, CCC-SLP"
 image: images/robamanda-oly.jpg
 page-layout: full
 about:
@@ -18,10 +18,6 @@ about:
     - icon: bluesky
       text: Bluesky
       href: https://bsky.app/profile/rbcavanaugh.bsky.social
-open-graph:
-  title: "Rob Cavanaugh Personal Website"
-  description: "Rob Cavanaugh's research portfolio"
-  image: images/olympus.jpg
 ---
 
 I'm an Assistant Professor of Quantitative Methods at the [MGH Institute of Health Professions](https://www.mghihp.edu/ihp-directory/robert-cavanaugh){target="_blank"} (IHP). My current research integrates health services and population health methods to examine healthcare utilization, service delivery, and dose-response relationships in post-stroke aphasia. I also collaborate on studies advancing aphasia assessment, treatment efficacy, and generalization. My background as a speech-language pathologist in neurorehabilitation shapes this work, which spans efficacy, effectiveness, and implementation approaches. My long-term goal is to improve the effectiveness and implementation of complex interventions in neurorehabilitation, particularly related to treatment dose and recovery in post-stroke aphasia.

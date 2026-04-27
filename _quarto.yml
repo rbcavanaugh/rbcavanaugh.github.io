@@ -7,11 +7,16 @@ project:
     - "!posts/"
 
 website:
-  title: "Rob Cavanaugh PhD, CCC-SLP"
+  title: "Rob Cavanaugh PhD CCC-SLP"
   favicon: images/mountain-solid.svg
-  site-url: https://robcavanaugh.com/
-  description: "Personal website for Rob Cavanaugh M.S. CCC-SLP"
+  site-url: https://rbcavanaugh.github.io/
+  description: "Rob Cavanaugh is an Assistant Professor of Quantitative Methods at MGH Institute of Health Professions. He researches healthcare utilization and treatment dose in post-stroke aphasia."
   search: false
+  open-graph:
+    title: "Rob Cavanaugh PhD, CCC-SLP"
+    description: "Rob Cavanaugh is an Assistant Professor of Quantitative Methods at MGH Institute of Health Professions. He researches healthcare utilization and treatment dose in post-stroke aphasia."
+    image: images/olympus.jpg
+    site-name: "Rob Cavanaugh"
   navbar:
     right:
       - text: "Home"
@@ -22,14 +27,17 @@ website:
         href: 02-presentations.qmd
       - text: "Apps & Websites"
         href: 03-shiny.qmd
+      - text: "Statistics Resources"
+        href: csd-stats
       - text: "CV"
         href: 07-cv.qmd
   page-footer:
     center: "Built with [Quarto](https://quarto.org/)"
-  google-analytics: "UA-179425806-1"
+  google-analytics: "G-EVC90B7FTL"
 
 format:
   html:
+    include-in-header: _includes/person-schema.html
     theme:
       dark:
         - superhero

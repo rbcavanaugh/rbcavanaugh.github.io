@@ -7,7 +7,7 @@ $(document).ready(function(){
     var content = $('#quarto-content');
     content.find('a[href$=".pdf"]').attr('target', '_blank');
     content.find('a[href^="http://"], a[href^="https://"]')
-      .not('a[href*="robcavanaugh.com"]')
+      .not('a[href*="rbcavanaugh.github.io"]')
       .attr('target', '_blank');
 });
 ```
