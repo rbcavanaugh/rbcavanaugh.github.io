@@ -20,7 +20,7 @@ pagedown::chrome_print(input = here("cv-cavanaugh.html"),
 file.copy(here("CV", "cv-cavanaugh.pdf"),
           here("cv-cavanaugh.pdf"), overwrite = T)
 
-quarto::quarto_render()
+rmarkdown::render_site(encoding = 'UTF-8')
 
 
 # CUSTO
