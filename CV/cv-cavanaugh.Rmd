@@ -58,7 +58,8 @@ Robert B. Cavanaugh <span style="color:grey;font-size:0.7em;">PhD, CCC-SLP</span
 <div id="position">
 <span style="font-size:1.1rem">Assistant Professor</span><br>
 School of Health and Rehabilitation Sciences<br>
-MGH Institute of Health Professions<br>
+MGBU University of Health Professions<br>
+*formerly MGH Institute of Health Professions*<br>
 36 1st Avenue, Boston, MA 02129-4557
 <br>
 </div>
@@ -82,8 +83,6 @@ MGH Institute of Health Professions<br>
 <!-- CV %<>% print_text_block("intro")  -->
 <!-- ``` -->
 <!-- </div> -->
-
-<!-- I'm a PhD candidate and ASHA-certified speech-language pathologist. My research aims to improve the effectiveness of aphasia rehabilitation services from two perspectives: (1) specifying the active ingredients of aphasia treatments and (2) accelerating the clinical implementation of aphasia research in clinical practice settings. To achieve these goals, my research combines training in aphasia treatment theory, quantitative methods and statistical programming, implementation science, and my clinical experiences as a speech-language pathologist. I’m also passionate about promoting quantitative methods and open science practices within the field of communication sciences and disorders.  -->
 
 
 Education {data-icon=graduation-cap data-concise=true}
@@ -124,8 +123,6 @@ Funding {data-icon=pen-alt}
 --------------------------------------------------------------------------------
 <hr>
 
-## Funded
-
 ```{r class.source="pubs"}
 CV %<>% print_section('grants', glue_template = "grant")
 ```
@@ -140,12 +137,6 @@ CV %<>% print_section('grants', glue_template = "grant")
 
 ```{r class.source="pubs"}
 # CV %<>% print_section('pending_grants', glue_template = "grant")
-```
-
-## Not Funded
-
-```{r class.source="pubs"}
-CV %<>% print_section('not_funded_grants', glue_template = "grant")
 ```
 
 Publications {data-icon=file-alt}
